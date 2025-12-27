@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -35,7 +36,12 @@ const Header = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
     const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+    const [mounted, setMounted] = useState(false);
     const pathname = usePathname();
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -44,6 +50,28 @@ const Header = () => {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    // Lock body scroll when mobile menu is open
+    useEffect(() => {
+        if (isMobileMenuOpen) {
+            // Save current scroll position
+            const scrollY = window.scrollY;
+            // Apply styles to lock scroll
+            document.body.style.position = "fixed";
+            document.body.style.top = `-${scrollY}px`;
+            document.body.style.width = "100%";
+            document.body.style.overflow = "hidden";
+            
+            return () => {
+                // Restore scroll position
+                document.body.style.position = "";
+                document.body.style.top = "";
+                document.body.style.width = "";
+                document.body.style.overflow = "";
+                window.scrollTo(0, scrollY);
+            };
+        }
+    }, [isMobileMenuOpen]);
 
     return (
         <header
@@ -153,102 +181,105 @@ const Header = () => {
                 </div>
             </div>
 
-            {/* Mobile Menu Overlay */}
-            <AnimatePresence>
-                {isMobileMenuOpen && (
-                    <>
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            onClick={() => {
-                                setIsMobileMenuOpen(false);
-                                setMobileServicesOpen(false);
-                            }}
-                            className="fixed inset-0 bg-navy-900/90 z-40 lg:hidden"
-                        />
-                        <motion.div
-                            initial={{ x: "100%" }}
-                            animate={{ x: 0 }}
-                            exit={{ x: "100%" }}
-                            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                            className="fixed top-0 right-0 bottom-0 w-[80%] max-w-sm bg-white z-50 lg:hidden shadow-2xl overflow-y-auto"
-                        >
-                            <div className="p-6 flex flex-col h-full">
-                                <div className="flex items-center justify-between mb-8 border-b border-cream-200 pb-6">
-                                    <span className="text-2xl font-display font-bold text-navy-900 uppercase">Menu</span>
-                                    <button 
-                                        onClick={() => {
-                                            setIsMobileMenuOpen(false);
-                                            setMobileServicesOpen(false);
-                                        }}
-                                        className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-cream-100 transition-colors"
-                                    >
-                                        <X className="w-6 h-6 text-navy-900" />
-                                    </button>
-                                </div>
+            {/* Mobile Menu Overlay - Rendered via portal at document body level */}
+            {mounted && createPortal(
+                <AnimatePresence>
+                    {isMobileMenuOpen && (
+                        <>
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                onClick={() => {
+                                    setIsMobileMenuOpen(false);
+                                    setMobileServicesOpen(false);
+                                }}
+                                className="fixed inset-0 top-0 h-screen bg-navy-900/90 z-[60] lg:hidden"
+                            />
+                            <motion.div
+                                initial={{ x: "100%" }}
+                                animate={{ x: 0 }}
+                                exit={{ x: "100%" }}
+                                transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                                className="fixed top-0 right-0 h-screen w-[80%] max-w-sm bg-white z-[70] lg:hidden shadow-2xl overflow-y-auto"
+                            >
+                                <div className="p-6 flex flex-col h-full">
+                                    <div className="flex items-center justify-between mb-8 border-b border-cream-200 pb-6">
+                                        <span className="text-2xl font-display font-bold text-navy-900 uppercase">Menu</span>
+                                        <button 
+                                            onClick={() => {
+                                                setIsMobileMenuOpen(false);
+                                                setMobileServicesOpen(false);
+                                            }}
+                                            className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-cream-100 transition-colors"
+                                        >
+                                            <X className="w-6 h-6 text-navy-900" />
+                                        </button>
+                                    </div>
 
-                                <nav className="flex flex-col space-y-2 flex-grow">
-                                    {navLinks.map((link) => (
-                                        <div key={link.name} className="flex flex-col">
-                                            {link.dropdown ? (
-                                                <>
-                                                    <button
-                                                        onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                                                        className="text-lg font-accent font-semibold uppercase tracking-widest text-navy-900 flex items-center justify-between py-3 px-4 hover:bg-cream-50 rounded-lg transition-colors group"
+                                    <nav className="flex flex-col space-y-2 flex-grow">
+                                        {navLinks.map((link) => (
+                                            <div key={link.name} className="flex flex-col">
+                                                {link.dropdown ? (
+                                                    <>
+                                                        <button
+                                                            onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                                                            className="text-lg font-accent font-semibold uppercase tracking-widest text-navy-900 flex items-center justify-between py-3 px-4 hover:bg-cream-50 rounded-lg transition-colors group"
+                                                        >
+                                                            {link.name}
+                                                            <ChevronDown className={cn("w-5 h-5 transition-transform duration-300", mobileServicesOpen && "rotate-180")} />
+                                                        </button>
+                                                        {mobileServicesOpen && (
+                                                            <div className="mt-2 ml-4 space-y-1 bg-cream-50 rounded-lg p-2">
+                                                                {link.dropdown.map((item) => (
+                                                                    <Link
+                                                                        key={item.name}
+                                                                        href={item.href}
+                                                                        onClick={() => {
+                                                                            setIsMobileMenuOpen(false);
+                                                                            setMobileServicesOpen(false);
+                                                                        }}
+                                                                        className="block py-2 px-4 text-sm font-accent uppercase tracking-wider text-navy-700 hover:text-navy-900 hover:bg-white rounded transition-colors"
+                                                                    >
+                                                                        {item.name}
+                                                                    </Link>
+                                                                ))}
+                                                            </div>
+                                                        )}
+                                                    </>
+                                                ) : (
+                                                    <Link
+                                                        href={link.href}
+                                                        onClick={() => setIsMobileMenuOpen(false)}
+                                                        className="text-lg font-accent font-semibold uppercase tracking-widest text-navy-900 py-3 px-4 hover:bg-cream-50 rounded-lg transition-colors"
                                                     >
                                                         {link.name}
-                                                        <ChevronDown className={cn("w-5 h-5 transition-transform duration-300", mobileServicesOpen && "rotate-180")} />
-                                                    </button>
-                                                    {mobileServicesOpen && (
-                                                        <div className="mt-2 ml-4 space-y-1 bg-cream-50 rounded-lg p-2">
-                                                            {link.dropdown.map((item) => (
-                                                                <Link
-                                                                    key={item.name}
-                                                                    href={item.href}
-                                                                    onClick={() => {
-                                                                        setIsMobileMenuOpen(false);
-                                                                        setMobileServicesOpen(false);
-                                                                    }}
-                                                                    className="block py-2 px-4 text-sm font-accent uppercase tracking-wider text-navy-700 hover:text-navy-900 hover:bg-white rounded transition-colors"
-                                                                >
-                                                                    {item.name}
-                                                                </Link>
-                                                            ))}
-                                                        </div>
-                                                    )}
-                                                </>
-                                            ) : (
-                                                <Link
-                                                    href={link.href}
-                                                    onClick={() => setIsMobileMenuOpen(false)}
-                                                    className="text-lg font-accent font-semibold uppercase tracking-widest text-navy-900 py-3 px-4 hover:bg-cream-50 rounded-lg transition-colors"
-                                                >
-                                                    {link.name}
-                                                </Link>
-                                            )}
-                                        </div>
-                                    ))}
-                                </nav>
+                                                    </Link>
+                                                )}
+                                            </div>
+                                        ))}
+                                    </nav>
 
-                                <div className="mt-auto space-y-6 pt-6 border-t border-cream-200">
-                                    <div className="flex items-center space-x-6 justify-center text-navy-900">
-                                        <a href="tel:+971585779312" className="flex items-center gap-2 font-accent text-sm uppercase tracking-widest hover:text-gold-500 transition-colors">
-                                            <Phone className="w-5 h-5" /> Call
-                                        </a>
-                                        <a href="https://wa.me/971585779312" className="flex items-center gap-2 font-accent text-sm uppercase tracking-widest hover:text-gold-500 transition-colors">
-                                            <WhatsAppIcon className="w-5 h-5" /> WhatsApp
-                                        </a>
+                                    <div className="mt-auto space-y-6 pt-6 border-t border-cream-200">
+                                        <div className="flex items-center space-x-6 justify-center text-navy-900">
+                                            <a href="tel:+971585779312" className="flex items-center gap-2 font-accent text-sm uppercase tracking-widest hover:text-gold-500 transition-colors">
+                                                <Phone className="w-5 h-5" /> Call
+                                            </a>
+                                            <a href="https://wa.me/971585779312" className="flex items-center gap-2 font-accent text-sm uppercase tracking-widest hover:text-gold-500 transition-colors">
+                                                <WhatsAppIcon className="w-5 h-5" /> WhatsApp
+                                            </a>
+                                        </div>
+                                        <Button variant="primary" size="lg" className="w-full" asChild>
+                                            <Link href="/book-tour" onClick={() => setIsMobileMenuOpen(false)}>Book a Tour</Link>
+                                        </Button>
                                     </div>
-                                    <Button variant="primary" size="lg" className="w-full" asChild>
-                                        <Link href="/book-tour" onClick={() => setIsMobileMenuOpen(false)}>Book a Tour</Link>
-                                    </Button>
                                 </div>
-                            </div>
-                        </motion.div>
-                    </>
-                )}
-            </AnimatePresence>
+                            </motion.div>
+                        </>
+                    )}
+                </AnimatePresence>,
+                document.body
+            )}
         </header>
     );
 };

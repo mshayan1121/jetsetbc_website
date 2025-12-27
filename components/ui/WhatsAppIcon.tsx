@@ -22,3 +22,4 @@ const WhatsAppIcon: React.FC<WhatsAppIconProps> = ({ className = "w-5 h-5", size
 
 export default WhatsAppIcon;
 
+
