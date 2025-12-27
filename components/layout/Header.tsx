@@ -34,6 +34,7 @@ const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+    const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
     const pathname = usePathname();
 
     useEffect(() => {
@@ -140,7 +141,12 @@ const Header = () => {
                     {/* Mobile Menu Toggle */}
                     <button
                         className="lg:hidden text-navy-900 focus:outline-none"
-                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        onClick={() => {
+                            setIsMobileMenuOpen(!isMobileMenuOpen);
+                            if (isMobileMenuOpen) {
+                                setMobileServicesOpen(false);
+                            }
+                        }}
                     >
                         {isMobileMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
                     </button>
@@ -155,64 +161,89 @@ const Header = () => {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            className="fixed inset-0 bg-navy-900/40 backdrop-blur-sm z-40 lg:hidden"
+                            onClick={() => {
+                                setIsMobileMenuOpen(false);
+                                setMobileServicesOpen(false);
+                            }}
+                            className="fixed inset-0 bg-navy-900/90 z-40 lg:hidden"
                         />
                         <motion.div
                             initial={{ x: "100%" }}
                             animate={{ x: 0 }}
                             exit={{ x: "100%" }}
                             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                            className="fixed top-0 right-0 bottom-0 w-[80%] max-w-sm bg-white z-50 lg:hidden shadow-luxury-xl p-8 flex flex-col"
+                            className="fixed top-0 right-0 bottom-0 w-[80%] max-w-sm bg-white z-50 lg:hidden shadow-2xl overflow-y-auto"
                         >
-                            <div className="flex items-center justify-between mb-12">
-                                <span className="text-2xl font-display font-bold text-navy-900 uppercase">Menu</span>
-                                <button onClick={() => setIsMobileMenuOpen(false)}>
-                                    <X className="w-8 h-8 text-navy-900" />
-                                </button>
-                            </div>
-
-                            <nav className="flex flex-col space-y-6 flex-grow">
-                                {navLinks.map((link) => (
-                                    <div key={link.name} className="flex flex-col">
-                                        <Link
-                                            href={link.href}
-                                            onClick={() => !link.dropdown && setIsMobileMenuOpen(false)}
-                                            className="text-lg font-accent font-semibold uppercase tracking-widest text-navy-900 flex items-center justify-between group"
-                                        >
-                                            {link.name}
-                                            {link.dropdown && <ChevronDown className="w-5 h-5 opacity-40" />}
-                                        </Link>
-                                        {link.dropdown && (
-                                            <div className="mt-4 ml-4 flex flex-col space-y-3 border-l-2 border-cream-100 pl-4">
-                                                {link.dropdown.map((item) => (
-                                                    <Link
-                                                        key={item.name}
-                                                        href={item.href}
-                                                        onClick={() => setIsMobileMenuOpen(false)}
-                                                        className="block py-2 text-sm font-accent uppercase tracking-wider text-navy-700 hover:text-gold-600 transition-colors"
-                                                    >
-                                                        {item.name}
-                                                    </Link>
-                                                ))}
-                                            </div>
-                                        )}
-                                    </div>
-                                ))}
-                            </nav>
-
-                            <div className="mt-auto space-y-6">
-                                <div className="flex items-center space-x-6 justify-center text-navy-900 border-t border-cream-100 pt-8">
-                                    <a href="tel:+971585779312" className="flex items-center gap-2 font-accent text-sm uppercase tracking-widest hover:text-gold-500">
-                                        <Phone className="w-5 h-5" /> Call
-                                    </a>
-                                    <a href="https://wa.me/971585779312" className="flex items-center gap-2 font-accent text-sm uppercase tracking-widest hover:text-gold-500">
-                                        <WhatsAppIcon className="w-5 h-5" /> WhatsApp
-                                    </a>
+                            <div className="p-6 flex flex-col h-full">
+                                <div className="flex items-center justify-between mb-8 border-b border-cream-200 pb-6">
+                                    <span className="text-2xl font-display font-bold text-navy-900 uppercase">Menu</span>
+                                    <button 
+                                        onClick={() => {
+                                            setIsMobileMenuOpen(false);
+                                            setMobileServicesOpen(false);
+                                        }}
+                                        className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-cream-100 transition-colors"
+                                    >
+                                        <X className="w-6 h-6 text-navy-900" />
+                                    </button>
                                 </div>
-                                <Button variant="primary" size="lg" className="w-full" asChild>
-                                    <Link href="/book-tour">Book a Tour</Link>
-                                </Button>
+
+                                <nav className="flex flex-col space-y-2 flex-grow">
+                                    {navLinks.map((link) => (
+                                        <div key={link.name} className="flex flex-col">
+                                            {link.dropdown ? (
+                                                <>
+                                                    <button
+                                                        onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                                                        className="text-lg font-accent font-semibold uppercase tracking-widest text-navy-900 flex items-center justify-between py-3 px-4 hover:bg-cream-50 rounded-lg transition-colors group"
+                                                    >
+                                                        {link.name}
+                                                        <ChevronDown className={cn("w-5 h-5 transition-transform duration-300", mobileServicesOpen && "rotate-180")} />
+                                                    </button>
+                                                    {mobileServicesOpen && (
+                                                        <div className="mt-2 ml-4 space-y-1 bg-cream-50 rounded-lg p-2">
+                                                            {link.dropdown.map((item) => (
+                                                                <Link
+                                                                    key={item.name}
+                                                                    href={item.href}
+                                                                    onClick={() => {
+                                                                        setIsMobileMenuOpen(false);
+                                                                        setMobileServicesOpen(false);
+                                                                    }}
+                                                                    className="block py-2 px-4 text-sm font-accent uppercase tracking-wider text-navy-700 hover:text-navy-900 hover:bg-white rounded transition-colors"
+                                                                >
+                                                                    {item.name}
+                                                                </Link>
+                                                            ))}
+                                                        </div>
+                                                    )}
+                                                </>
+                                            ) : (
+                                                <Link
+                                                    href={link.href}
+                                                    onClick={() => setIsMobileMenuOpen(false)}
+                                                    className="text-lg font-accent font-semibold uppercase tracking-widest text-navy-900 py-3 px-4 hover:bg-cream-50 rounded-lg transition-colors"
+                                                >
+                                                    {link.name}
+                                                </Link>
+                                            )}
+                                        </div>
+                                    ))}
+                                </nav>
+
+                                <div className="mt-auto space-y-6 pt-6 border-t border-cream-200">
+                                    <div className="flex items-center space-x-6 justify-center text-navy-900">
+                                        <a href="tel:+971585779312" className="flex items-center gap-2 font-accent text-sm uppercase tracking-widest hover:text-gold-500 transition-colors">
+                                            <Phone className="w-5 h-5" /> Call
+                                        </a>
+                                        <a href="https://wa.me/971585779312" className="flex items-center gap-2 font-accent text-sm uppercase tracking-widest hover:text-gold-500 transition-colors">
+                                            <WhatsAppIcon className="w-5 h-5" /> WhatsApp
+                                        </a>
+                                    </div>
+                                    <Button variant="primary" size="lg" className="w-full" asChild>
+                                        <Link href="/book-tour" onClick={() => setIsMobileMenuOpen(false)}>Book a Tour</Link>
+                                    </Button>
+                                </div>
                             </div>
                         </motion.div>
                     </>
