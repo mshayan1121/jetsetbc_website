@@ -110,7 +110,7 @@ const ServicesOverview = () => {
                             </div>
 
                             {/* Content */}
-                            <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8 pt-8 md:pt-12 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                            <div className="absolute bottom-0 left-0 right-0 px-4 sm:px-6 md:px-8 pt-8 md:pt-12 pb-4 sm:pb-5 md:pb-5 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 flex flex-col">
                                 <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
                                     <div className="w-6 sm:w-8 h-[2px] bg-gold-500" />
                                     <span className="text-gold-400 font-body font-medium uppercase tracking-widest text-[10px] sm:text-xs">
@@ -123,15 +123,18 @@ const ServicesOverview = () => {
                                 <p className="text-white/70 font-body mb-4 sm:mb-6 text-sm sm:text-base line-clamp-2 group-hover:text-white transition-colors duration-300">
                                     {service.description}
                                 </p>
-                                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0 mt-auto border-t border-white/10 pt-4 sm:pt-6">
+                                <div className="flex flex-col gap-3 mt-auto border-t border-white/10 pt-4 sm:pt-5">
                                     <span className="text-white font-body font-semibold text-sm sm:text-base">
                                         {service.price}
                                     </span>
-                                    <Link href={service.link} className="flex items-center gap-2 text-gold-500 font-body font-medium text-sm sm:text-base group/btn transition-all duration-300">
-                                        <span className="border-b border-transparent group-hover/btn:border-gold-500 transition-all duration-300">
+                                    <Link 
+                                        href={service.link} 
+                                        className="group/btn relative w-full flex items-center justify-center gap-2 px-4 py-3 sm:py-3.5 rounded-full bg-white/10 backdrop-blur-[10px] border border-white/20 hover:bg-white/15 hover:border-gold-500/40 active:scale-[0.98] transition-all duration-300"
+                                    >
+                                        <span className="text-gold-500 font-body font-semibold text-xs sm:text-sm uppercase tracking-wider group-hover/btn:text-gold-400 transition-colors duration-300">
                                             {service.cta}
                                         </span>
-                                        <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-2" />
+                                        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-gold-500 group-hover/btn:text-gold-400 group-hover/btn:translate-x-1 transition-all duration-300" />
                                     </Link>
                                 </div>
                             </div>
