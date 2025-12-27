@@ -96,14 +96,16 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.variable} ${playfair.variable} ${spaceGrotesk.variable} antialiased min-h-screen flex flex-col font-body text-navy-900 bg-white selection:bg-gold-500/30 selection:text-navy-900`}
+        className={`${inter.variable} ${playfair.variable} ${spaceGrotesk.variable} antialiased min-h-screen flex flex-col font-body text-navy-900 bg-white selection:bg-gold-500/30 selection:text-navy-900 overflow-x-hidden`}
       >
         <JsonLd />
-        <Header />
-        <main className="flex-grow">
-          {children}
-        </main>
-        <Footer />
+        <div className="w-full overflow-hidden">
+          <Header />
+          <main className="flex-grow">
+            {children}
+          </main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

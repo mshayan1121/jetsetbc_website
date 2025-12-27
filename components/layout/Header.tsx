@@ -5,8 +5,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Phone, MessageCircle } from "lucide-react";
+import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import { Button } from "../ui/Button";
+import WhatsAppIcon from "../ui/WhatsAppIcon";
 import { cn } from "../../lib/utils";
 
 const navLinks = [
@@ -46,13 +47,13 @@ const Header = () => {
     return (
         <header
             className={cn(
-                "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out px-4 sm:px-6 md:px-12",
+                "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out w-full",
                 isScrolled
                     ? "bg-white shadow-md border-b border-cream-200 py-2 sm:py-3"
                     : "bg-white/80 backdrop-blur-md border-b border-white/20 py-3 sm:py-4 md:py-5"
             )}
         >
-            <div className="max-w-7xl mx-auto flex items-center justify-between">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
                 {/* Logo */}
                 <Link href="/" className="flex items-center">
                     <Image
@@ -128,7 +129,7 @@ const Header = () => {
                             <Phone className="w-5 h-5" />
                         </a>
                         <a href="https://wa.me/971585779312" className="hover:text-gold-500 transition-colors">
-                            <MessageCircle className="w-5 h-5" />
+                            <WhatsAppIcon className="w-5 h-5" />
                         </a>
                     </div>
 
@@ -206,7 +207,7 @@ const Header = () => {
                                         <Phone className="w-5 h-5" /> Call
                                     </a>
                                     <a href="https://wa.me/971585779312" className="flex items-center gap-2 font-accent text-sm uppercase tracking-widest hover:text-gold-500">
-                                        <MessageCircle className="w-5 h-5" /> WhatsApp
+                                        <WhatsAppIcon className="w-5 h-5" /> WhatsApp
                                     </a>
                                 </div>
                                 <Button variant="primary" size="lg" className="w-full" asChild>

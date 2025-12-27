@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Building, Users, Presentation, FileCheck, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
@@ -16,6 +17,7 @@ const services = [
         image: "/images/services/private-office.png",
         height: "h-[450px] md:h-[500px]",
         delay: 0,
+        link: "/services/private-offices",
     },
     {
         title: "Coworking Spaces",
@@ -26,6 +28,7 @@ const services = [
         image: "/images/services/coworking.png",
         height: "h-[450px] md:h-[600px]",
         delay: 0.2,
+        link: "/services/coworking",
     },
     {
         title: "Meeting Rooms",
@@ -36,6 +39,7 @@ const services = [
         image: "/images/services/meeting-rooms.png",
         height: "h-[450px] md:h-[600px]",
         delay: 0.4,
+        link: "/services/meeting-rooms",
     },
     {
         title: "Virtual Ejari & Setup",
@@ -46,6 +50,7 @@ const services = [
         image: "/images/services/business-setup.png",
         height: "h-[450px] md:h-[500px]",
         delay: 0.6,
+        link: "/services/business-setup",
     },
 ];
 
@@ -122,12 +127,12 @@ const ServicesOverview = () => {
                                     <span className="text-white font-body font-semibold text-sm sm:text-base">
                                         {service.price}
                                     </span>
-                                    <button className="flex items-center gap-2 text-gold-500 font-body font-medium text-sm sm:text-base group/btn transition-all duration-300">
+                                    <Link href={service.link} className="flex items-center gap-2 text-gold-500 font-body font-medium text-sm sm:text-base group/btn transition-all duration-300">
                                         <span className="border-b border-transparent group-hover/btn:border-gold-500 transition-all duration-300">
                                             {service.cta}
                                         </span>
                                         <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-2" />
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
                         </motion.div>

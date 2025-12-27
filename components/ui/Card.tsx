@@ -47,7 +47,7 @@ interface CardImageProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const CardImage = ({ src, alt, overlay = true, className, ...props }: CardImageProps) => {
     return (
-        <div className={cn("relative overflow-hidden rounded-t-[12px] -mx-6 -mt-6 mb-6", className)} {...props}>
+        <div className={cn("relative overflow-hidden rounded-t-[12px] -mx-4 sm:-mx-6 -mt-4 sm:-mt-6 mb-6", className)} {...props}>
             <img src={src} alt={alt} className="w-full h-48 object-cover transition-transform duration-500 hover:scale-110" />
             {overlay && (
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 to-transparent" />

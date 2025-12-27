@@ -49,7 +49,7 @@ const Footer = () => {
     };
 
     return (
-        <footer className="bg-navy-900 text-cream-50 pt-12 sm:pt-16 md:pt-20 pb-8 sm:pb-10 overflow-hidden">
+        <footer className="relative w-full bg-navy-900 text-cream-50 pt-12 sm:pt-16 md:pt-20 pb-8 sm:pb-10 overflow-hidden">
             <div className="container-custom">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 md:gap-12 lg:gap-8 mb-12 sm:mb-16">
                     {/* COLUMN 1 - About */}
@@ -227,8 +227,8 @@ const Footer = () => {
             </div>
 
             {/* Subtle Background Elements */}
-            <div className="absolute bottom-0 right-0 w-88 h-88 bg-gold-500/5 blur-[120px] rounded-full -mr-44 -mb-44 pointer-events-none" />
-            <div className="absolute top-0 left-0 w-88 h-88 bg-teal-500/5 blur-[120px] rounded-full -ml-44 -mt-44 pointer-events-none" />
+            <div className="absolute bottom-0 right-0 w-88 h-88 bg-gold-500/5 blur-[120px] rounded-full -mr-44 -mb-44 pointer-events-none overflow-hidden" style={{ maxWidth: '100vw' }} />
+            <div className="absolute top-0 left-0 w-88 h-88 bg-teal-500/5 blur-[120px] rounded-full -ml-44 -mt-44 pointer-events-none overflow-hidden" style={{ maxWidth: '100vw' }} />
         </footer>
     );
 };

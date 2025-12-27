@@ -167,12 +167,12 @@ const CTASection = () => {
 
             {/* Decorative Parallax Elements */}
             <motion.div
-                style={{ y: y1 }}
-                className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-gold-500/10 blur-[100px]"
+                style={{ y: y1, maxWidth: '100%' }}
+                className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-gold-500/10 blur-[100px] pointer-events-none overflow-hidden"
             />
             <motion.div
-                style={{ y: y2 }}
-                className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-teal-500/20 blur-[100px]"
+                style={{ y: y2, maxWidth: '100%' }}
+                className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-teal-500/20 blur-[100px] pointer-events-none overflow-hidden"
             />
         </section>
     );

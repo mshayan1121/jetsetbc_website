@@ -93,14 +93,23 @@
     --ring: 222.2 84% 4.9%;
   }
 
+  /* Prevent horizontal scroll on mobile */
+  html,
+  body {
+    overflow-x: hidden;
+    max-width: 100vw;
+    position: relative;
+  }
+
+  /* Ensure all containers respect viewport width */
   * {
     @apply border-[var(--border)];
+    max-width: 100%;
   }
 
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
   }
 
   body {
@@ -108,7 +117,6 @@
     margin: 0;
     padding: 0;
     width: 100%;
-    overflow-x: hidden;
     overflow-y: auto;
   }
 

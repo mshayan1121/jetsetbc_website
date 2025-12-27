@@ -13,11 +13,11 @@ const Hero = () => {
     const y1 = useTransform(scrollY, [0, 500], [0, 200]);
 
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-navy-900">
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-navy-900 w-full">
             {/* Background Image with Parallax */}
             <motion.div
                 style={{ y: y1 }}
-                className="absolute inset-0 z-0"
+                className="absolute inset-0 z-0 w-full h-full"
             >
                 <Image
                     src="/images/hero-bg.png"
@@ -133,9 +133,9 @@ const Hero = () => {
             </div>
 
             {/* Glassmorphism accent for the left side */}
-            <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
-                <div className="absolute top-1/4 -left-1/4 w-1/2 h-1/2 bg-gold-500/5 blur-[120px] rounded-full" />
-                <div className="absolute bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-navy-800/20 blur-[120px] rounded-full" />
+            <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden" style={{ maxWidth: '100%' }}>
+                <div className="absolute top-1/4 -left-1/4 w-1/2 h-1/2 bg-gold-500/5 blur-[120px] rounded-full" style={{ maxWidth: '100%' }} />
+                <div className="absolute bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-navy-800/20 blur-[120px] rounded-full" style={{ maxWidth: '100%' }} />
             </div>
         </section>
     );

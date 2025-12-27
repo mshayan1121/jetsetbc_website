@@ -312,7 +312,7 @@ const ServicesPage = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="overflow-x-auto"
+                        className="overflow-x-auto -mx-4 sm:-mx-6 lg:mx-0 px-4 sm:px-6 lg:px-0"
                     >
                         <table className="w-full border-collapse">
                             <thead className="bg-navy-900 text-white">

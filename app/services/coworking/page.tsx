@@ -189,7 +189,7 @@ const CoworkingPage = () => {
                         <p className="text-navy-600">Find the right fit for your workflow</p>
                     </div>
 
-                    <div className="overflow-x-auto">
+                    <div className="overflow-x-auto -mx-4 sm:-mx-6 lg:mx-0 px-4 sm:px-6 lg:px-0">
                         <table className="w-full text-left border-collapse min-w-[600px]">
                             <thead>
                                 <tr className="border-b border-navy-100 italic">
