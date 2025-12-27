@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/Button";
@@ -84,12 +85,11 @@ const PricingTable = ({ plans, title = "Select Your Plan", subtitle = "Choose th
                                 <Button
                                     variant={plan.isPopular ? "primary" : "outline"}
                                     className="w-full"
-                                    onClick={() => {
-                                        const element = document.getElementById('contact-form');
-                                        element?.scrollIntoView({ behavior: 'smooth' });
-                                    }}
+                                    asChild
                                 >
-                                    {plan.ctaText || "Get Started"}
+                                    <Link href="/book-tour">
+                                        {plan.ctaText || "Get Started"}
+                                    </Link>
                                 </Button>
                             </Card>
                         </motion.div>

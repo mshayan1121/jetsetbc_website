@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import Image from "next/image";
 
@@ -77,23 +78,21 @@ const ServiceHero = ({
                             variant="primary"
                             size="lg"
                             className="px-8"
-                            onClick={() => {
-                                const element = document.getElementById('contact-form');
-                                element?.scrollIntoView({ behavior: 'smooth' });
-                            }}
+                            asChild
                         >
-                            {ctaText}
+                            <Link href="/book-tour">
+                                {ctaText}
+                            </Link>
                         </Button>
                         <Button
                             variant="outline"
                             size="lg"
                             className="px-8 border-white/30 text-white hover:border-gold-500 hover:text-gold-500"
-                            onClick={() => {
-                                const element = document.getElementById('pricing');
-                                element?.scrollIntoView({ behavior: 'smooth' });
-                            }}
+                            asChild
                         >
-                            {secondaryCtaText}
+                            <Link href="/pricing">
+                                {secondaryCtaText}
+                            </Link>
                         </Button>
                     </motion.div>
                 </div>

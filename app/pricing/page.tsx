@@ -173,7 +173,7 @@ export default function PricingPage() {
                                     </li>
                                 </ul>
                                 <Button variant="primary" className="w-full" asChild>
-                                    <a href="/signup">Sign Up</a>
+                                    <a href="/book-tour">Sign Up</a>
                                 </Button>
                             </CardContent>
                         </Card>

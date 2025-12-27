@@ -180,8 +180,24 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                                     </div>
                                 </div>
                                 
-                                {/* Share Button (placeholder for now) */}
-                                <Button variant="outline" className="border-navy-900 text-navy-900 hover:bg-navy-900 hover:text-white">
+                                {/* Share Button */}
+                                <Button 
+                                    variant="outline" 
+                                    className="border-navy-900 text-navy-900 hover:bg-navy-900 hover:text-white"
+                                    onClick={() => {
+                                        if (navigator.share) {
+                                            navigator.share({
+                                                title: post.title,
+                                                text: post.excerpt,
+                                                url: window.location.href,
+                                            }).catch(() => {});
+                                        } else {
+                                            // Fallback: copy to clipboard
+                                            navigator.clipboard.writeText(window.location.href);
+                                            alert('Link copied to clipboard!');
+                                        }
+                                    }}
+                                >
                                     <Share2 className="w-4 h-4 mr-2" />
                                     Share Article
                                 </Button>
@@ -256,7 +272,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Button variant="primary" size="lg" asChild>
-                            <Link href="/contact">Book a Tour</Link>
+                            <Link href="/book-tour">Book a Tour</Link>
                         </Button>
                         <Button 
                             variant="outline" 

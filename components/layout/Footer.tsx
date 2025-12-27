@@ -25,7 +25,7 @@ const Footer = () => {
             { name: "Private Offices", href: "/services/private-offices" },
             { name: "Coworking Spaces", href: "/services/coworking" },
             { name: "Meeting Rooms", href: "/services/meeting-rooms" },
-            { name: "Virtual Ejari & Setup", href: "/services/virtual-office" },
+            { name: "Virtual Ejari & Setup", href: "/services/business-setup" },
         ],
         quickLinks: [
             { name: "About Us", href: "/about" },
@@ -38,7 +38,7 @@ const Footer = () => {
         ],
         contact: {
             whatsapp: { label: "+971 58 577 9312", href: "https://wa.me/971585779312" },
-            phone: { label: "04 665 7555", href: "tel:046657555" },
+            phone: { label: "04 665 7555", href: "tel:+97146657555" },
             email: { label: "contact@jetsetbc.com", href: "mailto:contact@jetsetbc.com" },
             address: "Prime Tower, Business Bay, Dubai",
         },
