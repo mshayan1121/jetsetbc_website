@@ -161,3 +161,25 @@
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 }
+
+/* Short screen media query for mobile menu */
+@media (max-height: 700px) {
+  .mobile-menu-short .mobile-menu-link {
+    font-size: 0.875rem;
+  }
+  
+  .mobile-menu-short .mobile-menu-action {
+    font-size: 0.6875rem;
+  }
+  
+  .mobile-menu-short .mobile-menu-icon {
+    width: 0.875rem;
+    height: 0.875rem;
+  }
+  
+  .mobile-menu-short .mobile-menu-button {
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
+    font-size: 0.875rem;
+  }
+}

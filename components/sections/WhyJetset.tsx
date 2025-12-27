@@ -2,6 +2,7 @@
 
 import React, { useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/Button";
@@ -147,8 +148,9 @@ const WhyJetset = () => {
                                 variant="outline"
                                 size="lg"
                                 className="border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-navy-900"
+                                asChild
                             >
-                                Discover Our Story
+                                <Link href="/about">Discover Our Story</Link>
                             </Button>
                         </motion.div>
                     </motion.div>

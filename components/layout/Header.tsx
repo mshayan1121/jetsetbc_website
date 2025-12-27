@@ -37,10 +37,25 @@ const Header = () => {
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
     const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
     const [mounted, setMounted] = useState(false);
+    const [isShortScreen, setIsShortScreen] = useState(false);
     const pathname = usePathname();
 
     useEffect(() => {
         setMounted(true);
+        
+        // Check if screen height is short
+        const checkScreenHeight = () => {
+            setIsShortScreen(window.innerHeight <= 700);
+        };
+        
+        checkScreenHeight();
+        window.addEventListener('resize', checkScreenHeight);
+        window.addEventListener('orientationchange', checkScreenHeight);
+        
+        return () => {
+            window.removeEventListener('resize', checkScreenHeight);
+            window.removeEventListener('orientationchange', checkScreenHeight);
+        };
     }, []);
 
     useEffect(() => {
@@ -201,12 +216,15 @@ const Header = () => {
                                 animate={{ x: 0 }}
                                 exit={{ x: "100%" }}
                                 transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                                className="fixed top-0 right-0 h-[100dvh] w-[80%] max-w-sm bg-white z-[70] lg:hidden shadow-2xl flex flex-col"
+                                className={cn(
+                                    "fixed top-0 right-0 h-[100dvh] w-[80%] max-w-sm bg-white z-[70] lg:hidden shadow-2xl flex flex-col",
+                                    isShortScreen && "mobile-menu-short"
+                                )}
                             >
-                                <div className="flex flex-col h-full overflow-y-auto">
+                                <div className="flex flex-col h-full">
                                     {/* Header */}
-                                    <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-cream-200 flex-shrink-0">
-                                        <span className="text-2xl font-display font-bold text-navy-900 uppercase">Menu</span>
+                                    <div className="flex items-center justify-between px-6 pt-4 pb-3 border-b border-cream-200 flex-shrink-0">
+                                        <span className="text-xl font-display font-bold text-navy-900 uppercase">Menu</span>
                                         <button 
                                             onClick={() => {
                                                 setIsMobileMenuOpen(false);
@@ -218,21 +236,21 @@ const Header = () => {
                                         </button>
                                     </div>
 
-                                    {/* Navigation Links - Scrollable Area */}
-                                    <nav className="flex flex-col space-y-3 flex-grow px-6 py-6 overflow-y-auto">
+                                    {/* Navigation Links */}
+                                    <nav className="flex flex-col space-y-1.5 px-6 py-4 flex-shrink-0">
                                         {navLinks.map((link) => (
                                             <div key={link.name} className="flex flex-col">
                                                 {link.dropdown ? (
                                                     <>
                                                         <button
                                                             onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                                                            className="text-lg font-accent font-semibold uppercase tracking-widest text-navy-900 flex items-center justify-between py-4 px-4 hover:bg-cream-50 rounded-lg transition-colors group"
+                                                            className="text-base mobile-menu-link font-accent font-semibold uppercase tracking-widest text-navy-900 flex items-center justify-between py-2.5 px-4 hover:bg-cream-50 rounded-lg transition-colors group"
                                                         >
                                                             {link.name}
-                                                            <ChevronDown className={cn("w-5 h-5 transition-transform duration-300", mobileServicesOpen && "rotate-180")} />
+                                                            <ChevronDown className={cn("w-4 h-4 transition-transform duration-300", mobileServicesOpen && "rotate-180")} />
                                                         </button>
                                                         {mobileServicesOpen && (
-                                                            <div className="mt-2 ml-4 space-y-2 bg-cream-50 rounded-lg p-3">
+                                                            <div className="mt-1.5 ml-4 space-y-1 bg-cream-50 rounded-lg p-2">
                                                                 {link.dropdown.map((item) => (
                                                                     <Link
                                                                         key={item.name}
@@ -241,7 +259,7 @@ const Header = () => {
                                                                             setIsMobileMenuOpen(false);
                                                                             setMobileServicesOpen(false);
                                                                         }}
-                                                                        className="block py-3 px-4 text-sm font-accent uppercase tracking-wider text-navy-700 hover:text-navy-900 hover:bg-white rounded transition-colors"
+                                                                        className="block py-2 px-4 text-xs font-accent uppercase tracking-wider text-navy-700 hover:text-navy-900 hover:bg-white rounded transition-colors"
                                                                     >
                                                                         {item.name}
                                                                     </Link>
@@ -253,7 +271,7 @@ const Header = () => {
                                                     <Link
                                                         href={link.href}
                                                         onClick={() => setIsMobileMenuOpen(false)}
-                                                        className="text-lg font-accent font-semibold uppercase tracking-widest text-navy-900 py-4 px-4 hover:bg-cream-50 rounded-lg transition-colors"
+                                                        className="text-base mobile-menu-link font-accent font-semibold uppercase tracking-widest text-navy-900 py-2.5 px-4 hover:bg-cream-50 rounded-lg transition-colors"
                                                     >
                                                         {link.name}
                                                     </Link>
@@ -262,17 +280,20 @@ const Header = () => {
                                         ))}
                                     </nav>
 
+                                    {/* Spacer - Pushes bottom actions down */}
+                                    <div className="flex-grow" />
+
                                     {/* Bottom Actions - Pinned to Bottom */}
-                                    <div className="flex-shrink-0 px-6 pt-6 pb-6 space-y-6 border-t border-cream-200" style={{ paddingBottom: 'max(1.5rem, env(safe-area-inset-bottom, 1.5rem))' }}>
+                                    <div className="flex-shrink-0 px-6 pt-4 pb-4 space-y-4 border-t border-cream-200" style={{ paddingBottom: 'max(1rem, env(safe-area-inset-bottom, 1rem))' }}>
                                         <div className="flex items-center space-x-6 justify-center text-navy-900">
-                                            <a href="tel:+971585779312" className="flex items-center gap-2 font-accent text-sm uppercase tracking-widest hover:text-gold-500 transition-colors py-2">
-                                                <Phone className="w-5 h-5" /> Call
+                                            <a href="tel:+971585779312" className="flex items-center gap-2 font-accent text-xs mobile-menu-action uppercase tracking-widest hover:text-gold-500 transition-colors py-1.5">
+                                                <Phone className="w-4 h-4 mobile-menu-icon" /> Call
                                             </a>
-                                            <a href="https://wa.me/971585779312" className="flex items-center gap-2 font-accent text-sm uppercase tracking-widest hover:text-gold-500 transition-colors py-2">
-                                                <WhatsAppIcon className="w-5 h-5" /> WhatsApp
+                                            <a href="https://wa.me/971585779312" className="flex items-center gap-2 font-accent text-xs mobile-menu-action uppercase tracking-widest hover:text-gold-500 transition-colors py-1.5">
+                                                <WhatsAppIcon className="w-4 h-4 mobile-menu-icon" /> WhatsApp
                                             </a>
                                         </div>
-                                        <Button variant="primary" size="lg" className="w-full" asChild>
+                                        <Button variant="primary" size="lg" className="w-full mobile-menu-button" asChild>
                                             <Link href="/book-tour" onClick={() => setIsMobileMenuOpen(false)}>Book a Tour</Link>
                                         </Button>
                                     </div>
