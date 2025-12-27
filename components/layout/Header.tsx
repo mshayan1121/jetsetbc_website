@@ -194,17 +194,18 @@ const Header = () => {
                                     setIsMobileMenuOpen(false);
                                     setMobileServicesOpen(false);
                                 }}
-                                className="fixed inset-0 top-0 h-screen bg-navy-900/90 z-[60] lg:hidden"
+                                className="fixed inset-0 top-0 h-[100dvh] bg-navy-900/90 z-[60] lg:hidden"
                             />
                             <motion.div
                                 initial={{ x: "100%" }}
                                 animate={{ x: 0 }}
                                 exit={{ x: "100%" }}
                                 transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                                className="fixed top-0 right-0 h-screen w-[80%] max-w-sm bg-white z-[70] lg:hidden shadow-2xl overflow-y-auto"
+                                className="fixed top-0 right-0 h-[100dvh] w-[80%] max-w-sm bg-white z-[70] lg:hidden shadow-2xl flex flex-col"
                             >
-                                <div className="p-6 flex flex-col h-full">
-                                    <div className="flex items-center justify-between mb-8 border-b border-cream-200 pb-6">
+                                <div className="flex flex-col h-full overflow-y-auto">
+                                    {/* Header */}
+                                    <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-cream-200 flex-shrink-0">
                                         <span className="text-2xl font-display font-bold text-navy-900 uppercase">Menu</span>
                                         <button 
                                             onClick={() => {
@@ -217,20 +218,21 @@ const Header = () => {
                                         </button>
                                     </div>
 
-                                    <nav className="flex flex-col space-y-2 flex-grow">
+                                    {/* Navigation Links - Scrollable Area */}
+                                    <nav className="flex flex-col space-y-3 flex-grow px-6 py-6 overflow-y-auto">
                                         {navLinks.map((link) => (
                                             <div key={link.name} className="flex flex-col">
                                                 {link.dropdown ? (
                                                     <>
                                                         <button
                                                             onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                                                            className="text-lg font-accent font-semibold uppercase tracking-widest text-navy-900 flex items-center justify-between py-3 px-4 hover:bg-cream-50 rounded-lg transition-colors group"
+                                                            className="text-lg font-accent font-semibold uppercase tracking-widest text-navy-900 flex items-center justify-between py-4 px-4 hover:bg-cream-50 rounded-lg transition-colors group"
                                                         >
                                                             {link.name}
                                                             <ChevronDown className={cn("w-5 h-5 transition-transform duration-300", mobileServicesOpen && "rotate-180")} />
                                                         </button>
                                                         {mobileServicesOpen && (
-                                                            <div className="mt-2 ml-4 space-y-1 bg-cream-50 rounded-lg p-2">
+                                                            <div className="mt-2 ml-4 space-y-2 bg-cream-50 rounded-lg p-3">
                                                                 {link.dropdown.map((item) => (
                                                                     <Link
                                                                         key={item.name}
@@ -239,7 +241,7 @@ const Header = () => {
                                                                             setIsMobileMenuOpen(false);
                                                                             setMobileServicesOpen(false);
                                                                         }}
-                                                                        className="block py-2 px-4 text-sm font-accent uppercase tracking-wider text-navy-700 hover:text-navy-900 hover:bg-white rounded transition-colors"
+                                                                        className="block py-3 px-4 text-sm font-accent uppercase tracking-wider text-navy-700 hover:text-navy-900 hover:bg-white rounded transition-colors"
                                                                     >
                                                                         {item.name}
                                                                     </Link>
@@ -251,7 +253,7 @@ const Header = () => {
                                                     <Link
                                                         href={link.href}
                                                         onClick={() => setIsMobileMenuOpen(false)}
-                                                        className="text-lg font-accent font-semibold uppercase tracking-widest text-navy-900 py-3 px-4 hover:bg-cream-50 rounded-lg transition-colors"
+                                                        className="text-lg font-accent font-semibold uppercase tracking-widest text-navy-900 py-4 px-4 hover:bg-cream-50 rounded-lg transition-colors"
                                                     >
                                                         {link.name}
                                                     </Link>
@@ -260,12 +262,13 @@ const Header = () => {
                                         ))}
                                     </nav>
 
-                                    <div className="mt-auto space-y-6 pt-6 border-t border-cream-200">
+                                    {/* Bottom Actions - Pinned to Bottom */}
+                                    <div className="flex-shrink-0 px-6 pt-6 pb-6 space-y-6 border-t border-cream-200" style={{ paddingBottom: 'max(1.5rem, env(safe-area-inset-bottom, 1.5rem))' }}>
                                         <div className="flex items-center space-x-6 justify-center text-navy-900">
-                                            <a href="tel:+971585779312" className="flex items-center gap-2 font-accent text-sm uppercase tracking-widest hover:text-gold-500 transition-colors">
+                                            <a href="tel:+971585779312" className="flex items-center gap-2 font-accent text-sm uppercase tracking-widest hover:text-gold-500 transition-colors py-2">
                                                 <Phone className="w-5 h-5" /> Call
                                             </a>
-                                            <a href="https://wa.me/971585779312" className="flex items-center gap-2 font-accent text-sm uppercase tracking-widest hover:text-gold-500 transition-colors">
+                                            <a href="https://wa.me/971585779312" className="flex items-center gap-2 font-accent text-sm uppercase tracking-widest hover:text-gold-500 transition-colors py-2">
                                                 <WhatsAppIcon className="w-5 h-5" /> WhatsApp
                                             </a>
                                         </div>
