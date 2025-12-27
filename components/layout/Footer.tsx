@@ -31,12 +31,13 @@ const Footer = () => {
             { name: "About Us", href: "/about" },
             { name: "Location", href: "/locations/prime-tower" },
             { name: "Pricing", href: "/pricing" },
+            { name: "Gallery", href: "/gallery" },
             { name: "Blog", href: "/blog" },
             { name: "Book a Tour", href: "/book-tour" },
             { name: "Contact", href: "/contact" },
         ],
         contact: {
-            whatsapp: { label: "+971 585 779 312", href: "https://wa.me/971585779312" },
+            whatsapp: { label: "+971 58 577 9312", href: "https://wa.me/971585779312" },
             phone: { label: "04 665 7555", href: "tel:046657555" },
             email: { label: "contact@jetsetbc.com", href: "mailto:contact@jetsetbc.com" },
             address: "Prime Tower, Business Bay, Dubai",
@@ -48,9 +49,9 @@ const Footer = () => {
     };
 
     return (
-        <footer className="bg-navy-900 text-cream-50 pt-20 pb-10 overflow-hidden">
+        <footer className="bg-navy-900 text-cream-50 pt-12 sm:pt-16 md:pt-20 pb-8 sm:pb-10 overflow-hidden">
             <div className="container-custom">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 md:gap-12 lg:gap-8 mb-12 sm:mb-16">
                     {/* COLUMN 1 - About */}
                     <div className="space-y-6">
                         <Link href="/" className="inline-block group">
@@ -200,10 +201,10 @@ const Footer = () => {
                 </div>
 
                 {/* BOTTOM ROW */}
-                <div className="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8">
-                    <div className="flex items-base gap-2 text-sm text-cream-200/40 italic">
+                <div className="pt-8 sm:pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6 md:gap-8">
+                    <div className="flex flex-col sm:flex-row items-center gap-2 text-xs sm:text-sm text-cream-200/40 italic text-center sm:text-left">
                         <span>© {currentYear} Jetset Business Center.</span>
-                        <span className="hidden md:inline">|</span>
+                        <span className="hidden sm:inline">|</span>
                         <span>Family-run business since 2003.</span>
                     </div>
 

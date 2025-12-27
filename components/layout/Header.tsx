@@ -24,6 +24,7 @@ const navLinks = [
     { name: "Location", href: "/locations/prime-tower" },
     { name: "Pricing", href: "/pricing" },
     { name: "About", href: "/about" },
+    { name: "Gallery", href: "/gallery" },
     { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },
 ];
@@ -45,10 +46,10 @@ const Header = () => {
     return (
         <header
             className={cn(
-                "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out px-6 md:px-12",
+                "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out px-4 sm:px-6 md:px-12",
                 isScrolled
-                    ? "bg-white shadow-md border-b border-cream-200 py-3"
-                    : "bg-white/80 backdrop-blur-md border-b border-white/20 py-5"
+                    ? "bg-white shadow-md border-b border-cream-200 py-2 sm:py-3"
+                    : "bg-white/80 backdrop-blur-md border-b border-white/20 py-3 sm:py-4 md:py-5"
             )}
         >
             <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -59,7 +60,7 @@ const Header = () => {
                         alt="Jetset Business Center"
                         width={180}
                         height={54}
-                        className="h-12 md:h-14 w-auto"
+                        className="h-10 sm:h-12 md:h-14 w-auto"
                         priority
                     />
                 </Link>

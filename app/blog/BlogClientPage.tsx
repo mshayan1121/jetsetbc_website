@@ -46,7 +46,7 @@ export default function BlogClientPage() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3, duration: 0.8 }}
-                        className="mx-auto mb-6 max-w-4xl font-display text-5xl font-bold leading-tight text-white md:text-6xl lg:text-[56px]"
+                        className="mx-auto mb-4 sm:mb-6 max-w-4xl font-display text-4xl sm:text-5xl md:text-6xl lg:text-[56px] font-bold leading-tight text-white px-4"
                     >
                         Jetset Business <span className="text-gold-500">Insights Hub</span>
                     </motion.h1>
@@ -56,7 +56,7 @@ export default function BlogClientPage() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5, duration: 0.8 }}
-                        className="mx-auto max-w-2xl text-lg text-cream-100/90 md:text-xl font-light"
+                        className="mx-auto max-w-2xl text-base sm:text-lg text-cream-100/90 md:text-xl font-light px-4"
                     >
                         Explore Our Latest Business Insights & Tips
                     </motion.p>
@@ -64,12 +64,12 @@ export default function BlogClientPage() {
             </section>
 
             {/* Main Content Section */}
-            <section className="bg-white py-24 md:py-32">
+            <section className="bg-white py-16 sm:py-20 md:py-24 lg:py-32">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12">
                         {/* Blog Grid - Left Side (70%) */}
                         <div className="lg:col-span-8">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                                 {blogPosts.map((post) => (
                                     <Link href={`/blog/${post.slug}`} key={post.slug}>
                                         <Card className="group cursor-pointer h-full bg-white rounded-xl overflow-hidden shadow-luxury-sm hover:shadow-luxury-lg hover:-translate-y-2 transition-all duration-400" padding="none">
@@ -92,26 +92,26 @@ export default function BlogClientPage() {
                                             </div>
                                             
                                             {/* Card Content */}
-                                            <div className="p-6">
+                                            <div className="p-4 sm:p-6">
                                                 {/* Meta Info */}
-                                                <div className="flex items-center gap-4 text-sm text-navy-700 mb-3">
+                                                <div className="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm text-navy-700 mb-2 sm:mb-3">
                                                     <span className="flex items-center gap-1">
-                                                        <User className="w-4 h-4 text-gold-500" />
+                                                        <User className="w-3 h-3 sm:w-4 sm:h-4 text-gold-500" />
                                                         {post.author}
                                                     </span>
                                                     <span className="flex items-center gap-1">
-                                                        <Calendar className="w-4 h-4 text-gold-500" />
+                                                        <Calendar className="w-3 h-3 sm:w-4 sm:h-4 text-gold-500" />
                                                         {post.date}
                                                     </span>
                                                 </div>
                                                 
                                                 {/* Title */}
-                                                <h3 className="font-display text-xl md:text-2xl text-navy-900 mb-3 group-hover:text-gold-500 transition-colors line-clamp-2">
+                                                <h3 className="font-display text-lg sm:text-xl md:text-2xl text-navy-900 mb-2 sm:mb-3 group-hover:text-gold-500 transition-colors line-clamp-2">
                                                     {post.title}
                                                 </h3>
                                                 
                                                 {/* Excerpt */}
-                                                <p className="font-body text-navy-700 mb-4 line-clamp-3 leading-relaxed">
+                                                <p className="font-body text-sm sm:text-base text-navy-700 mb-3 sm:mb-4 line-clamp-3 leading-relaxed">
                                                     {post.excerpt}
                                                 </p>
                                                 
@@ -128,10 +128,10 @@ export default function BlogClientPage() {
                         </div>
 
                         {/* Sidebar - Right Side (30%) */}
-                        <aside className="lg:col-span-4 space-y-8">
+                        <aside className="lg:col-span-4 space-y-6 sm:space-y-8">
                             {/* Must Read */}
-                            <div className="bg-cream-50 rounded-xl p-6 shadow-luxury-sm">
-                                <h3 className="font-display text-2xl text-navy-900 mb-6 pb-4 border-b border-navy-900/10">
+                            <div className="bg-cream-50 rounded-xl p-4 sm:p-6 shadow-luxury-sm">
+                                <h3 className="font-display text-xl sm:text-2xl text-navy-900 mb-4 sm:mb-6 pb-3 sm:pb-4 border-b border-navy-900/10">
                                     Must Read
                                 </h3>
                                 

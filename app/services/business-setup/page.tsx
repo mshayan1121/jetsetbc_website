@@ -26,12 +26,12 @@ const BusinessSetupPage = () => {
     const services = [
         {
             title: "Virtual Ejari",
-            description: "Legally compliant tenancy contracts for DED license applications and renewals.",
+            description: "Registered tenancy contract with unlimited inspections and same-day processing. Accepted by government authorities and banks.",
             icon: FileText,
         },
         {
             title: "Company Formation",
-            description: "End-to-end support for Mainland, Free Zone, and Offshore setups.",
+            description: "Step-by-step guidance for Mainland (100% foreign ownership where applicable) and Free Zone licenses. Includes Visa processing (Investor/Staff) and Corporate Bank Account opening support.",
             icon: Building2,
         },
         {
@@ -58,17 +58,17 @@ const BusinessSetupPage = () => {
 
     const steps = [
         {
-            title: "Choosing Business Activity",
+            title: "Activity Selection",
             description: "Select from over 2,000 DED activities that best match your business model.",
             icon: Search
         },
         {
-            title: "Trade Name Reservation",
-            description: "We help you select and reserve a unique name that complies with UAE guidelines.",
+            title: "Trade Name",
+            description: "We help you select and reserve a unique trade name that complies with UAE guidelines.",
             icon: Stamp
         },
         {
-            title: "Document Submission",
+            title: "Initial Approval",
             description: "Drafting the MOA and submitting initial approval applications to authorities.",
             icon: FileText
         },
@@ -81,43 +81,37 @@ const BusinessSetupPage = () => {
 
     const pricingPlans = [
         {
-            name: "Virtual Office (Ejari)",
-            price: "AED 3,500",
+            name: "Virtual Ejari",
+            price: "AED 8,500",
             period: "/year",
-            description: "Required for DED license renewal or new company registration without physical space.",
+            description: "Registered tenancy contract accepted by government authorities and banks. Includes unlimited inspections and same-day processing.",
             features: [
-                "Official Tenancy Contract",
-                "DED Approved Address",
-                "Mail Management",
-                "4 Hours meeting room access",
-                "Inspection assistance"
-            ]
-        },
-        {
-            name: "Mainland Setup",
-            price: "AED 12,000",
-            period: "+ govt fees",
-            description: "Complete mainland company formation with dedicated PRO support.",
-            features: [
-                "Name Reservation",
-                "Initial Approval",
-                "MOA Drafting",
-                "Virtual Ejari included",
-                "Bank assistance"
+                "AED 8,500 per annum",
+                "Registered tenancy contract",
+                "Unlimited inspections",
+                "Same-day processing",
+                "Government accepted",
+                "Bank accepted",
+                "Use Prime Tower address",
+                "Legal domicile for license",
+                "Compliance guaranteed"
             ],
             isPopular: true
         },
         {
-            name: "Free Zone Package",
-            price: "AED 15,000",
-            period: "/inclusive",
-            description: "Fast-track your business in Dubai's most prestigious free zones.",
+            name: "Company Formation",
+            price: "Contact",
+            period: "for pricing",
+            description: "Step-by-step guidance: Activity selection → Trade Name → Initial Approval → License Issuance.",
             features: [
-                "100% Ownership",
-                "Tax Exemptions",
-                "Visa processing",
-                "Digital license",
-                "Shared desk access"
+                "Mainland & Free Zone licenses",
+                "100% foreign ownership (where applicable)",
+                "Trade name reservation",
+                "Initial approval processing",
+                "License issuance support",
+                "Visa processing (Investor/Staff)",
+                "Corporate Bank Account opening support",
+                "Complete PRO services"
             ]
         }
     ];
@@ -225,8 +219,8 @@ const BusinessSetupPage = () => {
 
             <PricingTable
                 plans={pricingPlans}
-                title="Transparent Setup Fees"
-                subtitle="Clear pricing structures designed to help you budget with confidence."
+                title="Service Pricing"
+                subtitle="Virtual Ejari pricing is transparent. Company formation services are customized to your needs - contact us for a tailored quote."
             />
 
             <CTASection />

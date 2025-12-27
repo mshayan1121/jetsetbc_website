@@ -40,7 +40,7 @@ const services = [
     {
         title: "Virtual Ejari & Setup",
         description: "Complete business formation, licensing, and visa support services",
-        price: "From AED 8,500/year",
+        price: "Virtual Ejari: AED 8,500/year",
         cta: "Get Started",
         icon: FileCheck,
         image: "/images/services/business-setup.png",
@@ -76,7 +76,7 @@ const ServicesOverview = () => {
                 </div>
 
                 {/* Services Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-start">
                     {services.map((service, index) => (
                         <motion.div
                             key={service.title}
@@ -84,7 +84,7 @@ const ServicesOverview = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.8, delay: service.delay, ease: [0.22, 1, 0.36, 1] }}
-                            className={`group relative bg-white rounded-2xl overflow-hidden shadow-navy-sm hover:shadow-luxury-lg transition-all duration-500 flex flex-col ${service.height} ${index % 2 !== 0 ? "md:mt-12" : ""
+                            className={`group relative bg-white rounded-2xl overflow-hidden shadow-navy-sm hover:shadow-luxury-lg transition-all duration-500 flex flex-col min-h-[400px] ${service.height} ${index % 2 !== 0 ? "md:mt-12" : ""
                                 } ${index === 2 ? "md:-mt-12" : ""}`}
                         >
                             {/* Image Container */}
@@ -105,24 +105,24 @@ const ServicesOverview = () => {
                             </div>
 
                             {/* Content */}
-                            <div className="absolute bottom-0 left-0 right-0 p-8 pt-12 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                                <div className="flex items-center gap-3 mb-3">
-                                    <div className="w-8 h-[2px] bg-gold-500" />
-                                    <span className="text-gold-400 font-body font-medium uppercase tracking-widest text-xs">
+                            <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8 pt-8 md:pt-12 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                                    <div className="w-6 sm:w-8 h-[2px] bg-gold-500" />
+                                    <span className="text-gold-400 font-body font-medium uppercase tracking-widest text-[10px] sm:text-xs">
                                         Service
                                     </span>
                                 </div>
-                                <h3 className="text-2xl md:text-3xl font-display text-white mb-3 group-hover:text-gold-400 transition-colors duration-300">
+                                <h3 className="text-xl sm:text-2xl md:text-3xl font-display text-white mb-2 sm:mb-3 group-hover:text-gold-400 transition-colors duration-300">
                                     {service.title}
                                 </h3>
-                                <p className="text-white/70 font-body mb-6 line-clamp-2 group-hover:text-white transition-colors duration-300">
+                                <p className="text-white/70 font-body mb-4 sm:mb-6 text-sm sm:text-base line-clamp-2 group-hover:text-white transition-colors duration-300">
                                     {service.description}
                                 </p>
-                                <div className="flex items-center justify-between mt-auto border-t border-white/10 pt-6">
-                                    <span className="text-white font-body font-semibold">
+                                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0 mt-auto border-t border-white/10 pt-4 sm:pt-6">
+                                    <span className="text-white font-body font-semibold text-sm sm:text-base">
                                         {service.price}
                                     </span>
-                                    <button className="flex items-center gap-2 text-gold-500 font-body font-medium group/btn transition-all duration-300">
+                                    <button className="flex items-center gap-2 text-gold-500 font-body font-medium text-sm sm:text-base group/btn transition-all duration-300">
                                         <span className="border-b border-transparent group-hover/btn:border-gold-500 transition-all duration-300">
                                             {service.cta}
                                         </span>

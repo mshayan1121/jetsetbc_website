@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ChevronDown, Star, Users, Calendar } from "lucide-react";
+import { Star, Users, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import Image from "next/image";
@@ -12,127 +12,125 @@ const Hero = () => {
     const { scrollY } = useScroll();
     const y1 = useTransform(scrollY, [0, 500], [0, 200]);
 
-    const stats = [
-        { label: "500+ Clients", icon: <Users className="w-4 h-4" /> },
-        { label: "4.9★ Rating", icon: <Star className="w-4 h-4 fill-gold-500" /> },
-        { label: "20+ Years", icon: <Calendar className="w-4 h-4" /> },
-    ];
-
     return (
-        <section className="relative min-h-screen w-full flex items-center overflow-hidden bg-navy-900">
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-navy-900">
             {/* Background Image with Parallax */}
             <motion.div
                 style={{ y: y1 }}
                 className="absolute inset-0 z-0"
             >
-                <div className="absolute inset-0 bg-gradient-to-r from-navy-900 via-navy-900/80 to-transparent z-10" />
-                <div className="absolute inset-0 bg-gradient-to-b from-navy-900/40 via-transparent to-navy-900 z-10" />
                 <Image
                     src="/images/hero-bg.png"
-                    alt="Burj Khalifa View"
+                    alt="Jetset Business Center Office"
                     fill
                     priority
                     sizes="100vw"
-                    className="object-cover object-center scale-110"
+                    className="object-cover object-center"
                 />
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-r from-navy-900/95 via-navy-900/90 to-navy-900/70" />
             </motion.div>
 
             {/* Content Container */}
-            <div className="container-custom relative z-20 w-full pt-20">
-                <div className="max-w-3xl lg:w-[60%]">
-                    {/* Badge */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                    >
-                        <Badge
-                            variant="gold"
-                            className="bg-gold-500/20 text-gold-400 border-gold-500/30 px-4 py-1.5 mb-8 backdrop-blur-md"
-                        >
-                            🏆 Best Business Center of the Year 2024
-                        </Badge>
-                    </motion.div>
-
-                    {/* Headline */}
-                    <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-                        className="text-white text-5xl md:text-7xl lg:text-[72px] leading-[1.1] mb-6 font-display"
-                    >
-                        Award-Winning Workspace in the Heart of <span className="text-gold-500">Dubai</span>
-                    </motion.h1>
-
-                    {/* Subheadline */}
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-                        className="text-cream-100 text-lg md:text-2xl mb-10 max-w-2xl font-body leading-relaxed"
-                    >
-                        Premium Private Offices & Coworking Spaces with Stunning Burj Khalifa Views. Elevate your business in Dubai's most prestigious location.
-                    </motion.p>
-
-                    {/* Stats Row */}
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.8, delay: 0.8 }}
-                        className="flex flex-wrap items-center gap-8 md:gap-12 mb-12"
-                    >
-                        {stats.map((stat, idx) => (
-                            <div key={idx} className="flex items-center gap-3">
-                                <span className="text-gold-500">{stat.icon}</span>
-                                <span className="text-white font-accent font-medium tracking-wider text-sm md:text-base uppercase">
-                                    {stat.label}
-                                </span>
-                            </div>
-                        ))}
-                    </motion.div>
-
-                    {/* CTA Buttons */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 1.0 }}
-                        className="flex flex-wrap gap-4"
-                    >
-                        <Button
-                            variant="primary"
-                            size="lg"
-                            className="px-10 text-base"
-                            asChild
-                        >
-                            <Link href="/book-tour">Book a Tour</Link>
-                        </Button>
-                        <Button
-                            variant="outline"
-                            size="lg"
-                            className="px-10 text-base border-white/30 text-white hover:border-gold-500 hover:text-gold-500"
-                        >
-                            Explore Spaces
-                        </Button>
-                    </motion.div>
-                </div>
-            </div>
-
-            {/* Scroll Indicator */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.5, duration: 1 }}
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
-            >
-                <span className="text-gold-500/60 text-[10px] uppercase tracking-[0.3em] font-accent">Discover More</span>
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
+                {/* Award Badge */}
                 <motion.div
-                    animate={{ y: [0, 8, 0] }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                    className="flex flex-col items-center"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
                 >
-                    <ChevronDown className="w-6 h-6 text-gold-500" />
+                    <Badge
+                        variant="gold"
+                        className="bg-gold-500/20 text-gold-500 border border-gold-500/30 px-4 py-1.5 mb-6 backdrop-blur-md"
+                    >
+                        🏆 BEST BUSINESS CENTER OF THE YEAR 2024
+                    </Badge>
                 </motion.div>
-            </motion.div>
+
+                {/* Main Heading */}
+                <motion.h1
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+                    className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight"
+                >
+                    Award-Winning Workspace in the Heart of{' '}
+                    <span className="text-gold-500">Dubai</span>
+                </motion.h1>
+
+                {/* Subtitle */}
+                <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+                    className="font-body text-lg sm:text-xl md:text-2xl text-cream-50 mb-8 max-w-3xl leading-relaxed"
+                >
+                    Premium Private Offices & Coworking Spaces with Stunning Burj Khalifa Views. 
+                    Elevate your business in Dubai's most prestigious location.
+                </motion.p>
+
+                {/* Stats Row */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.8 }}
+                    className="flex flex-wrap items-center gap-6 md:gap-8 mb-10"
+                >
+                    <div className="flex items-center gap-2">
+                        <div className="w-10 h-10 bg-gold-500/10 rounded-full flex items-center justify-center">
+                            <Users className="w-5 h-5 text-gold-500" />
+                        </div>
+                        <div className="text-white">
+                            <span className="font-accent text-2xl block">500+</span>
+                            <span className="text-sm text-cream-50">CLIENTS</span>
+                        </div>
+                    </div>
+                    
+                    <div className="flex items-center gap-2">
+                        <div className="w-10 h-10 bg-gold-500/10 rounded-full flex items-center justify-center">
+                            <Star className="w-5 h-5 text-gold-500 fill-gold-500" />
+                        </div>
+                        <div className="text-white">
+                            <span className="font-accent text-2xl block">4.9★</span>
+                            <span className="text-sm text-cream-50">RATING</span>
+                        </div>
+                    </div>
+                    
+                    <div className="flex items-center gap-2">
+                        <div className="w-10 h-10 bg-gold-500/10 rounded-full flex items-center justify-center">
+                            <Briefcase className="w-5 h-5 text-gold-500" />
+                        </div>
+                        <div className="text-white">
+                            <span className="font-accent text-2xl block">20+</span>
+                            <span className="text-sm text-cream-50">YEARS</span>
+                        </div>
+                    </div>
+                </motion.div>
+
+                {/* CTA Buttons */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 1.0 }}
+                    className="flex flex-col sm:flex-row gap-4"
+                >
+                    <Button
+                        variant="primary"
+                        size="lg"
+                        asChild
+                    >
+                        <Link href="/book-tour">BOOK A TOUR</Link>
+                    </Button>
+                    <Button
+                        variant="outline"
+                        size="lg"
+                        className="border-2 border-white text-white hover:bg-white hover:text-navy-900"
+                        asChild
+                    >
+                        <Link href="/services">EXPLORE SPACES</Link>
+                    </Button>
+                </motion.div>
+            </div>
 
             {/* Glassmorphism accent for the left side */}
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">

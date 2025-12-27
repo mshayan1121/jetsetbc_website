@@ -80,7 +80,7 @@ const HeroSection = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.8 }}
-                    className="mx-auto mb-6 max-w-4xl font-display text-5xl font-bold leading-tight text-white md:text-6xl lg:text-[56px]"
+                    className="mx-auto mb-4 sm:mb-6 max-w-4xl font-display text-4xl sm:text-5xl md:text-6xl lg:text-[56px] font-bold leading-tight text-white px-4"
                 >
                     Family-Run Excellence <br /> Since 2003
                 </motion.h1>
@@ -90,7 +90,7 @@ const HeroSection = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5, duration: 0.8 }}
-                    className="mx-auto max-w-2xl text-lg text-cream-100/90 md:text-xl font-light"
+                    className="mx-auto max-w-2xl text-base sm:text-lg text-cream-100/90 md:text-xl font-light px-4"
                 >
                     Over 20 years of real estate expertise in Dubai's premium business district
                 </motion.p>
@@ -101,9 +101,9 @@ const HeroSection = () => {
 
 const OurStorySection = () => {
     return (
-        <section className="py-20 md:py-32 bg-white overflow-hidden">
+        <section className="py-16 sm:py-20 md:py-24 lg:py-32 bg-white overflow-hidden">
             <div className="container-custom">
-                <div className="grid gap-12 lg:grid-cols-2 lg:gap-20 items-center">
+                <div className="grid gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-20 items-center">
                     {/* Image Side */}
                     <motion.div
                         initial="hidden"
@@ -136,11 +136,11 @@ const OurStorySection = () => {
                         viewport={{ once: true, margin: "-100px" }}
                         variants={staggerContainer}
                     >
-                        <motion.span variants={fadeIn} className="inline-block text-gold-600 font-semibold tracking-wider uppercase mb-4 text-sm">Our Journey</motion.span>
-                        <motion.h2 variants={fadeIn} className="text-4xl md:text-[44px] font-display font-bold text-navy-900 mb-6 leading-tight">
+                        <motion.span variants={fadeIn} className="inline-block text-gold-600 font-semibold tracking-wider uppercase mb-3 sm:mb-4 text-xs sm:text-sm">Our Journey</motion.span>
+                        <motion.h2 variants={fadeIn} className="text-3xl sm:text-4xl md:text-[44px] font-display font-bold text-navy-900 mb-4 sm:mb-6 leading-tight">
                             Our Story
                         </motion.h2>
-                        <motion.div variants={fadeIn} className="space-y-6 text-navy-700/80 leading-relaxed text-lg">
+                        <motion.div variants={fadeIn} className="space-y-4 sm:space-y-6 text-navy-700/80 leading-relaxed text-base sm:text-lg">
                             <p>
                                 Jetset Business Center began as a father-son initiative to support startups and growing businesses with <span className="text-navy-900 font-medium">premium yet flexible workspace solutions</span>. With over two decades of commercial real estate expertise, we've grown from modest beginnings to become Dubai's award-winning business center.
                             </p>
@@ -177,24 +177,24 @@ const OurStorySection = () => {
 
 const MissionVisionSection = () => {
     return (
-        <section className="py-20 bg-cream-50 relative overflow-hidden">
+        <section className="py-16 sm:py-20 md:py-24 bg-cream-50 relative overflow-hidden">
             {/* Background Texture */}
             <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(#0A1828 1px, transparent 1px)", backgroundSize: "32px 32px" }}></div>
 
             <div className="container-custom relative z-10">
-                <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+                <div className="grid md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
                     {/* Mission Card */}
                     <motion.div
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
                         variants={fadeIn}
-                        className="group bg-white p-10 rounded-2xl shadow-sm hover:shadow-luxury-md transition-all duration-300 border border-transparent hover:border-gold-200/50"
+                        className="group bg-white p-6 sm:p-8 md:p-10 rounded-2xl shadow-sm hover:shadow-luxury-md transition-all duration-300 border border-transparent hover:border-gold-200/50"
                     >
-                        <div className="w-16 h-16 rounded-full bg-navy-50 flex items-center justify-center mb-8 group-hover:bg-navy-900 transition-colors duration-300">
-                            <Target className="w-8 h-8 text-navy-900 group-hover:text-gold-500 transition-colors duration-300" />
+                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-navy-50 flex items-center justify-center mb-6 sm:mb-8 group-hover:bg-navy-900 transition-colors duration-300">
+                            <Target className="w-7 h-7 sm:w-8 sm:h-8 text-navy-900 group-hover:text-gold-500 transition-colors duration-300" />
                         </div>
-                        <h3 className="text-2xl font-display font-bold text-navy-900 mb-4">Our Mission</h3>
+                        <h3 className="text-xl sm:text-2xl font-display font-bold text-navy-900 mb-3 sm:mb-4">Our Mission</h3>
                         <p className="text-navy-700/80 leading-relaxed">
                             To provide customized solutions for our clients' office and corporate setup requirements. We aim to remove the administrative burden of running an office so business owners can focus purely on revenue and growth.
                         </p>
@@ -208,10 +208,10 @@ const MissionVisionSection = () => {
                         variants={fadeIn}
                         className="group bg-white p-10 rounded-2xl shadow-sm hover:shadow-luxury-md transition-all duration-300 border border-transparent hover:border-gold-200/50"
                     >
-                        <div className="w-16 h-16 rounded-full bg-gold-50 flex items-center justify-center mb-8 group-hover:bg-gold-500 transition-colors duration-300">
-                            <Lightbulb className="w-8 h-8 text-gold-600 group-hover:text-white transition-colors duration-300" />
+                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gold-50 flex items-center justify-center mb-6 sm:mb-8 group-hover:bg-gold-500 transition-colors duration-300">
+                            <Lightbulb className="w-7 h-7 sm:w-8 sm:h-8 text-gold-600 group-hover:text-white transition-colors duration-300" />
                         </div>
-                        <h3 className="text-2xl font-display font-bold text-navy-900 mb-4">Our Vision</h3>
+                        <h3 className="text-xl sm:text-2xl font-display font-bold text-navy-900 mb-3 sm:mb-4">Our Vision</h3>
                         <p className="text-navy-700/80 leading-relaxed">
                             To redefine the business center concept in the UAE and GCC by combining luxury, convenience, and community. We envision a future where workspaces are hybrid-friendly, hospitality-driven, and technologically seamless.
                         </p>
@@ -346,13 +346,11 @@ const TeamSection = () => {
     const team = [
         { name: "Hannah", role: "Client Relations" },
         { name: "Jessie", role: "Operations Manager" },
-        { name: "Pauline", role: "Community Manager" },
-        { name: "Rahat", role: "Support Specialist" },
-        { name: "Edeline", role: "Front Desk Executive" }
+        { name: "Pauline", role: "Community Manager" }
     ];
 
     return (
-        <section className="py-24 bg-cream-50">
+        <section className="py-16 sm:py-20 md:py-24 bg-cream-50">
             <div className="container-custom text-center">
                 <motion.div
                     initial="hidden"

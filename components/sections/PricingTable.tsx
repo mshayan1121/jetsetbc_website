@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
+import { Badge } from "@/components/ui/Badge";
 
 interface PricingPlan {
     name: string;
@@ -31,7 +32,13 @@ const PricingTable = ({ plans, title = "Select Your Plan", subtitle = "Choose th
                     <p className="text-navy-600 max-w-2xl mx-auto">{subtitle}</p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className={`
+                    grid gap-8 overflow-visible
+                    ${plans.length === 1 
+                        ? 'grid-cols-1 max-w-lg mx-auto' 
+                        : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+                    }
+                `}>
                     {plans.map((plan, idx) => (
                         <motion.div
                             key={idx}
@@ -41,20 +48,23 @@ const PricingTable = ({ plans, title = "Select Your Plan", subtitle = "Choose th
                             viewport={{ once: true }}
                         >
                             <Card
-                                className={`h-full flex flex-col p-8 transition-all duration-300 ${plan.isPopular
-                                        ? "border-gold-500 shadow-xl scale-105 relative z-10 bg-white"
+                                padding="none"
+                                className={`h-full flex flex-col transition-all duration-300 overflow-visible ${plan.isPopular
+                                        ? "border-2 border-gold-500 shadow-xl scale-105 relative z-10 bg-white"
                                         : "border-navy-100 hover:border-gold-300 bg-white/50"
-                                    }`}
+                                    } ${plan.isPopular ? "pt-12" : "pt-8"} px-8 pb-8`}
                             >
                                 {plan.isPopular && (
-                                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gold-500 text-white px-4 py-1 rounded-full text-xs font-accent uppercase tracking-wider">
-                                        Most Popular
+                                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
+                                        <Badge className="bg-gold-500 text-navy-900 font-semibold px-6 py-2 text-sm uppercase tracking-wide shadow-lg whitespace-nowrap border-none">
+                                            Most Popular
+                                        </Badge>
                                     </div>
                                 )}
                                 <div className="mb-8">
                                     <h3 className="text-xl font-display text-navy-900 mb-2">{plan.name}</h3>
                                     <div className="flex items-baseline gap-1 mb-4">
-                                        <span className="text-3xl font-display text-navy-900">{plan.price}</span>
+                                        <span className="text-3xl font-accent text-navy-900">{plan.price}</span>
                                         <span className="text-navy-500 text-sm">{plan.period}</span>
                                     </div>
                                     <p className="text-navy-600 text-sm leading-relaxed">{plan.description}</p>

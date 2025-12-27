@@ -63,7 +63,7 @@ const ServicesPage = () => {
             icon: FileCheck,
             title: "Business Setup Services",
             description: "Complete business formation, licensing, Virtual Ejari, and visa support services.",
-            price: "From AED 8,500/year",
+            price: "Contact for pricing",
             image: "/images/business-setup.jpg",
             link: "/services/business-setup"
         }
@@ -157,7 +157,7 @@ const ServicesPage = () => {
         },
         {
             question: "Can I use your address for my business license?",
-            answer: "Yes, with our Virtual Ejari service starting at AED 8,500/year."
+            answer: "Yes, with our Virtual Ejari service at AED 8,500/year, you get a registered tenancy contract accepted by government authorities and banks."
         },
         {
             question: "Do you help with business setup?",

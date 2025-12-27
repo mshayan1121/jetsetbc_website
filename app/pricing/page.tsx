@@ -19,27 +19,27 @@ export default function PricingPage() {
             <PricingHero />
 
             {/* 2. PRIVATE OFFICES SECTION */}
-            <section className="py-20 bg-white">
+            <section className="py-16 sm:py-20 md:py-24 bg-white">
                 <div className="container-custom mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="font-display text-3xl md:text-4xl font-bold text-navy-900 mb-4">Private Offices</h2>
-                        <p className="font-body text-lg text-navy-700 max-w-2xl mx-auto">
+                    <div className="text-center mb-12 sm:mb-16">
+                        <h2 className="font-display text-3xl sm:text-4xl font-bold text-navy-900 mb-3 sm:mb-4">Private Offices</h2>
+                        <p className="font-body text-base sm:text-lg text-navy-700 max-w-2xl mx-auto px-4">
                             Fully furnished executive suites with stunning views and premium amenities.
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
                         {/* Card 1 - Inner Offices */}
                         <Card className="shadow-luxury-sm hover:shadow-luxury-lg hover:-translate-y-2 transition-all duration-400 h-full flex flex-col">
                             <CardHeader className="pb-4">
-                                <CardTitle className="text-2xl mb-2">Inner Offices</CardTitle>
-                                <CardDescription>Perfect for focus and privacy</CardDescription>
+                                <CardTitle className="text-xl sm:text-2xl mb-2">Inner Offices</CardTitle>
+                                <CardDescription className="text-sm sm:text-base">Perfect for focus and privacy</CardDescription>
                             </CardHeader>
                             <CardContent className="flex-grow">
-                                <div className="mb-6">
-                                    <span className="font-accent text-5xl font-bold text-gold-500">From AED 50,000</span>
-                                    <span className="font-body text-navy-700 ml-2">/year</span>
-                                    <p className="text-sm text-navy-500 mt-2">3 months minimum commitment</p>
+                                <div className="mb-4 sm:mb-6">
+                                    <span className="font-accent text-3xl sm:text-4xl md:text-5xl font-bold text-gold-500">From AED 50,000</span>
+                                    <span className="font-body text-navy-700 ml-2 text-sm sm:text-base">/year</span>
+                                    <p className="text-xs sm:text-sm text-navy-500 mt-2">3 months minimum commitment</p>
                                 </div>
 
                                 <ul className="space-y-4 mb-8">
@@ -65,17 +65,17 @@ export default function PricingPage() {
 
                         {/* Card 2 - Outer Offices */}
                         <Card className="shadow-luxury-sm hover:shadow-luxury-lg hover:-translate-y-2 transition-all duration-400 h-full flex flex-col relative overflow-visible">
-                            <div className="absolute top-0 right-0 p-6 z-10">
-                                <Badge variant="gold">Premium</Badge>
+                            <div className="absolute top-0 right-0 p-4 sm:p-6 z-10">
+                                <Badge variant="gold" className="text-xs sm:text-sm">Premium</Badge>
                             </div>
                             <CardHeader className="pb-4">
-                                <CardTitle className="text-2xl mb-2">Outer Offices</CardTitle>
-                                <CardDescription>Breathtaking Burj Khalifa views</CardDescription>
+                                <CardTitle className="text-xl sm:text-2xl mb-2">Outer Offices</CardTitle>
+                                <CardDescription className="text-sm sm:text-base">Breathtaking Burj Khalifa views</CardDescription>
                             </CardHeader>
                             <CardContent className="flex-grow">
-                                <div className="mb-6">
-                                    <span className="font-accent text-5xl font-bold text-gold-500">Custom Pricing</span>
-                                    <p className="text-sm text-navy-500 mt-2">Subject to availability</p>
+                                <div className="mb-4 sm:mb-6">
+                                    <span className="font-accent text-3xl sm:text-4xl md:text-5xl font-bold text-gold-500">Custom Pricing</span>
+                                    <p className="text-xs sm:text-sm text-navy-500 mt-2">Subject to availability</p>
                                 </div>
 
                                 <ul className="space-y-4 mb-8">
@@ -103,26 +103,26 @@ export default function PricingPage() {
             </section>
 
             {/* 3. COWORKING SECTION */}
-            <section className="py-20 bg-cream-50">
+            <section className="py-16 sm:py-20 md:py-24 bg-cream-50">
                 <div className="container-custom mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="font-display text-3xl md:text-4xl font-bold text-navy-900 mb-4">Coworking Access</h2>
-                        <p className="font-body text-lg text-navy-700 max-w-2xl mx-auto">
+                    <div className="text-center mb-12 sm:mb-16">
+                        <h2 className="font-display text-3xl sm:text-4xl font-bold text-navy-900 mb-3 sm:mb-4">Coworking Access</h2>
+                        <p className="font-body text-base sm:text-lg text-navy-700 max-w-2xl mx-auto px-4">
                             Flexible desk solutions in our premium open lounge area.
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
                         {/* Card 1 - Daily */}
                         <Card className="shadow-luxury-sm hover:shadow-luxury-lg hover:-translate-y-2 transition-all duration-400 flex flex-col">
                             <CardHeader>
-                                <CardTitle className="text-xl">Daily Pass</CardTitle>
-                                <CardDescription>Pay as you go flexibility</CardDescription>
+                                <CardTitle className="text-lg sm:text-xl">Daily Pass</CardTitle>
+                                <CardDescription className="text-sm sm:text-base">Pay as you go flexibility</CardDescription>
                             </CardHeader>
                             <CardContent className="flex-grow flex flex-col">
-                                <div className="mb-6">
-                                    <span className="font-accent text-4xl font-bold text-gold-500">AED 80</span>
-                                    <span className="font-body text-navy-700 ml-1">/day</span>
+                                <div className="mb-4 sm:mb-6">
+                                    <span className="font-accent text-3xl sm:text-4xl font-bold text-gold-500">AED 80</span>
+                                    <span className="font-body text-navy-700 ml-1 text-sm sm:text-base">/day</span>
                                 </div>
                                 <ul className="space-y-3 mb-8 flex-grow">
                                     <li className="flex items-start gap-3">
@@ -146,17 +146,17 @@ export default function PricingPage() {
 
                         {/* Card 2 - Monthly */}
                         <Card className="shadow-luxury-sm hover:shadow-luxury-lg hover:-translate-y-2 transition-all duration-400 flex flex-col relative overflow-visible border-gold-500/20">
-                            <div className="absolute -top-3 -right-3">
-                                <Badge variant="gold" className="shadow-md">Popular</Badge>
+                            <div className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3">
+                                <Badge variant="gold" className="shadow-md text-xs sm:text-sm">Popular</Badge>
                             </div>
                             <CardHeader>
-                                <CardTitle className="text-xl">Monthly</CardTitle>
-                                <CardDescription>Maximum flexibility</CardDescription>
+                                <CardTitle className="text-lg sm:text-xl">Monthly</CardTitle>
+                                <CardDescription className="text-sm sm:text-base">Maximum flexibility</CardDescription>
                             </CardHeader>
                             <CardContent className="flex-grow flex flex-col">
-                                <div className="mb-6">
-                                    <span className="font-accent text-4xl font-bold text-gold-500">AED 1,800</span>
-                                    <span className="font-body text-navy-700 ml-1">/month</span>
+                                <div className="mb-4 sm:mb-6">
+                                    <span className="font-accent text-3xl sm:text-4xl font-bold text-gold-500">AED 1,800</span>
+                                    <span className="font-body text-navy-700 ml-1 text-sm sm:text-base">/month</span>
                                 </div>
                                 <ul className="space-y-3 mb-8 flex-grow">
                                     <li className="flex items-start gap-3">
@@ -180,20 +180,20 @@ export default function PricingPage() {
 
                         {/* Card 3 - Annual */}
                         <Card className="shadow-luxury-sm hover:shadow-luxury-lg hover:-translate-y-2 transition-all duration-400 flex flex-col relative overflow-visible">
-                            <div className="absolute -top-3 -right-3">
-                                <Badge variant="teal" className="bg-teal-600 text-white border-none shadow-md">Best Value</Badge>
+                            <div className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3">
+                                <Badge variant="teal" className="bg-teal-600 text-white border-none shadow-md text-xs sm:text-sm">Best Value</Badge>
                             </div>
                             <CardHeader>
-                                <CardTitle className="text-xl">Annual</CardTitle>
-                                <CardDescription>Commit and save</CardDescription>
+                                <CardTitle className="text-lg sm:text-xl">Annual</CardTitle>
+                                <CardDescription className="text-sm sm:text-base">Commit and save</CardDescription>
                             </CardHeader>
                             <CardContent className="flex-grow flex flex-col">
                                 <div className="mb-2">
-                                    <Badge variant="outline" className="text-green-600 border-green-600/20 bg-green-50">Save 17%</Badge>
+                                    <Badge variant="outline" className="text-green-600 border-green-600/20 bg-green-50 text-xs sm:text-sm">Save 17%</Badge>
                                 </div>
-                                <div className="mb-6">
-                                    <span className="font-accent text-4xl font-bold text-gold-500">AED 18,000</span>
-                                    <span className="font-body text-navy-700 ml-1">/year</span>
+                                <div className="mb-4 sm:mb-6">
+                                    <span className="font-accent text-3xl sm:text-4xl font-bold text-gold-500">AED 18,000</span>
+                                    <span className="font-body text-navy-700 ml-1 text-sm sm:text-base">/year</span>
                                 </div>
                                 <ul className="space-y-3 mb-8 flex-grow">
                                     <li className="flex items-start gap-3">
@@ -219,33 +219,33 @@ export default function PricingPage() {
             </section>
 
             {/* 4. MEETING ROOMS SECTION */}
-            <section className="py-20 bg-white">
+            <section className="py-16 sm:py-20 md:py-24 bg-white">
                 <div className="container-custom mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="font-display text-3xl md:text-4xl font-bold text-navy-900 mb-4">Meeting Rooms</h2>
-                        <p className="font-body text-lg text-navy-700 max-w-2xl mx-auto">
+                    <div className="text-center mb-12 sm:mb-16">
+                        <h2 className="font-display text-3xl sm:text-4xl font-bold text-navy-900 mb-3 sm:mb-4">Meeting Rooms</h2>
+                        <p className="font-body text-base sm:text-lg text-navy-700 max-w-2xl mx-auto px-4">
                             Impress your clients in our state-of-the-art meeting spaces.
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
                         <MeetingCard
-                            title="Majilis VIP"
+                            title="Majilis"
                             capacity="9-10 People"
                             icon={<Users className="w-6 h-6 text-gold-500" />}
-                            description="Luxury traditional setting for high-level closings."
+                            description="VIP/Executive style room for high-stakes meetings and corporate presentations."
                         />
                         <MeetingCard
-                            title="Boardroom"
+                            title="Conference Room"
                             capacity="8 People"
                             icon={<Briefcase className="w-6 h-6 text-gold-500" />}
-                            description="Tech-enabled conference room for presentations."
+                            description="Boardroom-style setting for important business meetings."
                         />
                         <MeetingCard
                             title="Standard Room"
                             capacity="6 People"
                             icon={<Users className="w-6 h-6 text-gold-500" />}
-                            description="Collaborative space for team sessions."
+                            description="Perfect for team meetings and small group collaborations."
                         />
                     </div>
                     <div className="mt-8 text-center">
@@ -257,16 +257,16 @@ export default function PricingPage() {
             </section>
 
             {/* 5. BUSINESS SETUP SECTION */}
-            <section className="py-20 bg-cream-50">
+            <section className="py-16 sm:py-20 md:py-24 bg-cream-50">
                 <div className="container-custom mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="font-display text-3xl md:text-4xl font-bold text-navy-900 mb-4">Business Setup Services</h2>
-                        <p className="font-body text-lg text-navy-700 max-w-2xl mx-auto">
+                    <div className="text-center mb-12 sm:mb-16">
+                        <h2 className="font-display text-3xl sm:text-4xl font-bold text-navy-900 mb-3 sm:mb-4">Business Setup Services</h2>
+                        <p className="font-body text-base sm:text-lg text-navy-700 max-w-2xl mx-auto px-4">
                             Everything you need to establish your presence in Dubai.
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
                         <Card className="shadow-luxury-sm hover:shadow-luxury-lg transition-all duration-400">
                             <CardHeader>
                                 <CardTitle className="text-2xl flex items-center gap-2">
@@ -279,9 +279,23 @@ export default function PricingPage() {
                                     <span className="font-accent text-3xl font-bold text-navy-900">AED 8,500</span>
                                     <span className="text-navy-600">/year</span>
                                 </div>
-                                <p className="font-body text-navy-700 mb-6">
-                                    Get your official Ejari contract without renting a physical office. Includes approvals and documentation.
+                                <p className="font-body text-navy-700 mb-4">
+                                    Registered tenancy contract accepted by government authorities and banks.
                                 </p>
+                                <ul className="font-body text-sm text-navy-600 mb-6 space-y-2">
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-gold-500 mt-1">•</span>
+                                        <span>Unlimited inspections</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-gold-500 mt-1">•</span>
+                                        <span>Same-day processing</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-gold-500 mt-1">•</span>
+                                        <span>Government & bank compliant</span>
+                                    </li>
+                                </ul>
                                 <Button variant="outline" className="w-full" asChild>
                                     <a href="/contact?service=ejari">Inquire Now</a>
                                 </Button>
@@ -299,9 +313,23 @@ export default function PricingPage() {
                                 <div className="mb-4">
                                     <span className="font-accent text-3xl font-bold text-navy-900">Custom Pricing</span>
                                 </div>
-                                <p className="font-body text-navy-700 mb-6">
-                                    End-to-end assistance with licensing, visas, and banking. Let us handle the bureaucracy.
+                                <p className="font-body text-navy-700 mb-4">
+                                    Step-by-step guidance: Activity selection → Trade Name → Initial Approval → License Issuance.
                                 </p>
+                                <ul className="font-body text-sm text-navy-600 mb-6 space-y-2">
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-gold-500 mt-1">•</span>
+                                        <span>Mainland (100% foreign ownership where applicable) & Free Zone licenses</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-gold-500 mt-1">•</span>
+                                        <span>Visa processing (Investor/Staff)</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-gold-500 mt-1">•</span>
+                                        <span>Corporate Bank Account opening support</span>
+                                    </li>
+                                </ul>
                                 <Button variant="primary" className="w-full" asChild>
                                     <a href="/contact?service=formation">Get a Quote</a>
                                 </Button>
@@ -312,10 +340,10 @@ export default function PricingPage() {
             </section>
 
             {/* 6. FAQ SECTION */}
-            <section className="py-20 bg-white">
+            <section className="py-16 sm:py-20 md:py-24 bg-white">
                 <div className="container-custom mx-auto max-w-3xl">
-                    <div className="text-center mb-12">
-                        <h2 className="font-display text-3xl md:text-4xl font-bold text-navy-900 mb-4">Frequently Asked Questions</h2>
+                    <div className="text-center mb-10 sm:mb-12">
+                        <h2 className="font-display text-3xl sm:text-4xl font-bold text-navy-900 mb-3 sm:mb-4">Frequently Asked Questions</h2>
                     </div>
 
                     <div className="space-y-4">

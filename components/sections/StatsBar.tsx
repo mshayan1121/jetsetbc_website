@@ -47,7 +47,7 @@ const StatItem = ({ icon: Icon, value, suffix, label, index }: StatItemProps) =>
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: index * 0.15, ease: [0.21, 0.47, 0.32, 0.98] }}
             className={cn(
-                "flex flex-col items-center justify-center p-8 text-center",
+                "flex flex-col items-center justify-center p-4 sm:p-6 md:p-8 text-center",
                 // Vertical dividers:
                 // On mobile, odd items (0, 2) get a right border
                 index % 2 === 0 ? "border-r border-gold-500/20" : "",
@@ -72,11 +72,11 @@ const StatItem = ({ icon: Icon, value, suffix, label, index }: StatItemProps) =>
                 <Icon size={28} strokeWidth={1.5} />
             </motion.div>
 
-            <div className="mb-2 font-accent text-[48px] font-bold leading-none tracking-tight text-gold-500 md:text-[56px]">
+            <div className="mb-2 font-accent text-4xl sm:text-5xl md:text-[48px] lg:text-[56px] font-bold leading-none tracking-tight text-gold-500">
                 <CountUp value={value} suffix={suffix} />
             </div>
 
-            <div className="font-body text-[14px] font-semibold tracking-[0.2em] text-navy-900 uppercase">
+            <div className="font-body text-xs sm:text-sm md:text-[14px] font-semibold tracking-[0.2em] text-navy-900 uppercase">
                 {label}
             </div>
         </motion.div>
@@ -112,9 +112,9 @@ export const StatsBar = () => {
     ];
 
     return (
-        <section className="w-full bg-cream-50 py-16 lg:py-24">
+        <section className="w-full bg-cream-50 py-12 sm:py-16 md:py-20 lg:py-24">
             <div className="container-custom">
-                <div className="grid grid-cols-2 md:grid-cols-4">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
                     {stats.map((stat, index) => (
                         <StatItem
                             key={index}

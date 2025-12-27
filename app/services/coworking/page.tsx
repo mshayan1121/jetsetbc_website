@@ -56,43 +56,47 @@ const CoworkingPage = () => {
 
     const pricingPlans = [
         {
-            name: "Day Pass",
-            price: "AED 150",
+            name: "Daily Pass",
+            price: "AED 80",
             period: "/day",
-            description: "Flexible access for digital nomads and travelers visiting Dubai.",
+            description: "Pay-as-you-go flexibility for visiting professionals.",
             features: [
                 "Hot desk access",
                 "High-speed WiFi",
-                "Unlimited refreshments",
-                "9 AM - 6 PM access",
-                "Communal lockers"
+                "Complimentary beverages",
+                "Access from 9AM - 6PM",
+                "Community events access"
             ]
         },
         {
-            name: "Hot Desk",
+            name: "Monthly Membership",
             price: "AED 1,800",
             period: "/month",
-            description: "The ideal balance of flexibility and community for solo professionals.",
+            description: "Perfect balance of flexibility and value for regular professionals.",
             features: [
-                "Any desk in common area",
-                "24/7 building access",
-                "Business address",
-                "AED 200 print credit",
-                "2 hours meeting room/mo"
+                "Hot Desks available",
+                "24/7 access",
+                "High-speed Wi-Fi",
+                "Complimentary beverages",
+                "2 hours meeting room access/day",
+                "Community events",
+                "Printing included"
             ],
             isPopular: true
         },
         {
-            name: "Dedicated Desk",
-            price: "AED 2,500",
-            period: "/month",
-            description: "Your own permanent spot with added privacy and security.",
+            name: "Annual Membership",
+            price: "AED 18,000",
+            period: "/year",
+            description: "Best value with maximum savings for committed professionals.",
             features: [
-                "Fixed desk with locker",
-                "Ergonomic chair",
-                "Professional mail handling",
-                "AED 500 print credit",
-                "5 hours meeting room/mo"
+                "All Monthly benefits",
+                "Save 17% vs monthly",
+                "Priority meeting bookings",
+                "Dedicated Desks available",
+                "Private Cabins available",
+                "Business address included",
+                "Priority support"
             ]
         }
     ];
@@ -173,8 +177,8 @@ const CoworkingPage = () => {
 
             <PricingTable
                 plans={pricingPlans}
-                title="Membership Options"
-                subtitle="Choose the level of access that matches your lifestyle and business needs."
+                title="Coworking Membership Options"
+                subtitle="Flexible pricing to match your needs. All plans include access to hot desks, dedicated desks, and private cabins (subject to availability)."
             />
 
             {/* Comparison Table (Visual Representation) */}
@@ -190,24 +194,24 @@ const CoworkingPage = () => {
                             <thead>
                                 <tr className="border-b border-navy-100 italic">
                                     <th className="py-6 font-display text-navy-900">Features</th>
-                                    <th className="py-6 font-display text-navy-900 text-center">Day Pass</th>
-                                    <th className="py-6 font-display text-navy-900 text-center text-gold-500">Hot Desk</th>
-                                    <th className="py-6 font-display text-navy-900 text-center">Dedicated Desk</th>
+                                    <th className="py-6 font-display text-navy-900 text-center">Daily</th>
+                                    <th className="py-6 font-display text-navy-900 text-center text-gold-500">Monthly</th>
+                                    <th className="py-6 font-display text-navy-900 text-center">Annual</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {[
-                                    { feature: "Access Hours", day: "9 AM - 6 PM", hot: "24/7", ded: "24/7" },
-                                    { feature: "Business Address", day: "No", hot: "Yes", ded: "Yes" },
-                                    { feature: "Meeting Room Credits", day: "None", hot: "2 hrs/mo", ded: "5 hrs/mo" },
-                                    { feature: "Mail Handling", day: "No", hot: "No", ded: "Yes" },
-                                    { feature: "Lockers", day: "Communal", hot: "Available", ded: "Included" }
+                                    { feature: "Access Hours", daily: "9 AM - 6 PM", monthly: "24/7", annual: "24/7" },
+                                    { feature: "Desk Options", daily: "Hot Desks", monthly: "Hot, Dedicated, Private", annual: "Hot, Dedicated, Private" },
+                                    { feature: "Meeting Room Access", daily: "None", monthly: "2 hrs/day", annual: "2 hrs/day" },
+                                    { feature: "Business Address", daily: "No", monthly: "Available", annual: "Included" },
+                                    { feature: "Complimentary Beverages", daily: "Yes", monthly: "Yes", annual: "Yes" }
                                 ].map((row, idx) => (
                                     <tr key={idx} className="border-b border-navy-50">
                                         <td className="py-6 font-medium text-navy-700">{row.feature}</td>
-                                        <td className="py-6 text-center text-navy-500">{row.day}</td>
-                                        <td className="py-6 text-center text-navy-800 bg-gold-50/30">{row.hot}</td>
-                                        <td className="py-6 text-center text-navy-500">{row.ded}</td>
+                                        <td className="py-6 text-center text-navy-500">{row.daily}</td>
+                                        <td className="py-6 text-center text-navy-800 bg-gold-50/30">{row.monthly}</td>
+                                        <td className="py-6 text-center text-navy-500">{row.annual}</td>
                                     </tr>
                                 ))}
                             </tbody>

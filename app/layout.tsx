@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     template: "%s | Jetset Business Center",
   },
   description:
-    "Award-winning business center in Dubai offering premium private offices, coworking spaces, and meeting rooms with Burj Khalifa views.",
+    "Award-Winning Coworking And Private Offices in Dubai. Premium workspace solutions with Burj Khalifa views in Business Bay.",
   keywords: [
     "Business Center Dubai",
     "Private Office Dubai",

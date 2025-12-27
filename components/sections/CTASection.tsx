@@ -140,7 +140,7 @@ const CTASection = () => {
                         <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 transition-colors group-hover:bg-white/10">
                             <MessageCircle className="h-5 w-5 text-gold-500" />
                         </div>
-                        <span>WhatsApp: +971 585 779 312</span>
+                        <span>WhatsApp: +971 58 577 9312</span>
                     </a>
 
                     <a

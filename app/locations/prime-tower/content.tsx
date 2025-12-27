@@ -124,7 +124,7 @@ export default function PrimeTowerContent() {
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.4 }}
-                            className="text-white text-6xl md:text-7xl lg:text-[80px] leading-[1.1] mb-6 font-display"
+                            className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[80px] leading-[1.1] mb-4 sm:mb-6 font-display px-4"
                         >
                             Prime Tower <br /> <span className="text-gold-500">Business Bay</span>
                         </motion.h1>
@@ -133,12 +133,12 @@ export default function PrimeTowerContent() {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.8, delay: 0.8 }}
-                            className="flex flex-wrap items-center gap-8 md:gap-12 mb-12"
+                            className="flex flex-wrap items-center gap-4 sm:gap-6 md:gap-8 lg:gap-12 mb-8 sm:mb-12 px-4"
                         >
                             {primeTowerStats.map((stat, idx) => (
-                                <div key={idx} className="flex items-center gap-3">
+                                <div key={idx} className="flex items-center gap-2 sm:gap-3">
                                     <span className="text-gold-500">{stat.icon}</span>
-                                    <span className="text-white font-accent font-medium tracking-wider text-sm md:text-base uppercase">
+                                    <span className="text-white font-accent font-medium tracking-wider text-xs sm:text-sm md:text-base uppercase">
                                         {stat.label}
                                     </span>
                                 </div>
@@ -165,9 +165,9 @@ export default function PrimeTowerContent() {
             </section>
 
             {/* 2. LOCATION OVERVIEW */}
-            <section ref={overviewRef} className="relative w-full overflow-hidden bg-white py-24">
+            <section ref={overviewRef} className="relative w-full overflow-hidden bg-white py-16 sm:py-20 md:py-24">
                 <div className="container-custom">
-                    <div className="flex flex-col lg:flex-row gap-16 items-center">
+                    <div className="flex flex-col lg:flex-row gap-8 sm:gap-12 lg:gap-16 items-center">
                         {/* Left: Image Gallery */}
                         <div className="w-full lg:w-1/2 relative">
                             <motion.div
@@ -192,7 +192,7 @@ export default function PrimeTowerContent() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={isOverviewInView ? { opacity: 1, y: 0 } : {}}
                                 transition={{ duration: 0.6 }}
-                                className="text-4xl md:text-5xl font-display text-navy-900 mb-6"
+                                className="text-3xl sm:text-4xl md:text-5xl font-display text-navy-900 mb-4 sm:mb-6"
                             >
                                 Level 20, <br /><span className="text-gold-500">Prime Tower.</span>
                             </motion.h2>
@@ -200,7 +200,7 @@ export default function PrimeTowerContent() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={isOverviewInView ? { opacity: 1, y: 0 } : {}}
                                 transition={{ duration: 0.6, delay: 0.1 }}
-                                className="text-lg text-navy-700 font-body mb-8 leading-relaxed"
+                                className="text-base sm:text-lg text-navy-700 font-body mb-6 sm:mb-8 leading-relaxed"
                             >
                                 Situated in the heart of Business Bay, our headquarters offers an unparalleled business environment. With direct access to Sheikh Zayed Road and panoramic views of the Dubai Canal and Burj Khalifa, accessibility meets prestige.
                             </motion.p>
@@ -232,14 +232,14 @@ export default function PrimeTowerContent() {
             </section>
 
             {/* 3. AMENITIES GRID */}
-            <section ref={amenitiesRef} className="py-24 bg-cream-50">
+            <section ref={amenitiesRef} className="py-16 sm:py-20 md:py-24 bg-cream-50">
                 <div className="container-custom">
-                    <div className="text-center mb-16">
-                        <h2 className="text-4xl md:text-5xl font-display text-navy-900 mb-4">World-Class Amenities</h2>
-                        <p className="text-navy-600 max-w-2xl mx-auto text-lg font-body">Everything you need to work efficiently and comfortably.</p>
+                    <div className="text-center mb-12 sm:mb-16">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-navy-900 mb-3 sm:mb-4 px-4">World-Class Amenities</h2>
+                        <p className="text-navy-600 max-w-2xl mx-auto text-base sm:text-lg font-body px-4">Everything you need to work efficiently and comfortably.</p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
                         {amenities.map((item, idx) => (
                             <Card key={idx} hoverEffect className="border-none shadow-sm bg-white h-full">
                                 <CardContent className="flex flex-col items-center text-center p-8 h-full">
@@ -256,14 +256,14 @@ export default function PrimeTowerContent() {
             </section>
 
             {/* 4. AVAILABLE SPACES */}
-            <section className="py-24 bg-white">
+            <section className="py-16 sm:py-20 md:py-24 bg-white">
                 <div className="container-custom">
-                    <div className="text-center mb-16">
-                        <h2 className="text-4xl md:text-5xl font-display text-navy-900 mb-4">Available Spaces</h2>
-                        <p className="text-navy-600 max-w-2xl mx-auto text-lg font-body">Choose the perfect workspace solution for your business.</p>
+                    <div className="text-center mb-12 sm:mb-16">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-navy-900 mb-3 sm:mb-4 px-4">Available Spaces</h2>
+                        <p className="text-navy-600 max-w-2xl mx-auto text-base sm:text-lg font-body px-4">Choose the perfect workspace solution for your business.</p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
                         {availableSpaces.map((space, idx) => (
                             <Card key={idx} className="group overflow-hidden border-none shadow-lg hover:shadow-xl transition-all duration-300 p-0 bg-white">
                                 <div className="relative h-64 overflow-hidden">

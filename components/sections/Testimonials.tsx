@@ -60,10 +60,10 @@ const GoogleIcon = () => (
 
 const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
     return (
-        <div className="h-full px-4 flex-shrink-0 w-full md:w-1/3">
+        <div className="h-full px-2 sm:px-4 flex-shrink-0 w-full md:w-1/3">
             <motion.div
                 whileHover={{ y: -10 }}
-                className="h-full flex flex-col items-start p-8 rounded-2xl bg-cream-50 border border-cream-100 shadow-navy-sm transition-all duration-300 relative"
+                className="h-full flex flex-col items-start p-6 sm:p-8 rounded-2xl bg-cream-50 border border-cream-100 shadow-navy-sm transition-all duration-300 relative"
             >
                 <div className="relative mb-6">
                     <Quote className="w-10 h-10 text-gold-500 opacity-10 absolute -top-2 -left-2 transform -scale-x-100" />
@@ -163,27 +163,27 @@ export default function Testimonials({ testimonialsData = defaultTestimonials }:
                     onMouseLeave={() => setIsPaused(false)}
                 >
                     {/* Navigation Arrows */}
-                    <div className="absolute -left-4 md:-left-12 top-1/2 -translate-y-1/2 z-20">
+                    <div className="absolute left-2 sm:left-4 md:-left-12 top-1/2 -translate-y-1/2 z-20">
                         <button
                             onClick={prevSlide}
-                            className="w-12 h-12 rounded-full border border-gold-500/30 flex items-center justify-center bg-white text-gold-500 hover:bg-gold-500 hover:text-white transition-all duration-300 shadow-luxury-sm focus:outline-none"
+                            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-gold-500/30 flex items-center justify-center bg-white text-gold-500 hover:bg-gold-500 hover:text-white transition-all duration-300 shadow-luxury-sm focus:outline-none"
                             aria-label="Previous testimonial"
                         >
-                            <ChevronLeft className="w-6 h-6" />
+                            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
                         </button>
                     </div>
-                    <div className="absolute -right-4 md:-right-12 top-1/2 -translate-y-1/2 z-20">
+                    <div className="absolute right-2 sm:right-4 md:-right-12 top-1/2 -translate-y-1/2 z-20">
                         <button
                             onClick={nextSlide}
-                            className="w-12 h-12 rounded-full border border-gold-500/30 flex items-center justify-center bg-white text-gold-500 hover:bg-gold-500 hover:text-white transition-all duration-300 shadow-luxury-sm focus:outline-none"
+                            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-gold-500/30 flex items-center justify-center bg-white text-gold-500 hover:bg-gold-500 hover:text-white transition-all duration-300 shadow-luxury-sm focus:outline-none"
                             aria-label="Next testimonial"
                         >
-                            <ChevronRight className="w-6 h-6" />
+                            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
                         </button>
                     </div>
 
                     {/* Carousel Track */}
-                    <div className="overflow-hidden py-4 -mx-4">
+                    <div className="overflow-hidden py-4 px-2 sm:px-4">
                         <motion.div
                             animate={{
                                 x: `-${currentIndex * (isMobile ? 100 : 33.333)}%`,

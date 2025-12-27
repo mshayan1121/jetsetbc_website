@@ -19,7 +19,6 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Button } from "@/components/ui/Button";
 
 const PrivateOfficesPage = () => {
     const features = [
@@ -57,44 +56,23 @@ const PrivateOfficesPage = () => {
 
     const pricingPlans = [
         {
-            name: "Standard Office",
-            price: "AED 5,000",
-            period: "/month",
-            description: "Perfect for startups and small teams looking for a professional base.",
+            name: "Private Offices",
+            price: "From AED 50,000",
+            period: "/year",
+            description: "Fully furnished, move-in-ready suites for privacy and prestige. Starting price for Inner Offices.",
             features: [
-                "Accommodates 1-2 people",
-                "Fully furnished",
+                "Starts at AED 50,000 per annum",
+                "Minimum 3 months lease",
+                "Inner & Outer office configurations",
+                "Floor-to-ceiling windows (Outer)",
+                "Burj Khalifa views (Outer)",
                 "Utilities included",
-                "Mail handling",
-                "5 hours meeting room/mo"
-            ]
-        },
-        {
-            name: "Executive Suite",
-            price: "AED 9,500",
-            period: "/month",
-            description: "Spacious offices with premium views for growing businesses.",
-            features: [
-                "Accommodates 3-5 people",
-                "Herman Miller furniture",
-                "Burj Khalifa views",
-                "Dedicated phone line",
-                "15 hours meeting room/mo"
+                "24/7 access",
+                "Front desk support",
+                "Cleaning services",
+                "High-end custom furniture"
             ],
             isPopular: true
-        },
-        {
-            name: "Corporate Floor",
-            price: "Custom",
-            period: "",
-            description: "Entire wings or floors tailored to your enterprise requirements.",
-            features: [
-                "10+ people capacity",
-                "Custom layout options",
-                "Private server room",
-                "Dedicated account manager",
-                "Unlimited meeting room use"
-            ]
         }
     ];
 
@@ -171,44 +149,10 @@ const PrivateOfficesPage = () => {
                 </div>
             </section>
 
-            {/* Virtual Tour Section Placeholder */}
-            <section className="py-24 bg-white">
-                <div className="container-custom">
-                    <div className="bg-navy-50 rounded-[40px] overflow-hidden flex flex-col lg:flex-row">
-                        <div className="lg:w-1/2 p-12 lg:p-24 flex flex-col justify-center">
-                            <h2 className="text-3xl md:text-5xl font-display text-navy-900 mb-6">Experience It Virtually</h2>
-                            <p className="text-navy-600 mb-10 leading-relaxed text-lg">
-                                Take a 360° tour of our premium suites and common areas from the comfort of your office. See why Jetset is the preferred choice for Dubai's top enterprises.
-                            </p>
-                            <Button variant="outline" size="lg" className="w-fit">
-                                Start Virtual Tour
-                            </Button>
-                        </div>
-                        <div className="lg:w-1/2 relative min-h-[400px]">
-                            <Image
-                                src="/images/hero-bg.png"
-                                alt="Virtual Tour Preview"
-                                fill
-                                className="object-cover"
-                            />
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <motion.div
-                                    animate={{ scale: [1, 1.1, 1] }}
-                                    transition={{ duration: 2, repeat: Infinity }}
-                                    className="w-20 h-20 bg-gold-500 rounded-full flex items-center justify-center cursor-pointer shadow-2xl"
-                                >
-                                    <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[18px] border-l-white border-b-[10px] border-b-transparent ml-1" />
-                                </motion.div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             <PricingTable
                 plans={pricingPlans}
-                title="Flexible Office Solutions"
-                subtitle="All-inclusive pricing with no hidden costs. Scale your business as you grow."
+                title="Private Office Pricing"
+                subtitle="All-inclusive pricing with no hidden costs. Starting price for Inner Offices. Outer Offices with Burj Khalifa views available at custom pricing."
             />
 
             <CTASection />

@@ -29,17 +29,17 @@ type ContactFormValues = z.infer<typeof contactSchema>;
 // --- Components ---
 
 const ContactCard = ({ icon: Icon, title, value, link, label }: { icon: any, title: string, value: string, link?: string, label: string }) => (
-    <div className="bg-white rounded-xl p-8 shadow-luxury-lg hover:shadow-luxury-xl transition-all duration-400 hover:-translate-y-2 text-center group">
-        <div className="w-16 h-16 bg-gold-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
-            <Icon className="w-8 h-8 text-gold-500" />
+    <div className="bg-white rounded-xl p-6 sm:p-8 shadow-luxury-lg hover:shadow-luxury-xl transition-all duration-400 hover:-translate-y-2 text-center group">
+        <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gold-500/10 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+            <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-gold-500" />
         </div>
-        <h3 className="font-display text-xl text-navy-900 mb-2">{title}</h3>
+        <h3 className="font-display text-lg sm:text-xl text-navy-900 mb-2">{title}</h3>
         {link ? (
-            <a href={link} className="font-body text-navy-700 hover:text-gold-500 transition-colors">
+            <a href={link} className="font-body text-sm sm:text-base text-navy-700 hover:text-gold-500 transition-colors break-words">
                 {value}
             </a>
         ) : (
-            <p className="font-body text-navy-700">{value}</p>
+            <p className="font-body text-sm sm:text-base text-navy-700 break-words">{value}</p>
         )}
     </div>
 );
@@ -101,7 +101,7 @@ export default function ContactPageClient() {
     return (
         <main className="flex flex-col w-full bg-white">
             {/* 1. HERO SECTION - Taller, matching homepage */}
-            <section className="relative bg-gradient-to-br from-navy-900 via-navy-800 to-navy-900 min-h-[80vh] flex items-center justify-center overflow-visible py-32 md:py-40">
+            <section className="relative bg-gradient-to-br from-navy-900 via-navy-800 to-navy-900 min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] flex items-center justify-center overflow-visible py-20 sm:py-28 md:py-32 lg:py-40">
                 {/* Background Gradients */}
                 <div className="absolute inset-0 bg-gradient-to-r from-navy-900 via-navy-900/80 to-transparent z-10" />
                 <div className="absolute inset-0 bg-gradient-to-b from-navy-900/40 via-transparent to-navy-900/60 z-10" />
@@ -113,15 +113,15 @@ export default function ContactPageClient() {
                         transition={{ duration: 0.8 }}
                         className="max-w-3xl mx-auto"
                     >
-                        <div className="flex items-center justify-center gap-2 mb-6">
-                            <span className="h-px w-12 bg-gold-500"></span>
-                            <span className="text-gold-500 font-accent uppercase tracking-widest text-sm">Contact Us</span>
-                            <span className="h-px w-12 bg-gold-500"></span>
+                        <div className="flex items-center justify-center gap-2 mb-4 sm:mb-6">
+                            <span className="h-px w-8 sm:w-12 bg-gold-500"></span>
+                            <span className="text-gold-500 font-accent uppercase tracking-widest text-xs sm:text-sm">Contact Us</span>
+                            <span className="h-px w-8 sm:w-12 bg-gold-500"></span>
                         </div>
-                        <h1 className="font-display text-5xl md:text-6xl text-white mb-6">
+                        <h1 className="font-display text-4xl sm:text-5xl md:text-6xl text-white mb-4 sm:mb-6 px-4">
                             Let's Start a Conversation
                         </h1>
-                        <p className="font-body text-xl text-cream-50 max-w-2xl mx-auto">
+                        <p className="font-body text-lg sm:text-xl text-cream-50 max-w-2xl mx-auto px-4">
                             Whether you're looking for a private office, coworking space, or virtual solution, our team is here to help you find the perfect fit.
                         </p>
                     </motion.div>
@@ -129,19 +129,19 @@ export default function ContactPageClient() {
             </section>
 
             {/* 2. QUICK CONTACT CARDS - Overlapping Hero with proper spacing */}
-            <section className="relative -mt-20 z-20 pb-16">
+            <section className="relative -mt-16 sm:-mt-20 z-20 pb-12 sm:pb-16">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+                        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
                     >
                         <ContactCard
                             icon={Phone}
                             title="Phone"
-                            value="+971 585 779 312"
+                            value="+971 58 577 9312"
                             label="Call us"
                             link="tel:+971585779312"
                         />
@@ -155,7 +155,7 @@ export default function ContactPageClient() {
                         <ContactCard
                             icon={CheckCircle2}
                             title="WhatsApp"
-                            value="+971 585 779 312"
+                            value="+971 58 577 9312"
                             label="Chat with us"
                             link="https://wa.me/971585779312"
                         />
@@ -171,9 +171,9 @@ export default function ContactPageClient() {
             </section>
 
             {/* 3. CONTACT FORM SECTION - White Background with homepage spacing */}
-            <section className="bg-white py-24 md:py-32">
+            <section className="bg-white py-16 sm:py-20 md:py-24 lg:py-32">
                 <div className="container-custom mx-auto">
-                    <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-16 items-start">
+                    <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-8 md:gap-12 lg:gap-16 items-start">
 
                         {/* Left: Form */}
                         <motion.div
@@ -182,9 +182,9 @@ export default function ContactPageClient() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
                         >
-                            <div className="mb-10">
-                                <h2 className="text-4xl font-display font-bold text-navy-900 mb-4">Send us a Message</h2>
-                                <p className="text-navy-700/80 font-body text-lg">
+                            <div className="mb-6 sm:mb-8 md:mb-10">
+                                <h2 className="text-3xl sm:text-4xl font-display font-bold text-navy-900 mb-3 sm:mb-4">Send us a Message</h2>
+                                <p className="text-navy-700/80 font-body text-base sm:text-lg">
                                     Fill out the form below and our team will get back to you within 24 hours.
                                 </p>
                             </div>
@@ -205,8 +205,8 @@ export default function ContactPageClient() {
                                     </Button>
                                 </motion.div>
                             ) : (
-                                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                                         <div className="space-y-2">
                                             <label className="text-sm font-medium text-navy-900">Full Name <span className="text-red-500">*</span></label>
                                             <Input
@@ -227,7 +227,7 @@ export default function ContactPageClient() {
                                         </div>
                                     </div>
 
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                                         <div className="space-y-2">
                                             <label className="text-sm font-medium text-navy-900">Phone Number <span className="text-red-500">*</span></label>
                                             <Input
@@ -304,8 +304,8 @@ export default function ContactPageClient() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.2 }}
                         >
-                            <div className="bg-cream-50 rounded-2xl p-8 border border-cream-200 sticky top-24">
-                                <h3 className="font-display text-2xl font-semibold text-navy-900 mb-8">Contact Information</h3>
+                            <div className="bg-cream-50 rounded-2xl p-6 sm:p-8 border border-cream-200 lg:sticky lg:top-24">
+                                <h3 className="font-display text-xl sm:text-2xl font-semibold text-navy-900 mb-6 sm:mb-8">Contact Information</h3>
 
                                 <div className="space-y-8">
                                     <div className="flex gap-4">
@@ -355,7 +355,7 @@ export default function ContactPageClient() {
                                         <div>
                                             <h4 className="font-bold text-navy-900 mb-1">Contact</h4>
                                             <div className="text-navy-700 font-body text-sm space-y-1 flex flex-col">
-                                                <a href="tel:+971585779312" className="hover:text-gold-500 transition-colors">+971 585 779 312</a>
+                                                <a href="tel:+971585779312" className="hover:text-gold-500 transition-colors">+971 58 577 9312</a>
                                                 <a href="mailto:contact@jetsetbc.com" className="hover:text-gold-500 transition-colors">contact@jetsetbc.com</a>
                                             </div>
                                         </div>
@@ -377,8 +377,8 @@ export default function ContactPageClient() {
             </section>
 
             {/* 5. MAP SECTION - Full-width like homepage sections */}
-            <section className="py-16 md:py-24 bg-white">
-                <div className="w-full h-[400px] md:h-[500px] relative grayscale hover:grayscale-0 transition-all duration-500">
+            <section className="py-12 sm:py-16 md:py-24 bg-white">
+                <div className="w-full h-[300px] sm:h-[400px] md:h-[500px] relative grayscale hover:grayscale-0 transition-all duration-500">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14441.934976462304!2d55.2416935871582!3d25.18690400000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f697de05c6e1f%3A0x9f530a5a77a5f1d2!2sJetset%20Business%20Center%20-%20Prime%20Tower!5e0!3m2!1sen!2sae!4v1766833326629!5m2!1sen!2sae"
                         width="100%"
