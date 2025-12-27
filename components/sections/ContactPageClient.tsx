@@ -2,29 +2,11 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
-import { Phone, Mail, MapPin, Clock, ArrowRight, Check, ChevronDown, CheckCircle2 } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, ArrowRight, CheckCircle2, ChevronDown } from "lucide-react";
 
 import { Button } from "@/components/ui/Button";
-import { Input } from "@/components/ui/Input";
-import { Textarea } from "@/components/ui/Textarea";
-import { Checkbox } from "@/components/ui/Checkbox";
 import CTASection from "@/components/sections/CTASection";
-
-// --- Form Validation ---
-const contactSchema = z.object({
-    name: z.string().min(2, 'Name required'),
-    email: z.string().email('Valid email required'),
-    phone: z.string().min(10, 'Valid phone required'),
-    company: z.string().optional(),
-    interest: z.string().min(1, 'Please select an interest'),
-    message: z.string().min(10, 'Message required'),
-    updates: z.boolean()
-});
-
-type ContactFormValues = z.infer<typeof contactSchema>;
+import JetsetForm from "@/components/sections/JetsetForm";
 
 // --- Components ---
 
@@ -80,23 +62,6 @@ const FAQItem = ({ question, answer }: { question: string, answer: string }) => 
 };
 
 export default function ContactPageClient() {
-    const { register, handleSubmit, formState: { errors, isSubmitting }, reset } = useForm<ContactFormValues>({
-        resolver: zodResolver(contactSchema),
-        defaultValues: {
-            updates: false,
-        }
-    });
-
-    const [isSuccess, setIsSuccess] = useState(false);
-
-    const onSubmit = async (data: ContactFormValues) => {
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        console.log(data);
-        setIsSuccess(true);
-        reset();
-        setTimeout(() => setIsSuccess(false), 5000);
-    };
 
     return (
         <main className="flex flex-col w-full bg-white">
@@ -173,197 +138,85 @@ export default function ContactPageClient() {
             {/* 3. CONTACT FORM SECTION - White Background with homepage spacing */}
             <section className="bg-white py-16 sm:py-20 md:py-24 lg:py-32">
                 <div className="container-custom mx-auto">
-                    <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-8 md:gap-12 lg:gap-16 items-start">
-
-                        {/* Left: Form */}
+                    <div className="w-full max-w-5xl mx-auto">
                         <motion.div
-                            initial={{ opacity: 0, x: -30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
+                            className="flex flex-col items-center justify-center"
                         >
-                            <div className="mb-6 sm:mb-8 md:mb-10">
+                            <div className="mb-6 sm:mb-8 md:mb-10 text-center w-full">
                                 <h2 className="text-3xl sm:text-4xl font-display font-bold text-navy-900 mb-3 sm:mb-4">Send us a Message</h2>
-                                <p className="text-navy-700/80 font-body text-base sm:text-lg">
+                                <p className="text-navy-700/80 font-body text-base sm:text-lg max-w-2xl mx-auto">
                                     Fill out the form below and our team will get back to you within 24 hours.
                                 </p>
                             </div>
 
-                            {isSuccess ? (
-                                <motion.div
-                                    initial={{ opacity: 0, scale: 0.95 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    className="bg-green-50 border border-green-200 rounded-xl p-8 text-center"
-                                >
-                                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 text-green-600">
-                                        <Check className="w-8 h-8" />
-                                    </div>
-                                    <h3 className="text-2xl font-display font-bold text-navy-900 mb-2">Message Sent!</h3>
-                                    <p className="text-navy-700">Thank you for contacting us. We will be in touch shortly.</p>
-                                    <Button variant="outline" className="mt-6" onClick={() => setIsSuccess(false)}>
-                                        Send Another Message
-                                    </Button>
-                                </motion.div>
-                            ) : (
-                                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                                        <div className="space-y-2">
-                                            <label className="text-sm font-medium text-navy-900">Full Name <span className="text-red-500">*</span></label>
-                                            <Input
-                                                {...register("name")}
-                                                placeholder="John Doe"
-                                                className={errors.name ? "border-red-500 focus-visible:ring-red-500" : ""}
-                                            />
-                                            {errors.name && <span className="text-xs text-red-500">{errors.name.message}</span>}
-                                        </div>
-                                        <div className="space-y-2">
-                                            <label className="text-sm font-medium text-navy-900">Email Address <span className="text-red-500">*</span></label>
-                                            <Input
-                                                {...register("email")}
-                                                placeholder="john@company.com"
-                                                className={errors.email ? "border-red-500 focus-visible:ring-red-500" : ""}
-                                            />
-                                            {errors.email && <span className="text-xs text-red-500">{errors.email.message}</span>}
-                                        </div>
-                                    </div>
-
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                                        <div className="space-y-2">
-                                            <label className="text-sm font-medium text-navy-900">Phone Number <span className="text-red-500">*</span></label>
-                                            <Input
-                                                {...register("phone")}
-                                                placeholder="+971 50 000 0000"
-                                                className={errors.phone ? "border-red-500 focus-visible:ring-red-500" : ""}
-                                            />
-                                            {errors.phone && <span className="text-xs text-red-500">{errors.phone.message}</span>}
-                                        </div>
-                                        <div className="space-y-2">
-                                            <label className="text-sm font-medium text-navy-900">Company Name</label>
-                                            <Input
-                                                {...register("company")}
-                                                placeholder="Company Ltd."
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div className="space-y-2">
-                                        <label className="text-sm font-medium text-navy-900">I'm interested in...</label>
-                                        <div className="relative">
-                                            <select
-                                                {...register("interest")}
-                                                className="flex h-12 w-full appearance-none rounded-md border border-cream-200 bg-white px-4 py-3 text-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gold-500 focus-visible:border-gold-500 text-navy-900 font-body transition-all cursor-pointer hover:border-gold-400"
-                                            >
-                                                <option value="">Select an option</option>
-                                                <option value="private-office">Private Office</option>
-                                                <option value="coworking">Coworking Space</option>
-                                                <option value="virtual-office">Virtual Office</option>
-                                                <option value="meeting-room">Meeting Room</option>
-                                                <option value="business-setup">Business Setup</option>
-                                            </select>
-                                            <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-navy-400 pointer-events-none" />
-                                        </div>
-                                        {errors.interest && <span className="text-xs text-red-500">{errors.interest.message}</span>}
-                                    </div>
-
-                                    <div className="space-y-2">
-                                        <label className="text-sm font-medium text-navy-900">Message <span className="text-red-500">*</span></label>
-                                        <Textarea
-                                            {...register("message")}
-                                            placeholder="Tell us about your requirements..."
-                                            className={errors.message ? "border-red-500 focus-visible:ring-red-500 min-h-[150px]" : ""}
-                                        />
-                                        {errors.message && <span className="text-xs text-red-500">{errors.message.message}</span>}
-                                    </div>
-
-                                    <div className="flex items-center space-x-2">
-                                        <Checkbox id="updates" onCheckedChange={(checked) => {
-                                            // Manually handle checkbox primitive with react-hook-form if needed or use controller
-                                            // For simplicity with primitive, we can just treat it as uncontrolled or use a Controller wrapper.
-                                            // Since we registered 'updates', we need to synch. 
-                                            // Simplified:
-                                        }} {...register("updates")} />
-                                        <label
-                                            htmlFor="updates"
-                                            className="text-sm font-body text-navy-700 leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                                        >
-                                            Keep me updated with news and offers
-                                        </label>
-                                    </div>
-
-                                    <Button type="submit" variant="primary" size="lg" disabled={isSubmitting} className="w-full md:w-auto">
-                                        {isSubmitting ? "Sending..." : "Send Message"}
-                                    </Button>
-                                </form>
-                            )}
+                            {/* Jetset Official Form */}
+                            <div className="bg-white rounded-2xl border border-cream-200 shadow-sm w-full max-w-5xl" style={{ height: 'auto', display: 'block', padding: '1rem' }}>
+                                <JetsetForm />
+                            </div>
                         </motion.div>
+                    </div>
+                </div>
+            </section>
 
-                        {/* Right: Office Info Card */}
+            {/* 3.5. CONTACT INFO SECTION - Separate section for better layout */}
+            <section className="bg-cream-50 py-16 sm:py-20 md:py-24">
+                <div className="container-custom mx-auto">
+                    <div className="max-w-4xl mx-auto">
                         <motion.div
-                            initial={{ opacity: 0, x: 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
+                            transition={{ duration: 0.6 }}
                         >
-                            <div className="bg-cream-50 rounded-2xl p-6 sm:p-8 border border-cream-200 lg:sticky lg:top-24">
-                                <h3 className="font-display text-xl sm:text-2xl font-semibold text-navy-900 mb-6 sm:mb-8">Contact Information</h3>
+                            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-cream-200 shadow-sm">
+                                <h3 className="font-display text-xl sm:text-2xl font-semibold text-navy-900 mb-6 sm:mb-8 text-center">Contact Information</h3>
 
-                                <div className="space-y-8">
-                                    <div className="flex gap-4">
-                                        <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0 text-gold-500 shadow-sm">
-                                            <MapPin className="w-5 h-5" />
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                                    <div className="text-center">
+                                        <div className="w-12 h-12 rounded-full bg-gold-500/10 flex items-center justify-center mx-auto mb-4 text-gold-500">
+                                            <MapPin className="w-6 h-6" />
                                         </div>
-                                        <div>
-                                            <h4 className="font-bold text-navy-900 mb-1">Visit Us</h4>
-                                            <p className="text-navy-700 font-body text-sm leading-relaxed">
-                                                Jetset Business Center<br />
-                                                Prime Tower, Level 20<br />
-                                                Business Bay, Dubai, UAE
+                                        <h4 className="font-bold text-navy-900 mb-2">Visit Us</h4>
+                                        <p className="text-navy-700 font-body text-sm leading-relaxed">
+                                            Jetset Business Center<br />
+                                            Prime Tower, Level 20<br />
+                                            Business Bay, Dubai, UAE
+                                        </p>
+                                    </div>
+
+                                    <div className="text-center">
+                                        <div className="w-12 h-12 rounded-full bg-gold-500/10 flex items-center justify-center mx-auto mb-4 text-gold-500">
+                                            <Clock className="w-6 h-6" />
+                                        </div>
+                                        <h4 className="font-bold text-navy-900 mb-2">Office Hours</h4>
+                                        <div className="text-navy-700 font-body text-sm space-y-1">
+                                            <div>Mon - Fri: 9:00 AM - 6:00 PM</div>
+                                            <div>Saturday: 10:00 AM - 4:00 PM</div>
+                                            <div className="text-red-500">Sunday: Closed</div>
+                                            <p className="pt-2 text-xs text-gold-600 font-semibold uppercase tracking-wider">
+                                                * 24/7 Access for Members
                                             </p>
                                         </div>
                                     </div>
 
-                                    <div className="flex gap-4">
-                                        <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0 text-gold-500 shadow-sm">
-                                            <Clock className="w-5 h-5" />
+                                    <div className="text-center">
+                                        <div className="w-12 h-12 rounded-full bg-gold-500/10 flex items-center justify-center mx-auto mb-4 text-gold-500">
+                                            <Phone className="w-6 h-6" />
                                         </div>
-                                        <div>
-                                            <h4 className="font-bold text-navy-900 mb-1">Office Hours</h4>
-                                            <div className="text-navy-700 font-body text-sm space-y-1">
-                                                <div className="flex justify-between gap-4">
-                                                    <span>Monday - Friday</span>
-                                                    <span className="font-medium">9:00 AM - 6:00 PM</span>
-                                                </div>
-                                                <div className="flex justify-between gap-4">
-                                                    <span>Saturday</span>
-                                                    <span className="font-medium">10:00 AM - 4:00 PM</span>
-                                                </div>
-                                                <div className="flex justify-between gap-4">
-                                                    <span>Sunday</span>
-                                                    <span className="font-medium text-red-500">Closed</span>
-                                                </div>
-                                                <p className="pt-2 text-xs text-gold-600 font-semibold uppercase tracking-wider">
-                                                    * 24/7 Access for Members
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="flex gap-4">
-                                        <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0 text-gold-500 shadow-sm">
-                                            <Phone className="w-5 h-5" />
-                                        </div>
-                                        <div>
-                                            <h4 className="font-bold text-navy-900 mb-1">Contact</h4>
-                                            <div className="text-navy-700 font-body text-sm space-y-1 flex flex-col">
-                                                <a href="tel:+971585779312" className="hover:text-gold-500 transition-colors">+971 58 577 9312</a>
-                                                <a href="mailto:contact@jetsetbc.com" className="hover:text-gold-500 transition-colors">contact@jetsetbc.com</a>
-                                            </div>
+                                        <h4 className="font-bold text-navy-900 mb-2">Contact</h4>
+                                        <div className="text-navy-700 font-body text-sm space-y-1 flex flex-col">
+                                            <a href="tel:+971585779312" className="hover:text-gold-500 transition-colors">+971 58 577 9312</a>
+                                            <a href="mailto:contact@jetsetbc.com" className="hover:text-gold-500 transition-colors">contact@jetsetbc.com</a>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div className="mt-8 pt-8 border-t border-cream-200">
-                                    <Button variant="secondary" className="w-full" asChild>
+                                <div className="mt-8 pt-8 border-t border-cream-200 text-center">
+                                    <Button variant="secondary" asChild>
                                         <a href="https://www.google.com/maps/search/?api=1&query=Jetset+Business+Center+Prime+Tower+Business+Bay+Dubai" target="_blank" rel="noreferrer">
                                             Get Directions <ArrowRight className="ml-2 w-4 h-4" />
                                         </a>
@@ -371,7 +224,6 @@ export default function ContactPageClient() {
                                 </div>
                             </div>
                         </motion.div>
-
                     </div>
                 </div>
             </section>
