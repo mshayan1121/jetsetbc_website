@@ -2,8 +2,9 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { Calendar, Clock, User, ArrowLeft, Share2 } from 'lucide-react';
+import { Calendar, Clock, User, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
+import { ShareButton } from '@/components/ui/ShareButton';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { getBlogPost, getRelatedPosts, blogPosts } from '@/lib/blog-data';
@@ -181,26 +182,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                                 </div>
                                 
                                 {/* Share Button */}
-                                <Button 
-                                    variant="outline" 
-                                    className="border-navy-900 text-navy-900 hover:bg-navy-900 hover:text-white"
-                                    onClick={() => {
-                                        if (navigator.share) {
-                                            navigator.share({
-                                                title: post.title,
-                                                text: post.excerpt,
-                                                url: window.location.href,
-                                            }).catch(() => {});
-                                        } else {
-                                            // Fallback: copy to clipboard
-                                            navigator.clipboard.writeText(window.location.href);
-                                            alert('Link copied to clipboard!');
-                                        }
-                                    }}
-                                >
-                                    <Share2 className="w-4 h-4 mr-2" />
-                                    Share Article
-                                </Button>
+                                <ShareButton title={post.title} excerpt={post.excerpt} />
                             </div>
                         </div>
                     </div>
