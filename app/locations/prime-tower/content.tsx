@@ -2,6 +2,7 @@
 
 import React, { useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import {
     Check,
@@ -57,6 +58,7 @@ const availableSpaces = [
         cta: "View Availability",
         image: "/images/services/private-office.png",
         icon: Building,
+        link: "/services/private-offices",
     },
     {
         title: "Coworking Access",
@@ -65,6 +67,7 @@ const availableSpaces = [
         cta: "Book Day Pass",
         image: "/images/services/coworking.png",
         icon: Users,
+        link: "/services/coworking",
     },
     {
         title: "Meeting Rooms",
@@ -73,6 +76,7 @@ const availableSpaces = [
         cta: "Book a Room",
         image: "/images/services/meeting-rooms.png",
         icon: Presentation,
+        link: "/services/meeting-rooms",
     },
 ];
 
@@ -283,9 +287,11 @@ export default function PrimeTowerContent() {
                                     <p className="text-navy-600/80 mb-6 text-sm font-body h-[40px]">{space.description}</p>
                                     <div className="flex items-center justify-between border-t border-cream-200 pt-6">
                                         <span className="font-semibold text-navy-900 font-body">{space.price}</span>
-                                        <Button variant="ghost" size="sm" className="text-gold-500 p-0 hover:bg-transparent hover:text-gold-600 group-hover:translate-x-1 transition-transform">
-                                            {space.cta} <ArrowRight className="ml-2 w-4 h-4" />
-                                        </Button>
+                                        <Link href={space.link}>
+                                            <Button variant="ghost" size="sm" className="text-gold-500 p-0 hover:bg-transparent hover:text-gold-600 group-hover:translate-x-1 transition-transform">
+                                                {space.cta} <ArrowRight className="ml-2 w-4 h-4" />
+                                            </Button>
+                                        </Link>
                                     </div>
                                 </div>
                             </Card>
