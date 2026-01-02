@@ -147,7 +147,6 @@ const WhyJetset = () => {
                             <Button
                                 variant="outline"
                                 size="lg"
-                                className="border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-navy-900"
                                 asChild
                             >
                                 <Link href="/about">Discover Our Story</Link>

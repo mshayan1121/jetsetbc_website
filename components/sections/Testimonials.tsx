@@ -85,12 +85,17 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
                         {testimonial.name}
                     </span>
                     <div className="flex items-center">
-                        <div className="bg-white px-3 py-1.5 rounded-full border border-cream-100 flex items-center shadow-sm">
+                        <a 
+                            href="https://share.google/PorP2aIgEQ7L2B2RQ" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="bg-white px-3 py-1.5 rounded-full border border-cream-100 flex items-center shadow-sm hover:border-gold-500/50 transition-colors cursor-pointer"
+                        >
                             <GoogleIcon />
                             <span className="text-[10px] font-bold text-navy-700 uppercase tracking-tighter">
                                 {testimonial.source}
                             </span>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </motion.div>
@@ -135,7 +140,7 @@ export default function Testimonials({ testimonialsData = defaultTestimonials }:
     }, [nextSlide, prevSlide]);
 
     return (
-        <section className="section-padding bg-white overflow-hidden relative">
+        <section id="testimonials" className="section-padding bg-white overflow-hidden relative">
             <div className="container-custom relative z-10">
                 <div className="text-center mb-16 space-y-4">
                     <motion.h2

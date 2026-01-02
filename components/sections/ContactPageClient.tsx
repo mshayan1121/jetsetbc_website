@@ -129,7 +129,7 @@ export default function ContactPageClient() {
                             title="Visit Us"
                             value="Prime Tower, Level 20, Business Bay"
                             label="Get Directions"
-                            link="https://www.google.com/maps/search/?api=1&query=Jetset+Business+Center+Prime+Tower+Business+Bay+Dubai"
+                            link="https://share.google/PorP2aIgEQ7L2B2RQ"
                         />
                     </motion.div>
                 </div>
@@ -217,7 +217,7 @@ export default function ContactPageClient() {
 
                                 <div className="mt-8 pt-8 border-t border-cream-200 text-center">
                                     <Button variant="secondary" asChild>
-                                        <a href="https://www.google.com/maps/search/?api=1&query=Jetset+Business+Center+Prime+Tower+Business+Bay+Dubai" target="_blank" rel="noreferrer">
+                                        <a href="https://share.google/PorP2aIgEQ7L2B2RQ" target="_blank" rel="noreferrer">
                                             Get Directions <ArrowRight className="ml-2 w-4 h-4" />
                                         </a>
                                     </Button>

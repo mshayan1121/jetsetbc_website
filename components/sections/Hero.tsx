@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Star, Users, Briefcase } from "lucide-react";
+import { Star, Users, Briefcase, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import Image from "next/image";
@@ -33,17 +33,24 @@ const Hero = () => {
 
             {/* Content Container */}
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
-                {/* Award Badge */}
+                {/* Award Badges */}
                 <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                    className="flex flex-col items-start gap-3 mb-8"
                 >
                     <Badge
                         variant="gold"
-                        className="bg-gold-500/20 text-gold-500 border border-gold-500/30 px-4 py-1.5 mb-6 backdrop-blur-md"
+                        className="bg-gold-500/20 text-gold-500 border border-gold-500/30 px-4 py-1.5 backdrop-blur-md"
                     >
-                        🏆 BEST BUSINESS CENTER OF THE YEAR 2024
+                        🏆 Winner: Best Business Center of the Year (Letswork, 2024)
+                    </Badge>
+                    <Badge
+                        variant="gold"
+                        className="bg-gold-500/20 text-gold-500 border border-gold-500/30 px-4 py-1.5 backdrop-blur-md"
+                    >
+                        🏆 Winner: Best Newcomer of the Year (Letswork, 2023)
                     </Badge>
                 </motion.div>
 
@@ -54,7 +61,7 @@ const Hero = () => {
                     transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                     className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight"
                 >
-                    Award-Winning Workspace in the Heart of{' '}
+                    Award-Winning Coworking And Private Offices in{' '}
                     <span className="text-gold-500">Dubai</span>
                 </motion.h1>
 
@@ -65,8 +72,7 @@ const Hero = () => {
                     transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
                     className="font-body text-lg sm:text-xl md:text-2xl text-cream-50 mb-8 max-w-3xl leading-relaxed"
                 >
-                    Premium Private Offices & Coworking Spaces with Stunning Burj Khalifa Views. 
-                    Elevate your business in Dubai's most prestigious location.
+                    We are the premium provider of luxury workspace solutions and corporate setup services in Dubai.
                 </motion.p>
 
                 {/* Stats Row */}
@@ -76,35 +82,53 @@ const Hero = () => {
                     transition={{ duration: 0.8, delay: 0.8 }}
                     className="flex flex-wrap items-center gap-6 md:gap-8 mb-10"
                 >
-                    <div className="flex items-center gap-2">
-                        <div className="w-10 h-10 bg-gold-500/10 rounded-full flex items-center justify-center">
-                            <Users className="w-5 h-5 text-gold-500" />
+                    <Link href="#testimonials" className="group">
+                        <div className="flex items-center gap-2">
+                            <div className="w-10 h-10 bg-gold-500/10 rounded-full flex items-center justify-center group-hover:bg-gold-500/20 transition-colors">
+                                <Users className="w-5 h-5 text-gold-500" />
+                            </div>
+                            <div className="text-white">
+                                <span className="font-accent text-2xl block group-hover:text-gold-400 transition-colors">500+</span>
+                                <span className="text-sm text-cream-50">CLIENTS</span>
+                            </div>
                         </div>
-                        <div className="text-white">
-                            <span className="font-accent text-2xl block">500+</span>
-                            <span className="text-sm text-cream-50">CLIENTS</span>
-                        </div>
-                    </div>
+                    </Link>
                     
-                    <div className="flex items-center gap-2">
-                        <div className="w-10 h-10 bg-gold-500/10 rounded-full flex items-center justify-center">
-                            <Star className="w-5 h-5 text-gold-500 fill-gold-500" />
+                    <Link href="https://share.google/PorP2aIgEQ7L2B2RQ" target="_blank" rel="noopener noreferrer" className="group">
+                        <div className="flex items-center gap-2">
+                            <div className="w-10 h-10 bg-gold-500/10 rounded-full flex items-center justify-center group-hover:bg-gold-500/20 transition-colors">
+                                <Star className="w-5 h-5 text-gold-500 fill-gold-500" />
+                            </div>
+                            <div className="text-white">
+                                <span className="font-accent text-2xl block group-hover:text-gold-400 transition-colors">4.9/5</span>
+                                <span className="text-sm text-cream-50">GOOGLE RATING</span>
+                            </div>
                         </div>
-                        <div className="text-white">
-                            <span className="font-accent text-2xl block">4.9★</span>
-                            <span className="text-sm text-cream-50">RATING</span>
-                        </div>
-                    </div>
+                    </Link>
                     
-                    <div className="flex items-center gap-2">
-                        <div className="w-10 h-10 bg-gold-500/10 rounded-full flex items-center justify-center">
-                            <Briefcase className="w-5 h-5 text-gold-500" />
+                    <Link href="/about" className="group">
+                        <div className="flex items-center gap-2">
+                            <div className="w-10 h-10 bg-gold-500/10 rounded-full flex items-center justify-center group-hover:bg-gold-500/20 transition-colors">
+                                <Briefcase className="w-5 h-5 text-gold-500" />
+                            </div>
+                            <div className="text-white">
+                                <span className="font-accent text-2xl block group-hover:text-gold-400 transition-colors">20+</span>
+                                <span className="text-sm text-cream-50">YEARS</span>
+                            </div>
                         </div>
-                        <div className="text-white">
-                            <span className="font-accent text-2xl block">20+</span>
-                            <span className="text-sm text-cream-50">YEARS</span>
+                    </Link>
+
+                    <Link href="/locations/prime-tower" className="group">
+                        <div className="flex items-center gap-2">
+                            <div className="w-10 h-10 bg-gold-500/10 rounded-full flex items-center justify-center group-hover:bg-gold-500/20 transition-colors">
+                                <MapPin className="w-5 h-5 text-gold-500" />
+                            </div>
+                            <div className="text-white">
+                                <span className="font-accent text-2xl block group-hover:text-gold-400 transition-colors">1</span>
+                                <span className="text-sm text-cream-50">PREMIUM LOCATION</span>
+                            </div>
                         </div>
-                    </div>
+                    </Link>
                 </motion.div>
 
                 {/* CTA Buttons */}
@@ -122,9 +146,8 @@ const Hero = () => {
                         <Link href="/book-tour">BOOK A TOUR</Link>
                     </Button>
                     <Button
-                        variant="outline"
+                        variant="outline-light"
                         size="lg"
-                        className="border-2 border-white text-white hover:bg-white hover:text-navy-900"
                         asChild
                     >
                         <Link href="/services">EXPLORE SPACES</Link>

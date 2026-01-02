@@ -17,8 +17,12 @@ const buttonVariants = cva(
                     "bg-navy-900 text-white border border-navy-900 hover:bg-navy-800 hover:border-navy-800 shadow-navy-sm hover:shadow-navy-md",
                 outline:
                     "bg-transparent text-gold-500 border border-gold-500 hover:bg-gold-500 hover:text-navy-900 active:bg-gold-600",
+                "outline-light":
+                    "bg-transparent text-white border border-white hover:bg-white hover:text-navy-900 active:bg-cream-100",
                 ghost:
                     "bg-transparent text-navy-900 hover:bg-cream-100 hover:text-gold-600",
+                "ghost-light":
+                    "bg-transparent text-white hover:bg-white/10 hover:text-gold-400",
             },
             size: {
                 sm: "h-11 px-6 py-2 text-xs",

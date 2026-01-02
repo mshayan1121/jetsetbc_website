@@ -9,8 +9,8 @@ import { Button } from "@/components/ui/Button";
 
 const services = [
     {
-        title: "Private Offices",
-        description: "Fully furnished suites with panoramic Burj Khalifa views and 24/7 access",
+        title: "Private Office",
+        description: "Fully furnished suites with panoramic Burj Khalifa and Dubai Canal views and 24/7 access",
         price: "From AED 50,000/year",
         cta: "View Offices",
         icon: Building,
@@ -20,13 +20,13 @@ const services = [
         link: "/services/private-offices",
     },
     {
-        title: "Coworking Spaces",
+        title: "Coworking",
         description: "Flexible desks in a vibrant professional community with all amenities",
         price: "From AED 80/day",
         cta: "Explore Spaces",
         icon: Users,
         image: "/images/services/coworking.png",
-        height: "h-[450px] md:h-[600px]",
+        height: "h-[450px] md:h-[500px]",
         delay: 0.2,
         link: "/services/coworking",
     },
@@ -37,7 +37,7 @@ const services = [
         cta: "Book a Room",
         icon: Presentation,
         image: "/images/services/meeting-rooms.png",
-        height: "h-[450px] md:h-[600px]",
+        height: "h-[450px] md:h-[500px]",
         delay: 0.4,
         link: "/services/meeting-rooms",
     },
@@ -89,8 +89,7 @@ const ServicesOverview = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.8, delay: service.delay, ease: [0.22, 1, 0.36, 1] }}
-                            className={`group relative bg-white rounded-2xl overflow-hidden shadow-navy-sm hover:shadow-luxury-lg transition-all duration-500 flex flex-col min-h-[400px] ${service.height} ${index % 2 !== 0 ? "md:mt-12" : ""
-                                } ${index === 2 ? "md:-mt-12" : ""}`}
+                            className={`group relative bg-white rounded-2xl overflow-hidden shadow-navy-sm hover:shadow-luxury-lg transition-all duration-500 flex flex-col min-h-[400px] ${service.height}`}
                         >
                             {/* Image Container */}
                             <div className="relative flex-grow overflow-hidden">

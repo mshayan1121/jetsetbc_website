@@ -443,7 +443,7 @@ const ServicesPage = () => {
                             </div>
 
                             <div className="mt-10">
-                                <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-navy-900" asChild>
+                                <Button variant="outline-light" size="lg" asChild>
                                     <Link href="/about">Discover Our Story</Link>
                                 </Button>
                             </div>

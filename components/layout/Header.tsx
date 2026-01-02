@@ -103,9 +103,9 @@ const Header = () => {
                     <Image
                         src="/logo.png"
                         alt="Jetset Business Center"
-                        width={180}
-                        height={54}
-                        className="h-10 sm:h-12 md:h-14 w-auto"
+                        width={200}
+                        height={60}
+                        className="h-12 sm:h-14 md:h-16 w-auto"
                         priority
                     />
                 </Link>
@@ -143,19 +143,20 @@ const Header = () => {
                                 <AnimatePresence>
                                     {activeDropdown === link.name && (
                                         <motion.div
-                                            initial={{ opacity: 0, y: 10 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            exit={{ opacity: 0, y: 10 }}
-                                            transition={{ duration: 0.2 }}
-                                            className="absolute top-full left-0 w-56 bg-white shadow-luxury-md border border-cream-100 rounded-sm py-4 mt-2"
+                                            initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                                            exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                                            transition={{ duration: 0.2, ease: "easeOut" }}
+                                            className="absolute top-full left-0 min-w-[260px] bg-white shadow-luxury-lg border border-cream-100 rounded-sm py-2 mt-2 overflow-hidden"
                                         >
                                             {link.dropdown.map((item) => (
                                                 <Link
                                                     key={item.name}
                                                     href={item.href}
-                                                    className="block px-6 py-3.5 text-xs font-accent uppercase tracking-wider text-navy-800 hover:bg-cream-50 hover:text-gold-600 transition-all duration-200"
+                                                    className="group flex items-center justify-between px-6 py-4 text-xs font-accent uppercase tracking-widest text-navy-800 hover:bg-cream-50 hover:text-gold-600 transition-all duration-300 border-l-2 border-transparent hover:border-gold-500 whitespace-nowrap"
                                                 >
-                                                    {item.name}
+                                                    <span>{item.name}</span>
+                                                    <ChevronDown className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 -rotate-90" />
                                                 </Link>
                                             ))}
                                         </motion.div>

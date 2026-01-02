@@ -114,9 +114,9 @@ const CTASection = () => {
                         className="w-full sm:w-auto"
                     >
                         <Button
-                            variant="outline"
+                            variant="outline-light"
                             size="lg"
-                            className="w-full border-white/80 px-10 py-5 text-lg font-bold text-white hover:border-white sm:w-auto"
+                            className="w-full px-10 py-5 text-lg font-bold sm:w-auto"
                             asChild
                         >
                             <Link href="/contact">
