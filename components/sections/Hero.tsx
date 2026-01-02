@@ -75,61 +75,7 @@ const Hero = () => {
                     We are the premium provider of luxury workspace solutions and corporate setup services in Dubai.
                 </motion.p>
 
-                {/* Stats Row */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.8, delay: 0.8 }}
-                    className="flex flex-wrap items-center gap-6 md:gap-8 mb-10"
-                >
-                    <Link href="#testimonials" className="group">
-                        <div className="flex items-center gap-2">
-                            <div className="w-10 h-10 bg-gold-500/10 rounded-full flex items-center justify-center group-hover:bg-gold-500/20 transition-colors">
-                                <Users className="w-5 h-5 text-gold-500" />
-                            </div>
-                            <div className="text-white">
-                                <span className="font-accent text-2xl block group-hover:text-gold-400 transition-colors">500+</span>
-                                <span className="text-sm text-cream-50">CLIENTS</span>
-                            </div>
-                        </div>
-                    </Link>
-                    
-                    <Link href="https://share.google/PorP2aIgEQ7L2B2RQ" target="_blank" rel="noopener noreferrer" className="group">
-                        <div className="flex items-center gap-2">
-                            <div className="w-10 h-10 bg-gold-500/10 rounded-full flex items-center justify-center group-hover:bg-gold-500/20 transition-colors">
-                                <Star className="w-5 h-5 text-gold-500 fill-gold-500" />
-                            </div>
-                            <div className="text-white">
-                                <span className="font-accent text-2xl block group-hover:text-gold-400 transition-colors">4.9/5</span>
-                                <span className="text-sm text-cream-50">GOOGLE RATING</span>
-                            </div>
-                        </div>
-                    </Link>
-                    
-                    <Link href="/about" className="group">
-                        <div className="flex items-center gap-2">
-                            <div className="w-10 h-10 bg-gold-500/10 rounded-full flex items-center justify-center group-hover:bg-gold-500/20 transition-colors">
-                                <Briefcase className="w-5 h-5 text-gold-500" />
-                            </div>
-                            <div className="text-white">
-                                <span className="font-accent text-2xl block group-hover:text-gold-400 transition-colors">20+</span>
-                                <span className="text-sm text-cream-50">YEARS</span>
-                            </div>
-                        </div>
-                    </Link>
 
-                    <Link href="/locations/prime-tower" className="group">
-                        <div className="flex items-center gap-2">
-                            <div className="w-10 h-10 bg-gold-500/10 rounded-full flex items-center justify-center group-hover:bg-gold-500/20 transition-colors">
-                                <MapPin className="w-5 h-5 text-gold-500" />
-                            </div>
-                            <div className="text-white">
-                                <span className="font-accent text-2xl block group-hover:text-gold-400 transition-colors">1</span>
-                                <span className="text-sm text-cream-50">PREMIUM LOCATION</span>
-                            </div>
-                        </div>
-                    </Link>
-                </motion.div>
 
                 {/* CTA Buttons */}
                 <motion.div
