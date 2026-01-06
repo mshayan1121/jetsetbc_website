@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Phone, Mail, MapPin, Clock, ArrowRight, CheckCircle2, ChevronDown } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, ArrowRight, CheckCircle2, ChevronDown, MessageSquare } from "lucide-react";
 
 import { Button } from "@/components/ui/Button";
 import CTASection from "@/components/sections/CTASection";
@@ -84,10 +84,10 @@ export default function ContactPageClient() {
                             <span className="h-px w-8 sm:w-12 bg-gold-500"></span>
                         </div>
                         <h1 className="font-display text-4xl sm:text-5xl md:text-6xl text-white mb-4 sm:mb-6 px-4">
-                            Let's Start a Conversation
+                            Contact Us
                         </h1>
                         <p className="font-body text-lg sm:text-xl text-cream-50 max-w-2xl mx-auto px-4">
-                            Whether you're looking for a private office, coworking space, or virtual solution, our team is here to help you find the perfect fit.
+                            Get in touch with us about your requirements and our team will get back to you within 1 business day
                         </p>
                     </motion.div>
                 </div>
@@ -118,7 +118,7 @@ export default function ContactPageClient() {
                             link="mailto:contact@jetsetbc.com"
                         />
                         <ContactCard
-                            icon={CheckCircle2}
+                            icon={MessageSquare}
                             title="WhatsApp"
                             value="+971 58 577 9312"
                             label="Chat with us"
@@ -149,7 +149,7 @@ export default function ContactPageClient() {
                             <div className="mb-6 sm:mb-8 md:mb-10 text-center w-full">
                                 <h2 className="text-3xl sm:text-4xl font-display font-bold text-navy-900 mb-3 sm:mb-4">Send us a Message</h2>
                                 <p className="text-navy-700/80 font-body text-base sm:text-lg max-w-2xl mx-auto">
-                                    Fill out the form below and our team will get back to you within 24 hours.
+                                    Fill out the form below and our team will get back to you within 1 business day
                                 </p>
                             </div>
 
@@ -194,8 +194,8 @@ export default function ContactPageClient() {
                                         </div>
                                         <h4 className="font-bold text-navy-900 mb-2">Office Hours</h4>
                                         <div className="text-navy-700 font-body text-sm space-y-1">
-                                            <div>Mon - Fri: 9:00 AM - 6:00 PM</div>
-                                            <div>Saturday: 10:00 AM - 4:00 PM</div>
+                                            <div>Monday to Friday: 9am-8pm</div>
+                                            <div>Saturday: 10am-7pm</div>
                                             <div className="text-red-500">Sunday: Closed</div>
                                             <p className="pt-2 text-xs text-gold-600 font-semibold uppercase tracking-wider">
                                                 * 24/7 Access for Members
@@ -254,7 +254,7 @@ export default function ContactPageClient() {
                     <div className="bg-white rounded-2xl p-8 shadow-sm border border-cream-100">
                         <FAQItem
                             question="What are your office hours?"
-                            answer="Our reception is staffed Monday to Friday from 9:00 AM to 6:00 PM, and Saturday from 10:00 AM to 4:00 PM. However, members have 24/7 secure access to their private offices and common areas."
+                            answer="Our reception is staffed Monday to Friday from 9am-8pm, and Saturday from 10am-7pm. However, members have 24/7 secure access to their private offices and common areas."
                         />
                         <FAQItem
                             question="Is parking available?"
