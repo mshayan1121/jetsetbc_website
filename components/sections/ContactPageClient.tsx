@@ -78,11 +78,7 @@ export default function ContactPageClient() {
                         transition={{ duration: 0.8 }}
                         className="max-w-3xl mx-auto"
                     >
-                        <div className="flex items-center justify-center gap-2 mb-4 sm:mb-6">
-                            <span className="h-px w-8 sm:w-12 bg-gold-500"></span>
-                            <span className="text-gold-500 font-accent uppercase tracking-widest text-xs sm:text-sm">Contact Us</span>
-                            <span className="h-px w-8 sm:w-12 bg-gold-500"></span>
-                        </div>
+
                         <h1 className="font-display text-4xl sm:text-5xl md:text-6xl text-white mb-4 sm:mb-6 px-4">
                             Contact Us
                         </h1>
