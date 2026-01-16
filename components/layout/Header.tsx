@@ -244,7 +244,7 @@ const Header = () => {
                                     </div>
 
                                     {/* Navigation Links */}
-                                    <nav className="flex flex-col space-y-1.5 px-6 py-4 flex-shrink-0">
+                                    <nav className="flex-1 overflow-y-auto space-y-1.5 px-6 py-4 scroll-smooth">
                                         {navLinks.map((link) => (
                                             <div key={link.name} className="flex flex-col">
                                                 {link.dropdown ? (
@@ -256,23 +256,33 @@ const Header = () => {
                                                             {link.name}
                                                             <ChevronDown className={cn("w-4 h-4 transition-transform duration-300", mobileServicesOpen && "rotate-180")} />
                                                         </button>
-                                                        {mobileServicesOpen && (
-                                                            <div className="mt-1.5 ml-4 space-y-1 bg-cream-50 rounded-lg p-2">
-                                                                {link.dropdown.map((item) => (
-                                                                    <Link
-                                                                        key={item.name}
-                                                                        href={item.href}
-                                                                        onClick={() => {
-                                                                            setIsMobileMenuOpen(false);
-                                                                            setMobileServicesOpen(false);
-                                                                        }}
-                                                                        className="block py-2 px-4 text-xs font-accent uppercase tracking-wider text-navy-700 hover:text-navy-900 hover:bg-white rounded transition-colors"
-                                                                    >
-                                                                        {item.name}
-                                                                    </Link>
-                                                                ))}
-                                                            </div>
-                                                        )}
+                                                        <AnimatePresence>
+                                                            {mobileServicesOpen && (
+                                                                <motion.div
+                                                                    initial={{ height: 0, opacity: 0 }}
+                                                                    animate={{ height: "auto", opacity: 1 }}
+                                                                    exit={{ height: 0, opacity: 0 }}
+                                                                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                                                                    className="overflow-hidden"
+                                                                >
+                                                                    <div className="mt-1.5 ml-4 space-y-1 bg-cream-50 rounded-lg p-2">
+                                                                        {link.dropdown.map((item) => (
+                                                                            <Link
+                                                                                key={item.name}
+                                                                                href={item.href}
+                                                                                onClick={() => {
+                                                                                    setIsMobileMenuOpen(false);
+                                                                                    setMobileServicesOpen(false);
+                                                                                }}
+                                                                                className="block py-2 px-4 text-xs font-accent uppercase tracking-wider text-navy-700 hover:text-navy-900 hover:bg-white rounded transition-colors"
+                                                                            >
+                                                                                {item.name}
+                                                                            </Link>
+                                                                        ))}
+                                                                    </div>
+                                                                </motion.div>
+                                                            )}
+                                                        </AnimatePresence>
                                                     </>
                                                 ) : (
                                                     <Link
@@ -287,11 +297,8 @@ const Header = () => {
                                         ))}
                                     </nav>
 
-                                    {/* Spacer - Pushes bottom actions down */}
-                                    <div className="flex-grow" />
-
                                     {/* Bottom Actions - Pinned to Bottom */}
-                                    <div className="flex-shrink-0 px-6 pt-4 pb-4 space-y-4 border-t border-cream-200" style={{ paddingBottom: 'max(1rem, env(safe-area-inset-bottom, 1rem))' }}>
+                                    <div className="flex-shrink-0 px-6 pt-4 pb-4 space-y-4 border-t border-cream-200 bg-white z-10" style={{ paddingBottom: 'max(1rem, env(safe-area-inset-bottom, 1rem))' }}>
                                         <div className="flex items-center space-x-6 justify-center text-navy-900">
                                             <a href="tel:+971585779312" className="flex items-center gap-2 font-accent text-xs mobile-menu-action uppercase tracking-widest hover:text-gold-500 transition-colors py-1.5">
                                                 <Phone className="w-4 h-4 mobile-menu-icon" /> Call
