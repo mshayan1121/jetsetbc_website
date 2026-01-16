@@ -65,7 +65,10 @@ const Hero = () => {
                         <Award className="w-6 h-6 text-gold-500" />
                         <div className="text-left">
                             <p className="text-[10px] text-gold-500 font-bold uppercase tracking-wider leading-none mb-1">Winner</p>
-                            <p className="text-sm text-white font-medium leading-none">Best Business Center 2024</p>
+                            <p className="text-sm text-white font-medium leading-none mb-1">Best Business Center 2024</p>
+                            <p className="text-[10px] text-white/60 leading-none">
+                                by <a href="https://www.letswork.io/" target="_blank" rel="noopener noreferrer" className="hover:text-gold-500 underline decoration-gold-500/30 underline-offset-2 transition-colors">Letswork</a>
+                            </p>
                         </div>
                     </div>
 
@@ -73,7 +76,10 @@ const Hero = () => {
                         <Award className="w-6 h-6 text-gold-500" />
                         <div className="text-left">
                             <p className="text-[10px] text-gold-500 font-bold uppercase tracking-wider leading-none mb-1">Winner</p>
-                            <p className="text-sm text-white font-medium leading-none">Best Newcomer 2023</p>
+                            <p className="text-sm text-white font-medium leading-none mb-1">Best Newcomer 2023</p>
+                            <p className="text-[10px] text-white/60 leading-none">
+                                by <a href="https://www.letswork.io/" target="_blank" rel="noopener noreferrer" className="hover:text-gold-500 underline decoration-gold-500/30 underline-offset-2 transition-colors">Letswork</a>
+                            </p>
                         </div>
                     </div>
                 </motion.div>
