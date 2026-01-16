@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/Button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardImage, CardTitle } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
+import { Feature } from "@/components/ui/feature-section-with-bento-grid";
 import Header from "@/components/layout/Header";
 import { Award, ChevronRight, Star, Tag, Info } from "lucide-react";
 
