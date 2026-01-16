@@ -11,7 +11,13 @@ import { Button } from "../ui/Button";
 import WhatsAppIcon from "../ui/WhatsAppIcon";
 import { cn } from "../../lib/utils";
 
-const navLinks = [
+type NavLink = {
+    name: string;
+    href: string;
+    dropdown?: { name: string; href: string }[];
+};
+
+const navLinks: NavLink[] = [
     { name: "Home", href: "/" },
     {
         name: "Services",
@@ -91,10 +97,10 @@ const Header = () => {
     return (
         <header
             className={cn(
-                "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out w-full",
+                "fixed top-2 sm:top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ease-in-out w-[95%] max-w-7xl rounded-full border",
                 isScrolled
-                    ? "bg-white shadow-md border-b border-cream-200 py-2 sm:py-3"
-                    : "bg-white/80 backdrop-blur-md border-b border-white/20 py-3 sm:py-4 md:py-5"
+                    ? "bg-white/90 backdrop-blur-md shadow-md border-cream-200 py-2 sm:py-3"
+                    : "bg-white/70 backdrop-blur-md border-white/20 py-3 sm:py-4 md:py-5 shadow-sm"
             )}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -168,17 +174,17 @@ const Header = () => {
                 </nav>
 
                 {/* Right Actions */}
-                <div className="flex items-center space-x-4 md:space-x-6">
-                    <div className="hidden sm:flex items-center space-x-4 text-navy-900">
-                        <a href="tel:+971585779312" className="hover:text-gold-500 transition-colors">
+                <div className="flex items-center gap-4">
+                    <div className="hidden lg:flex items-center gap-4 mr-2">
+                        <a href="tel:+971585779312" className="text-navy-900 hover:text-gold-600 transition-colors" aria-label="Call Us">
                             <Phone className="w-5 h-5" />
                         </a>
-                        <a href="https://wa.me/971585779312" className="hover:text-gold-500 transition-colors">
+                        <a href="https://wa.me/971585779312" className="text-navy-900 hover:text-gold-600 transition-colors" aria-label="WhatsApp Us">
                             <WhatsAppIcon className="w-5 h-5" />
                         </a>
                     </div>
 
-                    <Button variant="primary" size="sm" className="hidden md:flex" asChild>
+                    <Button variant="secondary" size="sm" className="hidden md:flex rounded-full px-6" asChild>
                         <Link href="/book-tour">Book a Tour</Link>
                     </Button>
 

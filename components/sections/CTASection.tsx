@@ -73,7 +73,7 @@ const CTASection = () => {
                     variants={itemVariants}
                     className="mb-6 font-display text-4xl font-bold tracking-tight text-white md:text-6xl lg:text-[56px] lg:leading-tight"
                 >
-                    Ready to Elevate <br className="hidden md:block" /> Your Business?
+                    Ready to Upgrade <br className="hidden md:block" /> Your Workspace?
                 </motion.h2>
 
                 {/* Subheadline */}
@@ -81,7 +81,7 @@ const CTASection = () => {
                     variants={itemVariants}
                     className="mx-auto mb-12 max-w-2xl font-body text-lg text-cream-50 md:text-xl opacity-90"
                 >
-                    Book a same-day tour and experience the Jetset difference
+                    Book a private tour today and see why 500+ businesses call Jetset home.
                 </motion.p>
 
                 {/* CTA Buttons */}
@@ -101,9 +101,9 @@ const CTASection = () => {
                             className="group relative w-full overflow-hidden px-10 py-5 text-lg font-bold shadow-[0_0_20px_rgba(212,175,55,0.3)] transition-all hover:shadow-[0_0_30px_rgba(212,175,55,0.6)] sm:w-auto"
                             asChild
                         >
-                            <Link href="/book-tour">
-                                Book a Tour
-                            </Link>
+                            <a href="https://wa.me/971585779312" target="_blank" rel="noopener noreferrer">
+                                WhatsApp Us Now
+                            </a>
                         </Button>
                     </motion.div>
 
@@ -119,8 +119,8 @@ const CTASection = () => {
                             className="w-full px-10 py-5 text-lg font-bold sm:w-auto"
                             asChild
                         >
-                            <Link href="/contact">
-                                Contact Us
+                            <Link href="/book-tour">
+                                Schedule a Visit
                             </Link>
                         </Button>
                     </motion.div>

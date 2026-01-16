@@ -104,6 +104,11 @@ export default function ComponentsDemo() {
                                 </Card>
                             </div>
                         </div>
+                        {/* Bento Grid Section */}
+                        <div>
+                            <h2 className="text-2xl font-display text-navy-900 mb-6">Bento Grid Feature Section</h2>
+                            <Feature />
+                        </div>
                     </div>
                 </section>
             </main>

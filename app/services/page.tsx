@@ -10,10 +10,6 @@ import { Badge } from "@/components/ui/Badge";
 import {
     ArrowRight,
     Check,
-    Building2,
-    Users,
-    Presentation,
-    FileCheck,
     Wifi,
     Clock,
     Zap,
@@ -25,49 +21,11 @@ import {
     CalendarDays,
     UtensilsCrossed
 } from "lucide-react";
+import WorkspaceGrid from "@/components/sections/WorkspaceGrid";
 import CTASection from "@/components/sections/CTASection";
 
 const ServicesPage = () => {
     const [openFaq, setOpenFaq] = useState<number | null>(null);
-
-    const services = [
-        {
-            id: "private-offices",
-            icon: Building2,
-            title: "Private Offices",
-            description: "Fully furnished, move-in ready suites with panoramic Burj Khalifa views and 24/7 access.",
-            price: "From AED 50,000/year",
-            image: "/images/private-office.jpg",
-            link: "/services/private-offices"
-        },
-        {
-            id: "coworking",
-            icon: Users,
-            title: "Coworking Spaces",
-            description: "Flexible desks in a vibrant professional community with all amenities included.",
-            price: "From AED 80/day",
-            image: "/images/coworking.jpg",
-            link: "/services/coworking"
-        },
-        {
-            id: "meeting-rooms",
-            icon: Presentation,
-            title: "Meeting Rooms",
-            description: "High-tech conference facilities with AV equipment, whiteboards, and catering options.",
-            price: "2 hours free daily",
-            image: "/images/meeting-room.jpg",
-            link: "/services/meeting-rooms"
-        },
-        {
-            id: "business-setup",
-            icon: FileCheck,
-            title: "Business Setup Services",
-            description: "Complete business formation, licensing, Virtual Ejari, and visa support services.",
-            price: "Contact for pricing",
-            image: "/images/business-setup.jpg",
-            link: "/services/business-setup"
-        }
-    ];
 
     const includedFeatures = [
         {
@@ -201,50 +159,7 @@ const ServicesPage = () => {
             </section>
 
             {/* Services Overview Section */}
-            <section className="bg-white py-24 md:py-32">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {services.map((service, index) => (
-                            <motion.div
-                                key={service.id}
-                                initial={{ opacity: 0, y: 50 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: index * 0.1 }}
-                            >
-                                <Link href={service.link}>
-                                    <Card className="group cursor-pointer h-full" padding="none" hoverEffect={true}>
-                                        <div className="relative h-64 overflow-hidden rounded-t-xl">
-                                            <Image
-                                                src={service.image}
-                                                alt={service.title}
-                                                fill
-                                                className="object-cover group-hover:scale-105 transition-transform duration-400"
-                                            />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 to-transparent" />
-                                            <div className="absolute top-4 left-4">
-                                                <div className="w-12 h-12 bg-gold-500 rounded-full flex items-center justify-center">
-                                                    <service.icon className="w-6 h-6 text-navy-900" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="p-6">
-                                            <h3 className="font-display text-2xl text-navy-900 mb-3">{service.title}</h3>
-                                            <p className="font-body text-navy-700 mb-4">
-                                                {service.description}
-                                            </p>
-                                            <div className="flex items-center justify-between">
-                                                <span className="font-accent text-gold-500 text-lg">{service.price}</span>
-                                                <ArrowRight className="w-5 h-5 text-gold-500 group-hover:translate-x-2 transition-transform" />
-                                            </div>
-                                        </div>
-                                    </Card>
-                                </Link>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+            <WorkspaceGrid className="bg-white" />
 
             {/* What's Included Section */}
             <section className="bg-cream-50 py-24 md:py-32">

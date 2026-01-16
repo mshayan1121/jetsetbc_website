@@ -21,6 +21,23 @@
   --color-teal-500: #2C5F7C;
   --color-teal-400: #4A7A94;
 
+  /* Semantic Colors (Shadcn Mappings) */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
   /* Font Families */
   --font-display: var(--font-playfair-display), serif;
   --font-body: var(--font-inter), sans-serif;
@@ -42,6 +59,7 @@
 
   /* Border Radius */
   --radius-4xl: 2rem;
+  --radius: 0.5rem;
 
   /* Animations */
   --animate-fade-in: fadeIn 0.6s ease-out;
@@ -86,11 +104,31 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Base Colors */
+    --background: #ffffff;
+    --foreground: #0A1828; /* navy-900 */
+    
+    /* Semantic Colors */
+    --primary: #0A1828; /* navy-900 */
+    --primary-foreground: #ffffff;
+    
+    --secondary: #D4AF37; /* gold-500 */
+    --secondary-foreground: #0A1828; /* navy-900 */
+    
+    --muted: #F8F6F0; /* cream-50 */
+    --muted-foreground: #2C3E50; /* navy-700 */
+    
+    --accent: #F8F6F0; /* cream-50 */
+    --accent-foreground: #0A1828; /* navy-900 */
+    
+    --destructive: #ef4444;
+    --destructive-foreground: #ffffff;
+    
+    --border: #E8E4DC; /* cream-100 */
+    --input: #E8E4DC; /* cream-100 */
+    --ring: #D4AF37; /* gold-500 */
+    
+    --radius: 0.5rem;
   }
 
   /* Custom Scrollbar */
