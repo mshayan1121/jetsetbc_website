@@ -80,7 +80,7 @@ const LocationHighlight = () => {
                     {/* Right side - Could be an image or just empty space to show background */}
                     <div className="hidden lg:block h-full min-h-[500px] relative rounded-2xl overflow-hidden shadow-2xl">
                          <Image
-                            src="/images/office_burj_khalifa_view.png"
+                            src="/images/primetower/the-prime-tower_g7-03jpg-68baa93d-a624-4786-9e01-b849f775facf.jpg"
                             alt="View from Prime Tower"
                             fill
                             className="object-cover"

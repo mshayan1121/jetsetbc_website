@@ -42,12 +42,42 @@ const locationFeatures = [
 ];
 
 const amenities = [
-    { name: "High-Speed Internet", icon: Wifi, desc: "Enterprise-grade fiber with redundant backups." },
-    { name: "Meeting Rooms", icon: Presentation, desc: "Fully equipped with 4K screens and video conferencing." },
-    { name: "Dedicated Parking", icon: Car, desc: "Private parking spots available for members." },
-    { name: "Reception Service", icon: PhoneCall, desc: "Professional call answering and guest management." },
-    { name: "Premium Beverages", icon: Coffee, desc: "Unlimited premium coffee, tea, and infused water." },
-    { name: "In-House Restaurant", icon: Utensils, desc: "Chef-curated menu for convenient, healthy dining." },
+    {
+        name: "High-Speed Internet",
+        icon: Wifi,
+        desc: "Enterprise-grade fiber with redundant backups.",
+        accent: "bg-sky-200/60 text-sky-700",
+    },
+    {
+        name: "Meeting Rooms",
+        icon: Presentation,
+        desc: "Fully equipped with 4K screens and video conferencing.",
+        accent: "bg-indigo-200/60 text-indigo-700",
+    },
+    {
+        name: "Dedicated Parking",
+        icon: Car,
+        desc: "Private parking spots available for members.",
+        accent: "bg-emerald-200/60 text-emerald-700",
+    },
+    {
+        name: "Reception Service",
+        icon: PhoneCall,
+        desc: "Professional call answering and guest management.",
+        accent: "bg-amber-200/60 text-amber-700",
+    },
+    {
+        name: "Premium Beverages",
+        icon: Coffee,
+        desc: "Unlimited premium coffee, tea, and infused water.",
+        accent: "bg-gold-500/15 text-gold-600",
+    },
+    {
+        name: "In-House Restaurant",
+        icon: Utensils,
+        desc: "Chef-curated menu for convenient, healthy dining.",
+        accent: "bg-teal-200/60 text-teal-700",
+    },
 ];
 
 const availableSpaces = [
@@ -65,7 +95,7 @@ const availableSpaces = [
         description: "Flexible desks in our premium lounge. Perfect for agile work.",
         price: "From AED 80/day",
         cta: "Book Day Pass",
-        image: "/images/services/coworking.png",
+        image: "/images/services/Co-working Area.jpg",
         icon: Users,
         link: "/services/coworking",
     },
@@ -74,7 +104,7 @@ const availableSpaces = [
         description: "Impress clients in our high-tech boardrooms.",
         price: "2 hours free for members",
         cta: "Book a Room",
-        image: "/images/services/meeting-rooms.png",
+        image: "/images/services/Conference Room.jpg",
         icon: Presentation,
         link: "/services/meeting-rooms",
     },
@@ -103,7 +133,7 @@ export default function PrimeTowerContent() {
                 <motion.div style={{ y: y1 }} className="absolute inset-0 z-0">
                     <div className="absolute inset-0 bg-navy-900/60 z-10" />
                     <Image
-                        src="/images/hero-bg.png"
+                        src="/images/primetower/the-prime-tower_g7-03jpg-68baa93d-a624-4786-9e01-b849f775facf.jpg"
                         alt="Prime Tower View"
                         fill
                         priority
@@ -181,7 +211,7 @@ export default function PrimeTowerContent() {
                                 className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl"
                             >
                                 <Image
-                                    src="/office_burj_khalifa_view.png"
+                                    src="/images/primetower/the-prime-tower_g7-03jpg-68baa93d-a624-4786-9e01-b849f775facf.jpg"
                                     alt="Prime Tower Office"
                                     fill
                                     className="object-cover"
@@ -247,8 +277,8 @@ export default function PrimeTowerContent() {
                         {amenities.map((item, idx) => (
                             <Card key={idx} hoverEffect className="border-none shadow-sm bg-white h-full">
                                 <CardContent className="flex flex-col items-center text-center p-8 h-full">
-                                    <div className="w-16 h-16 rounded-full bg-gold-500/5 flex items-center justify-center mb-6 group-hover:bg-gold-500 transition-colors duration-300">
-                                        <item.icon className="w-7 h-7 text-gold-500 group-hover:text-white transition-colors duration-300" />
+                                    <div className={`w-20 h-20 rounded-full ${item.accent} flex items-center justify-center mb-6 transition-colors duration-300`}>
+                                        <item.icon className="w-9 h-9" />
                                     </div>
                                     <h3 className="text-xl font-display text-navy-900 mb-3">{item.name}</h3>
                                     <p className="text-navy-600/80 text-sm font-body leading-relaxed">{item.desc}</p>
@@ -268,34 +298,59 @@ export default function PrimeTowerContent() {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-                        {availableSpaces.map((space, idx) => (
-                            <Card key={idx} className="group overflow-hidden border-none shadow-lg hover:shadow-xl transition-all duration-300 p-0 bg-white">
-                                <div className="relative h-64 overflow-hidden">
-                                    <Image
-                                        src={space.image}
-                                        alt={space.title}
-                                        fill
-                                        className="object-cover transition-transform duration-700 group-hover:scale-110"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-navy-900/90 via-navy-900/40 to-transparent" />
-                                    <div className="absolute top-4 left-4 w-10 h-10 bg-gold-500 rounded-full flex items-center justify-center text-white shadow-lg">
-                                        <space.icon className="w-5 h-5" />
+                        {availableSpaces.map((space, idx) => {
+                            const isCoworking = space.title === "Coworking Access";
+
+                            return (
+                                <Card key={idx} className="group overflow-hidden border-none shadow-lg hover:shadow-xl transition-all duration-300 p-0 bg-white">
+                                    <div className="relative h-64 overflow-hidden">
+                                        <Image
+                                            src={space.image}
+                                            alt={space.title}
+                                            fill
+                                            className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-navy-900/90 via-navy-900/40 to-transparent" />
+                                        <div className="absolute top-4 left-4 w-10 h-10 bg-gold-500 rounded-full flex items-center justify-center text-white shadow-lg">
+                                            <space.icon className="w-5 h-5" />
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="p-8">
-                                    <h3 className="text-2xl font-display text-navy-900 mb-2">{space.title}</h3>
-                                    <p className="text-navy-600/80 mb-6 text-sm font-body h-[40px]">{space.description}</p>
-                                    <div className="flex items-center justify-between border-t border-cream-200 pt-6">
-                                        <span className="font-semibold text-navy-900 font-body">{space.price}</span>
-                                        <Link href={space.link}>
-                                            <Button variant="ghost" size="sm" className="text-gold-500 p-0 hover:bg-transparent hover:text-gold-600 group-hover:translate-x-1 transition-transform">
-                                                {space.cta} <ArrowRight className="ml-2 w-4 h-4" />
-                                            </Button>
-                                        </Link>
+                                    <div className="p-8">
+                                        <h3 className="text-2xl font-display text-navy-900 mb-2">{space.title}</h3>
+                                        <p className="text-navy-600/80 mb-6 text-sm font-body h-[40px]">{space.description}</p>
+                                        {isCoworking && (
+                                            <div className="mb-6 overflow-hidden rounded-xl border border-cream-200 bg-cream-50/60 transition-all duration-500 ease-out max-h-0 opacity-0 translate-y-2 group-hover:max-h-40 group-hover:opacity-100 group-hover:translate-y-0">
+                                                <div className="grid grid-cols-1 gap-3 p-4">
+                                                    <div className="flex items-start justify-between gap-3">
+                                                        <div>
+                                                            <p className="text-sm font-semibold text-navy-900">Flexible desks</p>
+                                                            <p className="text-xs text-navy-600">80/day · 1,800/month · 18,000/year</p>
+                                                        </div>
+                                                        <span className="text-xs font-semibold text-gold-600 uppercase tracking-wide">Open</span>
+                                                    </div>
+                                                    <div className="h-px bg-cream-200" />
+                                                    <div className="flex items-start justify-between gap-3">
+                                                        <div>
+                                                            <p className="text-sm font-semibold text-navy-900">Fixed desks</p>
+                                                            <p className="text-xs text-navy-600">2,400/month · 24,000/year</p>
+                                                        </div>
+                                                        <span className="text-xs font-semibold text-gold-600 uppercase tracking-wide">Dedicated</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )}
+                                        <div className="flex items-center justify-between border-t border-cream-200 pt-6">
+                                            <span className="font-semibold text-navy-900 font-body">{space.price}</span>
+                                            <Link href={space.link}>
+                                                <Button variant="ghost" size="sm" className="text-gold-500 p-0 hover:bg-transparent hover:text-gold-600 group-hover:translate-x-1 transition-transform">
+                                                    {space.cta} <ArrowRight className="ml-2 w-4 h-4" />
+                                                </Button>
+                                            </Link>
+                                        </div>
                                     </div>
-                                </div>
-                            </Card>
-                        ))}
+                                </Card>
+                            );
+                        })}
                     </div>
                 </div>
             </section>

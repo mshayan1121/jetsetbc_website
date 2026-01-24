@@ -179,7 +179,7 @@ const ServicesPage = () => {
                         </p>
                     </motion.div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 max-w-6xl mx-auto">
                         {includedFeatures.map((feature, index) => (
                             <motion.div
                                 key={feature.title}
@@ -187,19 +187,27 @@ const ServicesPage = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.6, delay: index * 0.05 }}
-                                className="flex items-start gap-4"
+                                className="group h-full rounded-2xl bg-white/90 border border-cream-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden"
                             >
-                                <div className="w-8 h-8 bg-gold-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                    <feature.icon className="w-4 h-4 text-navy-900" />
-                                </div>
-                                <div>
-                                    <h4 className="font-display text-xl text-navy-900 mb-2">{feature.title}</h4>
+                                <div className="p-6">
+                                    <div className="flex items-center gap-3 mb-3">
+                                        <div className="w-9 h-9 bg-gold-500/90 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <feature.icon className="w-4 h-4 text-navy-900" />
+                                        </div>
+                                        <h4 className="font-display text-xl text-navy-900">{feature.title}</h4>
+                                    </div>
                                     <p className="font-body text-navy-700">
                                         {feature.description}
                                     </p>
                                 </div>
                             </motion.div>
                         ))}
+                    </div>
+
+                    <div className="mt-12 flex justify-center">
+                        <Button size="lg" asChild>
+                            <Link href="/contact">Book a Tour</Link>
+                        </Button>
                     </div>
                 </div>
             </section>
@@ -233,7 +241,14 @@ const ServicesPage = () => {
                             <thead className="bg-navy-900 text-white">
                                 <tr>
                                     <th className="p-4 text-left font-display text-lg">Feature</th>
-                                    <th className="p-4 text-center font-display text-lg">Private Office</th>
+                                    <th className="p-4 text-center font-display text-lg relative border-l border-r border-gold-400/60 shadow-[inset_0_-2px_0_0_rgba(212,175,55,0.6)]">
+                                        <div className="flex flex-col items-center gap-2">
+                                            <span>Private Office</span>
+                                            <span className="inline-flex items-center rounded-full bg-gold-500/90 px-2.5 py-0.5 text-[11px] font-semibold text-navy-900 tracking-wide">
+                                                MOST POPULAR
+                                            </span>
+                                        </div>
+                                    </th>
                                     <th className="p-4 text-center font-display text-lg">Coworking</th>
                                     <th className="p-4 text-center font-display text-lg">Meeting Rooms</th>
                                     <th className="p-4 text-center font-display text-lg">Virtual Ejari</th>
@@ -243,12 +258,14 @@ const ServicesPage = () => {
                                 {comparisonFeatures.map((feature, index) => (
                                     <tr key={feature.name} className="border-b border-cream-200">
                                         <td className="p-4 font-body text-navy-900">{feature.name}</td>
-                                        <td className="p-4 text-center">
+                                        <td className="p-4 text-center bg-gold-500/5 border-l border-r border-gold-200">
                                             {typeof feature.privateOffice === 'boolean' ? (
                                                 feature.privateOffice ? (
-                                                    <Check className="w-5 h-5 text-gold-500 mx-auto" />
+                                                    <span className="inline-flex items-center justify-center w-5 h-5">
+                                                        <Check className="w-5 h-5 text-emerald-500" />
+                                                    </span>
                                                 ) : (
-                                                    <span className="text-navy-400">—</span>
+                                                    <span className="inline-flex items-center justify-center w-5 h-5 text-navy-300">—</span>
                                                 )
                                             ) : (
                                                 <span className="font-body text-navy-700">{feature.privateOffice}</span>
@@ -257,9 +274,11 @@ const ServicesPage = () => {
                                         <td className="p-4 text-center">
                                             {typeof feature.coworking === 'boolean' ? (
                                                 feature.coworking ? (
-                                                    <Check className="w-5 h-5 text-gold-500 mx-auto" />
+                                                    <span className="inline-flex items-center justify-center w-5 h-5">
+                                                        <Check className="w-5 h-5 text-emerald-500" />
+                                                    </span>
                                                 ) : (
-                                                    <span className="text-navy-400">—</span>
+                                                    <span className="inline-flex items-center justify-center w-5 h-5 text-navy-300">—</span>
                                                 )
                                             ) : (
                                                 <span className="font-body text-navy-700">{feature.coworking}</span>
@@ -268,9 +287,11 @@ const ServicesPage = () => {
                                         <td className="p-4 text-center">
                                             {typeof feature.meetingRoom === 'boolean' ? (
                                                 feature.meetingRoom ? (
-                                                    <Check className="w-5 h-5 text-gold-500 mx-auto" />
+                                                    <span className="inline-flex items-center justify-center w-5 h-5">
+                                                        <Check className="w-5 h-5 text-emerald-500" />
+                                                    </span>
                                                 ) : (
-                                                    <span className="text-navy-400">—</span>
+                                                    <span className="inline-flex items-center justify-center w-5 h-5 text-navy-300">—</span>
                                                 )
                                             ) : (
                                                 <span className="font-body text-navy-700">{feature.meetingRoom}</span>
@@ -279,9 +300,11 @@ const ServicesPage = () => {
                                         <td className="p-4 text-center">
                                             {typeof feature.virtualEjari === 'boolean' ? (
                                                 feature.virtualEjari ? (
-                                                    <Check className="w-5 h-5 text-gold-500 mx-auto" />
+                                                    <span className="inline-flex items-center justify-center w-5 h-5">
+                                                        <Check className="w-5 h-5 text-emerald-500" />
+                                                    </span>
                                                 ) : (
-                                                    <span className="text-navy-400">—</span>
+                                                    <span className="inline-flex items-center justify-center w-5 h-5 text-navy-300">—</span>
                                                 )
                                             ) : (
                                                 <span className="font-body text-navy-700">{feature.virtualEjari}</span>

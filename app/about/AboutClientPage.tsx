@@ -12,7 +12,11 @@ import {
     Users,
     Award,
     Star,
-    CheckCircle2
+    CheckCircle2,
+    BadgeCheck,
+    HandHeart,
+    UsersRound,
+    TrendingUp
 } from "lucide-react";
 import CTASection from "../../components/sections/CTASection";
 
@@ -114,7 +118,7 @@ const OurStorySection = () => {
                     >
                         <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-luxury-lg">
                             <Image
-                                src="/office_burj_khalifa_view.png"
+                                src="/images/primetower/the-prime-tower_g7-03jpg-68baa93d-a624-4786-9e01-b849f775facf.jpg"
                                 alt="Jetset Business Center Story"
                                 fill
                                 className="object-cover hover:scale-105 transition-transform duration-700"
@@ -228,29 +232,49 @@ const CoreValuesSection = () => {
             icon: Eye,
             title: "Transparency",
             description: "Clear pricing with no hidden operational costs. What you see is what you get.",
-            color: "text-blue-600",
-            bg: "bg-blue-50"
+            bg: "bg-slate-50"
         },
         {
-            icon: Zap,
+            icon: TrendingUp,
             title: "Innovation",
             description: "Continuously adapting to hybrid and remote work trends to serve you better.",
-            color: "text-amber-600",
+            bg: "bg-sky-50"
+        },
+        {
+            icon: BadgeCheck,
+            title: "Operational Excellence",
+            description: "Reliable operations that keep your business running smoothly and consistently.",
             bg: "bg-amber-50"
+        },
+        {
+            icon: HandHeart,
+            title: "Radical Hospitality",
+            description: "Warm, proactive service that makes every client feel truly welcomed.",
+            bg: "bg-rose-50"
         },
         {
             icon: Heart,
             title: "Customer Obsession",
             description: "Treating every client—startup or enterprise—with equal respect and dedication.",
-            color: "text-red-600",
-            bg: "bg-red-50"
+            bg: "bg-emerald-50"
         },
         {
             icon: Users,
             title: "Relationship-Driven",
             description: "We prioritize long-term partnerships over transactional tenancy.",
-            color: "text-teal-600",
             bg: "bg-teal-50"
+        },
+        {
+            icon: UsersRound,
+            title: "Curated Community",
+            description: "A thoughtful mix of businesses that elevate collaboration and growth.",
+            bg: "bg-indigo-50"
+        },
+        {
+            icon: Zap,
+            title: "Adaptive Agility",
+            description: "Flexible solutions that evolve quickly with your business needs.",
+            bg: "bg-violet-50"
         }
     ];
 
@@ -283,10 +307,10 @@ const CoreValuesSection = () => {
                                     transition: { delay: index * 0.1, duration: 0.5 }
                                 }
                             }}
-                            className="text-center group p-6 rounded-2xl hover:bg-cream-50 transition-colors duration-300"
+                            className={`text-center group p-6 rounded-2xl border border-cream-100/70 ${value.bg} hover:border-gold-200/50 transition-colors duration-300`}
                         >
-                            <div className={`w-16 h-16 mx-auto rounded-2xl ${value.bg} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-sm`}>
-                                <value.icon className={`w-8 h-8 ${value.color}`} />
+                            <div className="w-16 h-16 mx-auto rounded-full bg-navy-900 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-sm">
+                                <value.icon className="w-8 h-8 text-gold-500" />
                             </div>
                             <h3 className="text-xl font-bold text-navy-900 mb-3">{value.title}</h3>
                             <p className="text-navy-600 text-sm leading-relaxed">{value.description}</p>

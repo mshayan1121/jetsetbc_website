@@ -11,7 +11,7 @@ const services = [
     {
         title: "Co-working Spaces",
         description: "Work from premium coworking spaces & lounges with a single membership.",
-        image: "/images/services/coworking.png",
+        image: "/images/services/Co-working Area.jpg",
         icon: Users,
         link: "/services/coworking",
         cta: "Learn More",
@@ -29,7 +29,7 @@ const services = [
     {
         title: "Meeting Rooms",
         description: "Book private rooms instantly for calls, workshops or team discussions.",
-        image: "/images/services/meeting-rooms.png",
+        image: "/images/services/Conference Room.jpg",
         icon: Presentation,
         link: "/services/meeting-rooms",
         cta: "Learn More",

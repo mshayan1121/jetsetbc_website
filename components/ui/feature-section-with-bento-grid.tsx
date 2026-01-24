@@ -33,7 +33,7 @@ function Feature() {
             <div className="bg-muted rounded-md h-full lg:col-span-2 p-6 aspect-square lg:aspect-auto flex justify-between flex-col relative overflow-hidden group min-h-[300px]">
               <div className="absolute inset-0">
                 <Image 
-                  src="/images/services/coworking.png" 
+                  src="/images/services/Co-working Area.jpg" 
                   alt="Coworking" 
                   fill
                   className="object-cover opacity-20 transition-opacity group-hover:opacity-30"
@@ -71,7 +71,7 @@ function Feature() {
             <div className="bg-muted rounded-md aspect-square p-6 flex justify-between flex-col relative overflow-hidden group">
               <div className="absolute inset-0">
                 <Image 
-                  src="/images/services/meeting-rooms.png" 
+                  src="/images/services/Conference Room.jpg" 
                   alt="Meeting Room" 
                   fill
                   className="object-cover opacity-20 transition-opacity group-hover:opacity-30"

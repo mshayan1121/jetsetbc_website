@@ -1,14 +1,38 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Award } from "lucide-react";
 import QuoteBuilder from "./QuoteBuilder";
 
-const Hero = () => {
+type HeroProps = {
+    images: string[];
+};
+
+const Hero = ({ images }: HeroProps) => {
     const { scrollY } = useScroll();
     const y1 = useTransform(scrollY, [0, 500], [0, 200]);
+    const [activeIndex, setActiveIndex] = useState(0);
+    const orderedImages = useMemo(
+        () =>
+            images && images.length > 0
+                ? images
+                : ["/images/primetower/the-prime-tower_g7-03jpg-68baa93d-a624-4786-9e01-b849f775facf.jpg"],
+        [images]
+    );
+
+    useEffect(() => {
+        if (orderedImages.length <= 1) {
+            return;
+        }
+
+        const intervalId = window.setInterval(() => {
+            setActiveIndex((prev) => (prev + 1) % orderedImages.length);
+        }, 6500);
+
+        return () => window.clearInterval(intervalId);
+    }, [orderedImages.length]);
 
     return (
         <section className="relative z-20 min-h-screen flex items-center justify-center bg-navy-900 w-full pt-20">
@@ -18,14 +42,21 @@ const Hero = () => {
                     style={{ y: y1 }}
                     className="absolute inset-0 w-full h-full"
                 >
-                    <Image
-                        src="/office_burj_khalifa_view.png"
-                        alt="Jetset Business Center Office"
-                        fill
-                        priority
-                        sizes="100vw"
-                        className="object-cover object-center"
-                    />
+                    <div className="absolute inset-0">
+                        {orderedImages.map((src, index) => (
+                            <Image
+                                key={src}
+                                src={src}
+                                alt="Jetset Business Center Office"
+                                fill
+                                priority={index === 0}
+                                sizes="100vw"
+                                className={`object-cover object-center transition-opacity duration-1000 ${
+                                    index === activeIndex ? "opacity-100" : "opacity-0"
+                                }`}
+                            />
+                        ))}
+                    </div>
                     {/* Gradient overlay */}
                     <div className="absolute inset-0 bg-navy-900/60" />
                 </motion.div>

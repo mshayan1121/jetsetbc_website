@@ -125,7 +125,7 @@ const CoworkingPage = () => {
                 title="Dynamic Coworking Spaces"
                 subtitle="Collaborate & Grow"
                 description="Join an elite community of entrepreneurs and innovators in Dubai's most inspiring shared workspace environment."
-                image="/images/services/coworking.png"
+                image="/images/services/Co-working Area.jpg"
                 ctaText="Join Now"
                 secondaryCtaText="Explore Plans"
             />
@@ -165,7 +165,7 @@ const CoworkingPage = () => {
                         </div>
                         <div className="lg:w-1/2 relative h-[500px] w-full rounded-[40px] overflow-hidden shadow-2xl">
                             <Image
-                                src="/images/services/coworking.png"
+                                src="/images/services/Co-working Area.jpg"
                                 alt="Community Events"
                                 fill
                                 className="object-cover"

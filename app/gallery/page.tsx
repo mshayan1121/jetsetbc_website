@@ -4,7 +4,6 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
-import { Card } from '@/components/ui/Card';
 import Link from 'next/link';
 import { 
   Building2, 
@@ -26,126 +25,136 @@ const categories = [
   { id: 'location', name: 'Prime Tower', icon: MapPin },
 ];
 
-// Gallery images with categories (PLACEHOLDER DATA)
-const galleryImages = [
-  // Private Offices
+type GalleryImage = {
+  id: number;
+  category: string;
+  title: string;
+  description: string;
+  image: string;
+  size: 'wide' | 'tall' | 'square' | 'feature';
+};
+
+// Gallery images with categories (LOCAL ASSETS)
+const galleryImages: GalleryImage[] = [
   {
     id: 1,
-    category: 'private-offices',
-    title: 'Executive Private Office',
-    description: 'Spacious office with Burj Khalifa views',
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop',
+    category: 'coworking',
+    title: 'Coworking Area',
+    description: 'Open-plan workstations with shared amenities',
+    image: '/images/gallery/Co-working(1).jpg',
+    size: 'feature',
   },
   {
     id: 2,
-    category: 'private-offices',
-    title: 'Inner Office Suite',
-    description: 'Cost-efficient workspace for focused work',
-    image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&h=600&fit=crop',
+    category: 'meeting-rooms',
+    title: 'Conference Room',
+    description: 'Professional meeting space for teams and clients',
+    image: '/images/gallery/Conference%20Room.jpg',
+    size: 'wide',
   },
   {
     id: 3,
-    category: 'private-offices',
-    title: 'Corner Office',
-    description: 'Premium corner office with panoramic views',
-    image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&h=600&fit=crop',
+    category: 'meeting-rooms',
+    title: 'Conference Room (Alternate)',
+    description: 'Private boardroom setup for focused discussions',
+    image: '/images/gallery/Conference%20Room(1).jpg',
+    size: 'square',
   },
   {
     id: 4,
     category: 'private-offices',
-    title: 'Team Office',
-    description: 'Collaborative space for growing teams',
-    image: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&h=600&fit=crop',
+    title: 'Private Office Suite',
+    description: 'Quiet, enclosed workspace for focused productivity',
+    image: '/images/gallery/Copy%20of%20DSC09464.JPG',
+    size: 'tall',
   },
-  
-  // Coworking Spaces
   {
     id: 5,
-    category: 'coworking',
-    title: 'Hot Desk Area',
-    description: 'Flexible seating in open workspace',
-    image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&h=600&fit=crop',
+    category: 'private-offices',
+    title: 'Executive Office',
+    description: 'Premium private office with polished finishes',
+    image: '/images/gallery/Copy%20of%20DSC09466.JPG',
+    size: 'wide',
   },
   {
     id: 6,
-    category: 'coworking',
-    title: 'Dedicated Desk Zone',
-    description: 'Reserved workspace for regulars',
-    image: 'https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?w=800&h=600&fit=crop',
+    category: 'location',
+    title: 'Business Center Interior',
+    description: 'Modern interiors designed for a premium experience',
+    image: '/images/gallery/Copy%20of%20DSC09471.JPG',
+    size: 'square',
   },
   {
     id: 7,
-    category: 'coworking',
-    title: 'Collaboration Area',
-    description: 'Open space for networking and collaboration',
-    image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=600&fit=crop',
+    category: 'location',
+    title: 'Workspace Corridor',
+    description: 'Bright, welcoming corridors throughout the center',
+    image: '/images/gallery/Copy%20of%20DSC09485.JPG',
+    size: 'tall',
   },
   {
     id: 8,
-    category: 'coworking',
-    title: 'Private Cabin',
-    description: 'Semi-private workspace within coworking area',
-    image: 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=800&h=600&fit=crop',
+    category: 'location',
+    title: 'Hallway',
+    description: 'Clean, modern pathways between workspaces',
+    image: '/images/gallery/Hallway.jpg',
+    size: 'square',
   },
-  
-  // Meeting Rooms
   {
     id: 9,
     category: 'meeting-rooms',
-    title: 'Majilis VIP Room',
-    description: '9-10 person executive meeting space',
-    image: 'https://images.unsplash.com/photo-1431540015161-0bf868a2d407?w=800&h=600&fit=crop',
+    title: 'Majilis Meeting Room',
+    description: 'Elegant VIP meeting space for executive meetings',
+    image: '/images/gallery/Majilis.jpg',
+    size: 'feature',
   },
   {
     id: 10,
     category: 'meeting-rooms',
-    title: 'Conference Boardroom',
-    description: '8 person boardroom with premium setup',
-    image: 'https://images.unsplash.com/photo-1462826303086-329426d1aef5?w=800&h=600&fit=crop',
+    title: 'Majilis Room (Alternate)',
+    description: 'Traditional-inspired meeting room with luxury seating',
+    image: '/images/gallery/Majilis(2).jpg',
+    size: 'wide',
   },
   {
     id: 11,
-    category: 'meeting-rooms',
-    title: 'Standard Meeting Room',
-    description: '6 person room for team meetings',
-    image: 'https://images.unsplash.com/photo-1497366412874-3415097a27e7?w=800&h=600&fit=crop',
+    category: 'location',
+    title: 'Reception Coffee Spot',
+    description: 'Comfortable lounge with coffee service',
+    image: '/images/gallery/Reception%20_%20Coffee%20shop.jpg',
+    size: 'square',
   },
   {
     id: 12,
-    category: 'meeting-rooms',
-    title: 'Video Conference Room',
-    description: 'Tech-enabled for hybrid meetings',
-    image: 'https://images.unsplash.com/photo-1556761175-4b46a572b786?w=800&h=600&fit=crop',
+    category: 'location',
+    title: 'Reception with Burj Khalifa View',
+    description: 'Signature views from the reception area',
+    image: '/images/gallery/Reception%20BK%20View.jpg',
+    size: 'tall',
   },
-  
-  // Location - Prime Tower
   {
     id: 13,
     category: 'location',
-    title: 'Prime Tower Exterior',
-    description: 'Our flagship location in Business Bay',
-    image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&h=600&fit=crop',
+    title: 'Reception Area',
+    description: 'Warm welcome and front desk services',
+    image: '/images/gallery/Reception.jpg',
+    size: 'wide',
   },
   {
     id: 14,
     category: 'location',
-    title: 'Burj Khalifa View',
-    description: 'Stunning views from our offices',
-    image: 'https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?w=800&h=600&fit=crop',
+    title: 'Reception (Alternate)',
+    description: 'Premium lobby with refined finishes',
+    image: '/images/gallery/Reception(1).jpg',
+    size: 'square',
   },
   {
     id: 15,
     category: 'location',
-    title: 'Reception Area',
-    description: 'Welcoming entrance and front desk',
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop',
-  },
-  {
-    id: 16,
-    category: 'location',
-    title: 'Lounge Area',
-    description: 'Comfortable space for breaks and networking',
-    image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&h=600&fit=crop',
+    title: 'Reception Seating',
+    description: 'Comfortable seating for guests and visitors',
+    image: '/images/gallery/Reception(4).jpg',
+    size: 'square',
   },
 ];
 
@@ -182,7 +191,7 @@ export default function GalleryPage() {
   return (
     <>
       {/* HERO SECTION */}
-      <section className="relative bg-gradient-luxury min-h-[50vh] flex items-center justify-center">
+      <section className="relative bg-gradient-luxury min-h-[60vh] flex items-center justify-center pt-28 pb-20 sm:pt-32 sm:pb-24 lg:pt-36 lg:pb-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Badge className="mb-6 bg-gold-500/20 text-gold-500 border border-gold-500/30">
             Visual Tour
@@ -232,35 +241,44 @@ export default function GalleryPage() {
             })}
           </div>
 
-          {/* IMAGE GRID */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {filteredImages.map((image) => (
-              <Card
-                key={image.id}
-                className="group cursor-pointer overflow-hidden hover:-translate-y-2 transition-all duration-300"
-                onClick={() => openLightbox(image.id)}
-              >
-                <div className="relative aspect-square overflow-hidden">
-                  <Image
-                    src={image.image}
-                    alt={image.title}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-navy-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  
-                  {/* Overlay Text */}
-                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0">
-                    <h3 className="font-display text-lg mb-1">
-                      {image.title}
-                    </h3>
-                    <p className="text-sm text-cream-50">
-                      {image.description}
-                    </p>
+          {/* BENTO / MASONRY GRID */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 auto-rows-[150px] sm:auto-rows-[170px] lg:auto-rows-[200px] gap-2 sm:gap-3 lg:gap-4 grid-flow-dense">
+            {filteredImages.map((image) => {
+              const sizeClasses = {
+                square: 'lg:col-span-1 lg:row-span-1',
+                tall: 'lg:col-span-1 lg:row-span-2',
+                wide: 'lg:col-span-2 lg:row-span-1',
+                feature: 'lg:col-span-2 lg:row-span-2',
+              }[image.size];
+
+              return (
+                <div
+                  key={image.id}
+                  className={`group cursor-pointer overflow-hidden transition-transform duration-300 hover:-translate-y-1 ${sizeClasses}`}
+                  onClick={() => openLightbox(image.id)}
+                >
+                  <div className="relative h-full w-full overflow-hidden">
+                    <Image
+                      src={image.image}
+                      alt={image.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-navy-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    
+                    {/* Overlay Text */}
+                    <div className="absolute bottom-0 left-0 right-0 p-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0">
+                      <h3 className="font-display text-lg mb-1">
+                        {image.title}
+                      </h3>
+                      <p className="text-sm text-cream-50">
+                        {image.description}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </Card>
-            ))}
+              );
+            })}
           </div>
 
           {/* EMPTY STATE */}
@@ -276,16 +294,27 @@ export default function GalleryPage() {
       </section>
 
       {/* CTA SECTION */}
-      <section className="bg-cream-50 py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-display text-3xl md:text-4xl text-navy-900 mb-6">
-            Experience It in Person
+      <section className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/business-bay/dubai-business-bay-uae-5km-01.jpg"
+            alt="Business Bay skyline with Burj Khalifa"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-navy-900/70" />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy-900/70 via-navy-900/40 to-transparent" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-display text-3xl md:text-4xl text-white mb-6">
+            See the Space, Feel the Difference
           </h2>
-          <p className="font-body text-lg text-navy-700 mb-8 max-w-2xl mx-auto">
+          <p className="font-body text-lg text-cream-50/90 mb-8 max-w-2xl mx-auto">
             Book a same-day tour and see our premium workspaces firsthand
           </p>
           <Button variant="primary" size="lg" asChild>
-            <Link href="/book-tour">Book a Tour</Link>
+            <Link href="/book-tour">BOOK A TOUR</Link>
           </Button>
         </div>
       </section>

@@ -3,7 +3,21 @@
 import React, { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import { Star, Award, Users, Calendar, Target, Heart, TrendingUp, Shield, ChevronDown } from "lucide-react";
+import {
+    Star,
+    Award,
+    Users,
+    Crown,
+    Gem,
+    Heart,
+    TrendingUp,
+    Shield,
+    ChevronDown,
+    BadgeCheck,
+    HandHeart,
+    UsersRound,
+    Zap,
+} from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { Card, CardContent } from "@/components/ui/Card";
@@ -26,21 +40,49 @@ export default function AboutContent() {
             title: "Transparency",
             description: "Clear pricing with no hidden operational costs. We believe in honest partnerships.",
             icon: Shield,
+            bgClass: "bg-slate-50",
         },
         {
             title: "Innovation",
             description: "Continuously adapting to hybrid and remote work trends with cutting-edge tech.",
             icon: TrendingUp,
+            bgClass: "bg-sky-50",
+        },
+        {
+            title: "Operational Excellence",
+            description: "Reliable operations that keep your business running smoothly and consistently.",
+            icon: BadgeCheck,
+            bgClass: "bg-amber-50",
+        },
+        {
+            title: "Radical Hospitality",
+            description: "Warm, proactive service that makes every client feel truly welcomed.",
+            icon: HandHeart,
+            bgClass: "bg-rose-50",
         },
         {
             title: "Customer Obsession",
             description: "Treating every client—startup or enterprise—with equal respect and dedication.",
             icon: Heart,
+            bgClass: "bg-emerald-50",
         },
         {
             title: "Relationship-Driven",
             description: "We prioritize long-term partnerships over transactional tenancy.",
             icon: Users,
+            bgClass: "bg-teal-50",
+        },
+        {
+            title: "Curated Community",
+            description: "A thoughtful mix of businesses that elevate collaboration and growth.",
+            icon: UsersRound,
+            bgClass: "bg-indigo-50",
+        },
+        {
+            title: "Adaptive Agility",
+            description: "Flexible solutions that evolve quickly with your business needs.",
+            icon: Zap,
+            bgClass: "bg-violet-50",
         },
     ];
 
@@ -115,7 +157,7 @@ export default function AboutContent() {
                         <FadeIn direction="right" distance={30} className="w-full lg:w-1/2">
                             <div className="relative h-[500px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl group">
                                 <Image
-                                    src="/office_burj_khalifa_view.png"
+                                    src="/images/primetower/the-prime-tower_g7-03jpg-68baa93d-a624-4786-9e01-b849f775facf.jpg"
                                     alt="Jetset Office Story"
                                     fill
                                     className="object-cover hover:scale-105 transition-transform duration-700"
@@ -180,10 +222,14 @@ export default function AboutContent() {
                     <StaggerContainer staggerDelay={0.2} className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {/* Mission */}
                         <FadeIn stagger direction="up">
-                            <Card hoverEffect glass className="bg-white group h-full">
+                            <Card
+                                hoverEffect
+                                glass
+                                className="bg-cream-100/80 border border-gold-500/30 group h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-gold-500/10 hover:border-gold-500/60"
+                            >
                                 <CardContent className="p-10 space-y-6">
                                     <div className="w-14 h-14 rounded-full bg-gold-500/10 flex items-center justify-center text-gold-500 mb-4 group-hover:bg-gold-500 group-hover:text-white transition-colors duration-300">
-                                        <Target className="w-7 h-7" />
+                                        <Crown className="w-7 h-7" />
                                     </div>
                                     <h3 className="text-2xl font-display font-bold text-navy-900">Our Mission</h3>
                                     <p className="text-navy-800/80 leading-relaxed font-body">
@@ -195,10 +241,14 @@ export default function AboutContent() {
 
                         {/* Vision */}
                         <FadeIn stagger direction="up">
-                            <Card hoverEffect glass className="bg-white group h-full">
+                            <Card
+                                hoverEffect
+                                glass
+                                className="bg-cream-100/80 border border-gold-500/30 group h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-gold-500/10 hover:border-gold-500/60"
+                            >
                                 <CardContent className="p-10 space-y-6">
                                     <div className="w-14 h-14 rounded-full bg-gold-500/10 flex items-center justify-center text-gold-500 mb-4 group-hover:bg-gold-500 group-hover:text-white transition-colors duration-300">
-                                        <Calendar className="w-7 h-7" />
+                                        <Gem className="w-7 h-7" />
                                     </div>
                                     <h3 className="text-2xl font-display font-bold text-navy-900">Our Vision</h3>
                                     <p className="text-navy-800/80 leading-relaxed font-body">
@@ -208,6 +258,9 @@ export default function AboutContent() {
                             </Card>
                         </FadeIn>
                     </StaggerContainer>
+                    <p className="mt-10 text-center text-sm md:text-base text-navy-800/70 font-body">
+                        Guided by these principles, we have successfully supported 500+ businesses in the heart of Business Bay.
+                    </p>
                 </div>
             </section>
 
@@ -226,7 +279,7 @@ export default function AboutContent() {
                             <FadeIn key={value.title} stagger direction="up">
                                 <Card
                                     hoverEffect
-                                    className="h-full border border-gray-100 hover:border-gold-500/30 transition-colors duration-300"
+                                    className={`h-full border border-gray-100/70 hover:border-gold-500/30 transition-colors duration-300 ${value.bgClass}`}
                                 >
                                     <div className="p-8 flex flex-col h-full items-center text-center">
                                         <div className="w-16 h-16 rounded-full bg-navy-900 flex items-center justify-center text-gold-500 mb-6 shadow-navy-sm">
@@ -246,6 +299,15 @@ export default function AboutContent() {
 
             {/* 5. AWARDS SECTION */}
             <section className="py-24 bg-gradient-to-br from-navy-900 to-navy-800 text-white overflow-hidden relative">
+                {/* Subtle map background */}
+                <div className="absolute inset-0 z-0 opacity-[0.06] pointer-events-none">
+                    <Image
+                        src="/images/business-bay/dubai-business-bay-uae-5km-01.jpg"
+                        alt=""
+                        fill
+                        className="object-cover object-center"
+                    />
+                </div>
                 {/* Background Decor */}
                 <div className="absolute top-0 right-0 w-96 h-96 bg-gold-500/10 rounded-full blur-[100px] pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-96 h-96 bg-teal-500/10 rounded-full blur-[100px] pointer-events-none" />

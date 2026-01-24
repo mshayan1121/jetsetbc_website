@@ -11,7 +11,7 @@ import JetsetForm from "@/components/sections/JetsetForm";
 // --- Components ---
 
 const ContactCard = ({ icon: Icon, title, value, link, label }: { icon: any, title: string, value: string, link?: string, label: string }) => (
-    <div className="bg-white rounded-xl p-6 sm:p-8 shadow-luxury-lg hover:shadow-luxury-xl transition-all duration-400 hover:-translate-y-2 text-center group">
+    <div className="bg-white rounded-xl p-6 sm:p-8 shadow-luxury-lg hover:shadow-luxury-xl transition-all duration-400 hover:-translate-y-2 text-center group border border-gold-500/40">
         <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gold-500/10 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
             <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-gold-500" />
         </div>
@@ -67,6 +67,11 @@ export default function ContactPageClient() {
         <main className="flex flex-col w-full bg-white">
             {/* 1. HERO SECTION - Taller, matching homepage */}
             <section className="relative bg-gradient-to-br from-navy-900 via-navy-800 to-navy-900 min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] flex items-center justify-center overflow-visible py-20 sm:py-28 md:py-32 lg:py-40">
+                {/* Background Image */}
+                <div
+                    className="absolute inset-0 bg-[url('/images/hero_section_images/Reception.jpg')] bg-cover bg-center opacity-35"
+                    aria-hidden="true"
+                />
                 {/* Background Gradients */}
                 <div className="absolute inset-0 bg-gradient-to-r from-navy-900 via-navy-900/80 to-transparent z-10" />
                 <div className="absolute inset-0 bg-gradient-to-b from-navy-900/40 via-transparent to-navy-900/60 z-10" />
@@ -80,7 +85,7 @@ export default function ContactPageClient() {
                     >
 
                         <h1 className="font-display text-4xl sm:text-5xl md:text-6xl text-white mb-4 sm:mb-6 px-4">
-                            Contact Us
+                            Connect with Our Team
                         </h1>
                         <p className="font-body text-lg sm:text-xl text-cream-50 max-w-2xl mx-auto px-4">
                             Get in touch with us about your requirements and our team will get back to you within 1 business day
@@ -168,11 +173,11 @@ export default function ContactPageClient() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
                         >
-                            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-cream-200 shadow-sm">
+                            <div className="bg-white/60 rounded-2xl p-6 sm:p-8 border border-cream-200 shadow-sm">
                                 <h3 className="font-display text-xl sm:text-2xl font-semibold text-navy-900 mb-6 sm:mb-8 text-center">Contact Information</h3>
 
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-                                    <div className="text-center">
+                                    <div className="bg-white rounded-2xl border border-cream-200 shadow-sm p-6 sm:p-8 text-center">
                                         <div className="w-12 h-12 rounded-full bg-gold-500/10 flex items-center justify-center mx-auto mb-4 text-gold-500">
                                             <MapPin className="w-6 h-6" />
                                         </div>
@@ -184,22 +189,22 @@ export default function ContactPageClient() {
                                         </p>
                                     </div>
 
-                                    <div className="text-center">
+                                    <div className="bg-white rounded-2xl border border-cream-200 shadow-sm p-6 sm:p-8 text-center">
                                         <div className="w-12 h-12 rounded-full bg-gold-500/10 flex items-center justify-center mx-auto mb-4 text-gold-500">
                                             <Clock className="w-6 h-6" />
                                         </div>
                                         <h4 className="font-bold text-navy-900 mb-2">Office Hours</h4>
                                         <div className="text-navy-700 font-body text-sm space-y-1">
-                                            <div>Monday to Friday: 9am-8pm</div>
-                                            <div>Saturday: 10am-7pm</div>
-                                            <div className="text-red-500">Sunday: Closed</div>
+                                            <div>Monday to Friday: 9am-6pm</div>
+                                            <div>Saturday: 10am-2pm</div>
+                                            <div>Sunday: Closed</div>
                                             <p className="pt-2 text-xs text-gold-600 font-semibold uppercase tracking-wider">
-                                                * 24/7 Access for Members
+                                                24/7 Access for Members
                                             </p>
                                         </div>
                                     </div>
 
-                                    <div className="text-center">
+                                    <div className="bg-white rounded-2xl border border-cream-200 shadow-sm p-6 sm:p-8 text-center">
                                         <div className="w-12 h-12 rounded-full bg-gold-500/10 flex items-center justify-center mx-auto mb-4 text-gold-500">
                                             <Phone className="w-6 h-6" />
                                         </div>

@@ -112,106 +112,165 @@ export default function PricingPage() {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-                        {/* Card 1 - Daily */}
-                        <Card className="shadow-luxury-sm hover:shadow-luxury-lg hover:-translate-y-2 transition-all duration-400 flex flex-col">
-                            <CardHeader>
-                                <CardTitle className="text-lg sm:text-xl">Daily Pass</CardTitle>
-                                <CardDescription className="text-sm sm:text-base">Pay as you go flexibility</CardDescription>
-                            </CardHeader>
-                            <CardContent className="flex-grow flex flex-col">
-                                <div className="mb-4 sm:mb-6">
-                                    <span className="font-accent text-3xl sm:text-4xl font-bold text-gold-500">AED 80</span>
-                                    <span className="font-body text-navy-700 ml-1 text-sm sm:text-base">/day</span>
+                    <div className="max-w-5xl mx-auto">
+                        <Card className="shadow-luxury-sm hover:shadow-luxury-lg transition-all duration-500 relative overflow-hidden group">
+                            <CardHeader className="pb-0">
+                                <div className="flex items-center justify-between flex-wrap gap-3">
+                                    <div>
+                                        <CardTitle className="text-2xl sm:text-3xl">Coworking Access</CardTitle>
+                                        <CardDescription className="text-sm sm:text-base">
+                                            Daily, monthly, and annual options in our premium lounge.
+                                        </CardDescription>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <Badge variant="gold" className="text-xs sm:text-sm">Popular</Badge>
+                                        <Badge variant="teal" className="bg-teal-600 text-white border-none text-xs sm:text-sm">Best Value</Badge>
+                                    </div>
                                 </div>
-                                <ul className="space-y-3 mb-8 flex-grow">
-                                    <li className="flex items-start gap-3">
-                                        <Check className="w-5 h-5 text-gold-500 shrink-0" />
-                                        <span className="font-body text-navy-700">Access from 9AM - 6PM</span>
-                                    </li>
-                                    <li className="flex items-start gap-3">
-                                        <Check className="w-5 h-5 text-gold-500 shrink-0" />
-                                        <span className="font-body text-navy-700">High-speed Wi-Fi</span>
-                                    </li>
-                                    <li className="flex items-start gap-3">
-                                        <Check className="w-5 h-5 text-gold-500 shrink-0" />
-                                        <span className="font-body text-navy-700">Coffee & Tea included</span>
-                                    </li>
-                                </ul>
-                                <Button variant="outline" className="w-full" asChild>
-                                    <a href="/book-tour">Get Started</a>
-                                </Button>
-                            </CardContent>
-                        </Card>
+                            </CardHeader>
+                            <CardContent className="pt-6">
+                                <div className="relative min-h-[360px] sm:min-h-[320px]">
+                                    <div className="transition-all duration-500 ease-out group-hover:opacity-0 group-hover:-translate-y-3">
+                                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                                            <div className="border border-cream-200 rounded-xl p-5 bg-cream-50/60">
+                                                <p className="text-xs uppercase tracking-wide text-navy-500 mb-1">Daily Pass</p>
+                                                <div className="flex items-end gap-2 mb-3">
+                                                    <span className="font-accent text-3xl font-bold text-gold-500">AED 80</span>
+                                                    <span className="text-sm text-navy-600">/day</span>
+                                                </div>
+                                                <ul className="space-y-2">
+                                                    <li className="flex items-start gap-2">
+                                                        <Check className="w-4 h-4 text-gold-500 shrink-0 mt-0.5" />
+                                                        <span className="text-sm text-navy-700">Access 9AM - 6PM</span>
+                                                    </li>
+                                                    <li className="flex items-start gap-2">
+                                                        <Check className="w-4 h-4 text-gold-500 shrink-0 mt-0.5" />
+                                                        <span className="text-sm text-navy-700">High-speed Wi-Fi</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div className="border border-gold-500/30 rounded-xl p-5 bg-white shadow-sm">
+                                                <div className="flex items-center justify-between mb-1">
+                                                    <p className="text-xs uppercase tracking-wide text-navy-500">Monthly</p>
+                                                    <Badge variant="gold" className="text-[10px] sm:text-xs">Popular</Badge>
+                                                </div>
+                                                <div className="flex items-end gap-2 mb-3">
+                                                    <span className="font-accent text-3xl font-bold text-gold-500">AED 1,800</span>
+                                                    <span className="text-sm text-navy-600">/month</span>
+                                                </div>
+                                                <ul className="space-y-2">
+                                                    <li className="flex items-start gap-2">
+                                                        <Check className="w-4 h-4 text-gold-500 shrink-0 mt-0.5" />
+                                                        <span className="text-sm text-navy-700">24/7 Access</span>
+                                                    </li>
+                                                    <li className="flex items-start gap-2">
+                                                        <Check className="w-4 h-4 text-gold-500 shrink-0 mt-0.5" />
+                                                        <span className="text-sm text-navy-700">Meeting room credits</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div className="border border-cream-200 rounded-xl p-5 bg-cream-50/60">
+                                                <div className="flex items-center justify-between mb-1">
+                                                    <p className="text-xs uppercase tracking-wide text-navy-500">Annual</p>
+                                                    <Badge variant="outline" className="text-green-600 border-green-600/20 bg-green-50 text-[10px] sm:text-xs">Best Value</Badge>
+                                                </div>
+                                                <div className="flex items-end gap-2 mb-3">
+                                                    <span className="font-accent text-3xl font-bold text-gold-500">AED 18,000</span>
+                                                    <span className="text-sm text-navy-600">/year</span>
+                                                </div>
+                                                <ul className="space-y-2">
+                                                    <li className="flex items-start gap-2">
+                                                        <Check className="w-4 h-4 text-gold-500 shrink-0 mt-0.5" />
+                                                        <span className="text-sm text-navy-700">Priority meeting bookings</span>
+                                                    </li>
+                                                    <li className="flex items-start gap-2">
+                                                        <Check className="w-4 h-4 text-gold-500 shrink-0 mt-0.5" />
+                                                        <span className="text-sm text-navy-700">Business address included</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div className="mt-6">
+                                            <Button variant="primary" className="w-full sm:w-auto" asChild>
+                                                <a href="/book-tour">Get Started</a>
+                                            </Button>
+                                        </div>
+                                    </div>
 
-                        {/* Card 2 - Monthly */}
-                        <Card className="shadow-luxury-sm hover:shadow-luxury-lg hover:-translate-y-2 transition-all duration-400 flex flex-col relative overflow-visible border-gold-500/20">
-                            <div className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3">
-                                <Badge variant="gold" className="shadow-md text-xs sm:text-sm">Popular</Badge>
-                            </div>
-                            <CardHeader>
-                                <CardTitle className="text-lg sm:text-xl">Monthly</CardTitle>
-                                <CardDescription className="text-sm sm:text-base">Maximum flexibility</CardDescription>
-                            </CardHeader>
-                            <CardContent className="flex-grow flex flex-col">
-                                <div className="mb-4 sm:mb-6">
-                                    <span className="font-accent text-3xl sm:text-4xl font-bold text-gold-500">AED 1,800</span>
-                                    <span className="font-body text-navy-700 ml-1 text-sm sm:text-base">/month</span>
+                                    <div className="absolute inset-0 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-500 ease-out">
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 h-full divide-y sm:divide-y-0 sm:divide-x divide-cream-200">
+                                            <div className="p-6 sm:p-8 flex flex-col gap-4 bg-white/95">
+                                                <div>
+                                                    <p className="text-xs uppercase tracking-wide text-navy-500">Flexi-Desk</p>
+                                                    <h3 className="text-xl sm:text-2xl font-display font-semibold text-navy-900">Hot-desking in the premium lounge</h3>
+                                                </div>
+                                                <div className="space-y-2">
+                                                    <div className="flex items-end gap-2">
+                                                        <span className="font-accent text-2xl sm:text-3xl font-bold text-gold-500">AED 80</span>
+                                                        <span className="text-sm text-navy-600">/day</span>
+                                                    </div>
+                                                    <div className="flex items-end gap-2">
+                                                        <span className="font-accent text-2xl sm:text-3xl font-bold text-gold-500">AED 1,800</span>
+                                                        <span className="text-sm text-navy-600">/month</span>
+                                                    </div>
+                                                    <div className="flex items-end gap-2">
+                                                        <span className="font-accent text-2xl sm:text-3xl font-bold text-gold-500">AED 18,000</span>
+                                                        <span className="text-sm text-navy-600">/year</span>
+                                                    </div>
+                                                </div>
+                                                <ul className="space-y-2">
+                                                    <li className="flex items-start gap-2">
+                                                        <Check className="w-4 h-4 text-gold-500 shrink-0 mt-0.5" />
+                                                        <span className="text-sm text-navy-700">Access 9AM - 6PM</span>
+                                                    </li>
+                                                    <li className="flex items-start gap-2">
+                                                        <Check className="w-4 h-4 text-gold-500 shrink-0 mt-0.5" />
+                                                        <span className="text-sm text-navy-700">High-speed Wi-Fi</span>
+                                                    </li>
+                                                    <li className="flex items-start gap-2">
+                                                        <Check className="w-4 h-4 text-gold-500 shrink-0 mt-0.5" />
+                                                        <span className="text-sm text-navy-700">Coffee & Tea included</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div className="p-6 sm:p-8 flex flex-col gap-4 bg-cream-50/60">
+                                                <div>
+                                                    <p className="text-xs uppercase tracking-wide text-navy-500">Fixed-Desk</p>
+                                                    <h3 className="text-xl sm:text-2xl font-display font-semibold text-navy-900">Your own dedicated desk</h3>
+                                                </div>
+                                                <div className="space-y-2">
+                                                    <div className="flex items-end gap-2">
+                                                        <span className="font-accent text-2xl sm:text-3xl font-bold text-gold-500">AED 2,400</span>
+                                                        <span className="text-sm text-navy-600">/month</span>
+                                                    </div>
+                                                    <div className="flex items-end gap-2">
+                                                        <span className="font-accent text-2xl sm:text-3xl font-bold text-gold-500">AED 24,000</span>
+                                                        <span className="text-sm text-navy-600">/year</span>
+                                                    </div>
+                                                </div>
+                                                <ul className="space-y-2">
+                                                    <li className="flex items-start gap-2">
+                                                        <Check className="w-4 h-4 text-gold-500 shrink-0 mt-0.5" />
+                                                        <span className="text-sm text-navy-700">24/7 Access</span>
+                                                    </li>
+                                                    <li className="flex items-start gap-2">
+                                                        <Check className="w-4 h-4 text-gold-500 shrink-0 mt-0.5" />
+                                                        <span className="text-sm text-navy-700">Business address included</span>
+                                                    </li>
+                                                    <li className="flex items-start gap-2">
+                                                        <Check className="w-4 h-4 text-gold-500 shrink-0 mt-0.5" />
+                                                        <span className="text-sm text-navy-700">Dedicated workstation storage</span>
+                                                    </li>
+                                                </ul>
+                                                <div className="mt-auto pt-2">
+                                                    <Button variant="primary" className="w-full" asChild>
+                                                        <a href="/book-tour">Get Started</a>
+                                                    </Button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <ul className="space-y-3 mb-8 flex-grow">
-                                    <li className="flex items-start gap-3">
-                                        <Check className="w-5 h-5 text-gold-500 shrink-0" />
-                                        <span className="font-body text-navy-700">24/7 Access</span>
-                                    </li>
-                                    <li className="flex items-start gap-3">
-                                        <Check className="w-5 h-5 text-gold-500 shrink-0" />
-                                        <span className="font-body text-navy-700">Meeting room credits (2h/mo)</span>
-                                    </li>
-                                    <li className="flex items-start gap-3">
-                                        <Check className="w-5 h-5 text-gold-500 shrink-0" />
-                                        <span className="font-body text-navy-700">Printing included</span>
-                                    </li>
-                                </ul>
-                                <Button variant="primary" className="w-full" asChild>
-                                    <a href="/book-tour">Sign Up</a>
-                                </Button>
-                            </CardContent>
-                        </Card>
-
-                        {/* Card 3 - Annual */}
-                        <Card className="shadow-luxury-sm hover:shadow-luxury-lg hover:-translate-y-2 transition-all duration-400 flex flex-col relative overflow-visible">
-                            <div className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3">
-                                <Badge variant="teal" className="bg-teal-600 text-white border-none shadow-md text-xs sm:text-sm">Best Value</Badge>
-                            </div>
-                            <CardHeader>
-                                <CardTitle className="text-lg sm:text-xl">Annual</CardTitle>
-                                <CardDescription className="text-sm sm:text-base">Commit and save</CardDescription>
-                            </CardHeader>
-                            <CardContent className="flex-grow flex flex-col">
-                                <div className="mb-2">
-                                    <Badge variant="outline" className="text-green-600 border-green-600/20 bg-green-50 text-xs sm:text-sm">Save 17%</Badge>
-                                </div>
-                                <div className="mb-4 sm:mb-6">
-                                    <span className="font-accent text-3xl sm:text-4xl font-bold text-gold-500">AED 18,000</span>
-                                    <span className="font-body text-navy-700 ml-1 text-sm sm:text-base">/year</span>
-                                </div>
-                                <ul className="space-y-3 mb-8 flex-grow">
-                                    <li className="flex items-start gap-3">
-                                        <Check className="w-5 h-5 text-gold-500 shrink-0" />
-                                        <span className="font-body text-navy-700">All Monthly perks</span>
-                                    </li>
-                                    <li className="flex items-start gap-3">
-                                        <Check className="w-5 h-5 text-gold-500 shrink-0" />
-                                        <span className="font-body text-navy-700">Priority meeting bookings</span>
-                                    </li>
-                                    <li className="flex items-start gap-3">
-                                        <Check className="w-5 h-5 text-gold-500 shrink-0" />
-                                        <span className="font-body text-navy-700">Business address included</span>
-                                    </li>
-                                </ul>
-                                <Button variant="primary" className="w-full" asChild>
-                                    <a href="/contact">Save Now</a>
-                                </Button>
                             </CardContent>
                         </Card>
                     </div>

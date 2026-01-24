@@ -19,7 +19,7 @@ const locations = [
         area: "Business Bay",
         status: "Available",
         description: "Our flagship headquarters featuring panoramic Burj Khalifa views, premium amenities, and Level 20 exclusivity.",
-        image: "/office_burj_khalifa_view.png", // Reusing existing image
+        image: "/images/primetower/the-prime-tower_g7-03jpg-68baa93d-a624-4786-9e01-b849f775facf.jpg",
         link: "/locations/prime-tower",
         features: ["Burj Khalifa Views", "Metro Access", "Level 20"],
     },

@@ -64,7 +64,7 @@ const MeetingRoomsPage = () => {
                 "Professional boardroom setup",
                 "Climate control"
             ],
-            image: "/images/services/meeting-rooms.png"
+            image: "/images/services/Conference Room.jpg"
         },
         {
             name: "Conference Room",
@@ -76,7 +76,7 @@ const MeetingRoomsPage = () => {
                 "Boardroom configuration",
                 "Professional environment"
             ],
-            image: "/images/services/meeting-rooms.png"
+            image: "/images/services/Conference Room.jpg"
         },
         {
             name: "Majilis",
@@ -88,7 +88,7 @@ const MeetingRoomsPage = () => {
                 "High-speed secure Wi-Fi",
                 "Luxury seating"
             ],
-            image: "/images/services/meeting-rooms.png"
+            image: "/images/services/Conference Room.jpg"
         }
     ];
 
@@ -98,7 +98,7 @@ const MeetingRoomsPage = () => {
                 title="Professional Meeting Spaces"
                 subtitle="Imperial Boardrooms"
                 description="Impress your clients and boost team collaboration with our tech-enabled meeting rooms in the heart of Business Bay."
-                image="/images/services/meeting-rooms.png"
+                image="/images/services/Conference Room.jpg"
                 ctaText="Book Now"
                 secondaryCtaText="See Pricing"
             />
