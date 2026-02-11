@@ -5,6 +5,8 @@ import ServiceHero from "@/components/sections/ServiceHero";
 import PricingTable from "@/components/sections/PricingTable";
 import FeaturesList from "@/components/sections/FeaturesList";
 import CTASection from "@/components/sections/CTASection";
+import FAQ from "@/components/sections/FAQ";
+import { coworkingFaqs } from "@/lib/faq-data";
 import {
     Wifi,
     Coffee,
@@ -122,11 +124,11 @@ const CoworkingPage = () => {
     return (
         <div className="flex flex-col">
             <ServiceHero
-                title="Dynamic Coworking Spaces"
+                title="Modern Shared Workspaces"
                 subtitle="Collaborate & Grow"
-                description="Join an elite community of entrepreneurs and innovators in Dubai's most inspiring shared workspace environment."
+                description="Join a community of innovators, entrepreneurs, and industry leaders in Dubai's vibrant coworking spaces."
                 image="/images/services/Co-working Area.jpg"
-                ctaText="Join Now"
+                ctaText="View Coworking Plans"
                 secondaryCtaText="Explore Plans"
             />
 
@@ -219,6 +221,8 @@ const CoworkingPage = () => {
                     </div>
                 </div>
             </section>
+
+            <FAQ faqs={coworkingFaqs} title="Coworking FAQs" />
 
             <CTASection />
         </div>

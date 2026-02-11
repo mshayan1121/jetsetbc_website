@@ -4,6 +4,8 @@ import React from "react";
 import ServiceHero from "@/components/sections/ServiceHero";
 import FeaturesList from "@/components/sections/FeaturesList";
 import CTASection from "@/components/sections/CTASection";
+import FAQ from "@/components/sections/FAQ";
+import { meetingRoomsFaqs } from "@/lib/faq-data";
 import {
     Monitor,
     Wifi,
@@ -97,9 +99,9 @@ const MeetingRoomsPage = () => {
             <ServiceHero
                 title="Professional Meeting Spaces"
                 subtitle="Imperial Boardrooms"
-                description="Impress your clients and boost team collaboration with our tech-enabled meeting rooms in the heart of Business Bay."
+                description="Host important meetings in Business Bay's premium, fully furnished meeting rooms and collaboration spaces."
                 image="/images/services/Conference Room.jpg"
-                ctaText="Book Now"
+                ctaText="Book a Meeting Room"
                 secondaryCtaText="See Pricing"
             />
 
@@ -170,6 +172,8 @@ const MeetingRoomsPage = () => {
                 subtitle="Integrated solutions that make every meeting seamless and professional."
                 features={techSpecs}
             />
+
+            <FAQ faqs={meetingRoomsFaqs} title="Meeting Rooms FAQs" />
 
             <CTASection />
         </div>

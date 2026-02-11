@@ -2,28 +2,28 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Plug, Wifi, MapPin, Coffee } from "lucide-react";
+import { Users, TrendingUp, MapPin, Building2 } from "lucide-react";
 
 const features = [
     {
-        icon: Plug,
-        title: "Plug & Play Simplicity",
-        description: "Stop wasting capital on furniture and fit-outs. We provide the infrastructure; you provide the talent.",
+        icon: Users,
+        title: "Inspire Collaboration",
+        description: "Open layouts and private meeting rooms designed to spark ideas and teamwork across your team.",
     },
     {
-        icon: Wifi,
-        title: "Uninterrupted Productivity",
-        description: "Never suffer through a lagging video call again with our enterprise-grade, secure Wi-Fi.",
+        icon: TrendingUp,
+        title: "Scale with Ease",
+        description: "Flexible office and coworking solutions that grow with your business—expand or downsize without hassle.",
     },
     {
         icon: MapPin,
-        title: "Commute Less, Live More",
-        description: "Minutes from the Metro and Sheikh Zayed Road. Spend less time in traffic and more time growing your business.",
+        title: "Central and Accessible",
+        description: "Minutes from Dubai's Metro and Sheikh Zayed Road for easy access and productivity.",
     },
     {
-        icon: Coffee,
-        title: "Fuel Your Day",
-        description: "Unlimited premium coffee, tea, and water for you and your guests.",
+        icon: Building2,
+        title: "Professional First Impressions",
+        description: "Prestigious Business Bay address and stylish office spaces that impress clients from day one.",
     },
 ];
 
@@ -33,7 +33,7 @@ const WhyJetset = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
                     <h2 className="font-display text-4xl sm:text-5xl text-navy-900">
-                        Why Leaders Choose Jetset BC
+                        Why Leaders Choose Jetset Business Center
                     </h2>
                 </div>
 

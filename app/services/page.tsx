@@ -102,24 +102,24 @@ const ServicesPage = () => {
 
     const faqs = [
         {
-            question: "Can I upgrade from coworking to a private office?",
-            answer: "Yes! You can upgrade anytime. We'll prorate the difference and make the transition seamless."
+            id: "serviced-packages",
+            question: "What is included in your serviced office packages?",
+            answer: "Our serviced office packages include fully furnished workspaces, high-speed internet, utilities, cleaning, maintenance, reception services, and access to shared facilities such as meeting rooms and lounge areas."
         },
         {
-            question: "What's the minimum contract period?",
-            answer: "Private offices: 3 months. Coworking: Daily, monthly, or annual options. Meeting rooms: Book by the hour."
+            id: "transport-parking",
+            question: "Is the location easily accessible by public transport and parking facilities?",
+            answer: "Yes, our location in Prime Tower, Business Bay is easily accessible via the metro, with public and visitor parking available nearby."
         },
         {
-            question: "Are utilities included in the price?",
-            answer: "Absolutely. All our prices include electricity, water, Wi-Fi, cleaning, and complimentary beverages."
+            id: "private-vs-coworking",
+            question: "What is the difference between private offices and coworking?",
+            answer: "Private offices offer dedicated, enclosed spaces for teams, while coworking provides shared workspaces with flexible seating in a collaborative environment."
         },
         {
-            question: "Can I use your address for my business license?",
-            answer: "Yes, with our Virtual Ejari service at AED 8,500/year, you get a registered tenancy contract accepted by government authorities and banks."
-        },
-        {
-            question: "Do you help with business setup?",
-            answer: "Yes! We provide complete support for company formation, licensing, visas, and bank account opening."
+            id: "parking-available",
+            question: "Is parking available at your location?",
+            answer: "Yes, parking is available at Prime Tower, Business Bay."
         }
     ];
 
@@ -395,14 +395,14 @@ const ServicesPage = () => {
             </section>
 
             {/* FAQ Section */}
-            <section className="bg-cream-50 py-24 md:py-32">
+            <section id="faq" className="bg-cream-50 py-24 md:py-32 scroll-mt-20">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="text-center mb-16"
+                        className="text-center mb-10"
                     >
                         <h2 className="font-display text-4xl md:text-5xl text-navy-900 mb-4">
                             Frequently Asked Questions
@@ -415,7 +415,9 @@ const ServicesPage = () => {
                     <div className="space-y-4">
                         {faqs.map((faq, index) => (
                             <motion.div
-                                key={index}
+                                key={faq.id}
+                                id={`faq-${faq.id}`}
+                                className="scroll-mt-24"
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}

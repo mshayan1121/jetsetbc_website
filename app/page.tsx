@@ -1,12 +1,14 @@
 import fs from "fs";
 import path from "path";
 import Hero from "@/components/sections/Hero";
-import SocialProof from "@/components/sections/SocialProof";
+import TrustBar from "@/components/sections/TrustBar";
+import ValueProposition from "@/components/sections/ValueProposition";
 import WorkspaceGrid from "@/components/sections/WorkspaceGrid";
 import WhyJetset from "@/components/sections/WhyJetset";
 import LocationHighlight from "@/components/sections/LocationHighlight";
 import FAQ from "@/components/sections/FAQ";
 import CTASection from "@/components/sections/CTASection";
+import TestimonialsCarousel from "@/components/sections/TestimonialsCarousel";
 
 export default function Home() {
   const imagesDirectory = path.join(
@@ -24,9 +26,11 @@ export default function Home() {
   return (
     <div className="flex flex-col w-full">
       <Hero images={heroImages} />
-      <SocialProof />
+      <TrustBar />
+      <ValueProposition />
       <WorkspaceGrid />
       <WhyJetset />
+      <TestimonialsCarousel />
       <LocationHighlight />
       <FAQ />
       <CTASection />

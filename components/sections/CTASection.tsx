@@ -81,13 +81,13 @@ const CTASection = () => {
                     variants={itemVariants}
                     className="mx-auto mb-12 max-w-2xl font-body text-lg text-cream-50 md:text-xl opacity-90"
                 >
-                    Book a private tour today and see why 500+ businesses call Jetset home.
+                    Join 500+ companies who trust Jetset as their business home. Book early to secure your space.
                 </motion.p>
 
                 {/* CTA Buttons */}
                 <motion.div
                     variants={itemVariants}
-                    className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-8"
+                    className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6 sm:flex-wrap"
                 >
                     <motion.div
                         variants={buttonEntryVariants}
@@ -103,6 +103,24 @@ const CTASection = () => {
                         >
                             <a href="https://wa.me/971585779312" target="_blank" rel="noopener noreferrer">
                                 WhatsApp Us Now
+                            </a>
+                        </Button>
+                    </motion.div>
+
+                    <motion.div
+                        variants={buttonEntryVariants}
+                        whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }}
+                        whileTap={{ scale: 0.95 }}
+                        className="w-full sm:w-auto"
+                    >
+                        <Button
+                            variant="outline-light"
+                            size="lg"
+                            className="w-full px-10 py-5 text-lg font-bold sm:w-auto inline-flex items-center justify-center gap-2"
+                            asChild
+                        >
+                            <a href="https://wa.me/971585779312?text=Hi%2C%20I'm%20interested%20in%20workspace%20availability%20at%20Prime%20Tower.%20Please%20share%20options%20and%20pricing." target="_blank" rel="noopener noreferrer">
+                                Check Availability →
                             </a>
                         </Button>
                     </motion.div>
@@ -144,13 +162,13 @@ const CTASection = () => {
                     </a>
 
                     <a
-                        href="tel:+97146657555"
+                        href="tel:+971585779312"
                         className="group flex items-center gap-3 text-sm font-medium text-cream-100/80 transition-colors hover:text-gold-400"
                     >
                         <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 transition-colors group-hover:bg-white/10">
                             <Phone className="h-5 w-5 text-gold-500" />
                         </div>
-                        <span>Phone: 04 665 7555</span>
+                        <span>Phone: +971 58 577 9312</span>
                     </a>
 
                     <a

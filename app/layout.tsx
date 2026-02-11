@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import JsonLd from "@/components/seo/JsonLd";
+import QuickInquiryPopup from "@/components/sections/QuickInquiryPopup";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -105,6 +106,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+          <QuickInquiryPopup />
         </div>
       </body>
     </html>

@@ -10,19 +10,20 @@ import JetsetForm from "@/components/sections/JetsetForm";
 
 // --- Components ---
 
-const ContactCard = ({ icon: Icon, title, value, link, label }: { icon: any, title: string, value: string, link?: string, label: string }) => (
+const ContactCard = ({ icon: Icon, title, value, link, description }: { icon: React.ElementType; title: string; value: string; link?: string; description: string }) => (
     <div className="bg-white rounded-xl p-6 sm:p-8 shadow-luxury-lg hover:shadow-luxury-xl transition-all duration-400 hover:-translate-y-2 text-center group border border-gold-500/40">
         <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gold-500/10 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
             <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-gold-500" />
         </div>
         <h3 className="font-display text-lg sm:text-xl text-navy-900 mb-2">{title}</h3>
         {link ? (
-            <a href={link} className="font-body text-sm sm:text-base text-navy-700 hover:text-gold-500 transition-colors break-words">
+            <a href={link} className="font-body text-sm sm:text-base text-navy-700 hover:text-gold-500 transition-colors break-words block">
                 {value}
             </a>
         ) : (
             <p className="font-body text-sm sm:text-base text-navy-700 break-words">{value}</p>
         )}
+        <p className="font-body text-xs sm:text-sm text-navy-600 mt-2">{description}</p>
     </div>
 );
 
@@ -85,10 +86,10 @@ export default function ContactPageClient() {
                     >
 
                         <h1 className="font-display text-4xl sm:text-5xl md:text-6xl text-white mb-4 sm:mb-6 px-4">
-                            Connect with Our Team
+                            Connect With Our Team
                         </h1>
                         <p className="font-body text-lg sm:text-xl text-cream-50 max-w-2xl mx-auto px-4">
-                            Get in touch with us about your requirements and our team will get back to you within 1 business day
+                            Need guidance, want to schedule a tour, or explore coworking and private office options? Our team is ready to help.
                         </p>
                     </motion.div>
                 </div>
@@ -108,29 +109,29 @@ export default function ContactPageClient() {
                             icon={Phone}
                             title="Phone"
                             value="+971 58 577 9312"
-                            label="Call us"
+                            description="Call us now for instant assistance."
                             link="tel:+971585779312"
                         />
                         <ContactCard
                             icon={Mail}
                             title="Email"
                             value="contact@jetsetbc.com"
-                            label="Email us"
+                            description="Send us a message — we'll respond promptly."
                             link="mailto:contact@jetsetbc.com"
                         />
                         <ContactCard
                             icon={MessageSquare}
                             title="WhatsApp"
                             value="+971 58 577 9312"
-                            label="Chat with us"
+                            description="Chat with our team instantly."
                             link="https://wa.me/971585779312"
                         />
                         <ContactCard
                             icon={MapPin}
                             title="Visit Us"
                             value="Prime Tower, Level 20, Business Bay"
-                            label="Get Directions"
-                            link="https://share.google/PorP2aIgEQ7L2B2RQ"
+                            description="Come see our office today."
+                            link="https://maps.google.com/?q=Jetset+Business+Center+Prime+Tower"
                         />
                     </motion.div>
                 </div>

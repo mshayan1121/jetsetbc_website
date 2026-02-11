@@ -5,6 +5,8 @@ import ServiceHero from "@/components/sections/ServiceHero";
 import PricingTable from "@/components/sections/PricingTable";
 import FeaturesList from "@/components/sections/FeaturesList";
 import CTASection from "@/components/sections/CTASection";
+import FAQ from "@/components/sections/FAQ";
+import { privateOfficeFaqs } from "@/lib/faq-data";
 import {
     Shield,
     Coffee,
@@ -94,10 +96,11 @@ const PrivateOfficesPage = () => {
     return (
         <div className="flex flex-col">
             <ServiceHero
-                title="Premium Private Offices"
+                title="Private Serviced Offices in Business Bay"
                 subtitle="Your Exclusive Workspace"
-                description="Secure, fully-furnished office suites designed for teams that value privacy, productivity, and professional prestige in Dubai's Business Bay."
+                description="Fully equipped office suites in Business Bay, Dubai, tailored for teams seeking privacy, efficiency, and a prestigious business address."
                 image="/images/services/private-office.png"
+                ctaText="Book a Tour"
             />
 
             <FeaturesList
@@ -154,6 +157,8 @@ const PrivateOfficesPage = () => {
                 title="Private Office Pricing"
                 subtitle="All-inclusive pricing with no hidden costs. Starting price for Inner Offices. Outer Offices with Burj Khalifa views available at custom pricing."
             />
+
+            <FAQ faqs={privateOfficeFaqs} title="Private Office FAQs" />
 
             <CTASection />
         </div>

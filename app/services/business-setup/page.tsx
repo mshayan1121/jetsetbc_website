@@ -5,6 +5,8 @@ import ServiceHero from "@/components/sections/ServiceHero";
 import PricingTable from "@/components/sections/PricingTable";
 import FeaturesList from "@/components/sections/FeaturesList";
 import CTASection from "@/components/sections/CTASection";
+import FAQ from "@/components/sections/FAQ";
+import { businessSetupFaqs } from "@/lib/faq-data";
 import {
     FileText,
     Globe,
@@ -127,11 +129,11 @@ const BusinessSetupPage = () => {
     return (
         <div className="flex flex-col">
             <ServiceHero
-                title="Business Setup & Formation"
+                title="Company Formation & PRO Services"
                 subtitle="Start Your Journey"
-                description="Navigate the UAE's regulatory landscape with ease. We provide comprehensive solutions for company formation, licensing, and compliance."
+                description="Start your Dubai business with expert guidance. We provide end-to-end solutions for company formation, licensing, and business compliance."
                 image="/images/services/business-setup.png"
-                ctaText="Start Now"
+                ctaText="Free Consultation"
                 secondaryCtaText="View Packages"
             />
 
@@ -222,6 +224,8 @@ const BusinessSetupPage = () => {
                 title="Service Pricing"
                 subtitle="Virtual Ejari pricing is transparent. Company formation services are customized to your needs - contact us for a tailored quote."
             />
+
+            <FAQ faqs={businessSetupFaqs} title="Business Setup FAQs" />
 
             <CTASection />
         </div>

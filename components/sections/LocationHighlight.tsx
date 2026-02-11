@@ -2,14 +2,13 @@
 
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { MapPin, Car, Train } from "lucide-react";
+import { MapPin, Car, Train, Navigation } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 
 const LocationHighlight = () => {
     return (
-        <section className="relative py-20 sm:py-28 bg-navy-50 overflow-hidden">
+        <section id="location" className="relative py-20 sm:py-28 bg-navy-50 overflow-hidden">
             {/* Map Background Image */}
             <div className="absolute inset-0 w-full h-full opacity-10 pointer-events-none">
                  {/* In a real scenario, use a map image or an actual map embed */}
@@ -32,10 +31,10 @@ const LocationHighlight = () => {
                         className="bg-white p-8 sm:p-12 rounded-lg shadow-luxury-xl border border-cream-100 max-w-xl"
                     >
                         <h2 className="font-display text-3xl sm:text-4xl text-navy-900 mb-6">
-                            The Address That Says "Success"
+                            The Right Address Makes All the Difference
                         </h2>
                         <p className="text-navy-600 mb-8 leading-relaxed">
-                            Located on the 20th floor of The Prime Tower, we place you at the center of Dubai’s commercial hub.
+                            Located in Prime Tower, Business Bay, Jetset Business Center places your company minutes away from Dubai Mall, Burj Khalifa, DIFC, and major transport links. Make your office a place clients remember, and your team enjoys working at.
                         </p>
 
                         <div className="space-y-6 mb-10">
@@ -45,7 +44,7 @@ const LocationHighlight = () => {
                                 </div>
                                 <div>
                                     <h4 className="font-display text-lg text-navy-900 mb-1">Prime Location</h4>
-                                    <p className="text-sm text-navy-600">5 Minutes to Burj Khalifa & Dubai Mall</p>
+                                    <p className="text-sm text-navy-600">Minutes to Burj Khalifa & Dubai Mall</p>
                                 </div>
                             </div>
 
@@ -55,7 +54,7 @@ const LocationHighlight = () => {
                                 </div>
                                 <div>
                                     <h4 className="font-display text-lg text-navy-900 mb-1">Metro Access</h4>
-                                    <p className="text-sm text-navy-600">Easy access to Business Bay Metro</p>
+                                    <p className="text-sm text-navy-600">Metro within walking distance</p>
                                 </div>
                             </div>
 
@@ -65,26 +64,37 @@ const LocationHighlight = () => {
                                 </div>
                                 <div>
                                     <h4 className="font-display text-lg text-navy-900 mb-1">Parking</h4>
-                                    <p className="text-sm text-navy-600">Ample Visitor Parking available</p>
+                                    <p className="text-sm text-navy-600">Ample visitor parking available</p>
                                 </div>
                             </div>
                         </div>
 
-                        <Button variant="primary" className="w-full sm:w-auto" asChild>
-                            <a href="https://maps.google.com/?q=Jetset+Business+Center+Prime+Tower" target="_blank" rel="noopener noreferrer">
-                                Get Directions on Google Maps
+                        <Button variant="primary" className="w-full sm:w-auto group" asChild>
+                            <a href="https://maps.google.com/?q=Jetset+Business+Center+Prime+Tower" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2">
+                                Get Directions <Navigation className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                             </a>
                         </Button>
                     </motion.div>
 
-                    {/* Right side - Could be an image or just empty space to show background */}
-                    <div className="hidden lg:block h-full min-h-[500px] relative rounded-2xl overflow-hidden shadow-2xl">
-                         <Image
-                            src="/images/primetower/the-prime-tower_g7-03jpg-68baa93d-a624-4786-9e01-b849f775facf.jpg"
-                            alt="View from Prime Tower"
-                            fill
-                            className="object-cover"
-                         />
+                    <div className="space-y-6">
+                        <h3 className="font-display text-xl sm:text-2xl text-navy-900">
+                            Find Us in the Heart of Business Bay
+                        </h3>
+                        <div className="relative rounded-2xl overflow-hidden shadow-2xl min-h-[400px]">
+                            <Image
+                                src="/images/primetower/the-prime-tower_g7-03jpg-68baa93d-a624-4786-9e01-b849f775facf.jpg"
+                                alt="Prime Tower, Business Bay"
+                                fill
+                                className="object-cover"
+                            />
+                            <div className="absolute inset-0 bg-navy-900/30" />
+                            <div className="absolute inset-0 p-4 sm:p-6 flex flex-wrap content-end gap-2 sm:gap-3">
+                                <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-sm text-navy-900 text-sm font-medium shadow-sm">3 mins to Dubai Mall</span>
+                                <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-sm text-navy-900 text-sm font-medium shadow-sm">5 mins to DIFC</span>
+                                <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-sm text-navy-900 text-sm font-medium shadow-sm">Direct access to Sheikh Zayed Road</span>
+                                <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-sm text-navy-900 text-sm font-medium shadow-sm">Metro within walking distance</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

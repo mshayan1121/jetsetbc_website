@@ -24,7 +24,7 @@ const Footer = () => {
 
     const servicesLinks = [
         { name: "Serviced Offices", href: "/services/private-offices" },
-        { name: "Virtual Offices (Ejari)", href: "/services/virtual-office" },
+        { name: "Virtual Office & Ejari", href: "/services/business-setup" },
         { name: "Coworking", href: "/services/coworking" },
         { name: "Meeting Rooms", href: "/services/meeting-rooms" },
         { name: "Business Setup & PRO", href: "/services/business-setup" },
@@ -168,6 +168,14 @@ const Footer = () => {
                             </Button>
                         </div>
                     </div>
+                </div>
+
+                {/* Conversion nudges */}
+                <div className="pt-8 mt-8 border-t border-white/5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-sm text-cream-200/80">
+                    <p><span className="text-gold-400 font-semibold">Free Consultation</span> — Not sure what you need? Get a free consultation with our workspace advisor.</p>
+                    <p><span className="text-gold-400 font-semibold">WhatsApp Instant</span> — Average response time: under 5 minutes.</p>
+                    <p><span className="text-gold-400 font-semibold">Free Trial Coworking Day</span> — Try our coworking space for one day — completely free.</p>
+                    <p><span className="text-gold-400 font-semibold">Limited availability</span> — Only a few private offices left this month in Business Bay.</p>
                 </div>
 
                 {/* Bottom Bar */}
