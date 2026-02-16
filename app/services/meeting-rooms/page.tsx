@@ -19,7 +19,9 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { Badge } from "@/components/ui/Badge";
+import { Button } from "@/components/ui/Button";
 
 const MeetingRoomsPage = () => {
     const techSpecs = [
@@ -121,25 +123,30 @@ const MeetingRoomsPage = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                                 viewport={{ once: true }}
-                                className="group flex flex-col h-full bg-navy-50 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-400"
+                                className="group flex flex-col h-full bg-navy-50 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
                             >
                                 <div className="relative h-64 overflow-hidden rounded-t-xl">
                                     <Image
                                         src={room.image}
                                         alt={room.name}
                                         fill
-                                        className="object-cover group-hover:scale-105 transition-transform duration-400"
+                                        className="object-cover group-hover:scale-105 transition-transform duration-500"
                                     />
                                     <div className="absolute top-4 left-4">
                                         <Badge className="bg-navy-900/90 backdrop-blur-sm text-white" icon={<Users className="w-4 h-4" />}>
                                             {room.capacity}
                                         </Badge>
                                     </div>
+                                    <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-navy-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-center">
+                                        <Button variant="primary" size="sm" className="bg-gold-500 hover:bg-gold-600 text-navy-900 font-semibold" asChild>
+                                            <Link href="/book-tour">BOOK NOW</Link>
+                                        </Button>
+                                    </div>
                                 </div>
                                 <div className="p-6 flex flex-col flex-grow">
                                     <h3 className="font-display text-2xl text-navy-900 mb-3">{room.name}</h3>
                                     <p className="text-navy-700 mb-6 leading-relaxed flex-grow">{room.description}</p>
-                                    <ul className="space-y-2">
+                                    <ul className="space-y-2 mb-6">
                                         {room.features.map((feature, fIdx) => (
                                             <li key={fIdx} className="flex items-start gap-2 text-navy-700">
                                                 <Check className="w-5 h-5 text-gold-500 flex-shrink-0 mt-0.5" />
@@ -147,21 +154,24 @@ const MeetingRoomsPage = () => {
                                             </li>
                                         ))}
                                     </ul>
+                                    <Button variant="primary" className="w-full bg-gold-500 hover:bg-gold-600 text-navy-900 font-semibold mt-auto" asChild>
+                                        <Link href="/book-tour">BOOK NOW</Link>
+                                    </Button>
                                 </div>
                             </motion.div>
                         ))}
                     </div>
 
-                    {/* Member Benefit Callout */}
-                    <div className="mt-12 bg-gold-500/10 border border-gold-500/20 rounded-xl p-8 text-center">
+                    {/* Member Benefit - gradient navy to gold */}
+                    <div className="mt-12 rounded-2xl overflow-hidden bg-gradient-to-br from-navy-900 via-navy-800 to-gold-500/20 border border-gold-500/20 p-8 text-center">
                         <div className="flex items-center justify-center gap-3 mb-4">
                             <Clock className="w-6 h-6 text-gold-500" />
                             <h3 className="font-display text-2xl text-navy-900">
                                 Member Benefit
                             </h3>
                         </div>
-                        <p className="text-lg text-navy-700">
-                            All members enjoy <span className="font-semibold text-gold-600">2 hours of complimentary meeting room access per day</span>
+                        <p className="text-lg text-white/95">
+                            All members enjoy <span className="font-semibold text-gold-400">2 hours of complimentary meeting room access per day</span>
                         </p>
                     </div>
                 </div>
@@ -171,6 +181,7 @@ const MeetingRoomsPage = () => {
                 title="Advanced Technology"
                 subtitle="Integrated solutions that make every meeting seamless and professional."
                 features={techSpecs}
+                className="pt-12 pb-24"
             />
 
             <FAQ faqs={meetingRoomsFaqs} title="Meeting Rooms FAQs" />

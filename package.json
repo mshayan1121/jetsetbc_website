@@ -4,7 +4,8 @@
   "description": "Premium business center website for Jetset Business Center Dubai",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbo",
+    "dev": "next dev",
+    "dev:turbo": "next dev --turbo",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -21,7 +22,7 @@
     "clsx": "^2.1.1",
     "framer-motion": "^11.18.2",
     "lucide-react": "^0.460.0",
-    "next": "16.1.0",
+    "next": "^16.1.6",
     "next-seo": "^6.6.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

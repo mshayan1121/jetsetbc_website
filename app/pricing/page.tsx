@@ -22,7 +22,7 @@ export default function PricingPage() {
             <section className="py-16 sm:py-20 md:py-24 bg-white">
                 <div className="container-custom mx-auto">
                     <div className="text-center mb-12 sm:mb-16">
-                        <h2 className="font-display text-3xl sm:text-4xl font-bold text-navy-900 mb-3 sm:mb-4">Private Offices</h2>
+                        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-navy-900 mb-3 sm:mb-4">Private Offices</h2>
                         <p className="font-body text-base sm:text-lg text-navy-700 max-w-2xl mx-auto px-4">
                             Fully furnished executive suites with stunning views and premium amenities.
                         </p>
@@ -30,7 +30,7 @@ export default function PricingPage() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
                         {/* Card 1 - Inner Offices */}
-                        <Card className="shadow-luxury-sm hover:shadow-luxury-lg hover:-translate-y-2 transition-all duration-400 h-full flex flex-col">
+                        <Card className="shadow-luxury-sm hover:shadow-luxury-lg hover:shadow-[0_12px_40px_rgba(212,175,55,0.2)] hover:-translate-y-2 transition-all duration-400 h-full flex flex-col">
                             <CardHeader className="pb-4">
                                 <CardTitle className="text-xl sm:text-2xl mb-2">Inner Offices</CardTitle>
                                 <CardDescription className="text-sm sm:text-base">Perfect for focus and privacy</CardDescription>
@@ -113,7 +113,7 @@ export default function PricingPage() {
                     </div>
 
                     <div className="max-w-5xl mx-auto">
-                        <Card className="shadow-luxury-sm hover:shadow-luxury-lg transition-all duration-500 relative overflow-hidden group">
+                        <Card className="shadow-luxury-sm hover:shadow-luxury-lg transition-all duration-500 relative overflow-hidden group [--hover-delay:150ms]">
                             <CardHeader className="pb-0">
                                 <div className="flex items-center justify-between flex-wrap gap-3">
                                     <div>
@@ -130,9 +130,9 @@ export default function PricingPage() {
                             </CardHeader>
                             <CardContent className="pt-6">
                                 <div className="relative min-h-[360px] sm:min-h-[320px]">
-                                    <div className="transition-all duration-500 ease-out group-hover:opacity-0 group-hover:-translate-y-3">
+                                    <div className="transition-all duration-500 ease-out delay-150 group-hover:opacity-0 group-hover:-translate-y-3 group-hover:pointer-events-none" style={{ transitionDelay: "150ms" }}>
                                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                                            <div className="border border-cream-200 rounded-xl p-5 bg-cream-50/60">
+                                            <div className="border border-cream-200 rounded-xl p-5 bg-cream-50/60 sub-card-hover">
                                                 <p className="text-xs uppercase tracking-wide text-navy-500 mb-1">Daily Pass</p>
                                                 <div className="flex items-end gap-2 mb-3">
                                                     <span className="font-accent text-3xl font-bold text-gold-500">AED 80</span>
@@ -149,7 +149,7 @@ export default function PricingPage() {
                                                     </li>
                                                 </ul>
                                             </div>
-                                            <div className="border border-gold-500/30 rounded-xl p-5 bg-white shadow-sm">
+                                            <div className="border border-gold-500/30 rounded-xl p-5 bg-white shadow-sm sub-card-hover">
                                                 <div className="flex items-center justify-between mb-1">
                                                     <p className="text-xs uppercase tracking-wide text-navy-500">Monthly</p>
                                                     <Badge variant="gold" className="text-[10px] sm:text-xs">Popular</Badge>
@@ -169,7 +169,7 @@ export default function PricingPage() {
                                                     </li>
                                                 </ul>
                                             </div>
-                                            <div className="border border-cream-200 rounded-xl p-5 bg-cream-50/60">
+                                            <div className="border border-cream-200 rounded-xl p-5 bg-cream-50/60 sub-card-hover">
                                                 <div className="flex items-center justify-between mb-1">
                                                     <p className="text-xs uppercase tracking-wide text-navy-500">Annual</p>
                                                     <Badge variant="outline" className="text-green-600 border-green-600/20 bg-green-50 text-[10px] sm:text-xs">Best Value</Badge>
@@ -197,7 +197,7 @@ export default function PricingPage() {
                                         </div>
                                     </div>
 
-                                    <div className="absolute inset-0 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-500 ease-out">
+                                    <div className="absolute inset-0 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-500 ease-out delay-[150ms]" style={{ transitionDelay: "150ms" }}>
                                         <div className="grid grid-cols-1 sm:grid-cols-2 h-full divide-y sm:divide-y-0 sm:divide-x divide-cream-200">
                                             <div className="p-6 sm:p-8 flex flex-col gap-4 bg-white/95">
                                                 <div>

@@ -34,7 +34,7 @@ const LocationHighlight = () => {
                             The Right Address Makes All the Difference
                         </h2>
                         <p className="text-navy-600 mb-8 leading-relaxed">
-                            Located in Prime Tower, Business Bay, Jetset Business Center places your company minutes away from Dubai Mall, Burj Khalifa, DIFC, and major transport links. Make your office a place clients remember, and your team enjoys working at.
+                            Located in Prime Tower, Business Bay, just minutes from Dubai Mall, Burj Khalifa, and DIFC. An office your clients remember and your team loves.
                         </p>
 
                         <div className="space-y-6 mb-10">
@@ -78,8 +78,11 @@ const LocationHighlight = () => {
 
                     <div className="space-y-6">
                         <h3 className="font-display text-xl sm:text-2xl text-navy-900">
-                            Find Us in the Heart of Business Bay
+                            Exclusive 20th Floor, Prime Tower
                         </h3>
+                        <p className="text-navy-600 text-sm sm:text-base">
+                            Located in Prime Tower, Business Bay, just minutes from Dubai Mall, Burj Khalifa, and DIFC. An office your clients remember and your team loves.
+                        </p>
                         <div className="relative rounded-2xl overflow-hidden shadow-2xl min-h-[400px]">
                             <Image
                                 src="/images/primetower/the-prime-tower_g7-03jpg-68baa93d-a624-4786-9e01-b849f775facf.jpg"
@@ -87,13 +90,7 @@ const LocationHighlight = () => {
                                 fill
                                 className="object-cover"
                             />
-                            <div className="absolute inset-0 bg-navy-900/30" />
-                            <div className="absolute inset-0 p-4 sm:p-6 flex flex-wrap content-end gap-2 sm:gap-3">
-                                <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-sm text-navy-900 text-sm font-medium shadow-sm">3 mins to Dubai Mall</span>
-                                <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-sm text-navy-900 text-sm font-medium shadow-sm">5 mins to DIFC</span>
-                                <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-sm text-navy-900 text-sm font-medium shadow-sm">Direct access to Sheikh Zayed Road</span>
-                                <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-sm text-navy-900 text-sm font-medium shadow-sm">Metro within walking distance</span>
-                            </div>
+                            <div className="absolute inset-0 bg-navy-900/20" />
                         </div>
                     </div>
                 </div>

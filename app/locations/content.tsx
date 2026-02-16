@@ -4,7 +4,7 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import { MapPin, ArrowRight, Building, Construction, Map } from "lucide-react";
+import { MapPin, ArrowRight, Building, Construction } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
@@ -158,58 +158,29 @@ export default function LocationsContent() {
                 </div>
             </section>
 
-            {/* 3. MAP / REACH OUT */}
+            {/* 3. INTERACTIVE MAP - Find Us in the Heart of Business Bay */}
             <section className="py-24 bg-cream-50">
                 <div className="container-custom">
-                    <div className="flex flex-col lg:flex-row gap-16 items-center">
-                        <FadeIn direction="right" className="w-full lg:w-1/2">
-                            <h2 className="text-4xl md:text-5xl font-display text-navy-900 mb-6">
-                                Strategically <span className="text-gold-500">Connected</span>
-                            </h2>
-                            <p className="text-navy-700/80 text-lg font-body leading-relaxed mb-8">
-                                Our location is carefully selected to provide maximum convenience and prestige.
-                                Being in Business Bay means you are minutes away from Downtown Dubai, DIFC, and major highways.
-                            </p>
-
-                            <ul className="space-y-4">
-                                <li className="flex items-center gap-4 text-navy-800 font-body">
-                                    <div className="w-8 h-8 rounded-full bg-gold-500/10 flex items-center justify-center text-gold-500 flex-shrink-0">
-                                        <Map className="w-4 h-4" />
-                                    </div>
-                                    <span>5 mins to Dubai Mall & Burj Khalifa</span>
-                                </li>
-                                <li className="flex items-center gap-4 text-navy-800 font-body">
-                                    <div className="w-8 h-8 rounded-full bg-gold-500/10 flex items-center justify-center text-gold-500 flex-shrink-0">
-                                        <MapPin className="w-4 h-4" />
-                                    </div>
-                                    <span>10 mins to Dubai International Financial Centre (DIFC)</span>
-                                </li>
-                                <li className="flex items-center gap-4 text-navy-800 font-body">
-                                    <div className="w-8 h-8 rounded-full bg-gold-500/10 flex items-center justify-center text-gold-500 flex-shrink-0">
-                                        <Car className="w-4 h-4 text-gold-500" />
-                                    </div>
-                                    <span>Direct access to Sheikh Zayed Road</span>
-                                </li>
-                            </ul>
-                        </FadeIn>
-
-                        <FadeIn direction="left" className="w-full lg:w-1/2">
-                            <Card className="p-2 bg-white shadow-luxury-lg skew-y-1 transform transition-transform hover:skew-y-0 duration-500">
-                                {/* Pseudomap placeholder since we don't have a real map component configured yet, or simple image */}
-                                <div className="relative h-[400px] w-full bg-navy-100 rounded-lg overflow-hidden flex items-center justify-center group">
-                                    <div className="absolute inset-0 opacity-20 bg-[url('https://maps.googleapis.com/maps/api/staticmap?center=25.1855,55.2750&zoom=14&size=600x400')] bg-cover bg-center grayscale" />
-                                    <div className="bg-navy-900/50 absolute inset-0 backdrop-blur-[1px]" />
-
-                                    <div className="relative z-10 text-center">
-                                        <div className="w-16 h-16 mx-auto bg-gold-500 rounded-full flex items-center justify-center shadow-lg animate-pulse">
-                                            <MapPin className="w-8 h-8 text-white" />
-                                        </div>
-                                        <h3 className="text-white font-display text-2xl mt-4">Business Bay</h3>
-                                        <p className="text-gold-200 font-accent uppercase tracking-widest text-xs mt-1">Prime Tower, Level 20</p>
-                                    </div>
-                                </div>
-                            </Card>
-                        </FadeIn>
+                    <div className="text-center mb-10">
+                        <h2 className="text-4xl md:text-5xl font-display text-navy-900 mb-4">
+                            Find Us in the Heart of Business Bay
+                        </h2>
+                        <p className="text-navy-600 max-w-2xl mx-auto font-body">
+                            Prime Tower, Level 20 — minutes from Dubai Mall, Burj Khalifa, DIFC, and metro access.
+                        </p>
+                    </div>
+                    <div className="rounded-2xl overflow-hidden shadow-luxury-lg border border-cream-200 aspect-video max-w-5xl mx-auto">
+                        <iframe
+                            title="Jetset Business Center - Prime Tower, Business Bay"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.0!2d55.275!3d25.1855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f682cbfe6f2b9%3A0x2d2d2d2d2d2d2d2d!2sBusiness%20Bay%20-%20Dubai!5e0!3m2!1sen!2sae!4v=1"
+                            width="100%"
+                            height="100%"
+                            style={{ border: 0 }}
+                            allowFullScreen
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            className="min-h-[400px] w-full"
+                        />
                     </div>
                 </div>
             </section>
@@ -217,27 +188,4 @@ export default function LocationsContent() {
             <CTASection />
         </main>
     );
-}
-
-// Helper for the missing icon import
-function Car(props: React.SVGProps<SVGSVGElement>) {
-    return (
-        <svg
-            {...props}
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        >
-            <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2" />
-            <circle cx="7" cy="17" r="2" />
-            <path d="M9 17h6" />
-            <circle cx="17" cy="17" r="2" />
-        </svg>
-    )
 }

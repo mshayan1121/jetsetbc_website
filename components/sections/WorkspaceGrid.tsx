@@ -16,8 +16,6 @@ const services = [
         link: "/services/private-offices",
         cta: "Book a Tour",
         className: "md:col-span-2 min-h-[320px] md:min-h-[400px]",
-        testimonial: "We moved in within 48 hours — no setup, no delays. Our clients were impressed from day one.",
-        testimonialAuthor: "Tech Startup Founder, Dubai",
         trustSignal: null,
     },
     {
@@ -28,8 +26,6 @@ const services = [
         link: "/services/coworking",
         cta: "View Coworking Plans",
         className: "md:col-span-2 min-h-[320px] md:min-h-[400px]",
-        testimonial: "Jetset helped me grow from a solo founder to a team of 5 without changing locations.",
-        testimonialAuthor: "Digital Marketing Agency",
         trustSignal: "Join a community of 300+ active members from tech, finance, consulting, and creative industries.",
     },
     {
@@ -40,8 +36,6 @@ const services = [
         link: "/services/meeting-rooms",
         cta: "Book a Meeting Room →",
         className: "md:col-span-2 min-h-[320px]",
-        testimonial: "Our investor pitch felt professional and seamless — the space did half the work for us.",
-        testimonialAuthor: "Fintech Startup",
         trustSignal: null,
     },
     {
@@ -52,8 +46,6 @@ const services = [
         link: "/services/business-setup",
         cta: "Secure a Virtual Office →",
         className: "md:col-span-1 min-h-[320px]",
-        testimonial: "We registered our company remotely while operating from Europe. Everything was smooth and fast.",
-        testimonialAuthor: "International Trading Company",
         trustSignal: "Over 200 international companies use Jetset for Ejari and business registration every year.",
     },
     {
@@ -64,20 +56,18 @@ const services = [
         link: "/services/business-setup",
         cta: "Free Consultation →",
         className: "md:col-span-1 min-h-[320px]",
-        testimonial: "They handled everything from license to visa. I only focused on launching my business.",
-        testimonialAuthor: "New Business Owner",
         trustSignal: null,
     },
 ];
 
-const WorkspaceGrid = ({ className = "" }: { className?: string }) => {
+const WorkspaceGrid = ({ className = "", variant }: { className?: string; variant?: "home" | "services" }) => {
     return (
         <section id="services" className={cn("py-20 sm:py-28 bg-cream-50 overflow-hidden", className)}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="mb-12 text-center md:text-left">
-                    <h2 className="font-display text-4xl sm:text-5xl text-navy-900 mb-6">Our Services</h2>
+                    <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-navy-900 mb-6">Our Services</h2>
                     <p className="text-lg text-navy-600 max-w-2xl">
-                        From private offices and coworking to virtual Ejari and business setup — all under one roof.
+                        Flexible offices, coworking, virtual services, and complete business support — designed to help you grow, all under one roof.
                     </p>
                 </div>
 
@@ -115,7 +105,7 @@ const WorkspaceGrid = ({ className = "" }: { className?: string }) => {
                                         <p className="text-white/85 mb-4 line-clamp-3 text-sm md:text-base">
                                             {service.description}
                                         </p>
-                                        {service.trustSignal && (
+                                        {service.trustSignal && variant !== "services" && (
                                             <p className="text-white/70 text-xs mb-4 italic">
                                                 {service.trustSignal}
                                             </p>
@@ -129,10 +119,6 @@ const WorkspaceGrid = ({ className = "" }: { className?: string }) => {
                                             </span>
                                             <ArrowRight className="w-4 h-4 group-hover:text-gold-400 transition-colors" />
                                         </Link>
-                                        <div className="mt-4 pt-4 border-t border-white/20">
-                                            <p className="text-white/80 text-sm italic">&ldquo;{service.testimonial}&rdquo;</p>
-                                            <p className="text-white/60 text-xs mt-1">— {service.testimonialAuthor}</p>
-                                        </div>
                                     </div>
                                 </div>
                             </motion.div>

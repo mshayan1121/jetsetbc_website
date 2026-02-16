@@ -69,11 +69,6 @@ const ServicesPage = () => {
             description: "Free printing and scanning facilities."
         },
         {
-            icon: CalendarDays,
-            title: "Community Events",
-            description: "Networking events and professional development."
-        },
-        {
             icon: UtensilsCrossed,
             title: "On-site Restaurant",
             description: "In-house dining with curated menu."
@@ -126,10 +121,22 @@ const ServicesPage = () => {
     return (
         <>
             {/* Hero Section */}
-            <section className="relative bg-gradient-to-br from-navy-900 via-navy-800 to-navy-900 min-h-[70vh] flex items-center justify-center overflow-hidden">
+            <section className="relative bg-navy-900 min-h-[70vh] flex items-center justify-center overflow-hidden">
+                {/* Background Image - wide-angle JBC interior */}
+                <div className="absolute inset-0 z-0">
+                    <Image
+                        src="/images/hero-bg.png"
+                        alt="Jetset Business Center interior"
+                        fill
+                        className="object-cover"
+                        priority
+                        sizes="100vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-navy-900/80 via-navy-900/60 to-navy-900/90 z-[1]" />
+                </div>
                 {/* Background Texture */}
                 <div
-                    className="absolute inset-0 opacity-10 mix-blend-overlay"
+                    className="absolute inset-0 opacity-10 mix-blend-overlay z-[2]"
                     style={{
                         backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
                         backgroundSize: '48px 48px'
@@ -147,19 +154,18 @@ const ServicesPage = () => {
                             Your Workspace, Your Way
                         </h1>
                         <p className="font-body text-xl md:text-2xl text-cream-50 max-w-3xl mx-auto">
-                            Flexible solutions designed for modern businesses. From private offices
-                            to complete business setup support.
+                            Stop settling for standard leases. Secure a serviced workspace tailored to your unique goals. Join Jetset Business Center today and experience business setup and office solutions simplified.
                         </p>
                     </motion.div>
                 </div>
 
                 {/* Decorative Elements */}
-                <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-gold-500/10 blur-[100px]" />
-                <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-teal-500/20 blur-[100px]" />
+                <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-gold-500/10 blur-[100px] z-[1]" />
+                <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-teal-500/20 blur-[100px] z-[1]" />
             </section>
 
             {/* Services Overview Section */}
-            <WorkspaceGrid className="bg-white" />
+            <WorkspaceGrid className="bg-white" variant="services" />
 
             {/* What's Included Section */}
             <section className="bg-cream-50 py-24 md:py-32">
@@ -172,14 +178,14 @@ const ServicesPage = () => {
                         className="text-center mb-16"
                     >
                         <h2 className="font-display text-4xl md:text-5xl text-navy-900 mb-4">
-                            What's Included in All Services
+                            Everything You Need to Thrive
                         </h2>
                         <p className="font-body text-xl text-navy-700 max-w-2xl mx-auto">
                             Premium amenities designed to elevate your business experience
                         </p>
                     </motion.div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 max-w-6xl mx-auto">
                         {includedFeatures.map((feature, index) => (
                             <motion.div
                                 key={feature.title}
@@ -187,16 +193,17 @@ const ServicesPage = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.6, delay: index * 0.05 }}
-                                className="group h-full rounded-2xl bg-white/90 border border-cream-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden"
+                                whileHover={{ y: -6, boxShadow: "0 20px 40px -12px rgba(10, 24, 40, 0.2)" }}
+                                className="group h-full rounded-2xl bg-white/90 border border-cream-200 shadow-sm transition-all duration-300 overflow-hidden"
                             >
-                                <div className="p-6">
-                                    <div className="flex items-center gap-3 mb-3">
-                                        <div className="w-9 h-9 bg-gold-500/90 rounded-full flex items-center justify-center flex-shrink-0">
-                                            <feature.icon className="w-4 h-4 text-navy-900" />
+                                <div className="p-8">
+                                    <div className="flex items-center gap-4 mb-4">
+                                        <div className="w-11 h-11 bg-gold-500/90 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <feature.icon className="w-5 h-5 text-navy-900" />
                                         </div>
-                                        <h4 className="font-display text-xl text-navy-900">{feature.title}</h4>
+                                        <h4 className="font-display text-xl md:text-2xl text-navy-900">{feature.title}</h4>
                                     </div>
-                                    <p className="font-body text-navy-700">
+                                    <p className="font-body text-navy-700 text-base md:text-lg leading-relaxed">
                                         {feature.description}
                                     </p>
                                 </div>
@@ -322,7 +329,7 @@ const ServicesPage = () => {
             <section className="relative bg-gradient-to-br from-navy-900 via-navy-800 to-navy-900 py-24 md:py-32 overflow-hidden">
                 {/* Background Texture */}
                 <div
-                    className="absolute inset-0 opacity-10 mix-blend-overlay"
+                    className="absolute inset-0 opacity-10 mix-blend-overlay z-0"
                     style={{
                         backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
                         backgroundSize: '48px 48px'
@@ -331,7 +338,7 @@ const ServicesPage = () => {
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                        {/* Image */}
+                        {/* Image - lifestyle photo with Burj Khalifa view + subtle gold glow */}
                         <motion.div
                             initial={{ opacity: 0, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
@@ -340,12 +347,14 @@ const ServicesPage = () => {
                             className="relative h-[500px] rounded-2xl overflow-hidden"
                         >
                             <Image
-                                src="/images/private-office.jpg"
-                                alt="Jetset Business Center"
+                                src="/images/services/private-office.png"
+                                alt="Professional working at Jetset Business Center with Burj Khalifa view"
                                 fill
                                 className="object-cover"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 to-transparent" />
+                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-gold-500/10 pointer-events-none" />
+                            <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-gold-500/15 to-transparent pointer-events-none" />
                         </motion.div>
 
                         {/* Content */}
@@ -362,23 +371,32 @@ const ServicesPage = () => {
                                 Experience the perfect blend of luxury, functionality, and hospitality
                             </p>
 
-                            <div className="space-y-4">
-                                {usps.map((usp, index) => (
-                                    <motion.div
-                                        key={usp}
+                            <ul className="space-y-4 list-none">
+                                {[
+                                    { bold: "All-Inclusive Pricing", desc: "No hidden fees." },
+                                    { bold: "Award-Winning Hospitality", desc: "Service that feels like a 5-star hotel, not a standard office." },
+                                    { bold: "Iconic Burj Khalifa Views", desc: "Work every day with Dubai's most famous landmark in sight." },
+                                    { bold: "Family-Run Excellence", desc: "Personal dedication that corporate chains can't match." },
+                                    { bold: "Hospitality-Grade Amenities", desc: "From artisan coffee to executive lounge access." },
+                                    { bold: "Instant Same-Day Tours", desc: "Ready to move? We're ready to show you around today." },
+                                ].map((item, index) => (
+                                    <motion.li
+                                        key={item.bold}
                                         initial={{ opacity: 0, x: 20 }}
                                         whileInView={{ opacity: 1, x: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ duration: 0.5, delay: index * 0.1 }}
-                                        className="flex items-center gap-4"
+                                        className="flex items-start gap-4"
                                     >
-                                        <div className="w-6 h-6 bg-gold-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <div className="w-6 h-6 bg-gold-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                                             <Check className="w-4 h-4 text-navy-900" />
                                         </div>
-                                        <span className="font-body text-lg text-white">{usp}</span>
-                                    </motion.div>
+                                        <span className="font-body text-lg text-white">
+                                            <strong className="font-semibold text-white">{item.bold}:</strong> {item.desc}
+                                        </span>
+                                    </motion.li>
                                 ))}
-                            </div>
+                            </ul>
 
                             <div className="mt-10">
                                 <Button variant="outline-light" size="lg" asChild>
@@ -390,8 +408,8 @@ const ServicesPage = () => {
                 </div>
 
                 {/* Decorative Elements */}
-                <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-gold-500/10 blur-[100px]" />
-                <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-teal-500/20 blur-[100px]" />
+                <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-gold-500/10 blur-[100px] z-0" />
+                <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-teal-500/20 blur-[100px] z-0" />
             </section>
 
             {/* FAQ Section */}

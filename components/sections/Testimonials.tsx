@@ -11,6 +11,7 @@ export interface Testimonial {
     text: string;
     rating: number;
     source: string;
+    avatar?: string | null;
 }
 
 export const defaultTestimonials: Testimonial[] = [
@@ -58,7 +59,7 @@ const GoogleIcon = () => (
     </svg>
 );
 
-const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
+const TestimonialCard = ({ testimonial, showAvatar }: { testimonial: Testimonial; showAvatar?: boolean }) => {
     return (
         <div className="h-full px-2 sm:px-4 flex-shrink-0 w-full md:w-1/3">
             <motion.div
@@ -81,15 +82,22 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
                 </p>
 
                 <div className="mt-auto pt-6 border-t border-cream-200 w-full flex flex-col gap-3">
-                    <span className="font-body font-bold text-navy-900 tracking-wide uppercase">
-                        {testimonial.name}
-                    </span>
-                    <div className="flex items-center">
+                    <div className="flex items-center gap-3 flex-wrap">
+                        {showAvatar && (
+                            <div className="w-10 h-10 rounded-full bg-gold-500/20 flex items-center justify-center shrink-0 ring-2 ring-gold-500/30">
+                                <span className="text-navy-800 font-display font-bold text-sm">
+                                    {testimonial.name.charAt(0)}
+                                </span>
+                            </div>
+                        )}
+                        <span className="font-body font-bold text-navy-900 tracking-wide uppercase">
+                            {testimonial.name}
+                        </span>
                         <a 
                             href="https://share.google/PorP2aIgEQ7L2B2RQ" 
                             target="_blank" 
                             rel="noopener noreferrer"
-                            className="bg-white px-3 py-1.5 rounded-full border border-cream-100 flex items-center shadow-sm hover:border-gold-500/50 transition-colors cursor-pointer"
+                            className="bg-white px-3 py-1.5 rounded-full border border-cream-100 flex items-center shadow-sm hover:border-gold-500/50 transition-colors cursor-pointer ml-auto"
                         >
                             <GoogleIcon />
                             <span className="text-[10px] font-bold text-navy-700 uppercase tracking-tighter">
@@ -103,7 +111,12 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
     );
 };
 
-export default function Testimonials({ testimonialsData = defaultTestimonials }: { testimonialsData?: Testimonial[] }) {
+export default function Testimonials({
+    testimonialsData = defaultTestimonials,
+    title = "What Our Clients Say",
+    subtitle = "Real experiences from our community",
+    showAvatar = false,
+}: { testimonialsData?: Testimonial[]; title?: string; subtitle?: string; showAvatar?: boolean }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
@@ -149,7 +162,7 @@ export default function Testimonials({ testimonialsData = defaultTestimonials }:
                         viewport={{ once: true }}
                         className="text-4xl md:text-5xl font-display text-navy-900"
                     >
-                        What Our Clients Say
+                        {title}
                     </motion.h2>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
@@ -158,7 +171,7 @@ export default function Testimonials({ testimonialsData = defaultTestimonials }:
                         transition={{ delay: 0.1 }}
                         className="text-lg text-navy-700 font-body max-w-2xl mx-auto"
                     >
-                        Real experiences from our community
+                        {subtitle}
                     </motion.p>
                 </div>
 
@@ -201,7 +214,7 @@ export default function Testimonials({ testimonialsData = defaultTestimonials }:
                             className="flex items-stretch"
                         >
                             {[...testimonialsData, ...testimonialsData].map((testimonial, idx) => (
-                                <TestimonialCard key={`${testimonial.id}-${idx}`} testimonial={testimonial} />
+                                <TestimonialCard key={`${testimonial.id}-${idx}`} testimonial={testimonial} showAvatar={showAvatar} />
                             ))}
                         </motion.div>
                     </div>

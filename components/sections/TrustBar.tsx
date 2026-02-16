@@ -3,18 +3,19 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Building2, Users, Award, TrendingUp } from "lucide-react";
+import CountUp from "@/components/animations/CountUp";
 
 const stats = [
-  { value: "500+", label: "companies served", icon: Building2 },
-  { value: "1,000+", label: "professionals hosted", icon: Users },
-  { value: "10+", label: "years combined experience", icon: Award },
-  { value: "95%", label: "client retention rate", icon: TrendingUp },
+  { value: 500, suffix: "+", label: "companies served", icon: Building2 },
+  { value: 1000, suffix: "+", label: "professionals hosted", icon: Users },
+  { value: 10, suffix: "+", label: "years combined experience", icon: Award },
+  { value: 95, suffix: "%", label: "client retention rate", icon: TrendingUp },
 ];
 
 const TrustBar = ({ className = "" }: { className?: string }) => {
   return (
     <section
-      className={`py-8 sm:py-10 bg-cream-100/80 border-y border-cream-200 ${className}`}
+      className={`py-8 sm:py-10 bg-white ${className}`}
       aria-label="Trust indicators"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -26,17 +27,20 @@ const TrustBar = ({ className = "" }: { className?: string }) => {
         >
           {stats.map((stat, index) => {
             const Icon = stat.icon;
+            const isLast = index === stats.length - 1;
             return (
               <div
                 key={stat.label}
-                className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 text-center sm:text-left"
+                className={`flex flex-col sm:flex-row items-center gap-3 sm:gap-4 text-center sm:text-left ${
+                  !isLast ? "lg:border-r lg:border-cream-200" : ""
+                }`}
               >
                 <div className="w-10 h-10 rounded-full bg-gold-500/15 flex items-center justify-center shrink-0 text-gold-600">
                   <Icon className="w-5 h-5" />
                 </div>
                 <div>
                   <p className="font-display text-2xl sm:text-3xl font-bold text-navy-900">
-                    {stat.value}
+                    <CountUp end={stat.value} suffix={stat.suffix} duration={2} />
                   </p>
                   <p className="text-sm text-navy-600 font-body">{stat.label}</p>
                 </div>

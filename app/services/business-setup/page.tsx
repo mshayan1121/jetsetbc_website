@@ -175,9 +175,17 @@ const BusinessSetupPage = () => {
                 </div>
             </section>
 
-            {/* Documents Section */}
-            <section className="py-24 bg-white">
-                <div className="container-custom">
+            {/* Ready to Submit */}
+            <section className="py-24 bg-white relative overflow-hidden">
+                <div className="absolute inset-0 z-0">
+                    <Image
+                        src="/images/services/business-setup.png"
+                        alt=""
+                        fill
+                        className="object-cover opacity-[0.06]"
+                    />
+                </div>
+                <div className="container-custom relative z-10">
                     <div className="flex flex-col lg:flex-row items-center gap-20">
                         <div className="lg:w-1/2">
                             <h2 className="text-3xl md:text-5xl font-display text-navy-900 mb-8">Ready to Submit?</h2>
@@ -186,11 +194,11 @@ const BusinessSetupPage = () => {
                             </p>
                             <div className="space-y-4 mb-10">
                                 {requiredDocuments.map((doc, idx) => (
-                                    <div key={idx} className="flex items-center gap-4 p-4 bg-navy-50 rounded-xl">
-                                        <div className="w-6 h-6 rounded-full bg-gold-500/20 flex items-center justify-center">
+                                    <div key={idx} className="flex items-center gap-4 p-5 bg-navy-50/90 rounded-xl">
+                                        <div className="w-7 h-7 rounded-full bg-gold-500/20 flex items-center justify-center shrink-0">
                                             <CheckCircle2 className="w-4 h-4 text-gold-500" />
                                         </div>
-                                        <span className="text-navy-800 font-medium">{doc}</span>
+                                        <span className="text-navy-800 font-medium text-base md:text-lg">{doc}</span>
                                     </div>
                                 ))}
                             </div>
@@ -198,7 +206,7 @@ const BusinessSetupPage = () => {
                                 Download Checklist <ArrowRight className="w-4 h-4" />
                             </Button>
                         </div>
-                        <div className="lg:w-1/2 relative h-[600px] w-full bg-cream-50 rounded-[40px] overflow-hidden">
+                        <div className="lg:w-1/2 relative h-[600px] w-full bg-cream-50 rounded-3xl overflow-hidden shadow-lg">
                             <Image
                                 src="/images/services/business-setup.png"
                                 alt="Documentation Review"
@@ -221,9 +229,19 @@ const BusinessSetupPage = () => {
 
             <PricingTable
                 plans={pricingPlans}
-                title="Service Pricing"
-                subtitle="Virtual Ejari pricing is transparent. Company formation services are customized to your needs - contact us for a tailored quote."
+                title="Transparent Service Pricing"
+                subtitle="Upfront rates with zero hidden fees. Choose our standard Virtual Ejari plan or contact us for a tailored quote on comprehensive company formation."
+                centerCards
+                cardShadow
             />
+
+            <section className="bg-navy-900 text-white py-10">
+                <div className="container-custom text-center">
+                    <p className="font-body text-lg md:text-xl max-w-3xl mx-auto">
+                        Over 200 international companies use Jetset for Ejari and business registration every year.
+                    </p>
+                </div>
+            </section>
 
             <FAQ faqs={businessSetupFaqs} title="Business Setup FAQs" />
 

@@ -105,19 +105,24 @@ const CoworkingPage = () => {
 
     const communityBenefits = [
         {
-            title: "Regular Networking",
-            description: "Weekly mixers and industry-specific workshops to help you grow your circle.",
+            title: "Strategic Networking",
+            description: "Weekly mixers and workshops designed to connect you with Dubai's top entrepreneurs.",
             icon: Briefcase
         },
         {
-            title: "Lounge Areas",
-            description: "Sophisticated chill-out zones designed for informal meetings and relaxation.",
+            title: "Lounge Zones",
+            description: "Premium chill-out areas perfect for impressive informal meetings and relaxation.",
             icon: Heart
         },
         {
             title: "Growth Support",
-            description: "Partnerships with local services to provide discounted business consulting.",
+            description: "Exclusive local partnerships that provide discounted business consulting and setup services.",
             icon: Rocket
+        },
+        {
+            title: "Iconic Business Bay Address",
+            description: "Instantly elevate your brand by hosting clients in a space with world-class views.",
+            icon: Globe
         }
     ];
 
@@ -138,11 +143,11 @@ const CoworkingPage = () => {
                 features={amenities}
             />
 
-            {/* Community Section */}
+            {/* More Than Just a Desk - center-shot wide-angle coworking */}
             <section className="py-24 bg-cream-50">
                 <div className="container-custom">
                     <div className="flex flex-col lg:flex-row items-center gap-16">
-                        <div className="lg:w-1/2">
+                        <div className="lg:w-1/2 order-2 lg:order-1">
                             <h2 className="text-3xl md:text-5xl font-display text-navy-900 mb-8">More Than Just a Desk</h2>
                             <div className="space-y-8">
                                 {communityBenefits.map((benefit, idx) => (
@@ -165,12 +170,12 @@ const CoworkingPage = () => {
                                 ))}
                             </div>
                         </div>
-                        <div className="lg:w-1/2 relative h-[500px] w-full rounded-[40px] overflow-hidden shadow-2xl">
+                        <div className="lg:w-1/2 relative h-[400px] lg:h-[500px] w-full rounded-2xl overflow-hidden shadow-2xl order-1 lg:order-2">
                             <Image
                                 src="/images/services/Co-working Area.jpg"
-                                alt="Community Events"
+                                alt="Coworking area - collaborative environment at Jetset Business Center"
                                 fill
-                                className="object-cover"
+                                className="object-cover object-center"
                             />
                         </div>
                     </div>
@@ -183,7 +188,7 @@ const CoworkingPage = () => {
                 subtitle="Flexible pricing to match your needs. All plans include access to hot desks, dedicated desks, and private cabins (subject to availability)."
             />
 
-            {/* Comparison Table (Visual Representation) */}
+            {/* Membership Comparison Table */}
             <section className="py-24 bg-white">
                 <div className="container-custom">
                     <div className="text-center mb-16">
@@ -194,10 +199,13 @@ const CoworkingPage = () => {
                     <div className="overflow-x-auto -mx-4 sm:-mx-6 lg:mx-0 px-4 sm:px-6 lg:px-0">
                         <table className="w-full text-left border-collapse min-w-[600px]">
                             <thead>
-                                <tr className="border-b border-navy-100 italic">
+                                <tr className="border-b border-navy-100">
                                     <th className="py-6 font-display text-navy-900">Features</th>
                                     <th className="py-6 font-display text-navy-900 text-center">Daily</th>
-                                    <th className="py-6 font-display text-navy-900 text-center text-gold-500">Monthly</th>
+                                    <th className="py-6 font-display text-navy-900 text-center relative">
+                                        <span className="inline-block">Monthly</span>
+                                        <span className="absolute -top-1 left-1/2 -translate-x-1/2 inline-flex items-center rounded-full bg-gold-500 px-2.5 py-0.5 text-[10px] font-semibold text-navy-900 tracking-wide whitespace-nowrap">Best Value</span>
+                                    </th>
                                     <th className="py-6 font-display text-navy-900 text-center">Annual</th>
                                 </tr>
                             </thead>
@@ -210,14 +218,26 @@ const CoworkingPage = () => {
                                     { feature: "Complimentary Beverages", daily: "Yes", monthly: "Yes", annual: "Yes" }
                                 ].map((row, idx) => (
                                     <tr key={idx} className="border-b border-navy-50">
-                                        <td className="py-6 font-medium text-navy-700">{row.feature}</td>
-                                        <td className="py-6 text-center text-navy-500">{row.daily}</td>
-                                        <td className="py-6 text-center text-navy-800 bg-gold-50/30">{row.monthly}</td>
-                                        <td className="py-6 text-center text-navy-500">{row.annual}</td>
+                                        <td className="py-6 font-semibold text-navy-900">{row.feature}</td>
+                                        <td className="py-6 text-center bg-gold-50/20">
+                                            {row.daily === "Yes" ? <span className="text-gold-600 font-semibold">Included</span> : <span className="text-navy-700">{row.daily}</span>}
+                                        </td>
+                                        <td className="py-6 text-center bg-gold-50/30">
+                                            {row.monthly === "Yes" ? <span className="text-gold-600 font-semibold">Included</span> : <span className="text-navy-700">{row.monthly}</span>}
+                                        </td>
+                                        <td className="py-6 text-center">
+                                            {row.annual === "Yes" ? <span className="text-gold-600 font-semibold">Included</span> : <span className="text-navy-700">{row.annual}</span>}
+                                        </td>
                                     </tr>
                                 ))}
                             </tbody>
                         </table>
+                    </div>
+
+                    <div className="mt-12 text-center px-4 py-6 rounded-2xl bg-navy-900 text-white">
+                        <p className="font-body text-lg md:text-xl max-w-3xl mx-auto">
+                            Join a community of 300+ active members from tech, finance, consulting, and creative industries.
+                        </p>
                     </div>
                 </div>
             </section>

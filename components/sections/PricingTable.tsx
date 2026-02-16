@@ -22,9 +22,11 @@ interface PricingTableProps {
     plans: PricingPlan[];
     title?: string;
     subtitle?: string;
+    centerCards?: boolean;
+    cardShadow?: boolean;
 }
 
-const PricingTable = ({ plans, title = "Select Your Plan", subtitle = "Choose the perfect workspace solution for your team" }: PricingTableProps) => {
+const PricingTable = ({ plans, title = "Select Your Plan", subtitle = "Choose the perfect workspace solution for your team", centerCards = false, cardShadow = false }: PricingTableProps) => {
     return (
         <section id="pricing" className="py-24 bg-cream-50">
             <div className="container-custom">
@@ -39,6 +41,7 @@ const PricingTable = ({ plans, title = "Select Your Plan", subtitle = "Choose th
                         ? 'grid-cols-1 max-w-lg mx-auto' 
                         : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
                     }
+                    ${centerCards && plans.length === 2 ? 'max-w-4xl mx-auto' : ''}
                 `}>
                     {plans.map((plan, idx) => (
                         <motion.div
@@ -53,7 +56,7 @@ const PricingTable = ({ plans, title = "Select Your Plan", subtitle = "Choose th
                                 className={`h-full flex flex-col transition-all duration-300 overflow-visible ${plan.isPopular
                                         ? "border-2 border-gold-500 shadow-xl scale-105 relative z-10 bg-white"
                                         : "border-navy-100 hover:border-gold-300 bg-white/50"
-                                    } ${plan.isPopular ? "pt-12" : "pt-8"} px-8 pb-8`}
+                                    } ${plan.isPopular ? "pt-12" : "pt-8"} px-8 pb-8 ${cardShadow ? "shadow-lg" : ""}`}
                             >
                                 {plan.isPopular && (
                                     <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">

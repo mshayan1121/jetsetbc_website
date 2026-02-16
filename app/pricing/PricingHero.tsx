@@ -1,15 +1,29 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/Badge";
+import { ChevronDown } from "lucide-react";
 
 const PricingHero = () => {
     return (
-        <section className="relative bg-gradient-to-br from-navy-900 via-teal-600 to-navy-900 min-h-[70vh] flex items-center justify-center overflow-hidden">
+        <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-navy-900">
+            {/* Background - wide-angle luxury office with Burj view */}
+            <div className="absolute inset-0 z-0">
+                <Image
+                    src="/images/hero-bg.png"
+                    alt=""
+                    fill
+                    className="object-cover"
+                    priority
+                    sizes="100vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-navy-900/85 via-navy-900/70 to-navy-900/95 z-[1]" />
+            </div>
             {/* Background Texture */}
             <div
-                className="absolute inset-0 opacity-10 mix-blend-overlay"
+                className="absolute inset-0 opacity-10 mix-blend-overlay z-[2]"
                 style={{
                     backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
                     backgroundSize: '48px 48px'
@@ -37,9 +51,25 @@ const PricingHero = () => {
                 </motion.div>
             </div>
 
+            {/* Scroll-down arrow */}
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.2, duration: 0.6 }}
+                className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
+            >
+                <span className="text-gold-500/70 text-[10px] uppercase tracking-[0.2em] font-accent">Scroll</span>
+                <motion.div
+                    animate={{ y: [0, 6, 0] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                >
+                    <ChevronDown className="w-8 h-8 text-gold-500" aria-hidden />
+                </motion.div>
+            </motion.div>
+
             {/* Decorative Elements */}
-            <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-gold-500/10 blur-[100px]" />
-            <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-teal-500/20 blur-[100px]" />
+            <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-gold-500/10 blur-[100px] z-[1]" />
+            <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-teal-500/20 blur-[100px] z-[1]" />
         </section>
     );
 };

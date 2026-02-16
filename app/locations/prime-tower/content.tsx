@@ -42,42 +42,12 @@ const locationFeatures = [
 ];
 
 const amenities = [
-    {
-        name: "High-Speed Internet",
-        icon: Wifi,
-        desc: "Enterprise-grade fiber with redundant backups.",
-        accent: "bg-sky-200/60 text-sky-700",
-    },
-    {
-        name: "Meeting Rooms",
-        icon: Presentation,
-        desc: "Fully equipped with 4K screens and video conferencing.",
-        accent: "bg-indigo-200/60 text-indigo-700",
-    },
-    {
-        name: "Dedicated Parking",
-        icon: Car,
-        desc: "Private parking spots available for members.",
-        accent: "bg-emerald-200/60 text-emerald-700",
-    },
-    {
-        name: "Reception Service",
-        icon: PhoneCall,
-        desc: "Professional call answering and guest management.",
-        accent: "bg-amber-200/60 text-amber-700",
-    },
-    {
-        name: "Premium Beverages",
-        icon: Coffee,
-        desc: "Unlimited premium coffee, tea, and infused water.",
-        accent: "bg-gold-500/15 text-gold-600",
-    },
-    {
-        name: "In-House Restaurant",
-        icon: Utensils,
-        desc: "Chef-curated menu for convenient, healthy dining.",
-        accent: "bg-teal-200/60 text-teal-700",
-    },
+    { name: "High-Speed Internet", icon: Wifi, desc: "Enterprise-grade fiber with redundant backups." },
+    { name: "Meeting Rooms", icon: Presentation, desc: "Fully equipped with 4K screens and video conferencing." },
+    { name: "Dedicated Parking", icon: Car, desc: "Private parking spots available for members." },
+    { name: "Reception Service", icon: PhoneCall, desc: "Professional call answering and guest management." },
+    { name: "Premium Beverages", icon: Coffee, desc: "Unlimited premium coffee, tea, and infused water." },
+    { name: "In-House Restaurant", icon: Utensils, desc: "Chef-curated menu for convenient, healthy dining." },
 ];
 
 const availableSpaces = [
@@ -265,7 +235,7 @@ export default function PrimeTowerContent() {
                 </div>
             </section>
 
-            {/* 3. AMENITIES GRID */}
+            {/* 3. WORLD-CLASS AMENITIES - navy cards, gold-line icons */}
             <section ref={amenitiesRef} className="py-16 sm:py-20 md:py-24 bg-cream-50">
                 <div className="container-custom">
                     <div className="text-center mb-12 sm:mb-16">
@@ -275,13 +245,13 @@ export default function PrimeTowerContent() {
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
                         {amenities.map((item, idx) => (
-                            <Card key={idx} hoverEffect className="border-none shadow-sm bg-white h-full">
+                            <Card key={idx} hoverEffect className="border-none bg-navy-900 text-white shadow-[0_4px_20px_rgba(10,24,40,0.15)] h-full">
                                 <CardContent className="flex flex-col items-center text-center p-8 h-full">
-                                    <div className={`w-20 h-20 rounded-full ${item.accent} flex items-center justify-center mb-6 transition-colors duration-300`}>
-                                        <item.icon className="w-9 h-9" />
+                                    <div className="w-20 h-20 rounded-full flex items-center justify-center mb-6 border-2 border-gold-500/50 text-gold-400 [&>svg]:stroke-[1.5]">
+                                        <item.icon className="w-9 h-9" strokeWidth={1.5} />
                                     </div>
-                                    <h3 className="text-xl font-display text-navy-900 mb-3">{item.name}</h3>
-                                    <p className="text-navy-600/80 text-sm font-body leading-relaxed">{item.desc}</p>
+                                    <h3 className="text-xl font-display text-white mb-3">{item.name}</h3>
+                                    <p className="text-white/85 text-sm font-body leading-relaxed">{item.desc}</p>
                                 </CardContent>
                             </Card>
                         ))}
@@ -289,12 +259,12 @@ export default function PrimeTowerContent() {
                 </div>
             </section>
 
-            {/* 4. AVAILABLE SPACES */}
+            {/* 4. ELEVATE YOUR BUSINESS PRESENCE */}
             <section className="py-16 sm:py-20 md:py-24 bg-white">
                 <div className="container-custom">
                     <div className="text-center mb-12 sm:mb-16">
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-navy-900 mb-3 sm:mb-4 px-4">Available Spaces</h2>
-                        <p className="text-navy-600 max-w-2xl mx-auto text-base sm:text-lg font-body px-4">Choose the perfect workspace solution for your business.</p>
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-navy-900 mb-3 sm:mb-4 px-4">Elevate Your Business Presence</h2>
+                        <p className="text-navy-600 max-w-2xl mx-auto text-base sm:text-lg font-body px-4">Select a bespoke environment designed for success, from private high-rise suites to flexible coworking hubs.</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
@@ -302,7 +272,7 @@ export default function PrimeTowerContent() {
                             const isCoworking = space.title === "Coworking Access";
 
                             return (
-                                <Card key={idx} className="group overflow-hidden border-none shadow-lg hover:shadow-xl transition-all duration-300 p-0 bg-white">
+                                <Card key={idx} className="group overflow-hidden border-none shadow-[0_4px_24px_rgba(10,24,40,0.12)] hover:shadow-[0_8px_32px_rgba(10,24,40,0.18)] transition-all duration-300 p-0 bg-white">
                                     <div className="relative h-64 overflow-hidden">
                                         <Image
                                             src={space.image}
@@ -355,8 +325,15 @@ export default function PrimeTowerContent() {
                 </div>
             </section>
 
-            {/* 5. TESTIMONIALS */}
-            <Testimonials testimonialsData={locationTestimonials} />
+            {/* 5. VOICES OF OUR COMMUNITY - moved up, less white space */}
+            <section className="pt-8 pb-16 sm:pb-20 md:pb-24">
+                <Testimonials
+                    testimonialsData={locationTestimonials}
+                    title="Voices of Our Community"
+                    subtitle="Real stories from the professionals who call Jetset their home."
+                    showAvatar
+                />
+            </section>
 
             {/* 6. CTA SECTION */}
             <CTASection />
