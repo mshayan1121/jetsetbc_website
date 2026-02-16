@@ -4,13 +4,19 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import { MapPin, ArrowRight, Building, Construction } from "lucide-react";
+import { MapPin, ArrowRight, Building, Construction, Eye, Train, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import CTASection from "@/components/sections/CTASection";
 import FadeIn from "@/components/animations/FadeIn";
 import StaggerContainer from "@/components/animations/StaggerContainer";
+
+const locationFeatureIcons: Record<string, React.ElementType> = {
+    "Burj Khalifa Views": Eye,
+    "Metro Access": Train,
+    "Level 20": Building2,
+};
 
 const locations = [
     {
@@ -76,9 +82,9 @@ export default function LocationsContent() {
                     <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-10">
                         {locations.map((loc) => (
                             <FadeIn key={loc.id} stagger direction="up" className="h-full">
-                                <Card className="group h-full overflow-hidden border-none shadow-luxury-md hover:shadow-luxury-xl transition-all duration-500 bg-white flex flex-col">
+                                <Card className="group h-full overflow-hidden border-none shadow-luxury-md hover:shadow-luxury-xl transition-all duration-500 bg-navy-900 flex flex-col">
                                     {/* Image Area */}
-                                    <div className="relative h-72 overflow-hidden bg-navy-100">
+                                    <div className="relative h-72 overflow-hidden bg-navy-800">
                                         {loc.image ? (
                                             <Image
                                                 src={loc.image}
@@ -120,32 +126,38 @@ export default function LocationsContent() {
 
                                     {/* Content Area */}
                                     <div className="p-8 flex flex-col flex-grow relative">
-                                        <h2 className="text-3xl font-display text-navy-900 mb-4 group-hover:text-gold-600 transition-colors duration-300">
+                                        <h2 className="text-3xl font-display text-white mb-4 group-hover:text-gold-400 transition-colors duration-300">
                                             {loc.name}
                                         </h2>
-                                        <p className="text-navy-600/80 mb-8 font-body leading-relaxed flex-grow">
+                                        <p className="text-cream-200/80 mb-8 font-body leading-relaxed flex-grow">
                                             {loc.description}
                                         </p>
 
-                                        {/* Features */}
-                                        <div className="flex flex-wrap gap-3 mb-8">
-                                            {loc.features.map((feature, i) => (
-                                                <span key={i} className="px-3 py-1 bg-cream-50 text-navy-700 text-xs font-medium rounded-full border border-cream-200">
-                                                    {feature}
-                                                </span>
-                                            ))}
+                                        {/* Features - minimalist gold-line icons */}
+                                        <div className="flex flex-wrap gap-4 mb-8">
+                                            {loc.features.map((feature, i) => {
+                                                const Icon = locationFeatureIcons[feature] || MapPin;
+                                                return (
+                                                    <div key={i} className="flex items-center gap-2 text-gold-400/90">
+                                                        <div className="w-8 h-8 rounded-full flex items-center justify-center border border-gold-500/50 [&>svg]:w-4 [&>svg]:h-4 [&>svg]:stroke-[1.5]" aria-hidden>
+                                                            <Icon className="text-gold-400" strokeWidth={1.5} />
+                                                        </div>
+                                                        <span className="text-sm font-medium text-cream-100">{feature}</span>
+                                                    </div>
+                                                );
+                                            })}
                                         </div>
 
                                         {/* Action */}
-                                        <div className="pt-6 border-t border-cream-100 flex items-center justify-between">
+                                        <div className="pt-6 border-t border-white/10 flex items-center justify-between">
                                             {loc.status === "Available" ? (
                                                 <Link href={loc.link} className="w-full">
-                                                    <Button variant="outline" className="w-full group-hover:bg-navy-900 group-hover:text-white group-hover:border-navy-900">
+                                                    <Button variant="outline" className="w-full border-gold-500/50 text-gold-400 hover:bg-gold-500 hover:text-navy-900 hover:border-gold-500">
                                                         View Details <ArrowRight className="ml-2 w-4 h-4" />
                                                     </Button>
                                                 </Link>
                                             ) : (
-                                                <Button disabled variant="ghost" className="w-full opacity-60 cursor-not-allowed">
+                                                <Button disabled variant="ghost" className="w-full opacity-60 cursor-not-allowed text-cream-200">
                                                     Coming Soon
                                                 </Button>
                                             )}

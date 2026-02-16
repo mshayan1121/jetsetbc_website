@@ -16,7 +16,7 @@ const services = [
         link: "/services/private-offices",
         cta: "Book a Tour",
         className: "md:col-span-2 min-h-[320px] md:min-h-[400px]",
-        trustSignal: null,
+        testimonial: "The best workspace experience we've had in Dubai. Flexible, professional, and well-located.",
     },
     {
         title: "Modern Shared Workspaces",
@@ -26,7 +26,7 @@ const services = [
         link: "/services/coworking",
         cta: "View Coworking Plans",
         className: "md:col-span-2 min-h-[320px] md:min-h-[400px]",
-        trustSignal: "Join a community of 300+ active members from tech, finance, consulting, and creative industries.",
+        testimonial: "Jetset feels more like a business partner than a landlord.",
     },
     {
         title: "Professional Meeting Spaces",
@@ -36,7 +36,7 @@ const services = [
         link: "/services/meeting-rooms",
         cta: "Book a Meeting Room →",
         className: "md:col-span-2 min-h-[320px]",
-        trustSignal: null,
+        testimonial: "Our clients were impressed from day one. The meeting rooms are top-notch.",
     },
     {
         title: "Virtual Office & Ejari in Dubai",
@@ -46,7 +46,7 @@ const services = [
         link: "/services/business-setup",
         cta: "Secure a Virtual Office →",
         className: "md:col-span-1 min-h-[320px]",
-        trustSignal: "Over 200 international companies use Jetset for Ejari and business registration every year.",
+        testimonial: "Jetset made my Dubai mainland setup seamless. I had my license in 3 days!",
     },
     {
         title: "Company Formation & PRO Services",
@@ -56,7 +56,7 @@ const services = [
         link: "/services/business-setup",
         cta: "Free Consultation →",
         className: "md:col-span-1 min-h-[320px]",
-        trustSignal: null,
+        testimonial: "Expert guidance from start to finish. Couldn't have asked for a smoother process.",
     },
 ];
 
@@ -105,11 +105,6 @@ const WorkspaceGrid = ({ className = "", variant }: { className?: string; varian
                                         <p className="text-white/85 mb-4 line-clamp-3 text-sm md:text-base">
                                             {service.description}
                                         </p>
-                                        {service.trustSignal && variant !== "services" && (
-                                            <p className="text-white/70 text-xs mb-4 italic">
-                                                {service.trustSignal}
-                                            </p>
-                                        )}
                                         <Link
                                             href={service.link}
                                             className="inline-flex items-center gap-2 text-white font-medium group-hover:gap-3 transition-all duration-300"
@@ -120,6 +115,13 @@ const WorkspaceGrid = ({ className = "", variant }: { className?: string; varian
                                             <ArrowRight className="w-4 h-4 group-hover:text-gold-400 transition-colors" />
                                         </Link>
                                     </div>
+                                    {variant === "services" && service.testimonial && (
+                                        <div className="mt-auto pt-4">
+                                            <div className="bg-white rounded-2xl p-4 md:p-5 border border-white/20 shadow-lg">
+                                                <p className="text-navy-700 text-sm italic font-body">&ldquo;{service.testimonial}&rdquo;</p>
+                                            </div>
+                                        </div>
+                                    )}
                                 </div>
                             </motion.div>
                         );

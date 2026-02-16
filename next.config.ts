@@ -1,8 +1,7 @@
 import type { NextConfig } from "next";
 import path from "path";
-import { fileURLToPath } from "url";
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const tailwindcssPath = path.resolve(process.cwd(), "node_modules", "tailwindcss");
 
 const nextConfig: NextConfig = {
   images: {
@@ -18,8 +17,13 @@ const nextConfig: NextConfig = {
   webpack: (config) => {
     config.resolve ??= {};
     config.resolve.alias ??= {};
-    config.resolve.alias["tailwindcss"] = path.join(__dirname, "node_modules", "tailwindcss");
+    config.resolve.alias["tailwindcss"] = tailwindcssPath;
     return config;
+  },
+  turbopack: {
+    resolveAlias: {
+      tailwindcss: tailwindcssPath,
+    },
   },
 };
 
