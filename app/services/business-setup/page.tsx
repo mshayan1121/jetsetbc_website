@@ -179,7 +179,7 @@ const BusinessSetupPage = () => {
             <section className="py-24 bg-white relative overflow-hidden">
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src="/images/services/business-setup.png"
+                        src="/images/business-bay/dubai-business-bay-uae-5km-01.jpg"
                         alt=""
                         fill
                         className="object-cover opacity-[0.06]"
@@ -198,7 +198,7 @@ const BusinessSetupPage = () => {
                                         <div className="w-7 h-7 rounded-full bg-gold-500/20 flex items-center justify-center shrink-0">
                                             <CheckCircle2 className="w-4 h-4 text-gold-500" />
                                         </div>
-                                        <span className="text-navy-800 font-medium text-base md:text-lg">{doc}</span>
+                                        <span className="text-navy-800 font-semibold text-lg md:text-xl">{doc}</span>
                                     </div>
                                 ))}
                             </div>
@@ -235,11 +235,16 @@ const BusinessSetupPage = () => {
                 cardShadow
             />
 
-            <section className="bg-navy-900 text-white py-10">
-                <div className="container-custom text-center">
-                    <p className="font-body text-lg md:text-xl max-w-3xl mx-auto">
-                        Over 200 international companies use Jetset for Ejari and business registration every year.
-                    </p>
+            <section className="py-10 bg-cream-50">
+                <div className="container-custom">
+                    <div className="max-w-3xl mx-auto text-center">
+                        <div className="inline-flex items-center justify-center px-6 py-4 rounded-2xl bg-white shadow-md shadow-navy-900/5 border border-gold-500/20">
+                            <p className="text-navy-900 font-display text-lg md:text-2xl">
+                                <span className="font-semibold text-gold-600">Over 200 international companies</span>{" "}
+                                use Jetset for Ejari and business registration every year.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </section>
 

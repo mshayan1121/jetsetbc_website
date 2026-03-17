@@ -15,7 +15,7 @@ const stats = [
 const TrustBar = ({ className = "" }: { className?: string }) => {
   return (
     <section
-      className={`py-8 sm:py-10 bg-white ${className}`}
+      className={`py-8 sm:py-10 bg-transparent ${className}`}
       aria-label="Trust indicators"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -23,17 +23,14 @@ const TrustBar = ({ className = "" }: { className?: string }) => {
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:divide-x lg:divide-cream-200"
         >
-          {stats.map((stat, index) => {
+          {stats.map((stat) => {
             const Icon = stat.icon;
-            const isLast = index === stats.length - 1;
             return (
               <div
                 key={stat.label}
-                className={`flex flex-col sm:flex-row items-center gap-3 sm:gap-4 text-center sm:text-left ${
-                  !isLast ? "lg:border-r lg:border-cream-200" : ""
-                }`}
+                className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 text-center sm:text-left lg:px-6 first:lg:pl-0 last:lg:pr-0"
               >
                 <div className="w-10 h-10 rounded-full bg-gold-500/15 flex items-center justify-center shrink-0 text-gold-600">
                   <Icon className="w-5 h-5" />

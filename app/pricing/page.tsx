@@ -22,7 +22,7 @@ export default function PricingPage() {
             <section className="py-16 sm:py-20 md:py-24 bg-white">
                 <div className="container-custom mx-auto">
                     <div className="text-center mb-12 sm:mb-16">
-                        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-navy-900 mb-3 sm:mb-4">Private Offices</h2>
+                        <h2 className="font-display text-3xl sm:text-4xl md:text-6xl font-bold text-navy-900 mb-3 sm:mb-4">Private Offices</h2>
                         <p className="font-body text-base sm:text-lg text-navy-700 max-w-2xl mx-auto px-4">
                             Fully furnished executive suites with stunning views and premium amenities.
                         </p>
@@ -30,7 +30,7 @@ export default function PricingPage() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
                         {/* Card 1 - Inner Offices */}
-                        <Card className="shadow-luxury-sm hover:shadow-luxury-lg hover:shadow-[0_12px_40px_rgba(212,175,55,0.2)] hover:-translate-y-2 transition-all duration-400 h-full flex flex-col">
+                        <Card className="shadow-[0_10px_35px_rgba(212,175,55,0.25)] hover:shadow-[0_18px_55px_rgba(212,175,55,0.32)] hover:-translate-y-2 transition-all duration-400 h-full flex flex-col border border-gold-500/40 bg-white">
                             <CardHeader className="pb-4">
                                 <CardTitle className="text-xl sm:text-2xl mb-2">Inner Offices</CardTitle>
                                 <CardDescription className="text-sm sm:text-base">Perfect for focus and privacy</CardDescription>
@@ -64,7 +64,7 @@ export default function PricingPage() {
                         </Card>
 
                         {/* Card 2 - Outer Offices */}
-                        <Card className="shadow-luxury-sm hover:shadow-luxury-lg hover:-translate-y-2 transition-all duration-400 h-full flex flex-col relative overflow-visible">
+                        <Card className="shadow-[0_10px_35px_rgba(212,175,55,0.25)] hover:shadow-[0_18px_55px_rgba(212,175,55,0.32)] hover:-translate-y-2 transition-all duration-400 h-full flex flex-col relative overflow-visible border border-gold-500/40 bg-white">
                             <div className="absolute top-0 right-0 p-4 sm:p-6 z-10">
                                 <Badge variant="gold" className="text-xs sm:text-sm">Premium</Badge>
                             </div>
@@ -190,11 +190,7 @@ export default function PricingPage() {
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div className="mt-6">
-                                            <Button variant="primary" className="w-full sm:w-auto" asChild>
-                                                <a href="/book-tour">Get Started</a>
-                                            </Button>
-                                        </div>
+                                        <div className="mt-6" />
                                     </div>
 
                                     <div className="absolute inset-0 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-500 ease-out delay-[150ms]" style={{ transitionDelay: "150ms" }}>
@@ -204,7 +200,7 @@ export default function PricingPage() {
                                                     <p className="text-xs uppercase tracking-wide text-navy-500">Flexi-Desk</p>
                                                     <h3 className="text-xl sm:text-2xl font-display font-semibold text-navy-900">Hot-desking in the premium lounge</h3>
                                                 </div>
-                                                <div className="space-y-2">
+                                                <div className="space-y-2 transition-all duration-500 delay-[150ms]">
                                                     <div className="flex items-end gap-2">
                                                         <span className="font-accent text-2xl sm:text-3xl font-bold text-gold-500">AED 80</span>
                                                         <span className="text-sm text-navy-600">/day</span>
@@ -238,7 +234,7 @@ export default function PricingPage() {
                                                     <p className="text-xs uppercase tracking-wide text-navy-500">Fixed-Desk</p>
                                                     <h3 className="text-xl sm:text-2xl font-display font-semibold text-navy-900">Your own dedicated desk</h3>
                                                 </div>
-                                                <div className="space-y-2">
+                                                <div className="space-y-2 transition-all duration-500 delay-[150ms]">
                                                     <div className="flex items-end gap-2">
                                                         <span className="font-accent text-2xl sm:text-3xl font-bold text-gold-500">AED 2,400</span>
                                                         <span className="text-sm text-navy-600">/month</span>
@@ -262,14 +258,15 @@ export default function PricingPage() {
                                                         <span className="text-sm text-navy-700">Dedicated workstation storage</span>
                                                     </li>
                                                 </ul>
-                                                <div className="mt-auto pt-2">
-                                                    <Button variant="primary" className="w-full" asChild>
-                                                        <a href="/book-tour">Get Started</a>
-                                                    </Button>
-                                                </div>
+                                                <div className="mt-auto pt-2" />
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                                <div className="mt-6">
+                                    <Button variant="primary" className="w-full sm:w-auto" asChild>
+                                        <a href="/book-tour">Get Started</a>
+                                    </Button>
                                 </div>
                             </CardContent>
                         </Card>

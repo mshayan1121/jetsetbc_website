@@ -68,7 +68,7 @@ const MeetingRoomsPage = () => {
                 "Professional boardroom setup",
                 "Climate control"
             ],
-            image: "/images/services/Conference Room.jpg"
+            image: "/images/gallery/Conference Room.jpg"
         },
         {
             name: "Conference Room",
@@ -80,7 +80,7 @@ const MeetingRoomsPage = () => {
                 "Boardroom configuration",
                 "Professional environment"
             ],
-            image: "/images/services/Conference Room.jpg"
+            image: "/images/gallery/Conference Room(1).jpg"
         },
         {
             name: "Majilis",
@@ -92,7 +92,7 @@ const MeetingRoomsPage = () => {
                 "High-speed secure Wi-Fi",
                 "Luxury seating"
             ],
-            image: "/images/services/Conference Room.jpg"
+            image: "/images/gallery/Majilis.jpg"
         }
     ];
 

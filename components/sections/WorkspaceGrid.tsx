@@ -11,62 +11,62 @@ const services = [
     {
         title: "Private Serviced Offices in Business Bay",
         description: "Fully equipped office suites in Business Bay, Dubai, tailored for teams seeking privacy, efficiency, and a prestigious business address.",
+        testimonial: "The best workspace experience we've had in Dubai. Flexible, professional, and well-located.",
         image: "/images/services/private-office.png",
         icon: Building,
         link: "/services/private-offices",
         cta: "Book a Tour",
         className: "md:col-span-2 min-h-[320px] md:min-h-[400px]",
-        testimonial: "The best workspace experience we've had in Dubai. Flexible, professional, and well-located.",
     },
     {
         title: "Modern Shared Workspaces",
-        description: "Join a community of innovators, entrepreneurs, and industry leaders in Dubai's vibrant coworking spaces.",
+        description: "Flexible coworking in Dubai's most vibrant business district — ideal for innovators and growing teams.",
+        testimonial: "Jetset feels more like a business partner than a landlord.",
         image: "/images/services/Co-working Area.jpg",
         icon: Users,
         link: "/services/coworking",
         cta: "View Coworking Plans",
         className: "md:col-span-2 min-h-[320px] md:min-h-[400px]",
-        testimonial: "Jetset feels more like a business partner than a landlord.",
     },
     {
         title: "Professional Meeting Spaces",
         description: "Host important meetings in Business Bay's premium, fully furnished meeting rooms and collaboration spaces.",
+        testimonial: "We moved in within 48 hours — no setup, no delays. Our clients were impressed from day one.",
         image: "/images/services/Conference Room.jpg",
         icon: Presentation,
         link: "/services/meeting-rooms",
         cta: "Book a Meeting Room →",
         className: "md:col-span-2 min-h-[320px]",
-        testimonial: "Our clients were impressed from day one. The meeting rooms are top-notch.",
     },
     {
         title: "Virtual Office & Ejari in Dubai",
         description: "Get a prestigious Business Bay address and official Ejari documentation without renting physical space. Ideal for trade license issuance and renewals.",
+        testimonial: "Jetset made my Dubai mainland setup seamless. I had my license in 3 days!",
         image: "/images/blog/virtual-office.jpg",
         icon: FileText,
         link: "/services/business-setup",
         cta: "Secure a Virtual Office →",
         className: "md:col-span-1 min-h-[320px]",
-        testimonial: "Jetset made my Dubai mainland setup seamless. I had my license in 3 days!",
     },
     {
         title: "Company Formation & PRO Services",
         description: "Start your Dubai business with expert guidance. We provide end-to-end solutions for company formation, licensing, and business compliance.",
+        testimonial: "Jetset helped me grow from a solo founder to a team of 5 without changing locations.",
         image: "/images/services/business-setup.png",
         icon: Briefcase,
         link: "/services/business-setup",
         cta: "Free Consultation →",
         className: "md:col-span-1 min-h-[320px]",
-        testimonial: "Expert guidance from start to finish. Couldn't have asked for a smoother process.",
     },
 ];
 
-const WorkspaceGrid = ({ className = "", variant }: { className?: string; variant?: "home" | "services" }) => {
+const WorkspaceGrid = ({ className = "", variant = "home" }: { className?: string; variant?: "home" | "services" }) => {
     return (
         <section id="services" className={cn("py-20 sm:py-28 bg-cream-50 overflow-hidden", className)}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="mb-12 text-center md:text-left">
-                    <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-navy-900 mb-6">Our Services</h2>
-                    <p className="text-lg text-navy-600 max-w-2xl">
+                    <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-navy-900 mb-6">Our Services</h2>
+                    <p className="text-lg md:text-xl text-navy-600 max-w-2xl">
                         Flexible offices, coworking, virtual services, and complete business support — designed to help you grow, all under one roof.
                     </p>
                 </div>
@@ -115,10 +115,13 @@ const WorkspaceGrid = ({ className = "", variant }: { className?: string; varian
                                             <ArrowRight className="w-4 h-4 group-hover:text-gold-400 transition-colors" />
                                         </Link>
                                     </div>
-                                    {variant === "services" && service.testimonial && (
+
+                                    {variant === "services" && "testimonial" in service && service.testimonial && (
                                         <div className="mt-auto pt-4">
-                                            <div className="bg-white rounded-2xl p-4 md:p-5 border border-white/20 shadow-lg">
-                                                <p className="text-navy-700 text-sm italic font-body">&ldquo;{service.testimonial}&rdquo;</p>
+                                            <div className="bg-white rounded-xl p-4 md:p-5 shadow-lg border border-cream-100">
+                                                <p className="font-body text-navy-800 text-sm md:text-base italic">
+                                                    &ldquo;{service.testimonial}&rdquo;
+                                                </p>
                                             </div>
                                         </div>
                                     )}

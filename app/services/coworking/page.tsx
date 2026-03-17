@@ -172,8 +172,8 @@ const CoworkingPage = () => {
                         </div>
                         <div className="lg:w-1/2 relative h-[400px] lg:h-[500px] w-full rounded-2xl overflow-hidden shadow-2xl order-1 lg:order-2">
                             <Image
-                                src="/images/services/Co-working Area.jpg"
-                                alt="Coworking area - collaborative environment at Jetset Business Center"
+                                src="/images/gallery/Co-working(1).jpg"
+                                alt="Coworking area center-shot - collaborative workspace at Jetset Business Center"
                                 fill
                                 className="object-cover object-center"
                             />
@@ -200,11 +200,11 @@ const CoworkingPage = () => {
                         <table className="w-full text-left border-collapse min-w-[600px]">
                             <thead>
                                 <tr className="border-b border-navy-100">
-                                    <th className="py-6 font-display text-navy-900">Features</th>
+                                    <th className="py-6 font-display text-[#0A1828]">Features</th>
                                     <th className="py-6 font-display text-navy-900 text-center">Daily</th>
                                     <th className="py-6 font-display text-navy-900 text-center relative">
                                         <span className="inline-block">Monthly</span>
-                                        <span className="absolute -top-1 left-1/2 -translate-x-1/2 inline-flex items-center rounded-full bg-gold-500 px-2.5 py-0.5 text-[10px] font-semibold text-navy-900 tracking-wide whitespace-nowrap">Best Value</span>
+                                        <span className="absolute -top-1 left-1/2 -translate-x-1/2 inline-flex items-center rounded-full bg-[#D4AF37] px-2.5 py-0.5 text-[10px] font-semibold text-navy-900 tracking-wide whitespace-nowrap">Most Popular</span>
                                     </th>
                                     <th className="py-6 font-display text-navy-900 text-center">Annual</th>
                                 </tr>
@@ -216,26 +216,29 @@ const CoworkingPage = () => {
                                     { feature: "Meeting Room Access", daily: "None", monthly: "2 hrs/day", annual: "2 hrs/day" },
                                     { feature: "Business Address", daily: "No", monthly: "Available", annual: "Included" },
                                     { feature: "Complimentary Beverages", daily: "Yes", monthly: "Yes", annual: "Yes" }
-                                ].map((row, idx) => (
-                                    <tr key={idx} className="border-b border-navy-50">
-                                        <td className="py-6 font-semibold text-navy-900">{row.feature}</td>
-                                        <td className="py-6 text-center bg-gold-50/20">
-                                            {row.daily === "Yes" ? <span className="text-gold-600 font-semibold">Included</span> : <span className="text-navy-700">{row.daily}</span>}
-                                        </td>
-                                        <td className="py-6 text-center bg-gold-50/30">
-                                            {row.monthly === "Yes" ? <span className="text-gold-600 font-semibold">Included</span> : <span className="text-navy-700">{row.monthly}</span>}
-                                        </td>
-                                        <td className="py-6 text-center">
-                                            {row.annual === "Yes" ? <span className="text-gold-600 font-semibold">Included</span> : <span className="text-navy-700">{row.annual}</span>}
-                                        </td>
-                                    </tr>
-                                ))}
+                                ].map((row, idx) => {
+                                    const isPositive = (val: string) => ["Yes", "Included", "24/7", "Hot, Dedicated, Private", "2 hrs/day", "Available"].includes(val);
+                                    return (
+                                        <tr key={idx} className="border-b border-navy-50">
+                                            <td className="py-6 font-semibold text-[#0A1828]">{row.feature}</td>
+                                            <td className="py-6 text-center bg-gold-50/20">
+                                                {isPositive(row.daily) ? <span className="text-[#D4AF37] font-semibold">{row.daily === "Yes" ? "Included" : row.daily}</span> : <span className="text-navy-700">{row.daily}</span>}
+                                            </td>
+                                            <td className="py-6 text-center bg-gold-50/30">
+                                                {isPositive(row.monthly) ? <span className="text-[#D4AF37] font-semibold">{row.monthly === "Yes" ? "Included" : row.monthly}</span> : <span className="text-navy-700">{row.monthly}</span>}
+                                            </td>
+                                            <td className="py-6 text-center">
+                                                {isPositive(row.annual) ? <span className="text-[#D4AF37] font-semibold">{row.annual === "Yes" ? "Included" : row.annual}</span> : <span className="text-navy-700">{row.annual}</span>}
+                                            </td>
+                                        </tr>
+                                    );
+                                })}
                             </tbody>
                         </table>
                     </div>
 
-                    <div className="mt-12 text-center px-4 py-6 rounded-2xl bg-navy-900 text-white">
-                        <p className="font-body text-lg md:text-xl max-w-3xl mx-auto">
+                    <div className="mt-10 w-full bg-gradient-to-r from-[#0A1828] via-[#0A1828] to-[#D4AF37]/90 py-6 px-6 rounded-xl text-center border-2 border-[#D4AF37]/30">
+                        <p className="text-white font-bold text-lg md:text-xl">
                             Join a community of 300+ active members from tech, finance, consulting, and creative industries.
                         </p>
                     </div>

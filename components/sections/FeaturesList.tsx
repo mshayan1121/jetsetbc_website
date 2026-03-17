@@ -35,14 +35,13 @@ const FeaturesList = ({ features, title, subtitle, columns = 3, className = "" }
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: idx * 0.1 }}
                             viewport={{ once: true }}
-                            whileHover={{ y: -6, transition: { duration: 0.3 } }}
-                            className="group rounded-2xl p-8 border border-cream-200 bg-white hover:bg-gold-500 hover:border-gold-400 shadow-sm hover:shadow-luxury-md transition-all duration-300"
+                            className="group rounded-2xl p-8 border border-cream-200 bg-white hover:bg-[#D4AF37] hover:border-[#D4AF37] shadow-sm hover:shadow-luxury-lg hover:-translate-y-2 transition-all duration-300 ease-out cursor-default"
                         >
                             <div className="mb-6 p-4 bg-navy-50 rounded-2xl w-fit group-hover:bg-white/20 transition-colors duration-300">
                                 <feature.icon className="w-8 h-8 text-gold-500 group-hover:text-white transition-colors duration-300" />
                             </div>
                             <h3 className="text-xl font-display text-navy-900 group-hover:text-white mb-3 transition-colors duration-300">{feature.title}</h3>
-                            <p className="text-navy-600 group-hover:text-white/95 leading-relaxed transition-colors duration-300">{feature.description}</p>
+                            <p className="text-navy-600 group-hover:text-white leading-relaxed transition-colors duration-300">{feature.description}</p>
                         </motion.div>
                     ))}
                 </div>

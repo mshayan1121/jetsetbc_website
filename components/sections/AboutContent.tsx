@@ -40,13 +40,13 @@ export default function AboutContent() {
             title: "Transparency",
             description: "Clear pricing with no hidden operational costs. We believe in honest partnerships.",
             icon: Shield,
-            bgClass: "bg-slate-50",
+            bgClass: "bg-amber-50",
         },
         {
             title: "Innovation",
             description: "Continuously adapting to hybrid and remote work trends with cutting-edge tech.",
             icon: TrendingUp,
-            bgClass: "bg-sky-50",
+            bgClass: "bg-amber-50",
         },
         {
             title: "Operational Excellence",
@@ -58,31 +58,31 @@ export default function AboutContent() {
             title: "Radical Hospitality",
             description: "Warm, proactive service that makes every client feel truly welcomed.",
             icon: HandHeart,
-            bgClass: "bg-rose-50",
+            bgClass: "bg-amber-50",
         },
         {
             title: "Customer Obsession",
             description: "Treating every client—startup or enterprise—with equal respect and dedication.",
             icon: Heart,
-            bgClass: "bg-emerald-50",
+            bgClass: "bg-amber-50",
         },
         {
             title: "Relationship-Driven",
             description: "We prioritize long-term partnerships over transactional tenancy.",
             icon: Users,
-            bgClass: "bg-teal-50",
+            bgClass: "bg-amber-50",
         },
         {
             title: "Curated Community",
             description: "A thoughtful mix of businesses that elevate collaboration and growth.",
             icon: UsersRound,
-            bgClass: "bg-indigo-50",
+            bgClass: "bg-amber-50",
         },
         {
             title: "Adaptive Agility",
             description: "Flexible solutions that evolve quickly with your business needs.",
             icon: Zap,
-            bgClass: "bg-violet-50",
+            bgClass: "bg-amber-50",
         },
     ];
 
@@ -157,8 +157,8 @@ export default function AboutContent() {
                         <FadeIn direction="right" distance={30} className="w-full lg:w-1/2">
                             <div className="relative h-[500px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl group">
                                 <Image
-                                    src="/images/primetower/the-prime-tower_g7-03jpg-68baa93d-a624-4786-9e01-b849f775facf.jpg"
-                                    alt="Jetset Office Story"
+                                    src="/images/services/Co-working Area.jpg"
+                                    alt="Jetset Business Center main lounge interior"
                                     fill
                                     className="object-cover hover:scale-105 transition-transform duration-700"
                                 />
@@ -217,7 +217,7 @@ export default function AboutContent() {
             </section>
 
             {/* 3. MISSION & VISION */}
-            <section className="py-20 bg-cream-50">
+            <section className="py-20 bg-[#0A1828]">
                 <div className="container-custom">
                     <StaggerContainer staggerDelay={0.2} className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {/* Mission */}
@@ -225,7 +225,7 @@ export default function AboutContent() {
                             <Card
                                 hoverEffect
                                 glass
-                                className="bg-cream-100/80 border border-gold-500/30 group h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-gold-500/10 hover:border-gold-500/60"
+                                className="bg-white border border-gold-500/40 group h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-gold-500/15 hover:border-gold-500/70"
                             >
                                 <CardContent className="p-10 space-y-6">
                                     <div className="w-14 h-14 rounded-full bg-gold-500/10 flex items-center justify-center text-gold-500 mb-4 group-hover:bg-gold-500 group-hover:text-white transition-colors duration-300">
@@ -244,7 +244,7 @@ export default function AboutContent() {
                             <Card
                                 hoverEffect
                                 glass
-                                className="bg-cream-100/80 border border-gold-500/30 group h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-gold-500/10 hover:border-gold-500/60"
+                                className="bg-white border border-gold-500/40 group h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-gold-500/15 hover:border-gold-500/70"
                             >
                                 <CardContent className="p-10 space-y-6">
                                     <div className="w-14 h-14 rounded-full bg-gold-500/10 flex items-center justify-center text-gold-500 mb-4 group-hover:bg-gold-500 group-hover:text-white transition-colors duration-300">
@@ -258,7 +258,7 @@ export default function AboutContent() {
                             </Card>
                         </FadeIn>
                     </StaggerContainer>
-                    <p className="mt-10 text-center text-sm md:text-base text-navy-800/70 font-body">
+                    <p className="mt-10 text-center text-sm md:text-base text-white font-body">
                         Guided by these principles, we have successfully supported 500+ businesses in the heart of Business Bay.
                     </p>
                 </div>
@@ -279,7 +279,7 @@ export default function AboutContent() {
                             <FadeIn key={value.title} stagger direction="up">
                                 <Card
                                     hoverEffect
-                                    className={`h-full border border-gray-100/70 hover:border-gold-500/30 transition-colors duration-300 ${value.bgClass}`}
+                                    className={`h-full border border-gold-500/40 bg-cream-50 hover:border-gold-500/70 transition-colors duration-300 ${value.bgClass}`}
                                 >
                                     <div className="p-8 flex flex-col h-full items-center text-center">
                                         <div className="w-16 h-16 rounded-full bg-navy-900 flex items-center justify-center text-gold-500 mb-6 shadow-navy-sm">
@@ -299,11 +299,11 @@ export default function AboutContent() {
 
             {/* 5. AWARDS SECTION */}
             <section className="py-24 bg-gradient-to-br from-navy-900 to-navy-800 text-white overflow-hidden relative">
-                {/* Subtle map background */}
-                <div className="absolute inset-0 z-0 opacity-[0.06] pointer-events-none">
+                {/* Awards photo background */}
+                <div className="absolute inset-0 z-0 opacity-[0.10] pointer-events-none">
                     <Image
-                        src="/images/business-bay/dubai-business-bay-uae-5km-01.jpg"
-                        alt=""
+                        src="/images/about/awards.jpg"
+                        alt="Jetset Business Center awards – trophies and certificates on display"
                         fill
                         className="object-cover object-center"
                     />

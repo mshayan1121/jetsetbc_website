@@ -35,14 +35,16 @@ const PricingTable = ({ plans, title = "Select Your Plan", subtitle = "Choose th
                     <p className="text-navy-600 max-w-2xl mx-auto">{subtitle}</p>
                 </div>
 
-                <div className={`
+                <div
+                    className={`
                     grid gap-8 overflow-visible
-                    ${plans.length === 1 
-                        ? 'grid-cols-1 max-w-lg mx-auto' 
-                        : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+                    ${plans.length === 1
+                        ? "grid-cols-1 max-w-lg mx-auto"
+                        : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
                     }
-                    ${centerCards && plans.length === 2 ? 'max-w-4xl mx-auto' : ''}
-                `}>
+                    ${centerCards && plans.length === 2 ? "max-w-4xl mx-auto justify-center md:justify-center" : ""}
+                `}
+                >
                     {plans.map((plan, idx) => (
                         <motion.div
                             key={idx}

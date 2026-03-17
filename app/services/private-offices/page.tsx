@@ -82,13 +82,13 @@ const PrivateOfficesPage = () => {
         {
             title: "Inner Offices",
             description: "Quiet, focused workspaces located in the interior of the building. Perfect for teams that prioritize concentration and value.",
-            image: "/images/private-offices/inner-office.jpg",
+            image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop",
             benefits: ["Exceptional Value", "Distraction-Free", "Full Amenities Access"]
         },
         {
             title: "Outer Offices (Window)",
             description: "Bright, inspiring offices with floor-to-ceiling windows. Enjoy natural light and stunning views of the Dubai skyline.",
-            image: "/images/private-offices/outer-office-burj-view.jpg",
+            image: "https://images.unsplash.com/photo-1669463829104-14cbc0058a90?w=800&h=600&fit=crop",
             benefits: ["Natural Light", "Iconic City Views", "Spacious Feel"]
         }
     ];

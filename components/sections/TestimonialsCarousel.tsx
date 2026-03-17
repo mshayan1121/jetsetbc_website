@@ -33,10 +33,16 @@ const carouselTestimonials = [
 ];
 
 const ROTATE_INTERVAL_MS = 5000;
+const HEADLINE_OPTIONS = [
+  "Loved by Businesses Like Yours",
+  "Real Stories. Real Results.",
+  "The Jetset Experience",
+];
 
 const TestimonialsCarousel = () => {
   const [index, setIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [headlineIndex, setHeadlineIndex] = useState(0);
 
   const goTo = useCallback((i: number) => {
     setIndex((i + carouselTestimonials.length) % carouselTestimonials.length);
@@ -49,6 +55,13 @@ const TestimonialsCarousel = () => {
     }, ROTATE_INTERVAL_MS);
     return () => clearInterval(t);
   }, [isPaused]);
+
+  useEffect(() => {
+    const t = setInterval(() => {
+      setHeadlineIndex((i) => (i + 1) % HEADLINE_OPTIONS.length);
+    }, 4000);
+    return () => clearInterval(t);
+  }, []);
 
   const prev = (index - 1 + carouselTestimonials.length) % carouselTestimonials.length;
   const next = (index + 1) % carouselTestimonials.length;
@@ -64,8 +77,16 @@ const TestimonialsCarousel = () => {
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 sm:mb-12">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-navy-900 mb-3">
-            The Jetset Experience
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-navy-900 mb-3 min-h-[1.2em]">
+            <motion.span
+              key={headlineIndex}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              className="inline-block"
+            >
+              {HEADLINE_OPTIONS[headlineIndex]}
+            </motion.span>
           </h2>
           <p className="text-navy-600 font-body text-lg max-w-xl mx-auto">
             Real stories from the professionals who call Jetset their home.
@@ -76,7 +97,7 @@ const TestimonialsCarousel = () => {
           {/* Left peek - hidden on small screens */}
           <div className="hidden md:flex md:w-[18%] lg:w-[22%] justify-end pr-1 shrink-0">
             <motion.div
-              animate={{ opacity: 0.5, scale: 0.92 }}
+              animate={{ opacity: 0.4, scale: 0.9 }}
               transition={{ duration: 0.3 }}
               className="w-full max-w-[200px] rounded-2xl bg-white shadow-md border border-cream-100 overflow-hidden cursor-pointer flex-shrink-0"
               onClick={() => goTo(prev)}
@@ -86,10 +107,21 @@ const TestimonialsCarousel = () => {
               aria-label="Previous testimonial"
             >
               <div className="p-4 min-h-[200px] flex flex-col justify-end">
-                <div className="flex gap-0.5 mb-2">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3 h-3 fill-gold-500 text-gold-500" />
-                  ))}
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="relative w-8 h-8 rounded-full overflow-hidden bg-gold-500/20 shrink-0 ring-1 ring-gold-500/30 flex items-center justify-center">
+                    {carouselTestimonials[prev].avatar ? (
+                      <Image src={carouselTestimonials[prev].avatar!} alt="" fill className="object-cover" sizes="32px" />
+                    ) : (
+                      <span className="text-navy-800 font-display font-bold text-sm">
+                        {carouselTestimonials[prev].author.charAt(0)}
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex gap-0.5">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-2.5 h-2.5 fill-gold-500 text-gold-500" />
+                    ))}
+                  </div>
                 </div>
                 <p className="text-navy-700 text-xs line-clamp-2 italic">&ldquo;{carouselTestimonials[prev].text}&rdquo;</p>
                 <p className="text-navy-600 text-[10px] mt-1 truncate">— {carouselTestimonials[prev].author}</p>
@@ -139,7 +171,7 @@ const TestimonialsCarousel = () => {
           {/* Right peek */}
           <div className="hidden md:flex md:w-[18%] lg:w-[22%] justify-start pl-1 shrink-0">
             <motion.div
-              animate={{ opacity: 0.5, scale: 0.92 }}
+              animate={{ opacity: 0.4, scale: 0.9 }}
               transition={{ duration: 0.3 }}
               className="w-full max-w-[200px] rounded-2xl bg-white shadow-md border border-cream-100 overflow-hidden cursor-pointer flex-shrink-0"
               onClick={() => goTo(next)}
@@ -149,10 +181,21 @@ const TestimonialsCarousel = () => {
               aria-label="Next testimonial"
             >
               <div className="p-4 min-h-[200px] flex flex-col justify-end">
-                <div className="flex gap-0.5 mb-2">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3 h-3 fill-gold-500 text-gold-500" />
-                  ))}
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="relative w-8 h-8 rounded-full overflow-hidden bg-gold-500/20 shrink-0 ring-1 ring-gold-500/30 flex items-center justify-center">
+                    {carouselTestimonials[next].avatar ? (
+                      <Image src={carouselTestimonials[next].avatar!} alt="" fill className="object-cover" sizes="32px" />
+                    ) : (
+                      <span className="text-navy-800 font-display font-bold text-sm">
+                        {carouselTestimonials[next].author.charAt(0)}
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex gap-0.5">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-2.5 h-2.5 fill-gold-500 text-gold-500" />
+                    ))}
+                  </div>
                 </div>
                 <p className="text-navy-700 text-xs line-clamp-2 italic">&ldquo;{carouselTestimonials[next].text}&rdquo;</p>
                 <p className="text-navy-600 text-[10px] mt-1 truncate">— {carouselTestimonials[next].author}</p>

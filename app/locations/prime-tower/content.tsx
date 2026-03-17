@@ -235,6 +235,35 @@ export default function PrimeTowerContent() {
                 </div>
             </section>
 
+            {/* 2b. MAP SECTION */}
+            <section className="py-16 sm:py-20 md:py-24 bg-cream-50">
+                <div className="container-custom">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                        <div>
+                            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-navy-900 mb-4">
+                                Find Us in the Heart of Business Bay
+                            </h2>
+                            <p className="text-navy-700 text-base sm:text-lg font-body max-w-xl">
+                                Jetset Business Center is located on Level 20 of Prime Tower, overlooking the Dubai Canal and
+                                moments from Downtown and the Business Bay Metro. Use the map to plan your visit or share
+                                directions with your team and clients.
+                            </p>
+                        </div>
+                        <div className="w-full">
+                            <div className="relative w-full overflow-hidden rounded-2xl shadow-[0_18px_60px_rgba(10,24,40,0.25)] border border-navy-900/10 aspect-[4/3]">
+                                <iframe
+                                    title="Jetset Business Center, Prime Tower, Business Bay, Dubai"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3609.0818201346204!2d55.268!3d25.197!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sJetset%20Business%20Center%20-%20Prime%20Tower!5e0!3m2!1sen!2sae!4v1700000000000"
+                                    className="absolute inset-0 w-full h-full border-0"
+                                    loading="lazy"
+                                    referrerPolicy="no-referrer-when-downgrade"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* 3. WORLD-CLASS AMENITIES - navy cards, gold-line icons */}
             <section ref={amenitiesRef} className="py-16 sm:py-20 md:py-24 bg-cream-50">
                 <div className="container-custom">

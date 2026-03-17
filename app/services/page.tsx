@@ -18,7 +18,6 @@ import {
     Coffee,
     Mail,
     Printer,
-    CalendarDays,
     UtensilsCrossed
 } from "lucide-react";
 import WorkspaceGrid from "@/components/sections/WorkspaceGrid";
@@ -125,8 +124,8 @@ const ServicesPage = () => {
                 {/* Background Image - wide-angle JBC interior */}
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src="/images/hero-bg.png"
-                        alt="Jetset Business Center interior"
+                        src="/images/hero_section_images/Reception BK View.jpg"
+                        alt="Wide-angle Jetset Business Center interior with Burj Khalifa view"
                         fill
                         className="object-cover"
                         priority
@@ -193,17 +192,17 @@ const ServicesPage = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.6, delay: index * 0.05 }}
-                                whileHover={{ y: -6, boxShadow: "0 20px 40px -12px rgba(10, 24, 40, 0.2)" }}
+                                whileHover={{ y: -8, boxShadow: "0 24px 48px -16px rgba(10, 24, 40, 0.25)" }}
                                 className="group h-full rounded-2xl bg-white/90 border border-cream-200 shadow-sm transition-all duration-300 overflow-hidden"
                             >
-                                <div className="p-8">
-                                    <div className="flex items-center gap-4 mb-4">
-                                        <div className="w-11 h-11 bg-gold-500/90 rounded-full flex items-center justify-center flex-shrink-0">
-                                            <feature.icon className="w-5 h-5 text-navy-900" />
+                                <div className="p-10">
+                                    <div className="flex items-center gap-4 mb-5">
+                                        <div className="w-14 h-14 bg-gold-500/90 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <feature.icon className="w-6 h-6 text-navy-900" />
                                         </div>
-                                        <h4 className="font-display text-xl md:text-2xl text-navy-900">{feature.title}</h4>
+                                        <h4 className="font-display text-xl md:text-2xl lg:text-3xl text-navy-900">{feature.title}</h4>
                                     </div>
-                                    <p className="font-body text-navy-700 text-base md:text-lg leading-relaxed">
+                                    <p className="font-body text-navy-700 text-base md:text-lg lg:text-xl leading-relaxed">
                                         {feature.description}
                                     </p>
                                 </div>
@@ -347,12 +346,13 @@ const ServicesPage = () => {
                             className="relative h-[500px] rounded-2xl overflow-hidden"
                         >
                             <Image
-                                src="/images/services/private-office.png"
-                                alt="Professional working at Jetset Business Center with Burj Khalifa view"
+                                src="/images/hero_section_images/Reception BK View.jpg"
+                                alt="Professional working at Jetset Business Center with Burj Khalifa visible through the window"
                                 fill
                                 className="object-cover"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 to-transparent" />
+                            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center, rgba(212,175,55,0.12)_0%, transparent_70%)] pointer-events-none" />
                             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-gold-500/10 pointer-events-none" />
                             <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-gold-500/15 to-transparent pointer-events-none" />
                         </motion.div>
