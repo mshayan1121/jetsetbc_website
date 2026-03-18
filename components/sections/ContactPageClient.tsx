@@ -86,10 +86,10 @@ export default function ContactPageClient() {
                     >
 
                         <h1 className="font-display text-4xl sm:text-5xl md:text-6xl text-white mb-4 sm:mb-6 px-4">
-                            Connect With Our Team
+                            Business Center in Dubai: Contact Jetset
                         </h1>
                         <p className="font-body text-lg sm:text-xl text-cream-50 max-w-2xl mx-auto px-4">
-                            Need guidance, want to schedule a tour, or explore coworking and private office options? Our team is ready to help.
+                            Book a tour or enquire about coworking space Business Bay Dubai teams rely on. We’re minutes from Downtown—ideal if you’re comparing coworking space Downtown Dubai options too.
                         </p>
                     </motion.div>
                 </div>

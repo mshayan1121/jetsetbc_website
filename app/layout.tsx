@@ -33,19 +33,19 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://jetsetbusinesscenter.com"),
   title: {
-    default: "Jetset Business Center | Luxury Workspace in Dubai",
+    default: "Jetset Business Center | Premium Workspace in Business Bay Dubai",
     template: "%s | Jetset Business Center",
   },
   description:
-    "Award-Winning Coworking And Private Offices in Dubai. Premium workspace solutions with Burj Khalifa views in Business Bay.",
+    "Award-winning coworking and private offices in Business Bay, Dubai. Flexible workspace solutions with Burj Khalifa views at Prime Tower.",
   keywords: [
     "Business Center Dubai",
     "Private Office Dubai",
     "Coworking Space Business Bay",
     "Luxury Workspace",
-    "Meeting Rooms Duba",
+    "Meeting Rooms Dubai",
     "Serviced Offices",
-    "Virtual Office"
+    "Virtual Office",
   ],
   authors: [{ name: "Jetset Business Center" }],
   creator: "Jetset Business Center",
@@ -53,9 +53,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_AE",
     url: "https://jetsetbusinesscenter.com",
-    title: "Jetset Business Center | Luxury Workspace in Dubai",
+    title: "Jetset Business Center | Premium Workspace in Business Bay Dubai",
     description:
-      "Experience the pinnacle of professional luxury. Private offices, coworking, and business setup services in the heart of Dubai.",
+      "Award-winning coworking and private offices in Business Bay, Dubai. Flexible workspace solutions with Burj Khalifa views at Prime Tower.",
     siteName: "Jetset Business Center",
     images: [
       {
@@ -68,9 +68,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jetset Business Center | Luxury Workspace in Dubai",
+    title: "Jetset Business Center | Premium Workspace in Business Bay Dubai",
     description:
-      "Experience the pinnacle of professional luxury. Private offices, coworking, and business setup services in the heart of Dubai.",
+      "Award-winning coworking and private offices in Business Bay, Dubai. Flexible workspace solutions with Burj Khalifa views at Prime Tower.",
     images: ["/images/hero-bg.png"],
   },
   robots: {

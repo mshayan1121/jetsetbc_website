@@ -121,15 +121,17 @@ export default function AboutContent() {
 
                         <FadeIn delay={0.4} direction="up" distance={30}>
                             <h1 className="text-white text-5xl md:text-6xl lg:text-[72px] leading-[1.1] mb-6 font-display">
-                                Redefining Workspace <br />
+                                Workspace Dubai, <br />
+                                <span className="text-gold-500">Built for Ambition</span>
+                                <br />
                                 <span className="text-gold-500">Excellence</span>
                             </h1>
                         </FadeIn>
 
                         <FadeIn delay={0.6} direction="up" distance={30}>
                             <p className="text-cream-50 text-lg md:text-xl max-w-2xl font-body leading-relaxed mb-10">
-                                From a father-son initiative to Dubai's award-winning business center.
-                                Discover the story behind Jetset.
+                                Discover Jetset Business Center—your ideal workspace Dubai professionals rely on.
+                                We’re a premium business center in Prime Tower Dubai, helping ambitious teams rent offices Business Bay with confidence.
                             </p>
                         </FadeIn>
                     </div>

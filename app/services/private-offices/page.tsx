@@ -96,9 +96,9 @@ const PrivateOfficesPage = () => {
     return (
         <div className="flex flex-col">
             <ServiceHero
-                title="Private Serviced Offices in Business Bay"
+                title="Office Space for Rent Dubai"
                 subtitle="Your Exclusive Workspace"
-                description="Fully equipped office suites in Business Bay, Dubai, tailored for teams seeking privacy, efficiency, and a prestigious business address."
+                description="Work from a premium work space Dubai teams can rely on—private, fully furnished office space in Dubai designed for focus and growth. Choose an ideal working space Dubai companies love in Business Bay, with flexible terms and Burj Khalifa views available."
                 image="/images/services/private-office.png"
                 ctaText="Book a Tour"
             />

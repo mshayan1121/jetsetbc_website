@@ -99,9 +99,9 @@ const MeetingRoomsPage = () => {
     return (
         <div className="flex flex-col">
             <ServiceHero
-                title="Professional Meeting Spaces"
+                title="Meeting Room Rental Dubai"
                 subtitle="Imperial Boardrooms"
-                description="Host important meetings in Business Bay's premium, fully furnished meeting rooms and collaboration spaces."
+                description="Book a meeting room rental Dubai teams trust—professional conference room rental Dubai options with modern AV. Host clients in a conference room Burj Khalifa Dubai views in Business Bay, with a meeting room Dubai affordable price for flexible bookings."
                 image="/images/services/Conference Room.jpg"
                 ctaText="Book a Meeting Room"
                 secondaryCtaText="See Pricing"

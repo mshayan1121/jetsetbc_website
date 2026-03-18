@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Business Setup & Virtual Ejari | Jetset Business Center",
-    description: "Comprehensive business setup services in Dubai. Mainland, Free Zone, and Offshore company formation with Virtual Ejari and PRO support.",
+    title: "New Company Setup in Dubai | Hassle-Free Business Solutions",
+    description: "Set up your company in Dubai with ease. Jetset Business Center offers expert business consultant services, ejari registration, and end-to-end new company setup in Dubai.",
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

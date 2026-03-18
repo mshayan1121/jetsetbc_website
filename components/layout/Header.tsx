@@ -159,10 +159,9 @@ const Header = () => {
                                                 <Link
                                                     key={item.name}
                                                     href={item.href}
-                                                    className="group flex items-center justify-between px-6 py-4 text-xs font-accent uppercase tracking-widest text-navy-800 hover:bg-cream-50 hover:text-gold-600 transition-all duration-300 border-l-2 border-transparent hover:border-gold-500 whitespace-nowrap"
+                                                    className="flex items-center px-6 py-4 text-xs font-accent uppercase tracking-widest text-navy-800 hover:bg-cream-50 hover:text-gold-600 transition-all duration-300 border-l-2 border-transparent hover:border-gold-500 whitespace-nowrap"
                                                 >
                                                     <span>{item.name}</span>
-                                                    <ChevronDown className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 -rotate-90" />
                                                 </Link>
                                             ))}
                                         </motion.div>

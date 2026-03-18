@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import ContactPageClient from '@/components/sections/ContactPageClient';
 
 export const metadata: Metadata = {
-    title: 'Contact Us - Jetset Business Center Dubai | Book a Tour',
-    description: 'Contact Jetset for premium office space. Call +971 58 577 9312, WhatsApp, or book a tour of Business Bay facilities.',
+    title: 'Contact Jetset Business Center For Coworking Spaces in Dubai',
+    description: 'Get in touch with Jetset Business Center – a leading business center in Dubai. Located in Business Bay. Book a tour or enquire about coworking space today.',
 };
 
 export default function ContactPage() {

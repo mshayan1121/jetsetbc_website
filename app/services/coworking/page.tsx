@@ -129,9 +129,9 @@ const CoworkingPage = () => {
     return (
         <div className="flex flex-col">
             <ServiceHero
-                title="Modern Shared Workspaces"
+                title="Co-working Space Dubai in Business Bay"
                 subtitle="Collaborate & Grow"
-                description="Join a community of innovators, entrepreneurs, and industry leaders in Dubai's vibrant coworking spaces."
+                description="Join a premium co-working space Dubai professionals recommend, with shared office space Dubai teams can scale easily. Located in Business Bay—ideal if you’re comparing coworking space Business Bay or coworking space Downtown Dubai options."
                 image="/images/services/Co-working Area.jpg"
                 ctaText="View Coworking Plans"
                 secondaryCtaText="Explore Plans"

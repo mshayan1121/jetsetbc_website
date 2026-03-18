@@ -23,7 +23,7 @@ BLOG_URLS = [
     "https://jetsetbc.com/why-business-bay-is-the-best-location-for-coworking-spaces-in-dubai/",
     "https://jetsetbc.com/looking-for-a-meeting-room-rental-in-dubai-heres-what-you-need-to-know/",
     "https://jetsetbc.com/how-to-get-ejari-online-in-dubai-easy-process-explained/",
-    "https://jetsetbc.com/coworking-space-in-dubai-the-future-of-flexible-office-solutions-at-prime-regal-towers/",
+    "https://jetsetbc.com/coworking-space-in-dubai-the-future-of-flexible-office-solutions-at-prime-tower/",
 ]
 
 HEADERS = {

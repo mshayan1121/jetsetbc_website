@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import LocationsContent from './content';
 
 export const metadata: Metadata = {
-    title: "Our Location - Luxury Business Center in Dubai | Jetset",
-    description: "Explore Jetset Business Center location in Dubai. Prime Tower Business Bay offers premium offices with Burj Khalifa views.",
+    title: "Offices in Business Bay Dubai | Jetset Business Center",
+    description: "Explore Jetset Business Center in Business Bay, Dubai. Flexible coworking, meeting rooms, and office space for rent with premium amenities and Burj Khalifa views. Book a tour today.",
 };
 
 export default function LocationsPage() {

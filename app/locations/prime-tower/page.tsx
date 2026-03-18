@@ -3,7 +3,7 @@ import PrimeTowerContent from './content';
 
 export const metadata: Metadata = {
     title: "Prime Tower Business Bay - Premium Office Space | Jetset",
-    description: "Luxury offices on Level 20 of Prime Tower, Business Bay. Burj Khalifa views, metro access, and world-class amenities.",
+    description: "Jetset Business Center at Prime Tower, Business Bay. Premium coworking and private offices for rent in Business Bay with stunning Burj Khalifa views.",
 };
 
 export default function PrimeTowerPage() {

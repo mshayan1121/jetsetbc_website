@@ -61,15 +61,14 @@ export default function LocationsContent() {
 
                         <FadeIn delay={0.4} direction="up">
                             <h1 className="text-white text-5xl md:text-6xl font-display mb-6">
-                                Our Premium <br />
-                                <span className="text-gold-500">Location</span>
+                                Offices in <br />
+                                <span className="text-gold-500">Business Bay</span>
                             </h1>
                         </FadeIn>
 
                         <FadeIn delay={0.6} direction="up">
                             <p className="text-cream-50 text-lg md:text-xl max-w-2xl font-body leading-relaxed">
-                                Discover our flagship business center in Business Bay, Dubai.
-                                Strategically located for maximum connectivity, prestige, and convenience.
+                                Explore Jetset Business Center in Business Bay—flexible coworking space in Business Bay and office for rent in Business Bay options designed for modern teams. If you’re comparing offices in Business Bay, book a tour and experience the difference.
                             </p>
                         </FadeIn>
                     </div>

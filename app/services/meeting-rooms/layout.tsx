@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Meeting Rooms & Boardrooms | Jetset Business Center",
-    description: "Book state-of-the-art meeting rooms and boardrooms in Dubai. Equipped with 4K displays, video conferencing tech, and premium catering options.",
+    title: "Book Your Ideal Meeting Space in Dubai – Jetset Business Center",
+    description: "Book a professional meeting room in Dubai at Jetset Business Center. Conference rooms with Burj Khalifa views in Business Bay. Affordable rates, full AV setup.",
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

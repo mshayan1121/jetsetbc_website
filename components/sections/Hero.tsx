@@ -72,7 +72,7 @@ const Hero = ({ images }: HeroProps) => {
                     transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                     className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight max-w-5xl"
                 >
-                    Work Where Ambition Lives.
+                    Flexible Coworking Space in Dubai
                 </motion.h1>
 
                 {/* Subtitle */}
@@ -82,7 +82,7 @@ const Hero = ({ images }: HeroProps) => {
                     transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
                     className="font-body text-lg sm:text-xl md:text-2xl text-cream-50 mb-8 max-w-3xl leading-relaxed"
                 >
-                    Premium serviced offices and coworking spaces in Prime Tower, Business Bay. Skip the fit-out costs and move into your new headquarters today.
+                    Looking for a coworking space Dubai teams love? Jetset Business Center is a premium business center Dubai professionals trust, offering flexible plans and office space in Dubai at Prime Tower, Business Bay—with iconic Burj Khalifa views.
                 </motion.p>
 
                 {/* Awards / Badges */}

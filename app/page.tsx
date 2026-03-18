@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import type { Metadata } from "next";
 import Hero from "@/components/sections/Hero";
 import TrustBar from "@/components/sections/TrustBar";
 import ValueProposition from "@/components/sections/ValueProposition";
@@ -9,6 +10,12 @@ import LocationHighlight from "@/components/sections/LocationHighlight";
 import FAQ from "@/components/sections/FAQ";
 import CTASection from "@/components/sections/CTASection";
 import TestimonialsCarousel from "@/components/sections/TestimonialsCarousel";
+
+export const metadata: Metadata = {
+  title: "Flexible Coworking Space in Dubai | Jetset Business Center",
+  description:
+    "Looking for a coworking space in Dubai? Jetset Business Center offers premium office space in Business Bay with Burj Khalifa views. Flexible plans available.",
+};
 
 export default function Home() {
   const imagesDirectory = path.join(

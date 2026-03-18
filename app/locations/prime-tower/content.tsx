@@ -133,6 +133,15 @@ export default function PrimeTowerContent() {
                             Prime Tower <br /> <span className="text-gold-500">Business Bay</span>
                         </motion.h1>
 
+                        <motion.p
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.7, delay: 0.55 }}
+                            className="text-cream-50 text-base sm:text-lg md:text-xl max-w-3xl font-body leading-relaxed mb-8 px-4"
+                        >
+                            Discover premium coworking space in Business Bay and office for rent in Business Bay options at Jetset Business Center—designed for ambitious teams who want a prestigious address and Burj Khalifa views.
+                        </motion.p>
+
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}

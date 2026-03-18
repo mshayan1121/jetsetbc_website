@@ -129,9 +129,9 @@ const BusinessSetupPage = () => {
     return (
         <div className="flex flex-col">
             <ServiceHero
-                title="Company Formation & PRO Services"
+                title="Business Consultant Dubai"
                 subtitle="Start Your Journey"
-                description="Start your Dubai business with expert guidance. We provide end-to-end solutions for company formation, licensing, and business compliance."
+                description="Get business services Dubai founders rely on—end-to-end new company setup in Dubai with licensing guidance, PRO support, and compliance. We also help with virtual office Ejari Dubai, Ejari services, and Ejari registration online where applicable."
                 image="/images/services/business-setup.png"
                 ctaText="Free Consultation"
                 secondaryCtaText="View Packages"

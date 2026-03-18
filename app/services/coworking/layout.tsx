@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Coworking Space | Jetset Business Center",
-    description: "Premium coworking space in Dubai offering hot desks and dedicated desks. Enjoy high-speed WiFi, networking events, and luxury amenities.",
+    title: "Best Co-Working Space in Dubai - Jetset Business Center",
+    description: "Find the best co-working space in Dubai at Jetset Business Center. Shared office space in Business Bay with flexible memberships and world-class amenities.",
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
