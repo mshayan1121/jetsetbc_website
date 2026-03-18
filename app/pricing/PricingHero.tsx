@@ -36,12 +36,6 @@ const PricingHero = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <Badge 
-                        className="mb-6 bg-gold-500/20 text-gold-400 border-gold-500/30 px-4 py-1.5 backdrop-blur-md" 
-                        variant="gold"
-                    >
-                        All-Inclusive Model
-                    </Badge>
                     <h1 className="font-display text-5xl md:text-6xl lg:text-7xl text-white mb-6">
                         Transparent Pricing for Premium Spaces
                     </h1>

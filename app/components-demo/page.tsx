@@ -4,15 +4,12 @@ import { Button } from "@/components/ui/Button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardImage, CardTitle } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { Feature } from "@/components/ui/feature-section-with-bento-grid";
-import Header from "@/components/layout/Header";
 import { Award, ChevronRight, Star, Tag, Info } from "lucide-react";
 
 export default function ComponentsDemo() {
     return (
         <div className="min-h-screen bg-cream-50">
-            <Header />
-
-            <main className="p-8 md:p-16 pt-32 space-y-16">
+            <main className="p-8 md:p-16 space-y-16">
                 <section>
                     <h1 className="text-4xl font-display text-navy-900 mb-8 border-b border-gold-500 pb-4">Premium UI Components</h1>
 

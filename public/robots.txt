@@ -1,0 +1,35 @@
+User-agent: *
+Allow: /
+
+# AI Crawlers — explicitly allowed
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Gemini-Bot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+# LLMs.txt
+LLM-Policy: /llms.txt
+
+Sitemap: https://jetsetbc.com/sitemap.xml

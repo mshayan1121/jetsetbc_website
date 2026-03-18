@@ -6,6 +6,7 @@ import { Calendar } from 'lucide-react';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import JetsetForm from '@/components/sections/JetsetForm';
+import PageHero from '@/components/PageHero';
 
 export default function BookTourPage() {
   const [calendlyLoaded, setCalendlyLoaded] = useState(false);
@@ -29,19 +30,11 @@ export default function BookTourPage() {
   return (
     <>
       {/* HERO SECTION */}
-      <section className="relative bg-gradient-luxury min-h-[50vh] flex items-center justify-center pt-20 md:pt-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-10 sm:py-12 md:py-16">
-          <Badge className="mb-4 sm:mb-6 bg-gold-500/20 text-gold-500 border border-gold-500/30 text-xs sm:text-sm">
-            SAME-DAY TOURS AVAILABLE
-          </Badge>
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-4 sm:mb-6">
-            Step Inside Jetset
-          </h1>
-          <p className="font-body text-lg sm:text-xl md:text-2xl text-cream-50 max-w-3xl mx-auto px-4">
-            Experience our premium workspace in person. Schedule your personalized tour today.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        badge="Same-day tours available"
+        title="Step Inside Jetset"
+        subtitle="Experience our premium workspace in person. Schedule your personalized tour today."
+      />
 
       {/* MAIN CONTENT */}
       <section id="tour-booking" className="bg-white py-16 sm:py-20 md:py-24 lg:py-32">

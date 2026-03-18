@@ -8,7 +8,7 @@ import Image from "next/image";
 
 interface ServiceHeroProps {
     title: string;
-    subtitle: string;
+    subtitle?: string;
     description: string;
     image: string;
     ctaText?: string;
@@ -17,7 +17,6 @@ interface ServiceHeroProps {
 
 const ServiceHero = ({
     title,
-    subtitle,
     description,
     image,
     ctaText = "Book a Tour",
@@ -41,15 +40,6 @@ const ServiceHero = ({
             {/* Content Container */}
             <div className="container-custom relative z-20 w-full pt-20">
                 <div className="max-w-3xl">
-                    <motion.span
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                        className="text-gold-500 font-accent tracking-[0.3em] uppercase text-sm mb-4 block"
-                    >
-                        {subtitle}
-                    </motion.span>
-
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}

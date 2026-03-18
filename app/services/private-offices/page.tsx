@@ -1,11 +1,11 @@
 "use client";
 
 import React from "react";
-import ServiceHero from "@/components/sections/ServiceHero";
 import PricingTable from "@/components/sections/PricingTable";
 import FeaturesList from "@/components/sections/FeaturesList";
 import CTASection from "@/components/sections/CTASection";
 import FAQ from "@/components/sections/FAQ";
+import PageHero from "@/components/PageHero";
 import { privateOfficeFaqs } from "@/lib/faq-data";
 import {
     Shield,
@@ -95,12 +95,11 @@ const PrivateOfficesPage = () => {
 
     return (
         <div className="flex flex-col">
-            <ServiceHero
+            <PageHero
+                badge="Your Exclusive Workspace"
                 title="Office Space for Rent Dubai"
-                subtitle="Your Exclusive Workspace"
-                description="Work from a premium work space Dubai teams can rely on—private, fully furnished office space in Dubai designed for focus and growth. Choose an ideal working space Dubai companies love in Business Bay, with flexible terms and Burj Khalifa views available."
                 image="/images/services/private-office.png"
-                ctaText="Book a Tour"
+                subtitle="Work from a premium work space Dubai teams can rely on—private, fully furnished office space in Dubai designed for focus and growth. Choose an ideal working space Dubai companies love in Business Bay, with flexible terms and Burj Khalifa views available."
             />
 
             <FeaturesList

@@ -1,7 +1,5 @@
-import fs from "fs";
-import path from "path";
 import type { Metadata } from "next";
-import Hero from "@/components/sections/Hero";
+import PageHero from "@/components/PageHero";
 import TrustBar from "@/components/sections/TrustBar";
 import ValueProposition from "@/components/sections/ValueProposition";
 import WorkspaceGrid from "@/components/sections/WorkspaceGrid";
@@ -18,21 +16,13 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  const imagesDirectory = path.join(
-    process.cwd(),
-    "public",
-    "images",
-    "hero_section_images"
-  );
-  const heroImages = fs
-    .readdirSync(imagesDirectory)
-    .filter((file) => /\.(jpe?g|png|webp|gif)$/i.test(file))
-    .sort((a, b) => a.localeCompare(b))
-    .map((file) => `/images/hero_section_images/${file}`);
-
   return (
     <div className="flex flex-col w-full">
-      <Hero images={heroImages} />
+      <PageHero
+        title="Flexible Coworking Space in Dubai"
+        image="/images/hero_section_images/Reception BK View.jpg"
+        subtitle="Looking for a coworking space Dubai teams love? Jetset Business Center is a premium business center Dubai professionals trust, offering flexible plans and office space in Dubai at Prime Tower, Business Bay—with iconic Burj Khalifa views."
+      />
       <TrustBar />
       <ValueProposition />
       <WorkspaceGrid />

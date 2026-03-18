@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import WorkspaceGrid from "@/components/sections/WorkspaceGrid";
 import CTASection from "@/components/sections/CTASection";
+import PageHero from "@/components/PageHero";
 
 const ServicesPage = () => {
     const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -120,48 +121,12 @@ const ServicesPage = () => {
     return (
         <>
             {/* Hero Section */}
-            <section className="relative bg-navy-900 min-h-[70vh] flex items-center justify-center overflow-hidden">
-                {/* Background Image - wide-angle JBC interior */}
-                <div className="absolute inset-0 z-0">
-                    <Image
-                        src="/images/hero_section_images/Reception BK View.jpg"
-                        alt="Wide-angle Jetset Business Center interior with Burj Khalifa view"
-                        fill
-                        className="object-cover"
-                        priority
-                        sizes="100vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-navy-900/80 via-navy-900/60 to-navy-900/90 z-[1]" />
-                </div>
-                {/* Background Texture */}
-                <div
-                    className="absolute inset-0 opacity-10 mix-blend-overlay z-[2]"
-                    style={{
-                        backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
-                        backgroundSize: '48px 48px'
-                    }}
-                />
-
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                    >
-                        <Badge className="mb-6" variant="gold">Our Services</Badge>
-                        <h1 className="font-display text-5xl md:text-6xl lg:text-7xl text-white mb-6">
-                            Your Workspace, Your Way
-                        </h1>
-                        <p className="font-body text-xl md:text-2xl text-cream-50 max-w-3xl mx-auto">
-                            Stop settling for standard leases. Secure a serviced workspace tailored to your unique goals. Join Jetset Business Center today and experience business setup and office solutions simplified.
-                        </p>
-                    </motion.div>
-                </div>
-
-                {/* Decorative Elements */}
-                <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-gold-500/10 blur-[100px] z-[1]" />
-                <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-teal-500/20 blur-[100px] z-[1]" />
-            </section>
+            <PageHero
+                badge="Our Services"
+                title="Your Workspace, Your Way"
+                image="/images/hero_section_images/Reception BK View.jpg"
+                subtitle="Stop settling for standard leases. Secure a serviced workspace tailored to your unique goals. Join Jetset Business Center today and experience business setup and office solutions simplified."
+            />
 
             {/* Services Overview Section */}
             <WorkspaceGrid className="bg-white" variant="services" />

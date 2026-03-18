@@ -23,6 +23,7 @@ import { Badge } from "@/components/ui/Badge";
 import { Card, CardContent } from "@/components/ui/Card";
 import Testimonials, { defaultTestimonials } from "@/components/sections/Testimonials";
 import CTASection from "@/components/sections/CTASection";
+import PageHero from "@/components/PageHero";
 
 // --- Data ---
 
@@ -98,84 +99,12 @@ export default function PrimeTowerContent() {
         <main className="flex flex-col w-full bg-white">
 
             {/* 1. HERO SECTION */}
-            <section className="relative min-h-screen w-full flex items-center overflow-hidden bg-navy-900">
-                {/* Background Image with Parallax */}
-                <motion.div style={{ y: y1 }} className="absolute inset-0 z-0">
-                    <div className="absolute inset-0 bg-navy-900/60 z-10" />
-                    <Image
-                        src="/images/primetower/the-prime-tower_g7-03jpg-68baa93d-a624-4786-9e01-b849f775facf.jpg"
-                        alt="Prime Tower View"
-                        fill
-                        priority
-                        className="object-cover object-center scale-110"
-                    />
-                </motion.div>
-
-                {/* Content */}
-                <div className="container-custom relative z-20 w-full pt-20">
-                    <div className="max-w-4xl">
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                        >
-                            <Badge variant="gold" className="bg-gold-500/20 text-gold-400 border-gold-500/30 px-4 py-1.5 mb-8 backdrop-blur-md">
-                                Headquarters Location
-                            </Badge>
-                        </motion.div>
-
-                        <motion.h1
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.4 }}
-                            className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[80px] leading-[1.1] mb-4 sm:mb-6 font-display px-4"
-                        >
-                            Prime Tower <br /> <span className="text-gold-500">Business Bay</span>
-                        </motion.h1>
-
-                        <motion.p
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.7, delay: 0.55 }}
-                            className="text-cream-50 text-base sm:text-lg md:text-xl max-w-3xl font-body leading-relaxed mb-8 px-4"
-                        >
-                            Discover premium coworking space in Business Bay and office for rent in Business Bay options at Jetset Business Center—designed for ambitious teams who want a prestigious address and Burj Khalifa views.
-                        </motion.p>
-
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 0.8, delay: 0.8 }}
-                            className="flex flex-wrap items-center gap-4 sm:gap-6 md:gap-8 lg:gap-12 mb-8 sm:mb-12 px-4"
-                        >
-                            {primeTowerStats.map((stat, idx) => (
-                                <div key={idx} className="flex items-center gap-2 sm:gap-3">
-                                    <span className="text-gold-500">{stat.icon}</span>
-                                    <span className="text-white font-accent font-medium tracking-wider text-xs sm:text-sm md:text-base uppercase">
-                                        {stat.label}
-                                    </span>
-                                </div>
-                            ))}
-                        </motion.div>
-                    </div>
-                </div>
-
-                {/* Scroll Indicator */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1.5, duration: 1 }}
-                    className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
-                >
-                    <span className="text-gold-500/60 text-[10px] uppercase tracking-[0.3em] font-accent">Explore Location</span>
-                    <motion.div
-                        animate={{ y: [0, 8, 0] }}
-                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                    >
-                        <ChevronDown className="w-6 h-6 text-gold-500" />
-                    </motion.div>
-                </motion.div>
-            </section>
+            <PageHero
+                badge="Prime Tower"
+                title="Prime Tower Business Bay"
+                image="/images/primetower/the-prime-tower_g7-03jpg-68baa93d-a624-4786-9e01-b849f775facf.jpg"
+                subtitle="Discover premium coworking space in Business Bay and office for rent in Business Bay options at Jetset Business Center—designed for ambitious teams who want a prestigious address and Burj Khalifa views."
+            />
 
             {/* 2. LOCATION OVERVIEW */}
             <section ref={overviewRef} className="relative w-full overflow-hidden bg-white py-16 sm:py-20 md:py-24">

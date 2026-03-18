@@ -62,6 +62,8 @@ export default function JetsetForm({ className = '' }: JetsetFormProps) {
       // Create iframe
       const f = document.createElement('iframe');
       let ifrmSrc = 'https://forms.jetsetbc.com/improvemeinstitute/form/JetsetBusinessCenterContactUsform/formperma/YjfnRs8jwMY610O7BhZTLeQLpkp3piuOr36jyUwhnZM?zf_rszfm=1';
+      const thankYouUrl = `${window.location.origin}/thank-you`;
+      ifrmSrc = `${ifrmSrc}&redirecturl=${encodeURIComponent(thankYouUrl)}`;
 
       // Handle UTM parameters
       try {

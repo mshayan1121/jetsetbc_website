@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
+import MainContent from "@/components/layout/MainContent";
 import Footer from "@/components/layout/Footer";
 import JsonLd from "@/components/seo/JsonLd";
 import QuickInquiryPopup from "@/components/sections/QuickInquiryPopup";
@@ -102,9 +103,7 @@ export default function RootLayout({
         <JsonLd />
         <div className="w-full overflow-hidden">
           <Header />
-          <main className="flex-grow">
-            {children}
-          </main>
+          <MainContent>{children}</MainContent>
           <Footer />
           <QuickInquiryPopup />
         </div>

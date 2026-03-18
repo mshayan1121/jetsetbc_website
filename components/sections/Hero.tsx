@@ -35,7 +35,7 @@ const Hero = ({ images }: HeroProps) => {
     }, [orderedImages.length]);
 
     return (
-        <section className="relative z-20 min-h-screen flex items-center justify-center bg-navy-900 w-full pt-20">
+        <section className="relative z-20 min-h-screen flex items-center justify-center bg-navy-900 w-full">
             {/* Background Image with Parallax */}
             <div className="absolute inset-0 z-0 w-full h-full overflow-hidden">
                 <motion.div
@@ -70,7 +70,7 @@ const Hero = ({ images }: HeroProps) => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-                    className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight max-w-5xl"
+                    className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl lg:whitespace-nowrap text-white mb-6 leading-tight max-w-5xl"
                 >
                     Flexible Coworking Space in Dubai
                 </motion.h1>

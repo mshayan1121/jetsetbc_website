@@ -1,11 +1,11 @@
 "use client";
 
 import React from "react";
-import ServiceHero from "@/components/sections/ServiceHero";
 import PricingTable from "@/components/sections/PricingTable";
 import FeaturesList from "@/components/sections/FeaturesList";
 import CTASection from "@/components/sections/CTASection";
 import FAQ from "@/components/sections/FAQ";
+import PageHero from "@/components/PageHero";
 import { coworkingFaqs } from "@/lib/faq-data";
 import {
     Wifi,
@@ -128,13 +128,11 @@ const CoworkingPage = () => {
 
     return (
         <div className="flex flex-col">
-            <ServiceHero
+            <PageHero
+                badge="Collaborate & Grow"
                 title="Co-working Space Dubai in Business Bay"
-                subtitle="Collaborate & Grow"
-                description="Join a premium co-working space Dubai professionals recommend, with shared office space Dubai teams can scale easily. Located in Business Bay—ideal if you’re comparing coworking space Business Bay or coworking space Downtown Dubai options."
                 image="/images/services/Co-working Area.jpg"
-                ctaText="View Coworking Plans"
-                secondaryCtaText="Explore Plans"
+                subtitle="Join a premium co-working space Dubai professionals recommend, with shared office space Dubai teams can scale easily. Located in Business Bay—ideal if you’re comparing coworking space Business Bay or coworking space Downtown Dubai options."
             />
 
             <FeaturesList

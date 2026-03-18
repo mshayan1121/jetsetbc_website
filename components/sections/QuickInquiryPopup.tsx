@@ -3,11 +3,13 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const TRIGGER_AFTER_MS = 25000;
 const WHATSAPP_NUMBER = "971585779312";
 
 export default function QuickInquiryPopup() {
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [hasTriggered, setHasTriggered] = useState(false);
   const [companySize, setCompanySize] = useState("");
@@ -28,6 +30,7 @@ export default function QuickInquiryPopup() {
     const text = `Hi, I need a workspace fast. Company size: ${companySize || "Not specified"}. Interested in: ${interest || "Not specified"}. My WhatsApp: ${whatsapp || "Provided in chat."}`;
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, "_blank");
     setIsOpen(false);
+    router.push("/thank-you");
   };
 
   return (

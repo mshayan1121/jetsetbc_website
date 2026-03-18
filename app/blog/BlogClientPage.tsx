@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { blogPosts, getMustReadPosts, getBlogCategories } from '@/lib/blog-data';
 import { motion } from 'framer-motion';
+import PageHero from '@/components/PageHero';
 
 export default function BlogClientPage() {
     const mustReadPosts = getMustReadPosts();
@@ -15,53 +16,11 @@ export default function BlogClientPage() {
     return (
         <main className="min-h-screen">
             {/* Hero Section */}
-            <section className="relative h-[60vh] min-h-[500px] w-full overflow-hidden bg-navy-900 flex items-center justify-center">
-                {/* Background Image with Overlay */}
-                <div className="absolute inset-0 z-0">
-                    <Image
-                        src="/images/hero-bg.png"
-                        alt="Jetset Business Center Blog"
-                        fill
-                        className="object-cover object-center"
-                        priority
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-navy-900/95 via-navy-900/80 to-navy-900/60" />
-                </div>
-
-                <div className="container-custom relative z-10 text-center">
-                    {/* Breadcrumb */}
-                    <motion.div
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 }}
-                        className="mb-6 flex justify-center gap-2 text-sm font-medium uppercase tracking-widest text-gold-500"
-                    >
-                        <Link href="/" className="hover:text-gold-400 transition-colors">Home</Link>
-                        <span className="text-white/50">&gt;</span>
-                        <span>Blog</span>
-                    </motion.div>
-
-                    {/* Headline */}
-                    <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3, duration: 0.8 }}
-                        className="mx-auto mb-4 sm:mb-6 max-w-4xl font-display text-4xl sm:text-5xl md:text-6xl lg:text-[56px] font-bold leading-tight text-white px-4"
-                    >
-                        Jetset Business <span className="text-gold-500">Insights Hub</span>
-                    </motion.h1>
-
-                    {/* Subheadline */}
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5, duration: 0.8 }}
-                        className="mx-auto max-w-2xl text-base sm:text-lg text-cream-100/90 md:text-xl font-light px-4"
-                    >
-                        Explore Our Latest Business Insights & Tips
-                    </motion.p>
-                </div>
-            </section>
+            <PageHero
+                badge="Blog"
+                title="Jetset Business Insights Hub"
+                subtitle="Explore Our Latest Business Insights & Tips"
+            />
 
             {/* Main Content Section */}
             <section className="bg-white py-16 sm:py-20 md:py-24 lg:py-32">

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
+import PageHero from '@/components/PageHero';
 import Link from 'next/link';
 import { 
   Building2, 
@@ -191,20 +192,10 @@ export default function GalleryPage() {
   return (
     <>
       {/* HERO SECTION */}
-      <section className="relative bg-gradient-luxury min-h-[60vh] flex items-center justify-center pt-28 pb-20 sm:pt-32 sm:pb-24 lg:pt-36 lg:pb-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Badge className="mb-6 bg-gold-500/20 text-gold-500 border border-gold-500/30">
-            Visual Tour
-          </Badge>
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white mb-6">
-            Gallery
-          </h1>
-          <p className="font-body text-lg sm:text-xl md:text-2xl text-cream-50 max-w-3xl mx-auto">
-            Explore our premium workspaces, stunning views, and world-class amenities 
-            at Prime Tower, Business Bay
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="Gallery"
+        subtitle="Explore our premium workspaces, stunning views, and world-class amenities at Prime Tower, Business Bay"
+      />
 
       {/* GALLERY SECTION */}
       <section className="bg-white py-24 md:py-32">

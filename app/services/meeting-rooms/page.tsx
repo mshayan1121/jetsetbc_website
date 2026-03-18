@@ -1,10 +1,10 @@
 "use client";
 
 import React from "react";
-import ServiceHero from "@/components/sections/ServiceHero";
 import FeaturesList from "@/components/sections/FeaturesList";
 import CTASection from "@/components/sections/CTASection";
 import FAQ from "@/components/sections/FAQ";
+import PageHero from "@/components/PageHero";
 import { meetingRoomsFaqs } from "@/lib/faq-data";
 import {
     Monitor,
@@ -98,13 +98,11 @@ const MeetingRoomsPage = () => {
 
     return (
         <div className="flex flex-col">
-            <ServiceHero
+            <PageHero
+                badge="Imperial Boardrooms"
                 title="Meeting Room Rental Dubai"
-                subtitle="Imperial Boardrooms"
-                description="Book a meeting room rental Dubai teams trust—professional conference room rental Dubai options with modern AV. Host clients in a conference room Burj Khalifa Dubai views in Business Bay, with a meeting room Dubai affordable price for flexible bookings."
                 image="/images/services/Conference Room.jpg"
-                ctaText="Book a Meeting Room"
-                secondaryCtaText="See Pricing"
+                subtitle="Book a meeting room rental Dubai teams trust—professional conference room rental Dubai options with modern AV. Host clients in a conference room Burj Khalifa Dubai views in Business Bay, with a meeting room Dubai affordable price for flexible bookings."
             />
 
             {/* Room Showcase */}

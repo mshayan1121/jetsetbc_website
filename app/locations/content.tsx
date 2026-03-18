@@ -11,6 +11,7 @@ import { Card } from "@/components/ui/Card";
 import CTASection from "@/components/sections/CTASection";
 import FadeIn from "@/components/animations/FadeIn";
 import StaggerContainer from "@/components/animations/StaggerContainer";
+import PageHero from "@/components/PageHero";
 
 const locationFeatureIcons: Record<string, React.ElementType> = {
     "Burj Khalifa Views": Eye,
@@ -38,42 +39,12 @@ export default function LocationsContent() {
     return (
         <main className="w-full overflow-hidden bg-white">
             {/* 1. HERO SECTION */}
-            <section className="relative h-[60vh] min-h-[500px] w-full flex items-center overflow-hidden bg-navy-900">
-                <motion.div style={{ y: y1 }} className="absolute inset-0 z-0">
-                    <div className="absolute inset-0 bg-navy-900/60 z-10" />
-                    <Image
-                        src="/images/hero-bg.png"
-                        alt="Jetset Locations"
-                        fill
-                        priority
-                        className="object-cover object-center scale-110"
-                    />
-                </motion.div>
-
-                <div className="container-custom relative z-20 w-full pt-10">
-                    <div className="max-w-4xl">
-                        <FadeIn delay={0.2} direction="up">
-                            <Badge variant="gold" className="bg-gold-500/20 text-gold-400 border-gold-500/30 px-4 py-1.5 mb-6 backdrop-blur-md">
-                                <MapPin className="w-3.5 h-3.5 mr-2" />
-                                Strategic Addresses
-                            </Badge>
-                        </FadeIn>
-
-                        <FadeIn delay={0.4} direction="up">
-                            <h1 className="text-white text-5xl md:text-6xl font-display mb-6">
-                                Offices in <br />
-                                <span className="text-gold-500">Business Bay</span>
-                            </h1>
-                        </FadeIn>
-
-                        <FadeIn delay={0.6} direction="up">
-                            <p className="text-cream-50 text-lg md:text-xl max-w-2xl font-body leading-relaxed">
-                                Explore Jetset Business Center in Business Bay—flexible coworking space in Business Bay and office for rent in Business Bay options designed for modern teams. If you’re comparing offices in Business Bay, book a tour and experience the difference.
-                            </p>
-                        </FadeIn>
-                    </div>
-                </div>
-            </section>
+            <PageHero
+                badge="Strategic Addresses"
+                title="Offices in Business Bay"
+                image="/images/hero-bg.png"
+                subtitle="Explore Jetset Business Center in Business Bay—flexible coworking space in Business Bay and office for rent in Business Bay options designed for modern teams. If you’re comparing offices in Business Bay, book a tour and experience the difference."
+            />
 
             {/* 2. LOCATIONS LIST */}
             <section className="py-24 bg-white relative">

@@ -1,11 +1,11 @@
 "use client";
 
 import React from "react";
-import ServiceHero from "@/components/sections/ServiceHero";
 import PricingTable from "@/components/sections/PricingTable";
 import FeaturesList from "@/components/sections/FeaturesList";
 import CTASection from "@/components/sections/CTASection";
 import FAQ from "@/components/sections/FAQ";
+import PageHero from "@/components/PageHero";
 import { businessSetupFaqs } from "@/lib/faq-data";
 import {
     FileText,
@@ -128,13 +128,11 @@ const BusinessSetupPage = () => {
 
     return (
         <div className="flex flex-col">
-            <ServiceHero
+            <PageHero
+                badge="Start Your Journey"
                 title="Business Consultant Dubai"
-                subtitle="Start Your Journey"
-                description="Get business services Dubai founders rely on—end-to-end new company setup in Dubai with licensing guidance, PRO support, and compliance. We also help with virtual office Ejari Dubai, Ejari services, and Ejari registration online where applicable."
                 image="/images/services/business-setup.png"
-                ctaText="Free Consultation"
-                secondaryCtaText="View Packages"
+                subtitle="Get business services Dubai founders rely on—end-to-end new company setup in Dubai with licensing guidance, PRO support, and compliance. We also help with virtual office Ejari Dubai, Ejari services, and Ejari registration online where applicable."
             />
 
             <FeaturesList

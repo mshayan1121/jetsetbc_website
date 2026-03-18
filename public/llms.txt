@@ -1,0 +1,27 @@
+# Jetset Business Center
+
+> Premium coworking and business center located in Prime Tower, Business Bay, Dubai. We offer flexible private offices, coworking spaces, meeting rooms, and full business setup services including Ejari registration.
+
+## Core Pages
+
+- [Home](https://jetsetbc.com/): Coworking space in Dubai overview
+- [About](https://jetsetbc.com/about): About Jetset Business Center, Prime Tower Dubai
+- [Pricing](https://jetsetbc.com/pricing): Membership and office rental pricing
+- [Contact](https://jetsetbc.com/contact): Contact and location details
+- [Book a Tour](https://jetsetbc.com/book-tour): Schedule a visit
+
+## Services
+
+- [Coworking](https://jetsetbc.com/services/coworking): Shared and hot desk coworking space in Business Bay Dubai
+- [Private Offices](https://jetsetbc.com/services/private-offices): Private office space for rent in Dubai
+- [Meeting Rooms](https://jetsetbc.com/services/meeting-rooms): Meeting and conference room rental in Dubai, near Burj Khalifa
+- [Business Setup](https://jetsetbc.com/services/business-setup): Business setup services, Ejari registration, virtual office Dubai
+
+## Locations
+
+- [All Locations](https://jetsetbc.com/locations): Office locations in Business Bay Dubai
+- [Prime Tower](https://jetsetbc.com/locations/prime-tower): Prime Tower, Business Bay — coworking and offices
+
+## Blog
+
+- [Blog](https://jetsetbc.com/blog): Articles on coworking, business setup, and working in Dubai

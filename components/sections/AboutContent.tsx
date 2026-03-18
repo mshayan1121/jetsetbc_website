@@ -25,6 +25,7 @@ import CTASection from "@/components/sections/CTASection";
 import FadeIn from "@/components/animations/FadeIn";
 import StaggerContainer from "@/components/animations/StaggerContainer";
 import CountUp from "@/components/animations/CountUp";
+import PageHero from "@/components/PageHero";
 
 export default function AboutContent() {
     // --- Parallax Logic ---
@@ -89,67 +90,11 @@ export default function AboutContent() {
     return (
         <main className="w-full overflow-hidden bg-white">
             {/* 1. HERO SECTION */}
-            <section className="relative min-h-[90vh] w-full flex items-center overflow-hidden bg-navy-900">
-                {/* Background Parallax */}
-                <motion.div
-                    style={{ y: y1 }}
-                    className="absolute inset-0 z-0"
-                >
-                    <div className="absolute inset-0 bg-gradient-to-r from-navy-900 via-navy-900/80 to-transparent z-10" />
-                    <div className="absolute inset-0 bg-gradient-to-b from-navy-900/40 via-transparent to-navy-900 z-10" />
-                    <Image
-                        src="/images/hero-bg.png"
-                        alt="About Jetset Business Center"
-                        fill
-                        priority
-                        className="object-cover object-center scale-110"
-                    />
-                </motion.div>
-
-                {/* Hero Content */}
-                <div className="container-custom relative z-20 w-full pt-20">
-                    <div className="max-w-4xl">
-                        <FadeIn delay={0.2} direction="up" distance={20}>
-                            <Badge
-                                variant="gold"
-                                className="bg-gold-500/20 text-gold-400 border-gold-500/30 px-4 py-1.5 mb-8 backdrop-blur-md"
-                            >
-                                <Users className="w-3.5 h-3.5 mr-2" />
-                                Family-Run Business Since 2003
-                            </Badge>
-                        </FadeIn>
-
-                        <FadeIn delay={0.4} direction="up" distance={30}>
-                            <h1 className="text-white text-5xl md:text-6xl lg:text-[72px] leading-[1.1] mb-6 font-display">
-                                Workspace Dubai, <br />
-                                <span className="text-gold-500">Built for Ambition</span>
-                                <br />
-                                <span className="text-gold-500">Excellence</span>
-                            </h1>
-                        </FadeIn>
-
-                        <FadeIn delay={0.6} direction="up" distance={30}>
-                            <p className="text-cream-50 text-lg md:text-xl max-w-2xl font-body leading-relaxed mb-10">
-                                Discover Jetset Business Center—your ideal workspace Dubai professionals rely on.
-                                We’re a premium business center in Prime Tower Dubai, helping ambitious teams rent offices Business Bay with confidence.
-                            </p>
-                        </FadeIn>
-                    </div>
-                </div>
-
-                {/* Scroll Indicator */}
-                <FadeIn delay={1.5} duration={1} className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20">
-                    <div className="flex flex-col items-center gap-2">
-                        <span className="text-gold-500/60 text-[10px] uppercase tracking-[0.3em] font-accent">Scroll to Explore</span>
-                        <motion.div
-                            animate={{ y: [0, 8, 0] }}
-                            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                        >
-                            <ChevronDown className="w-6 h-6 text-gold-500" />
-                        </motion.div>
-                    </div>
-                </FadeIn>
-            </section>
+            <PageHero
+                badge="Family-Run Business Since 2003"
+                title="Workspace Dubai, Built for Ambition"
+                subtitle="Discover Jetset Business Center—your ideal workspace Dubai professionals rely on. We’re a premium business center in Prime Tower Dubai, helping ambitious teams rent offices Business Bay with confidence."
+            />
 
             {/* 2. OUR STORY SECTION */}
             <section ref={storyRef} className="relative w-full py-20 lg:py-32 bg-white overflow-hidden">

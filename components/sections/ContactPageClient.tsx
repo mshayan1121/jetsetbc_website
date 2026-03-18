@@ -7,6 +7,7 @@ import { Phone, Mail, MapPin, Clock, ArrowRight, CheckCircle2, ChevronDown, Mess
 import { Button } from "@/components/ui/Button";
 import CTASection from "@/components/sections/CTASection";
 import JetsetForm from "@/components/sections/JetsetForm";
+import PageHero from "@/components/PageHero";
 
 // --- Components ---
 
@@ -67,33 +68,10 @@ export default function ContactPageClient() {
     return (
         <main className="flex flex-col w-full bg-white">
             {/* 1. HERO SECTION - Taller, matching homepage */}
-            <section className="relative bg-gradient-to-br from-navy-900 via-navy-800 to-navy-900 min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] flex items-center justify-center overflow-visible py-20 sm:py-28 md:py-32 lg:py-40">
-                {/* Background Image */}
-                <div
-                    className="absolute inset-0 bg-[url('/images/hero_section_images/Reception.jpg')] bg-cover bg-center opacity-35"
-                    aria-hidden="true"
-                />
-                {/* Background Gradients */}
-                <div className="absolute inset-0 bg-gradient-to-r from-navy-900 via-navy-900/80 to-transparent z-10" />
-                <div className="absolute inset-0 bg-gradient-to-b from-navy-900/40 via-transparent to-navy-900/60 z-10" />
-
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                        className="max-w-3xl mx-auto"
-                    >
-
-                        <h1 className="font-display text-4xl sm:text-5xl md:text-6xl text-white mb-4 sm:mb-6 px-4">
-                            Business Center in Dubai: Contact Jetset
-                        </h1>
-                        <p className="font-body text-lg sm:text-xl text-cream-50 max-w-2xl mx-auto px-4">
-                            Book a tour or enquire about coworking space Business Bay Dubai teams rely on. We’re minutes from Downtown—ideal if you’re comparing coworking space Downtown Dubai options too.
-                        </p>
-                    </motion.div>
-                </div>
-            </section>
+            <PageHero
+                title="Business Center in Dubai: Contact Jetset"
+                subtitle="Book a tour or enquire about coworking space Business Bay Dubai teams rely on. We’re minutes from Downtown—ideal if you’re comparing coworking space Downtown Dubai options too."
+            />
 
             {/* 2. QUICK CONTACT CARDS - Overlapping Hero with proper spacing */}
             <section className="relative -mt-16 sm:-mt-20 z-20 pb-12 sm:pb-16">

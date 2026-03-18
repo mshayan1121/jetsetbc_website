@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/Button'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
 import CTASection from '@/components/sections/CTASection'
-import PricingHero from './PricingHero'
+import PageHero from '@/components/PageHero'
 
 export const metadata: Metadata = {
     title: 'Pricing - Transparent Office & Coworking Rates | Jetset Dubai',
@@ -16,7 +16,11 @@ export default function PricingPage() {
     return (
         <main className="min-h-screen bg-cream-50">
             {/* 1. HERO SECTION */}
-            <PricingHero />
+            <PageHero
+                badge="Pricing"
+                title="Transparent Pricing for Premium Spaces"
+                subtitle="Pricing that's perfect for you. From flexible coworking to private headquarters, experience luxury workspaces without hidden fees."
+            />
 
             {/* 2. PRIVATE OFFICES SECTION */}
             <section className="py-16 sm:py-20 md:py-24 bg-white">
