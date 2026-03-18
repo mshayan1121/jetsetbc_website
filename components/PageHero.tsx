@@ -29,7 +29,7 @@ export default function PageHero({ title, subtitle, badge, image }: PageHeroProp
         <div className="absolute inset-0 z-0">
           <Image
             src={image}
-            alt=""
+            alt={title}
             fill
             priority
             sizes="100vw"

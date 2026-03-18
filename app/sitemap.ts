@@ -2,14 +2,18 @@ import { MetadataRoute } from 'next';
 import { blogPosts } from '@/lib/blog-data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://jetsetbusinesscenter.com';
+    const baseUrl = 'https://jetsetbc.com';
 
     const routes = [
         '',
+        '/gallery',
+        '/book-tour',
+        '/services',
         '/services/private-offices',
         '/services/coworking',
         '/services/meeting-rooms',
         '/services/business-setup',
+        '/locations',
         '/locations/prime-tower',
         '/pricing',
         '/about',

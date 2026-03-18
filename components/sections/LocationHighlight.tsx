@@ -13,7 +13,7 @@ const LocationHighlight = () => {
             <div className="absolute inset-0 w-full h-full opacity-10 pointer-events-none">
                 <Image
                     src="/images/hero-bg.png"
-                    alt=""
+                    alt="Jetset Business Center background texture"
                     fill
                     className="object-cover grayscale"
                 />

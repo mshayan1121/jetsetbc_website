@@ -23,6 +23,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
+import JsonLd from "@/components/seo/JsonLd";
 
 const BusinessSetupPage = () => {
     const services = [
@@ -128,6 +129,17 @@ const BusinessSetupPage = () => {
 
     return (
         <div className="flex flex-col">
+            <JsonLd
+                includeLocalBusiness={false}
+                schemas={{
+                    "@context": "https://schema.org",
+                    "@type": "Service",
+                    name: "Business Setup Services",
+                    provider: { "@id": "https://jetsetbc.com#localbusiness" },
+                    areaServed: "Dubai, UAE",
+                    url: "https://jetsetbc.com/services/business-setup",
+                }}
+            />
             <PageHero
                 badge="Start Your Journey"
                 title="Business Consultant Dubai"
@@ -178,7 +190,7 @@ const BusinessSetupPage = () => {
                 <div className="absolute inset-0 z-0">
                     <Image
                         src="/images/business-bay/dubai-business-bay-uae-5km-01.jpg"
-                        alt=""
+                        alt="Business Bay skyline background"
                         fill
                         className="object-cover opacity-[0.06]"
                     />

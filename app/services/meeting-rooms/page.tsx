@@ -22,6 +22,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
+import JsonLd from "@/components/seo/JsonLd";
 
 const MeetingRoomsPage = () => {
     const techSpecs = [
@@ -98,6 +99,17 @@ const MeetingRoomsPage = () => {
 
     return (
         <div className="flex flex-col">
+            <JsonLd
+                includeLocalBusiness={false}
+                schemas={{
+                    "@context": "https://schema.org",
+                    "@type": "Service",
+                    name: "Meeting Rooms",
+                    provider: { "@id": "https://jetsetbc.com#localbusiness" },
+                    areaServed: "Dubai, UAE",
+                    url: "https://jetsetbc.com/services/meeting-rooms",
+                }}
+            />
             <PageHero
                 badge="Imperial Boardrooms"
                 title="Meeting Room Rental Dubai"

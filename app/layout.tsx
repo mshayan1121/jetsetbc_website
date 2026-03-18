@@ -32,7 +32,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://jetsetbusinesscenter.com"),
+  metadataBase: new URL("https://jetsetbc.com"),
   title: {
     default: "Jetset Business Center | Premium Workspace in Business Bay Dubai",
     template: "%s | Jetset Business Center",
@@ -50,10 +50,13 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Jetset Business Center" }],
   creator: "Jetset Business Center",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "en_AE",
-    url: "https://jetsetbusinesscenter.com",
+    url: "https://jetsetbc.com",
     title: "Jetset Business Center | Premium Workspace in Business Bay Dubai",
     description:
       "Award-winning coworking and private offices in Business Bay, Dubai. Flexible workspace solutions with Burj Khalifa views at Prime Tower.",

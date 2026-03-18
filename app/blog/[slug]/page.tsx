@@ -30,7 +30,17 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return {
         title: `${post.title} | Jetset Business Center Blog`,
         description: post.excerpt,
+        alternates: {
+            canonical: `https://jetsetbc.com/blog/${slug}`,
+        },
         openGraph: {
+            title: post.title,
+            description: post.excerpt,
+            url: `https://jetsetbc.com/blog/${slug}`,
+            images: [post.image],
+        },
+        twitter: {
+            card: "summary_large_image",
             title: post.title,
             description: post.excerpt,
             images: [post.image],

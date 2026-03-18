@@ -21,6 +21,7 @@ import {
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Card } from "@/components/ui/Card";
+import JsonLd from "@/components/seo/JsonLd";
 
 const CoworkingPage = () => {
     const amenities = [
@@ -128,6 +129,17 @@ const CoworkingPage = () => {
 
     return (
         <div className="flex flex-col">
+            <JsonLd
+                includeLocalBusiness={false}
+                schemas={{
+                    "@context": "https://schema.org",
+                    "@type": "Service",
+                    name: "Coworking Space",
+                    provider: { "@id": "https://jetsetbc.com#localbusiness" },
+                    areaServed: "Dubai, UAE",
+                    url: "https://jetsetbc.com/services/coworking",
+                }}
+            />
             <PageHero
                 badge="Collaborate & Grow"
                 title="Co-working Space Dubai in Business Bay"

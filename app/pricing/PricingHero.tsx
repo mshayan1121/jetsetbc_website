@@ -13,7 +13,7 @@ const PricingHero = () => {
             <div className="absolute inset-0 z-0">
                 <Image
                     src="/images/hero-bg.png"
-                    alt=""
+                    alt="Jetset Business Center pricing background"
                     fill
                     className="object-cover"
                     priority

@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import JsonLd from "@/components/seo/JsonLd";
 
 const PrivateOfficesPage = () => {
     const features = [
@@ -95,6 +96,17 @@ const PrivateOfficesPage = () => {
 
     return (
         <div className="flex flex-col">
+            <JsonLd
+                includeLocalBusiness={false}
+                schemas={{
+                    "@context": "https://schema.org",
+                    "@type": "Service",
+                    name: "Private Offices",
+                    provider: { "@id": "https://jetsetbc.com#localbusiness" },
+                    areaServed: "Dubai, UAE",
+                    url: "https://jetsetbc.com/services/private-offices",
+                }}
+            />
             <PageHero
                 badge="Your Exclusive Workspace"
                 title="Office Space for Rent Dubai"

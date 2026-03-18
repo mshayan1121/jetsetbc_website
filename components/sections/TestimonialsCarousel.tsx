@@ -110,7 +110,13 @@ const TestimonialsCarousel = () => {
                 <div className="flex items-center gap-2 mb-2">
                   <div className="relative w-8 h-8 rounded-full overflow-hidden bg-gold-500/20 shrink-0 ring-1 ring-gold-500/30 flex items-center justify-center">
                     {carouselTestimonials[prev].avatar ? (
-                      <Image src={carouselTestimonials[prev].avatar!} alt="" fill className="object-cover" sizes="32px" />
+                      <Image
+                        src={carouselTestimonials[prev].avatar!}
+                        alt={`Photo of ${carouselTestimonials[prev].author}`}
+                        fill
+                        className="object-cover"
+                        sizes="32px"
+                      />
                     ) : (
                       <span className="text-navy-800 font-display font-bold text-sm">
                         {carouselTestimonials[prev].author.charAt(0)}
@@ -152,7 +158,7 @@ const TestimonialsCarousel = () => {
                   {carouselTestimonials[index].avatar ? (
                     <Image
                       src={carouselTestimonials[index].avatar}
-                      alt=""
+                      alt={`Photo of ${carouselTestimonials[index].author}`}
                       fill
                       className="object-cover"
                       sizes="48px"
@@ -184,7 +190,13 @@ const TestimonialsCarousel = () => {
                 <div className="flex items-center gap-2 mb-2">
                   <div className="relative w-8 h-8 rounded-full overflow-hidden bg-gold-500/20 shrink-0 ring-1 ring-gold-500/30 flex items-center justify-center">
                     {carouselTestimonials[next].avatar ? (
-                      <Image src={carouselTestimonials[next].avatar!} alt="" fill className="object-cover" sizes="32px" />
+                      <Image
+                        src={carouselTestimonials[next].avatar!}
+                        alt={`Photo of ${carouselTestimonials[next].author}`}
+                        fill
+                        className="object-cover"
+                        sizes="32px"
+                      />
                     ) : (
                       <span className="text-navy-800 font-display font-bold text-sm">
                         {carouselTestimonials[next].author.charAt(0)}

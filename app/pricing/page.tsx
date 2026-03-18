@@ -10,6 +10,21 @@ import PageHero from '@/components/PageHero'
 export const metadata: Metadata = {
     title: 'Pricing - Transparent Office & Coworking Rates | Jetset Dubai',
     description: 'Clear pricing for private offices (from AED 50,000/year), coworking (from AED 80/day), and business setup services. No hidden fees.',
+    alternates: {
+        canonical: 'https://jetsetbc.com/pricing',
+    },
+    openGraph: {
+        title: 'Pricing - Transparent Office & Coworking Rates | Jetset Dubai',
+        description: 'Clear pricing for private offices (from AED 50,000/year), coworking (from AED 80/day), and business setup services. No hidden fees.',
+        url: 'https://jetsetbc.com/pricing',
+        images: ['/images/hero-bg.png'],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: 'Pricing - Transparent Office & Coworking Rates | Jetset Dubai',
+        description: 'Clear pricing for private offices (from AED 50,000/year), coworking (from AED 80/day), and business setup services. No hidden fees.',
+        images: ['/images/hero-bg.png'],
+    },
 }
 
 export default function PricingPage() {
