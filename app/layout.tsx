@@ -63,10 +63,10 @@ export const metadata: Metadata = {
     siteName: "Jetset Business Center",
     images: [
       {
-        url: "/images/hero-bg.png",
+        url: "https://jetsetbc.com/reception1.jpg",
         width: 1200,
         height: 630,
-        alt: "Jetset Business Center Luxury Workspace",
+        alt: "Jetset Business Center Reception",
       },
     ],
   },
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     title: "Jetset Business Center | Premium Workspace in Business Bay Dubai",
     description:
       "Award-winning coworking and private offices in Business Bay, Dubai. Flexible workspace solutions with Burj Khalifa views at Prime Tower.",
-    images: ["/images/hero-bg.png"],
+    images: ["https://jetsetbc.com/reception1.jpg"],
   },
   robots: {
     index: true,

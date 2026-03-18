@@ -21,14 +21,21 @@ export const metadata: Metadata = {
     description:
       "Looking for a coworking space in Dubai? Jetset Business Center offers premium office space in Business Bay with Burj Khalifa views. Flexible plans available.",
     url: "https://jetsetbc.com/",
-    images: ["/images/hero-bg.png"],
+    images: [
+      {
+        url: "https://jetsetbc.com/reception1.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Jetset Business Center Reception",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Flexible Coworking Space in Dubai | Jetset Business Center",
     description:
       "Looking for a coworking space in Dubai? Jetset Business Center offers premium office space in Business Bay with Burj Khalifa views. Flexible plans available.",
-    images: ["/images/hero-bg.png"],
+    images: ["https://jetsetbc.com/reception1.jpg"],
   },
 };
 

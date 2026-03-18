@@ -17,13 +17,20 @@ export const metadata: Metadata = {
         title: 'Pricing - Transparent Office & Coworking Rates | Jetset Dubai',
         description: 'Clear pricing for private offices (from AED 50,000/year), coworking (from AED 80/day), and business setup services. No hidden fees.',
         url: 'https://jetsetbc.com/pricing',
-        images: ['/images/hero-bg.png'],
+        images: [
+            {
+                url: 'https://jetsetbc.com/reception1.jpg',
+                width: 1200,
+                height: 630,
+                alt: 'Jetset Business Center Reception',
+            },
+        ],
     },
     twitter: {
         card: "summary_large_image",
         title: 'Pricing - Transparent Office & Coworking Rates | Jetset Dubai',
         description: 'Clear pricing for private offices (from AED 50,000/year), coworking (from AED 80/day), and business setup services. No hidden fees.',
-        images: ['/images/hero-bg.png'],
+        images: ['https://jetsetbc.com/reception1.jpg'],
     },
 }
 

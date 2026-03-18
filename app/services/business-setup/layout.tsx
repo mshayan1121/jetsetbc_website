@@ -10,13 +10,20 @@ export const metadata: Metadata = {
         title: "New Company Setup in Dubai | Hassle-Free Business Solutions",
         description: "Set up your company in Dubai with ease. Jetset Business Center offers expert business consultant services, ejari registration, and end-to-end new company setup in Dubai.",
         url: 'https://jetsetbc.com/services/business-setup',
-        images: ['/images/hero-bg.png'],
+        images: [
+            {
+                url: 'https://jetsetbc.com/reception1.jpg',
+                width: 1200,
+                height: 630,
+                alt: 'Jetset Business Center Reception',
+            },
+        ],
     },
     twitter: {
         card: "summary_large_image",
         title: "New Company Setup in Dubai | Hassle-Free Business Solutions",
         description: "Set up your company in Dubai with ease. Jetset Business Center offers expert business consultant services, ejari registration, and end-to-end new company setup in Dubai.",
-        images: ['/images/hero-bg.png'],
+        images: ['https://jetsetbc.com/reception1.jpg'],
     },
 };
 

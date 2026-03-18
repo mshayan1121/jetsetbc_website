@@ -11,13 +11,20 @@ export const metadata: Metadata = {
         title: 'Contact Jetset Business Center For Coworking Spaces in Dubai',
         description: 'Get in touch with Jetset Business Center – a leading business center in Dubai. Located in Business Bay. Book a tour or enquire about coworking space today.',
         url: 'https://jetsetbc.com/contact',
-        images: ['/images/hero-bg.png'],
+        images: [
+            {
+                url: 'https://jetsetbc.com/reception1.jpg',
+                width: 1200,
+                height: 630,
+                alt: 'Jetset Business Center Reception',
+            },
+        ],
     },
     twitter: {
         card: "summary_large_image",
         title: 'Contact Jetset Business Center For Coworking Spaces in Dubai',
         description: 'Get in touch with Jetset Business Center – a leading business center in Dubai. Located in Business Bay. Book a tour or enquire about coworking space today.',
-        images: ['/images/hero-bg.png'],
+        images: ['https://jetsetbc.com/reception1.jpg'],
     },
 };
 
