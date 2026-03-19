@@ -341,6 +341,11 @@ const nextConfig: NextConfig = {
         hostname: 'images.unsplash.com',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'source.unsplash.com',
+        pathname: '/**',
+      },
     ],
   },
   // Force tailwindcss to resolve from project node_modules (fixes resolve from wrong cwd e.g. Desktop)

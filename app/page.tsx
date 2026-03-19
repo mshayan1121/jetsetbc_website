@@ -12,7 +12,7 @@ import TestimonialsCarousel from "@/components/sections/TestimonialsCarousel";
 export const metadata: Metadata = {
   title: "Flexible Coworking Space in Dubai | Jetset Business Center",
   description:
-    "Looking for a coworking space in Dubai? Jetset Business Center offers premium office space in Business Bay with Burj Khalifa views. Flexible plans available.",
+    "Looking for a business center in Dubai? Jetset Business Center offers coworking spaces, private offices solutions designed for productivity and growth.",
   alternates: {
     canonical: "https://jetsetbc.com/",
   },

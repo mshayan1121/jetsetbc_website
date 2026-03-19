@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Office Work Space in Dubai - Jetset Business Center",
-    description: "Rent premium office space in Dubai at Jetset Business Center. Private, fully furnished offices for rent in Business Bay. Ideal working space for teams of all sizes.",
+    description: "Looking for office space in Dubai? Jetset Business Center offers flexible, modern offices for rent at strategic locations. Contact us for a viewing today!",
     alternates: {
         canonical: 'https://jetsetbc.com/services/private-offices',
     },

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "New Company Setup in Dubai | Hassle-Free Business Solutions",
-    description: "Set up your company in Dubai with ease. Jetset Business Center offers expert business consultant services, ejari registration, and end-to-end new company setup in Dubai.",
+    description: "Setting up a new company in Dubai? Our expert consultants guide you through every step, ensuring a smooth and successful launch. Read more!",
     alternates: {
         canonical: 'https://jetsetbc.com/services/business-setup',
     },

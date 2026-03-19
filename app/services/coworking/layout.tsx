@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Best Co-Working Space in Dubai - Jetset Business Center",
-    description: "Find the best co-working space in Dubai at Jetset Business Center. Shared office space in Business Bay with flexible memberships and world-class amenities.",
+    description: "Jetset Business Center provides modern shared office spaces in Dubai, offering the ideal environment for professionals to grow their businesses and network.",
     alternates: {
         canonical: 'https://jetsetbc.com/services/coworking',
     },

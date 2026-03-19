@@ -7,10 +7,19 @@ import { Button } from '@/components/ui/Button';
 import { ShareButton } from '@/components/ui/ShareButton';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
+import { BlogContent } from '@/components/blog/BlogContent';
+import { TableOfContents } from '@/components/blog/TableOfContents';
 import { getBlogPost, getRelatedPosts, blogPosts } from '@/lib/blog-data';
+import { extractHeadings } from '@/lib/blog-content';
+import { getLocalBlogImage, getResolvedBlogImageMap } from '@/lib/blog-images';
 
 // Generate static params for all blog posts
 export async function generateStaticParams() {
+    const resolvedImages = getResolvedBlogImageMap();
+    blogPosts.forEach((post) => {
+        console.log(`[blog-image] ${post.slug} -> ${resolvedImages.get(post.slug) ?? 'null'}`);
+    });
+
     return blogPosts.map((post) => ({
         slug: post.slug,
     }));
@@ -27,6 +36,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         };
     }
     
+    const coverImage = getLocalBlogImage(post.slug);
+
     return {
         title: `${post.title} | Jetset Business Center Blog`,
         description: post.excerpt,
@@ -37,13 +48,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
             title: post.title,
             description: post.excerpt,
             url: `https://jetsetbc.com/blog/${slug}`,
-            images: [post.image],
+            ...(coverImage ? { images: [coverImage] } : {}),
         },
         twitter: {
-            card: "summary_large_image",
+            card: coverImage ? 'summary_large_image' : 'summary',
             title: post.title,
             description: post.excerpt,
-            images: [post.image],
+            ...(coverImage ? { images: [coverImage] } : {}),
         },
     };
 }
@@ -56,114 +67,128 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         notFound();
     }
     
+    const coverImage = getLocalBlogImage(post.slug);
+
     // Get related posts
     const relatedPosts = getRelatedPosts(post.slug, post.category);
+    const headings = extractHeadings(post.content);
     
     return (
         <main className="bg-white">
-            {/* HERO SECTION WITH FEATURED IMAGE */}
-            <div className="relative h-[60vh] w-full overflow-hidden">
-                <Image
-                    src={post.image}
-                    alt={post.title}
-                    fill
-                    className="object-cover"
-                    priority
-                />
-                {/* Gradient overlay for better text readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/50 to-transparent" />
-                
-                {/* Back to Blog button - floating on image */}
-                <div className="absolute top-8 left-8 z-20">
-                    <Link href="/blog">
-                        <Button variant="outline" className="bg-white/10 backdrop-blur-md border-white/20 text-white hover:bg-white/20">
-                            <ArrowLeft className="w-4 h-4 mr-2" />
-                            Back to Blog
-                        </Button>
+            {/* 1. Dark navy header */}
+            <section className="bg-navy-900 pt-32 pb-12">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <Link href="/blog" className="inline-flex items-center gap-2 text-cream-100/70 hover:text-gold-500 transition-colors mb-8 text-sm font-medium">
+                        <ArrowLeft className="w-4 h-4" />
+                        Back to Blog
                     </Link>
+                    <div className="mb-4">
+                        <span className="inline-block bg-gold-500/10 text-gold-500 text-xs font-semibold uppercase tracking-widest px-3 py-1.5 rounded-md">
+                            {post.category}
+                        </span>
+                    </div>
+                    <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-8">
+                        {post.title}
+                    </h1>
+                    <div className="flex flex-wrap items-center gap-6 text-cream-100/70 text-sm">
+                        <span className="flex items-center gap-2">
+                            <User className="w-4 h-4 text-gold-500" />
+                            {post.author}
+                        </span>
+                        <span className="flex items-center gap-2">
+                            <Calendar className="w-4 h-4 text-gold-500" />
+                            {post.date}
+                        </span>
+                        <span className="flex items-center gap-2">
+                            <Clock className="w-4 h-4 text-gold-500" />
+                            {post.readTime} min read
+                        </span>
+                    </div>
                 </div>
-            </div>
+            </section>
+
+            {/* 2. Cover image */}
+            {coverImage && (
+                <div className="relative w-full h-[400px] md:h-[500px] overflow-hidden">
+                    <Image
+                        src={coverImage}
+                        alt={post.title}
+                        fill
+                        className="object-cover"
+                        sizes="100vw"
+                        quality={95}
+                        priority
+                    />
+                </div>
+            )}
 
             {/* MAIN CONTENT */}
             <article className="bg-white">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                    
-                    {/* ARTICLE HEADER - Overlapping the hero image */}
-                    <div className="-mt-40 relative z-10 mb-16">
-                        <div className="bg-white rounded-2xl p-8 md:p-12 shadow-luxury-xl">
-                            
-                            {/* Breadcrumb */}
-                            <nav className="flex items-center gap-2 text-sm text-navy-700 mb-6">
-                                <Link href="/" className="hover:text-gold-500 transition-colors">
-                                    Home
-                                </Link>
-                                <span>/</span>
-                                <Link href="/blog" className="hover:text-gold-500 transition-colors">
-                                    Blog
-                                </Link>
-                                <span>/</span>
-                                <span className="text-navy-900 font-medium line-clamp-1">
-                                    {post.title}
-                                </span>
-                            </nav>
-                            
-                            {/* Category Badge */}
-                            <div className="mb-6">
-                                <Badge className="bg-gold-500 text-navy-900 font-semibold">
-                                    {post.category}
-                                </Badge>
-                            </div>
-                            
-                            {/* Title */}
-                            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-navy-900 mb-8 leading-tight">
+                <div className="max-w-7xl mx-auto px-4 sm:px-5 lg:px-6">
+                    {/* 3. Breadcrumb */}
+                    <div className="pt-10 mb-10">
+                        <nav className="flex items-center gap-2 text-sm text-navy-700">
+                            <Link href="/" className="hover:text-gold-500 transition-colors">
+                                Home
+                            </Link>
+                            <span>/</span>
+                            <Link href="/blog" className="hover:text-gold-500 transition-colors">
+                                Blog
+                            </Link>
+                            <span>/</span>
+                            <span className="text-navy-900 font-medium line-clamp-1">
                                 {post.title}
-                            </h1>
-                            
-                            {/* Meta Information */}
-                            <div className="flex flex-wrap items-center gap-6 text-navy-700 pb-8 border-b border-cream-200">
-                                <div className="flex items-center gap-2">
-                                    <div className="w-10 h-10 bg-gold-500/10 rounded-full flex items-center justify-center">
-                                        <User className="w-5 h-5 text-gold-500" />
-                                    </div>
-                                    <div>
-                                        <p className="text-sm text-navy-600">Written by</p>
-                                        <p className="font-semibold text-navy-900">{post.author}</p>
-                                    </div>
-                                </div>
-                                
-                                <div className="flex items-center gap-2">
-                                    <Calendar className="w-5 h-5 text-gold-500" />
-                                    <div>
-                                        <p className="text-sm text-navy-600">Published</p>
-                                        <p className="font-semibold text-navy-900">{post.date}</p>
-                                    </div>
-                                </div>
-                                
-                                <div className="flex items-center gap-2">
-                                    <Clock className="w-5 h-5 text-gold-500" />
-                                    <div>
-                                        <p className="text-sm text-navy-600">Read time</p>
-                                        <p className="font-semibold text-navy-900">{post.readTime} min</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            </span>
+                        </nav>
                     </div>
                     
-                    {/* ARTICLE CONTENT */}
+                    {/* 4. 3-column content grid */}
                     <div className="mb-16">
-                        <div className="prose prose-lg max-w-none">
-                            {/* Format the content properly */}
-                            <div className="font-body text-lg text-navy-900 leading-relaxed space-y-6">
-                                {post.content.split('\n\n').map((paragraph, index) => {
-                                    if (!paragraph.trim()) return null;
-                                    
-                                    return (
-                                        <p key={index} className="text-navy-800 leading-loose">
-                                            {paragraph}
+                        <div className="py-16">
+                            <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr_260px] gap-10 items-start">
+                                {/* LEFT — Table of Contents */}
+                                <div className="hidden lg:block">
+                                    <TableOfContents headings={headings} />
+                                </div>
+
+                                {/* CENTER — Article content */}
+                                <div className="min-w-0">
+                                    {/* Mobile TOC accordion at top */}
+                                    <div className="lg:hidden mb-8">
+                                        <TableOfContents headings={headings} />
+                                    </div>
+                                    <BlogContent content={post.content} headings={headings} />
+                                </div>
+
+                                {/* RIGHT — Sticky CTA sidebar */}
+                                <div className="hidden lg:block">
+                                    <div className="sticky top-[calc(var(--header-offset,96px)+1rem)] z-20 bg-navy-900 rounded-2xl p-6 text-center">
+                                        <h3 className="font-display text-xl text-white mb-2">
+                                            Ready to Set Up?
+                                        </h3>
+                                        <p className="font-body text-sm text-cream-100/70 mb-6">
+                                            Our team guides you through every step in Dubai.
                                         </p>
-                                    );
-                                })}
+                                        <div className="flex flex-col gap-3">
+                                            <Link href="/book-tour">
+                                                <Button variant="primary" className="w-full">
+                                                    Book a Free Tour
+                                                </Button>
+                                            </Link>
+                                            <Link href="/contact">
+                                                <Button variant="outline" className="w-full border-white/30 text-white hover:bg-white hover:text-navy-900">
+                                                    Talk to an Expert
+                                                </Button>
+                                            </Link>
+                                        </div>
+                                        <div className="mt-6 pt-6 border-t border-white/10">
+                                            <p className="text-xs text-cream-100/50 mb-2">Or call us directly</p>
+                                            <a href="tel:+971585779312" className="text-gold-500 font-semibold text-sm hover:text-gold-400 transition-colors">
+                                                +971 58 577 9312
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -205,48 +230,59 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                             </h2>
                             
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                                {relatedPosts.map((relatedPost) => (
-                                    <Link key={relatedPost.slug} href={`/blog/${relatedPost.slug}`}>
-                                        <Card className="group cursor-pointer h-full hover:-translate-y-2 transition-all duration-400" padding="none">
-                                            
-                                            {/* Image */}
-                                            <div className="relative h-48 overflow-hidden rounded-t-xl">
-                                                <Image
-                                                    src={relatedPost.image}
-                                                    alt={relatedPost.title}
-                                                    fill
-                                                    className="object-cover group-hover:scale-105 transition-transform duration-400"
-                                                />
-                                                <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 to-transparent" />
-                                                
-                                                {/* Category badge on image */}
-                                                <div className="absolute top-4 left-4">
-                                                    <Badge className="bg-gold-500/95 backdrop-blur-sm text-navy-900 font-semibold text-xs">
-                                                        {relatedPost.category}
-                                                    </Badge>
+                                {relatedPosts.map((relatedPost) => {
+                                    const relatedCoverImage = getLocalBlogImage(relatedPost.slug);
+
+                                    return (
+                                        <Link key={relatedPost.slug} href={`/blog/${relatedPost.slug}`}>
+                                            <Card className="group cursor-pointer h-full hover:-translate-y-2 transition-all duration-400" padding="none">
+                                                {relatedCoverImage ? (
+                                                    <div className="relative h-48 overflow-hidden rounded-t-xl">
+                                                        <Image
+                                                            src={relatedCoverImage}
+                                                            alt={relatedPost.title}
+                                                            fill
+                                                            className="object-cover group-hover:scale-105 transition-transform duration-400"
+                                                        />
+                                                        <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 to-transparent" />
+
+                                                        <div className="absolute top-4 left-4">
+                                                            <Badge className="bg-gold-500/95 backdrop-blur-sm text-navy-900 font-semibold text-xs">
+                                                                {relatedPost.category}
+                                                            </Badge>
+                                                        </div>
+                                                    </div>
+                                                ) : null}
+
+                                                {/* Content */}
+                                                <div className="p-6">
+                                                    {!relatedCoverImage ? (
+                                                        <div className="mb-3">
+                                                            <Badge className="bg-gold-500/10 text-navy-900 font-semibold text-xs">
+                                                                {relatedPost.category}
+                                                            </Badge>
+                                                        </div>
+                                                    ) : null}
+
+                                                    <h3 className="font-display text-lg text-navy-900 mb-3 line-clamp-2 group-hover:text-gold-500 transition-colors">
+                                                        {relatedPost.title}
+                                                    </h3>
+
+                                                    <div className="flex items-center gap-4 text-sm text-navy-700">
+                                                        <span className="flex items-center gap-1">
+                                                            <Clock className="w-4 h-4 text-gold-500" />
+                                                            {relatedPost.readTime} min
+                                                        </span>
+                                                        <span className="flex items-center gap-1">
+                                                            <Calendar className="w-4 h-4 text-gold-500" />
+                                                            {relatedPost.date}
+                                                        </span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            
-                                            {/* Content */}
-                                            <div className="p-6">
-                                                <h3 className="font-display text-lg text-navy-900 mb-3 line-clamp-2 group-hover:text-gold-500 transition-colors">
-                                                    {relatedPost.title}
-                                                </h3>
-                                                
-                                                <div className="flex items-center gap-4 text-sm text-navy-700">
-                                                    <span className="flex items-center gap-1">
-                                                        <Clock className="w-4 h-4 text-gold-500" />
-                                                        {relatedPost.readTime} min
-                                                    </span>
-                                                    <span className="flex items-center gap-1">
-                                                        <Calendar className="w-4 h-4 text-gold-500" />
-                                                        {relatedPost.date}
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </Card>
-                                    </Link>
-                                ))}
+                                            </Card>
+                                        </Link>
+                                    );
+                                })}
                             </div>
                         </div>
                     )}
@@ -254,26 +290,26 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             </article>
             
             {/* CTA SECTION */}
-            <section className="bg-gradient-luxury py-24 md:py-32">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h2 className="font-display text-4xl md:text-5xl text-white mb-6">
-                        Ready to Start Your Business Journey?
+            <section className="bg-navy-900 py-24">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <span className="inline-block bg-gold-500/10 text-gold-500 text-sm font-semibold uppercase tracking-widest px-4 py-2 rounded-md mb-6">
+                        Get Started
+                    </span>
+                    <h2 className="font-display text-4xl md:text-5xl text-white mb-4">
+                        Ready to Set Up in Dubai?
                     </h2>
-                    <p className="font-body text-xl md:text-2xl text-cream-50 mb-8 max-w-2xl mx-auto">
-                        Book a same-day tour and experience the Jetset difference
+                    <p className="font-body text-lg text-cream-100 mb-10 max-w-xl mx-auto">
+                        Our team at Jetset Business Center will guide you through every step — from licensing to your first day in the office.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Button variant="primary" size="lg" asChild>
-                            <Link href="/book-tour">Book a Tour</Link>
-                        </Button>
-                        <Button 
-                            variant="outline" 
-                            size="lg" 
-                            className="border-white text-white hover:bg-white hover:text-navy-900"
-                            asChild
-                        >
-                            <Link href="/pricing">View Pricing</Link>
-                        </Button>
+                        <Link href="/book-tour">
+                            <Button variant="primary" size="lg">Book a Free Tour</Button>
+                        </Link>
+                        <Link href="/contact">
+                            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-navy-900">
+                                Talk to an Expert
+                            </Button>
+                        </Link>
                     </div>
                 </div>
             </section>

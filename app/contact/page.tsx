@@ -3,7 +3,7 @@ import ContactPageClient from '@/components/sections/ContactPageClient';
 
 export const metadata: Metadata = {
     title: 'Contact Jetset Business Center For Coworking Spaces in Dubai',
-    description: 'Get in touch with Jetset Business Center – a leading business center in Dubai. Located in Business Bay. Book a tour or enquire about coworking space today.',
+    description: 'Contact Jetset Business Center to explore coworking spaces in Business Bay & Downtown Dubai, ideal for startups, freelancers, & businesses of all sizes.',
     alternates: {
         canonical: 'https://jetsetbc.com/contact',
     },

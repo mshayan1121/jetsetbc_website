@@ -104,7 +104,7 @@ export default function RootLayout({
         className={`${inter.variable} ${playfair.variable} ${spaceGrotesk.variable} antialiased min-h-screen flex flex-col font-body text-navy-900 bg-white selection:bg-gold-500/30 selection:text-navy-900 overflow-x-hidden`}
       >
         <JsonLd />
-        <div className="w-full overflow-hidden">
+        <div className="w-full overflow-x-hidden">
           <Header />
           <MainContent>{children}</MainContent>
           <Footer />

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Book Your Ideal Meeting Space in Dubai – Jetset Business Center",
-    description: "Book a professional meeting room in Dubai at Jetset Business Center. Conference rooms with Burj Khalifa views in Business Bay. Affordable rates, full AV setup.",
+    description: "Book a professional meeting room in Dubai at Jetset Business Center. Perfect for corporate meetings, events, and conferences, with full-service support.",
     alternates: {
         canonical: 'https://jetsetbc.com/services/meeting-rooms',
     },

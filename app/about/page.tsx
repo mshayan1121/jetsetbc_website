@@ -3,7 +3,7 @@ import AboutContent from "@/components/sections/AboutContent";
 
 export const metadata: Metadata = {
     title: "About - Jetset Business Center | Your Ideal Workspace in Dubai",
-    description: "Discover Jetset Business Center – your ideal workspace in Dubai. Located in Prime Tower, Business Bay. A premium business center built for ambition.",
+    description: "Jetset Business Center in Prime Tower, Dubai, delivers high-end office spaces with premium amenities. Ideal for startups and established businesses.",
     alternates: {
         canonical: 'https://jetsetbc.com/about',
     },

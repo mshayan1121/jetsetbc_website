@@ -1,16 +1,21 @@
-"use client";
-
 import Link from 'next/link';
 import Image from 'next/image';
 import { Calendar, User, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { blogPosts, getMustReadPosts, getBlogCategories } from '@/lib/blog-data';
-import { motion } from 'framer-motion';
+import { getLocalBlogImage } from '@/lib/blog-images';
 import PageHero from '@/components/PageHero';
 
 export default function BlogClientPage() {
-    const mustReadPosts = getMustReadPosts();
+    const postsWithLocalImages = blogPosts.map((post) => ({
+        ...post,
+        image: getLocalBlogImage(post.slug) ?? post.image,
+    }));
+    const mustReadPosts = getMustReadPosts().map((post) => ({
+        ...post,
+        image: getLocalBlogImage(post.slug) ?? post.image,
+    }));
     const categories = getBlogCategories();
 
     return (
@@ -29,7 +34,7 @@ export default function BlogClientPage() {
                         {/* Blog Grid - Left Side (70%) */}
                         <div className="lg:col-span-8">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-                                {blogPosts.map((post) => (
+                                {postsWithLocalImages.map((post) => (
                                     <Link href={`/blog/${post.slug}`} key={post.slug}>
                                         <Card className="group cursor-pointer h-full bg-white rounded-xl overflow-hidden shadow-luxury-sm hover:shadow-luxury-lg hover:-translate-y-2 transition-all duration-400" padding="none">
                                             {/* Featured Image */}
