@@ -48,8 +48,46 @@ export default function BookTourPage() {
                   Get in Touch
                 </h2>
                 <p className="font-body text-base sm:text-lg text-navy-700 leading-relaxed">
-                  Fill out the form below and our team will get back to you within 24 hours 
+                  Fill out the form below and our team will get back to you within 24 hours
                   to schedule your personalized tour.
+                </p>
+              </div>
+
+              {/* What to expect */}
+              <div className="mb-8 sm:mb-10">
+                <h3 className="font-display text-xl sm:text-2xl text-navy-900 mb-3">
+                  What to Expect on Your Tour
+                </h3>
+                <p className="font-body text-base sm:text-lg text-navy-700 leading-relaxed mb-5">
+                  One of our team members will guide you through Jetset Business Center on Level 20 of Prime Tower,
+                  Business Bay. You&apos;ll walk through our private offices, dedicated coworking areas, and
+                  fully equipped meeting rooms — all while taking in unobstructed views of the Dubai skyline
+                  and Canal. Tours typically last 20–30 minutes and are tailored to your business needs.
+                </p>
+                <ul className="space-y-2 font-body text-base text-navy-700">
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1 text-gold-600 shrink-0">&#8212;</span>
+                    Private offices in a range of sizes, ready to move in
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1 text-gold-600 shrink-0">&#8212;</span>
+                    Dedicated desks and flexible coworking stations
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1 text-gold-600 shrink-0">&#8212;</span>
+                    Boardroom and meeting rooms with AV and high-speed internet
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1 text-gold-600 shrink-0">&#8212;</span>
+                    Premium lounge and café area for informal meetings
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1 text-gold-600 shrink-0">&#8212;</span>
+                    Panoramic views of Business Bay and the Dubai Canal from Level 20
+                  </li>
+                </ul>
+                <p className="font-body text-base text-navy-700 mt-5">
+                  Secure your spot and come see why leading professionals choose Jetset as their base in Dubai.
                 </p>
               </div>
 

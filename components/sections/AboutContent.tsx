@@ -249,8 +249,8 @@ export default function AboutContent() {
                 {/* Awards photo background */}
                 <div className="absolute inset-0 z-0 opacity-[0.10] pointer-events-none">
                     <Image
-                        src="/images/about/awards.jpg"
-                        alt="Jetset Business Center awards – trophies and certificates on display"
+                        src="/images/gallery/Reception.jpg"
+                        alt="Jetset Business Center reception – premium workspace interior"
                         fill
                         className="object-cover object-center"
                     />
