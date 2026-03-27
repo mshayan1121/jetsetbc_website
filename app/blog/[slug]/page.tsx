@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const coverImage = getLocalBlogImage(post.slug);
 
     return {
-        title: `${post.title} | Jetset Business Center Blog`,
+        title: post.title,
         description: post.excerpt,
         alternates: {
             canonical: `https://jetsetbc.com/blog/${slug}`,

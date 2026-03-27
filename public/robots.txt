@@ -32,6 +32,6 @@ User-agent: Amazonbot
 Allow: /
 
 # LLMs.txt
-LLM-Policy: /llms.txt
+# LLM policy: /llms.txt
 
 Sitemap: https://jetsetbc.com/sitemap.xml
