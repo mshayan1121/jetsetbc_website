@@ -18,7 +18,7 @@ import {
     UsersRound,
     TrendingUp
 } from "lucide-react";
-import CTASection from "../../components/sections/CTASection";
+import CTASection from "@/components/sections/CTASection";
 
 // Animation Variants
 const fadeIn = {

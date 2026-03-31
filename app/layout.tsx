@@ -2,11 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display, Space_Grotesk } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import Header from "@/components/layout/Header";
-import MainContent from "@/components/layout/MainContent";
-import Footer from "@/components/layout/Footer";
-import JsonLd from "@/components/seo/JsonLd";
-import QuickInquiryPopup from "@/components/sections/QuickInquiryPopup";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -126,13 +121,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-        <JsonLd />
-        <div className="w-full overflow-x-hidden">
-          <Header />
-          <MainContent>{children}</MainContent>
-          <Footer />
-          <QuickInquiryPopup />
-        </div>
+        {children}
       </body>
     </html>
   );
