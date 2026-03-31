@@ -1,0 +1,203 @@
+import type { Metadata } from "next";
+import { Wifi, Coffee, Printer, Users, Zap, Globe } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import JetsetForm from "@/components/sections/JetsetForm";
+
+export const metadata: Metadata = {
+  title: "Coworking Space in Business Bay Dubai | Jetset Business Center",
+  description:
+    "Hot desks and dedicated workstations with 24/7 access, artisan coffee, and panoramic Burj Khalifa views from AED 80/day.",
+  robots: { index: false, follow: false },
+  alternates: { canonical: "https://jetsetbc.com/co-working-space" },
+};
+
+const features: { title: string; description: string; Icon: LucideIcon }[] = [
+  {
+    title: "Ultra-Fast WiFi",
+    description:
+      "Synchronous high-speed connection for seamless video calls and heavy uploads.",
+    Icon: Wifi,
+  },
+  {
+    title: "Artisan Coffee",
+    description:
+      "Bottomless specialty coffee, tea, and infused water to keep you fueled.",
+    Icon: Coffee,
+  },
+  {
+    title: "Business Support",
+    description:
+      "Access to professional printing, scanning, and technical assistance on demand.",
+    Icon: Printer,
+  },
+  {
+    title: "Global Community",
+    description:
+      "Network with local and international professionals at regular social events and workshops.",
+    Icon: Users,
+  },
+  {
+    title: "Dynamic Workspace",
+    description:
+      "Ergonomic seating and diverse work zones designed for every mood and task.",
+    Icon: Zap,
+  },
+  {
+    title: "Prestigious Address",
+    description:
+      "Use our Business Bay address for your professional correspondence and mail.",
+    Icon: Globe,
+  },
+];
+
+const whyJetset: { heading: string; body: string }[] = [
+  {
+    heading: "Level 20, Prime Tower",
+    body: "Panoramic Burj Khalifa views from your workspace and client lounge — an address that impresses.",
+  },
+  {
+    heading: "Business Bay Location",
+    body: "Dubai's most connected business district, steps from the metro and surrounded by top hotels and restaurants.",
+  },
+  {
+    heading: "Flexible from AED 80/day",
+    body: "No long-term commitment required. Scale up to a monthly or annual membership as your needs grow.",
+  },
+];
+
+const whoIsThisFor =
+  "Freelancers, remote workers, startup founders, and growing teams who need a professional, well-equipped workspace in central Dubai without the overhead of a private office. Ideal for those who value community, flexibility, and a prestigious address for client meetings.";
+
+const benefits = [
+  "Ultra-fast fibre WiFi & dedicated ethernet throughout",
+  "Artisan coffee bar, premium teas & refreshments included",
+  "Business lounge with panoramic Burj Khalifa views",
+  "Printing, scanning & business support on demand",
+  "Access to fully equipped meeting rooms & boardrooms",
+  "Prestigious Business Bay mailing address",
+];
+
+export default function CoWorkingSpacePage() {
+  return (
+    <article>
+      {/* HERO */}
+      <section className="bg-navy-900 text-white py-16 sm:py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="font-accent text-xs uppercase tracking-[0.2em] text-gold-400 mb-4">
+            Business Bay, Dubai — Flexible Workspace
+          </p>
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-white max-w-3xl">
+            Coworking Space in Business Bay, Dubai
+          </h1>
+          <p className="mt-4 font-accent text-lg sm:text-xl text-cream-50/80 max-w-2xl">
+            Hot desks, dedicated stations &amp; 24/7 access from AED 80/day
+          </p>
+        </div>
+      </section>
+
+      {/* FEATURES GRID */}
+      <section className="bg-cream-50 py-12 sm:py-16" data-testid="features-section">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {features.map((feature) => (
+              <div
+                key={feature.title}
+                data-testid="feature-card"
+                className="bg-white rounded-xl border border-cream-200 p-6 flex flex-col gap-3"
+              >
+                <div className="w-10 h-10 rounded-lg bg-navy-900 flex items-center justify-center shrink-0">
+                  <feature.Icon className="w-5 h-5 text-gold-400" />
+                </div>
+                <h3 className="font-display text-base font-semibold text-navy-900 leading-snug">
+                  {feature.title}
+                </h3>
+                <p className="font-accent text-sm text-navy-900/60 leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TWO-COLUMN BODY */}
+      <section className="bg-white py-12 sm:py-16 lg:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+            {/* LEFT: Why Jetset + Who is this for + Benefits + Trust strip */}
+            <div>
+              {/* WHY JETSET */}
+              <div className="mb-10" data-testid="why-jetset">
+                <h2 className="font-display text-2xl font-semibold text-navy-900 mb-6">
+                  Why Jetset Business Center?
+                </h2>
+                <ul className="space-y-5">
+                  {whyJetset.map((point) => (
+                    <li key={point.heading} className="flex flex-col gap-1">
+                      <span className="font-display text-base font-semibold text-navy-900">
+                        {point.heading}
+                      </span>
+                      <span className="font-accent text-sm text-navy-900/60 leading-relaxed">
+                        {point.body}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* WHO IS THIS FOR */}
+              <div className="mb-10 p-5 bg-cream-50 rounded-xl border border-cream-200">
+                <p className="font-accent text-xs uppercase tracking-widest text-gold-600 mb-2">
+                  Who Is This For
+                </p>
+                <p
+                  data-testid="who-is-this-for"
+                  className="font-accent text-sm text-navy-900/70 leading-relaxed"
+                >
+                  {whoIsThisFor}
+                </p>
+              </div>
+
+              {/* BENEFITS */}
+              <ul className="space-y-4">
+                {benefits.map((benefit) => (
+                  <li key={benefit} className="flex items-start gap-3">
+                    <span className="text-gold-500 font-bold text-xl leading-snug select-none">
+                      —
+                    </span>
+                    <span className="font-accent text-navy-900 text-base leading-relaxed">
+                      {benefit}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-10 pt-8 border-t border-cream-100">
+                <p className="font-accent text-sm text-navy-900/60 leading-relaxed">
+                  Level 20, Prime Tower, Business Bay, Dubai &bull; 300+ Active Members
+                </p>
+              </div>
+            </div>
+
+            {/* RIGHT: Sticky form card */}
+            <div className="lg:sticky lg:top-8">
+              <div
+                className="bg-white rounded-2xl border border-cream-200 shadow-navy-md w-full"
+                style={{ borderTop: "3px solid #D4AF37" }}
+              >
+                <div className="p-6 lg:p-8">
+                  <h3 className="font-display text-2xl font-semibold text-navy-900 mb-2">
+                    Get a Free Consultation
+                  </h3>
+                  <p className="font-accent text-sm text-navy-900/60 mb-6">
+                    Our team will respond within a few hours.
+                  </p>
+                  <JetsetForm />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+  );
+}
