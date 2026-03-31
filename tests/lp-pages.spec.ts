@@ -1,10 +1,10 @@
 import { test, expect } from '@playwright/test';
 
 const LP_ROUTES = [
-  '/virtual-ejari',
-  '/co-working-space',
+  '/lp-virtual-ejari',
+  '/lp-co-working-space',
   '/lp-office-space',
-  '/meeting-room',
+  '/lp-meeting-room',
   '/office-space',
 ];
 
@@ -95,6 +95,28 @@ for (const route of LP_ROUTES) {
       await expect(para).toBeVisible();
       const text = await para.textContent();
       expect(text?.trim().length ?? 0).toBeGreaterThanOrEqual(50);
+    });
+
+    test('CTA button "Book a Free Consultation" is present in hero', async ({ page }) => {
+      await page.goto(route);
+      await expect(
+        page.getByRole('link', { name: /book a free consultation/i })
+      ).toBeVisible();
+    });
+
+    test('testimonials section heading "Loved by Businesses" is present', async ({ page }) => {
+      await page.goto(route);
+      await expect(page.getByText(/Loved by Businesses/i).first()).toBeVisible();
+    });
+
+    test('awards block "Award-Winning" text is present', async ({ page }) => {
+      await page.goto(route);
+      await expect(page.getByText(/Award-Winning/i).first()).toBeVisible();
+    });
+
+    test('second form at bottom of page is present', async ({ page }) => {
+      await page.goto(route);
+      await expect(page.locator('[data-testid="bottom-form"]')).toBeVisible();
     });
   });
 }

@@ -85,7 +85,12 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
   },
   verification: {
     google: "Jzq25pQkylPpIULYFHJaByzxyIHteCs9mXS-DT_MuR4",
@@ -100,6 +105,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        <link rel="manifest" href="/site.webmanifest" />
         {/* Google Tag Manager */}
         <Script id="gtm" strategy="beforeInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

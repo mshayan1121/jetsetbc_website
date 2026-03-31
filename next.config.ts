@@ -5,6 +5,14 @@ const tailwindcssPath = path.resolve(process.cwd(), "node_modules", "tailwindcss
 
 const wordpressRedirects = [
   // ─── PAGE REDIRECTS ───────────────────────────────────────────────────────
+  // ─── LP SLUG RENAMES ─────────────────────────────────────────────────────
+  { source: "/virtual-ejari",     destination: "/lp-virtual-ejari",    permanent: true },
+  { source: "/virtual-ejari/",    destination: "/lp-virtual-ejari",    permanent: true },
+  { source: "/co-working-space",  destination: "/lp-co-working-space", permanent: true },
+  { source: "/co-working-space/", destination: "/lp-co-working-space", permanent: true },
+  { source: "/meeting-room",      destination: "/lp-meeting-room",     permanent: true },
+  { source: "/meeting-room/",     destination: "/lp-meeting-room",     permanent: true },
+
   {
     source: "/co-working-space1",
     destination: "/services/coworking",
