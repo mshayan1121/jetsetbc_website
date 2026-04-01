@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Shield, Clock, Wifi, Users, Coffee, Zap } from "lucide-react";
+import { Shield, Clock, Wifi, Users, Coffee, Zap, MapPin } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import Image from "next/image";
 import JetsetForm from "@/components/sections/JetsetForm";
 import LpTestimonials from "@/components/lp/LpTestimonials";
 import LpFooterSection from "@/components/lp/LpFooterSection";
@@ -102,39 +103,54 @@ export default function LpOfficeSpacePage() {
       {/* HERO */}
       <section className="bg-navy-900 text-white py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="font-accent text-xs uppercase tracking-[0.2em] text-gold-400 mb-4">
-            Business Bay, Dubai — Private Offices
-          </p>
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-white max-w-3xl">
-            Private Office Space in Dubai — Fully Furnished
-          </h1>
-          <p className="mt-4 font-accent text-lg sm:text-xl text-cream-50/80 max-w-2xl">
-            Premium offices in Business Bay from AED 50,000/year with Burj Khalifa views
-          </p>
-          {/* Hero CTA */}
-          <div className="mt-8 flex flex-col items-start gap-3">
-            <a
-              href="#enquiry-form"
-              className="inline-block px-6 py-3 font-accent font-semibold text-sm"
-              style={{ backgroundColor: "#D4AF37", color: "#0A1828", borderRadius: "4px" }}
-            >
-              Book a Free Consultation
-            </a>
-            <div className="flex items-center gap-2">
-              <svg width="16" height="16" viewBox="0 0 48 48" aria-hidden="true">
-                <path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.2l6.7-6.7C35.6 2.2 30.2 0 24 0 14.6 0 6.6 5.4 2.6 13.3l7.8 6C12.3 13 17.7 9.5 24 9.5z" />
-                <path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4.1 7.1-10.1 7.1-17z" />
-                <path fill="#FBBC05" d="M10.4 28.7A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.9-4.7l-7.8-6A23.9 23.9 0 0 0 0 24c0 3.9.9 7.5 2.6 10.7l7.8-6z" />
-                <path fill="#34A853" d="M24 48c6.2 0 11.4-2 15.2-5.5l-7.5-5.8c-2.1 1.4-4.7 2.3-7.7 2.3-6.3 0-11.7-4.2-13.6-9.9l-7.8 6C6.6 42.6 14.6 48 24 48z" />
-              </svg>
-              <div className="flex gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} width="12" height="12" viewBox="0 0 24 24" fill="#D4AF37" aria-hidden="true">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* LEFT: Text content */}
+            <div>
+              <p className="font-accent text-xs uppercase tracking-[0.2em] text-gold-400 mb-4">
+                Business Bay, Dubai — Private Offices
+              </p>
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-white">
+                Private Office Space in Dubai — Fully Furnished
+              </h1>
+              <p className="mt-4 font-accent text-lg sm:text-xl text-cream-50/80">
+                Premium offices in Business Bay from AED 50,000/year with Burj Khalifa views
+              </p>
+              {/* Hero CTA */}
+              <div className="mt-8 flex flex-col items-start gap-3">
+                <a
+                  href="#enquiry-form"
+                  className="inline-block px-6 py-3 font-accent font-semibold text-sm"
+                  style={{ backgroundColor: "#D4AF37", color: "#0A1828", borderRadius: "4px" }}
+                >
+                  Book a Free Consultation
+                </a>
+                <div className="flex items-center gap-2">
+                  <svg width="16" height="16" viewBox="0 0 48 48" aria-hidden="true">
+                    <path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.2l6.7-6.7C35.6 2.2 30.2 0 24 0 14.6 0 6.6 5.4 2.6 13.3l7.8 6C12.3 13 17.7 9.5 24 9.5z" />
+                    <path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4.1 7.1-10.1 7.1-17z" />
+                    <path fill="#FBBC05" d="M10.4 28.7A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.9-4.7l-7.8-6A23.9 23.9 0 0 0 0 24c0 3.9.9 7.5 2.6 10.7l7.8-6z" />
+                    <path fill="#34A853" d="M24 48c6.2 0 11.4-2 15.2-5.5l-7.5-5.8c-2.1 1.4-4.7 2.3-7.7 2.3-6.3 0-11.7-4.2-13.6-9.9l-7.8 6C6.6 42.6 14.6 48 24 48z" />
                   </svg>
-                ))}
+                  <div className="flex gap-0.5">
+                    {[...Array(5)].map((_, i) => (
+                      <svg key={i} width="12" height="12" viewBox="0 0 24 24" fill="#D4AF37" aria-hidden="true">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <span className="font-accent text-xs text-cream-50/70">Trusted Since 2003</span>
+                </div>
               </div>
-              <span className="font-accent text-xs text-cream-50/70">Trusted Since 2003</span>
+            </div>
+
+            {/* RIGHT: Hero image - hidden on mobile, shown on lg+ */}
+            <div className="hidden lg:block relative h-[450px] rounded-2xl overflow-hidden">
+              <Image
+                src="/images/services/private-office.png"
+                alt="Private Office Space in Dubai"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
         </div>
@@ -216,10 +232,19 @@ export default function LpOfficeSpacePage() {
                   </li>
                 ))}
               </ul>
+              {/* Location Block */}
               <div className="mt-10 pt-8 border-t border-cream-100">
-                <p className="font-accent text-sm text-navy-900/60 leading-relaxed">
-                  Level 20, Prime Tower, Business Bay, Dubai
-                </p>
+                <div className="flex items-start gap-3">
+                  <MapPin className="w-5 h-5 text-gold-500 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-accent text-xs uppercase tracking-widest text-gold-600 mb-1">
+                      Location
+                    </p>
+                    <p className="font-accent text-sm text-navy-900/70 leading-relaxed">
+                      Level 20, Prime Tower, Business Bay, Dubai
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
