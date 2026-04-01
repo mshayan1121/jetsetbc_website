@@ -327,26 +327,31 @@ export default function OfficeSpacePage() {
             )}
           </div>
           <p className="font-accent text-xs text-cream-50/50">Recognized by Letswork</p>
+          <div className="mt-8">
+            <a
+              href="#enquiry-form"
+              className="inline-block px-6 py-3 font-accent font-semibold text-sm"
+              style={{ backgroundColor: "#D4AF37", color: "#0A1828", borderRadius: "4px" }}
+            >
+              Book a Free Consultation
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* SECOND FORM */}
+      {/* BOTTOM CTA */}
       <section className="py-16 sm:py-20" style={{ backgroundColor: "#0A1828" }}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-display text-3xl sm:text-4xl font-semibold text-white mb-10">
+          <h2 className="font-display text-3xl sm:text-4xl font-semibold text-white mb-8">
             Ready to Get Started?
           </h2>
-          <div className="mx-auto max-w-[600px]">
-            <div
-              className="bg-white rounded-2xl border border-cream-200 w-full"
-              style={{ borderTop: "3px solid #D4AF37" }}
-              data-testid="bottom-form"
-            >
-              <div className="p-6 lg:p-8">
-                <JetsetForm />
-              </div>
-            </div>
-          </div>
+          <a
+            href="#enquiry-form"
+            className="inline-block px-8 py-4 font-accent font-semibold text-base"
+            style={{ backgroundColor: "#D4AF37", color: "#0A1828", borderRadius: "4px" }}
+          >
+            Book a Free Consultation
+          </a>
         </div>
       </section>
     </article>
