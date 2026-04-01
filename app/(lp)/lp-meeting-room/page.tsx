@@ -327,15 +327,6 @@ export default function MeetingRoomPage() {
             )}
           </div>
           <p className="font-accent text-xs text-cream-50/50">Recognized by Letswork</p>
-          <div className="mt-8">
-            <a
-              href="#enquiry-form"
-              className="inline-block px-6 py-3 font-accent font-semibold text-sm"
-              style={{ backgroundColor: "#D4AF37", color: "#0A1828", borderRadius: "4px" }}
-            >
-              Book a Free Consultation
-            </a>
-          </div>
         </div>
       </section>
 
