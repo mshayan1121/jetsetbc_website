@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Shield, Clock, Wifi, Users, Coffee, Zap } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import JetsetForm from "@/components/sections/JetsetForm";
+import LpTestimonials from "@/components/lp/LpTestimonials";
+import LpFooterSection from "@/components/lp/LpFooterSection";
 
 export const metadata: Metadata = {
   title:
@@ -242,110 +244,8 @@ export default function LpOfficeSpacePage() {
           </div>
         </div>
       </section>
-      {/* TESTIMONIALS */}
-      <section className="py-12 sm:py-16" style={{ backgroundColor: "#FAF9F6" }}>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h2 className="font-display text-2xl sm:text-3xl font-semibold text-navy-900">
-              Loved by Businesses Like Yours
-            </h2>
-            <p className="mt-2 font-accent text-sm text-navy-900/60">
-              Real stories from the professionals who call Jetset their home.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6" data-testid="testimonials-section">
-            {testimonials.map((t) => (
-              <div
-                key={t.attribution}
-                className="bg-white rounded-xl border border-cream-200 p-6 flex flex-col gap-4"
-              >
-                <div className="flex gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} width="16" height="16" viewBox="0 0 24 24" fill="#D4AF37">
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="font-accent text-sm text-navy-900/80 leading-relaxed">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-                <p className="font-accent text-xs font-semibold text-navy-900">
-                  &mdash; {t.attribution}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* AWARDS */}
-      <section
-        className="py-12 sm:py-16"
-        style={{ backgroundColor: "#0A1828" }}
-        data-testid="awards-section"
-      >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <div className="flex justify-center mb-4">
-            <svg
-              width="40"
-              height="40"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#D4AF37"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M6 9H4a2 2 0 0 1-2-2V5h4" />
-              <path d="M18 9h2a2 2 0 0 0 2-2V5h-4" />
-              <path d="M12 17v4" />
-              <path d="M8 21h8" />
-              <path d="M6 5h12v4a6 6 0 0 1-12 0V5z" />
-            </svg>
-          </div>
-          <h2 className="font-display text-2xl sm:text-3xl font-semibold text-white mb-2">
-            Award-Winning Workspace in Dubai
-          </h2>
-          <p className="font-accent text-sm text-cream-50/70 mb-8">
-            Providing world-class business environments since 2003.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-6 mb-6">
-            {[{ name: "Best Business Center 2024" }, { name: "Best Newcomer 2023" }].map(
-              (award) => (
-                <div
-                  key={award.name}
-                  className="border border-gold-500/40 rounded-xl px-8 py-5 flex flex-col items-center gap-1"
-                >
-                  <span
-                    className="font-display text-base font-semibold"
-                    style={{ color: "#D4AF37" }}
-                  >
-                    {award.name}
-                  </span>
-                </div>
-              )
-            )}
-          </div>
-          <p className="font-accent text-xs text-cream-50/50">Recognized by Letswork</p>
-        </div>
-      </section>
-
-      {/* BOTTOM CTA */}
-      <section className="py-16 sm:py-20" style={{ backgroundColor: "#0A1828" }}>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-display text-3xl sm:text-4xl font-semibold text-white mb-8">
-            Ready to Get Started?
-          </h2>
-          <a
-            href="#enquiry-form"
-            className="inline-block px-8 py-4 font-accent font-semibold text-base"
-            style={{ backgroundColor: "#D4AF37", color: "#0A1828", borderRadius: "4px" }}
-          >
-            Book a Free Consultation
-          </a>
-        </div>
-      </section>
+      <LpTestimonials testimonials={testimonials} />
+      <LpFooterSection />
     </article>
   );
 }

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function LpLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen flex flex-col bg-white" style={{ fontSize: "23px" }}>
       <header className="w-full border-b border-cream-200 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
           <a href="/" aria-label="Jetset Business Center">
